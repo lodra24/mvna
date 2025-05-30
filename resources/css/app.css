@@ -1,3 +1,49 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+/* Özel Temel Stiller */
+body {
+    font-family: 'Inter', sans-serif; /* tailwind.config.js ile senkronize */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    background-color: #ffffff;
+    color: #111827; /* Tailwind: text-gray-900 */
+}
+
+/* Özel Bileşen Sınıfları (Blade'den taşınanlar) */
+.hero-gradient-bg {
+    background: linear-gradient(180deg, #FDFEFF 0%, #F8FAFC 100%);
+}
+
+.nav-link {
+    @apply text-sm font-medium text-slate-600 hover:text-slate-900 transition-colors duration-200;
+}
+
+/* Ana CTA Butonu için (Marka renklerini kullanabiliriz) */
+.cta-button {
+    @apply inline-flex items-center justify-center px-8 py-3 border border-transparent text-base font-semibold rounded-lg shadow-lg text-white transition-all duration-200 ease-in-out;
+    /* tailwind.config.js'de tanımladığımız rengi kullanalım */
+    background-color: theme('colors.mindmetrics-green');
+}
+.cta-button:hover {
+    /* tailwind.config.js'de tanımladığımız rengi kullanalım */
+    background-color: theme('colors.mindmetrics-green-dark');
+    transform: translateY(-2px);
+    box-shadow: 0 10px 15px -3px rgba(16, 185, 129, 0.3), 0 4px 6px -2px rgba(16, 185, 129, 0.2);
+}
+
+.pre-headline-badge {
+    @apply inline-flex items-center text-xs font-medium bg-slate-100 text-slate-700 px-3 py-1 rounded-full border border-slate-200;
+}
+
+.pre-headline-badge-ph { /* Product Hunt benzeri referans için */
+    @apply inline-flex items-center text-xs font-medium bg-rose-50 text-rose-600 px-3 py-1 rounded-full border border-rose-200;
+}
+
+/* Mobil Menü (JS ile toggle edilecek, temel geçiş) */
+#mobile-menu {
+    transition: max-height 0.3s ease-out; /* Max-height animasyonu için JS'de değişiklik gerekebilir */
+}
+
+/* Diğer genel özel sınıflar buraya eklenebilir */
