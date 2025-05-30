@@ -47,6 +47,14 @@ class TestResult extends Model
     }
 
     /**
+     * Bu test sonucuna ait MBTI tip detayları
+     */
+    public function mbtiTypeDetail()
+    {
+        return $this->hasOne(MbtiTypeDetail::class, 'mbti_type', 'mbti_type');
+    }
+
+    /**
      * MBTI tipini hesapla
      */
     public function calculateMbtiType()
