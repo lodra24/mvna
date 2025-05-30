@@ -18,7 +18,8 @@ class TestResult extends Model
         'j_score',
         'p_score',
         'report_path',
-        'payment_id'
+        'payment_id',
+        'status'
     ];
 
     /**
@@ -27,6 +28,14 @@ class TestResult extends Model
     public function user()
     {
         return $this->belongsTo(User::class);
+    }
+
+    /**
+     * Bu test sonucunun ait olduğu ödeme
+     */
+    public function payment()
+    {
+        return $this->belongsTo(Payment::class);
     }
 
     /**
