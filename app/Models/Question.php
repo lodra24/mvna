@@ -9,6 +9,7 @@ class Question extends Model
     protected $fillable = [
         'question_text',
         'dimension',
+        'category',
         'option_a_value',
         'option_b_value'
     ];
