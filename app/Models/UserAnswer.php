@@ -7,17 +7,17 @@ use Illuminate\Database\Eloquent\Model;
 class UserAnswer extends Model
 {
     protected $fillable = [
-        'user_id',
+        'test_result_id',
         'question_id',
         'chosen_option'
     ];
 
     /**
-     * Bu cevabın ait olduğu kullanıcı
+     * Bu cevabın ait olduğu test sonucu
      */
-    public function user()
+    public function testResult()
     {
-        return $this->belongsTo(User::class);
+        return $this->belongsTo(TestResult::class);
     }
 
     /**

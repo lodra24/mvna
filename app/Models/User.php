@@ -48,12 +48,12 @@ class User extends Authenticatable
     }
 
     /**
-     * Kullanıcının verdiği cevaplar
+     * Kullanıcının verdiği cevaplar - Artık TestResult üzerinden erişiliyor
      */
-    public function userAnswers()
-    {
-        return $this->hasMany(UserAnswer::class);
-    }
+    // public function userAnswers()
+    // {
+    //     return $this->hasMany(UserAnswer::class);
+    // }
 
     /**
      * Kullanıcının test sonuçları

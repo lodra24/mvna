@@ -39,6 +39,14 @@ class TestResult extends Model
     }
 
     /**
+     * Bu test sonucuna ait kullanıcı cevapları
+     */
+    public function userAnswers()
+    {
+        return $this->hasMany(UserAnswer::class);
+    }
+
+    /**
      * MBTI tipini hesapla
      */
     public function calculateMbtiType()
