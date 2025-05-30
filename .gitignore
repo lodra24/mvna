@@ -1,0 +1,131 @@
+# Laravel & PHP
+*.log
+.env
+.env.backup
+.env.production
+.env.local
+.env.*.local
+.phpunit.result.cache
+/.phpunit.cache
+/auth.json
+/vendor
+Homestead.json
+Homestead.yaml
+Vagrant
+.vagrant/
+
+# Node & NPM
+/node_modules
+npm-debug.log
+yarn-error.log
+yarn-debug.log*
+lerna-debug.log*
+.pnpm-debug.log*
+
+# Build & Compiled Files
+/public/build
+/public/hot
+/public/storage
+/public/css
+/public/js
+/public/mix-manifest.json
+/public/assets
+/public/dist
+
+# Storage
+/storage/*.key
+/storage/pail
+/storage/app/public
+/storage/debugbar
+/storage/logs/*.log
+
+# Database
+*.sqlite
+*.sqlite3
+*.db
+/database/*.sqlite
+/database/*.sqlite3
+
+# IDE & Editors
+/.fleet
+/.idea
+/.nova
+/.vscode
+/.zed
+.phpactor.json
+*.swp
+*.swo
+*~
+.project
+.classpath
+.c9/
+*.launch
+.settings/
+*.sublime-workspace
+*.sublime-project
+.history
+.phpstorm.meta.php
+_ide_helper.php
+_ide_helper_models.php
+.php_cs.cache
+.php-cs-fixer.cache
+
+# OS Files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+desktop.ini
+
+# Testing & Coverage
+/coverage
+.nyc_output
+/phpunit.xml
+/phpunit.xml.dist
+.phpunit.cache
+
+# Backup Files
+*.bak
+*.backup
+*.tmp
+*.temp
+*.cache
+*.old
+
+# Composer
+composer.phar
+
+# Laravel Specific
+/bootstrap/compiled.php
+/bootstrap/cache/*.php
+/storage/framework/cache/data/*
+/storage/framework/sessions/*
+/storage/framework/testing/*
+/storage/framework/views/*
+
+# Logs
+*.log
+laravel.log
+storage/logs/
+
+# Media & Uploads
+/public/uploads
+/public/images/uploads
+/public/files
+/storage/app/uploads
+
+# Documentation
+/docs/_build
+/docs/.build
+
+# Misc
+.sass-cache
+/connect.lock
+/libpeerconnection.log
+testem.log
+/typings
+.grunt
+bower_components
