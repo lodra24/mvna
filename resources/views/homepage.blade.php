@@ -68,8 +68,17 @@
     </header>
 
     <!-- HERO BÖLÜMÜ -->
-    <main class="hero-gradient-bg">
-        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 pt-20 pb-24 md:pt-28 md:pb-32 text-center">
+    <main class="hero-gradient-bg relative overflow-hidden">
+        <!-- Background Pattern -->
+        <div class="absolute inset-0 z-0">
+            <div class="absolute inset-0 bg-gradient-to-br from-indigo-50 via-white to-purple-50"></div>
+            <div class="absolute top-0 left-0 w-72 h-72 bg-indigo-100 rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-blob"></div>
+            <div class="absolute top-0 right-0 w-72 h-72 bg-purple-100 rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-blob animation-delay-2000"></div>
+            <div class="absolute -bottom-8 left-20 w-72 h-72 bg-pink-100 rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-blob animation-delay-4000"></div>
+            <div class="absolute bottom-0 right-20 w-72 h-72 bg-yellow-100 rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-blob animation-delay-6000"></div>
+        </div>
+        
+        <div class="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 pt-12 pb-24 md:pt-16 md:pb-32 text-center">
 
             <!-- Ön Başlık Alanı (Pre-Headline) -->
             <div class="flex flex-col sm:flex-row justify-center items-center space-y-3 sm:space-y-0 sm:space-x-4 mb-8">
@@ -84,7 +93,7 @@
 
             <!-- Ana Başlık (H1) -->
             <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-slate-900 tracking-tight mb-6">
-                İş Potansiyelini <span class="text-mindmetrics-indigo">MBTI ile</span><br>Açığa Çıkar! {{-- Özel renk --}}
+                MBTI Vocational <span class="text-mindmetrics-indigo">NexusPoint</span><br>Analysis  {{-- Özel renk --}}
             </h1>
 
             <!-- Alt Başlık/Açıklama -->
