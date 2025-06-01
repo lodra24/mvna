@@ -6,12 +6,10 @@
     <title>MindMetrics - Unlock Business Potential with MBTI</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    {{-- Inter font will now be managed by Tailwind, but can remain for preload --}}
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
     @vite(['resources/css/app.css', 'resources/js/app.js'])
-    {{-- <style> block in Blade file removed or only non-@apply styles left --}}
 </head>
-<body class="antialiased"> {{-- body styles moved to app.css --}}
+<body class="antialiased">
 
     <!-- HEADER / NAVIGATION -->
     <header class="w-full bg-white/80 backdrop-blur-md sticky top-0 z-50 border-b border-slate-200/80">
@@ -20,7 +18,7 @@
                 <!-- Logo -->
                 <div class="flex-shrink-0">
                     <a href="/" class="flex items-center space-x-2">
-                        <svg class="h-8 w-auto text-mindmetrics-indigo" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"> {{-- custom color instead of text-indigo-600 --}}
+                        <svg class="h-8 w-auto text-mindmetrics-indigo" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
                             <path stroke-linecap="round" stroke-linejoin="round" d="M8.25 21v-4.875c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21m0 0h4.5V3.545M12.75 21h7.5V10.75M2.25 21h1.5m18 0h-1.5m-6-16.5v.008c0 .19-.16.34-.347.347H10.586A.346.346 0 0110.24 4.5v-.007A.344.344 0 0110.586 4h2.828c.19 0 .347.157.347.347zm-3.375 0h.008v.008h-.008V4.5z" />
                         </svg>
                         <span class="text-2xl font-bold text-slate-800">MindMetrics</span>
@@ -32,7 +30,7 @@
                     <a href="#features" class="nav-link">Features</a>
                     <a href="#pricing" class="nav-link">Pricing</a>
                     <a href="#faq" class="nav-link">FAQ</a>
-                    <a href="{{ route('login') }}" class="inline-flex items-center justify-center px-4 py-2 text-sm font-medium text-mindmetrics-indigo bg-mindmetrics-indigo-light hover:bg-indigo-200 rounded-md transition-colors duration-200"> {{-- Custom colors used --}}
+                    <a href="{{ route('login') }}" class="inline-flex items-center justify-center px-4 py-2 text-sm font-medium text-mindmetrics-indigo bg-mindmetrics-indigo-light hover:bg-indigo-200 rounded-md transition-colors duration-200">
                         Sign In
                     </a>
                 </nav>
@@ -61,7 +59,7 @@
             </div>
             <div class="pt-4 pb-3 border-t border-slate-200">
                 <div class="px-5">
-                    <a href="{{ route('login') }}" class="block w-full px-4 py-2 text-center text-base font-medium text-mindmetrics-indigo bg-mindmetrics-indigo-light hover:bg-indigo-200 rounded-md">Sign In</a> {{-- Custom colors --}}
+                    <a href="{{ route('login') }}" class="block w-full px-4 py-2 text-center text-base font-medium text-mindmetrics-indigo bg-mindmetrics-indigo-light hover:bg-indigo-200 rounded-md">Sign In</a>
                 </div>
             </div>
         </div>
@@ -71,14 +69,14 @@
     <main class="hero-gradient-bg relative overflow-hidden">
         <!-- Background Pattern -->
         <div class="absolute inset-0 z-0">
-            <div class="absolute inset-0 bg-gradient-to-br from-indigo-50 via-white to-purple-50"></div>
+            <div class="absolute inset-0 bg-gradient-to-br from-indigo-50 via-white to-purple-50 opacity-50"></div>
             <div class="absolute top-0 left-0 w-72 h-72 bg-indigo-100 rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-blob"></div>
             <div class="absolute top-0 right-0 w-72 h-72 bg-purple-100 rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-blob animation-delay-2000"></div>
             <div class="absolute -bottom-8 left-20 w-72 h-72 bg-pink-100 rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-blob animation-delay-4000"></div>
             <div class="absolute bottom-0 right-20 w-72 h-72 bg-yellow-100 rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-blob animation-delay-6000"></div>
         </div>
         
-        <div class="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 pt-12 pb-24 md:pt-16 md:pb-32 text-center">
+        <div class="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 pt-12 pb-16 md:pt-16 md:pb-20 text-center">
 
             <!-- Pre-Headline Area -->
             <div class="flex flex-col sm:flex-row justify-center items-center space-y-3 sm:space-y-0 sm:space-x-4 mb-8">
@@ -93,7 +91,7 @@
 
             <!-- Main Headline (H1) -->
             <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-slate-900 tracking-tight mb-6">
-                MBTI Vocational <span class="text-mindmetrics-indigo">NexusPoint</span><br>Analysis  {{-- Custom color --}}
+                MBTI Vocational <span class="text-mindmetrics-indigo">NexusPoint</span><br>Analysis
             </h1>
 
             <!-- Subheadline/Description -->
@@ -134,12 +132,186 @@
         </div>
     </main>
 
-    <!-- Other Sections (Placeholder) -->
-    {{-- Other sections can remain the same, using custom colors (text-mindmetrics-indigo etc.) as needed --}}
-    <section id="features" class="py-16 sm:py-20 bg-white">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-            <h2 class="text-3xl font-extrabold text-slate-900 mb-4">Features</h2>
-            <p class="text-lg text-slate-600 max-w-2xl mx-auto mb-12">Discover the unique features offered by MindMetrics.</p>
+    <!-- FEATURES SECTION -->
+    <section id="features" class="py-16 sm:py-20 bg-gradient-to-b from-white via-slate-50/50 to-white relative overflow-hidden">
+        <!-- Subtle Background Accents for this section -->
+        <div class="absolute inset-0 -z-10 opacity-60">
+            <div class="absolute top-1/4 left-1/4 w-96 h-96 bg-mindmetrics-indigo/10 rounded-full blur-3xl animate-blob animation-delay-2000"></div>
+            <div class="absolute bottom-1/4 right-1/4 w-80 h-80 bg-mindmetrics-green/10 rounded-full blur-3xl animate-blob animation-delay-4000"></div>
+        </div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <!-- Section Header -->
+            <div class="text-center mb-20 sm:mb-24">
+                <div class="inline-flex items-center justify-center px-4 py-1.5 mb-6 text-xs font-semibold tracking-wider text-mindmetrics-indigo uppercase bg-mindmetrics-indigo-light/70 rounded-full">
+                    <svg class="w-4 h-4 mr-2" fill="currentColor" viewBox="0 0 20 20">
+                        <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+                    </svg>
+                    Premium Features
+                </div>
+                <h2 class="text-4xl sm:text-5xl font-extrabold text-slate-900 mb-6 tracking-tight">
+                    What You Get with <span class="text-transparent bg-clip-text bg-gradient-to-r from-mindmetrics-indigo to-mindmetrics-green">MindMetrics</span>
+                </h2>
+                <p class="text-xl text-slate-600 max-w-3xl mx-auto leading-relaxed">
+                    Empower your HR decisions with science-backed personality insights that transform how you hire, manage, and develop talent.
+                </p>
+            </div>
+
+            <!-- Features with Alternating Layout -->
+            <div class="space-y-24 lg:space-y-32">
+                <!-- Feature 1: Deep Personality Profiles -->
+                <div class="relative">
+                    <div class="lg:grid lg:grid-cols-2 lg:gap-x-16 lg:gap-y-10 lg:items-center">
+                        <div class="mb-10 lg:mb-0">
+                            <div class="flex items-center mb-6">
+                                <div class="flex items-center justify-center w-16 h-16 bg-gradient-to-br from-mindmetrics-indigo to-indigo-600 rounded-2xl shadow-xl">
+                                    <svg class="w-9 h-9 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor">
+                                        <path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z" />
+                                    </svg>
+                                </div>
+                                <div class="ml-5">
+                                    <span class="text-sm font-semibold text-mindmetrics-indigo uppercase tracking-wider">Feature 01</span>
+                                </div>
+                            </div>
+                            <h3 class="text-3xl font-bold text-slate-900 mb-4 tracking-tight">
+                                Deep Personality Profiles
+                            </h3>
+                            <p class="text-lg text-slate-600 leading-relaxed mb-6">
+                                Uncover candidates' and employees' core personality traits, motivations, and decision-making mechanisms based on MBTI framework.
+                            </p>
+                            <ul class="space-y-3 text-slate-600">
+                                <li class="flex items-start">
+                                    <svg class="w-6 h-6 text-mindmetrics-green mt-0.5 mr-3 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                                    </svg>
+                                    <span>16 personality type analysis</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <svg class="w-6 h-6 text-mindmetrics-green mt-0.5 mr-3 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                                    </svg>
+                                    <span>Cognitive function mapping</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <svg class="w-6 h-6 text-mindmetrics-green mt-0.5 mr-3 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                                    </svg>
+                                    <span>Behavioral predictions</span>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="relative mt-10 lg:mt-0" aria-hidden="true">
+                             <div class="absolute -inset-4 rounded-3xl bg-gradient-to-tr from-mindmetrics-indigo/10 via-transparent to-pink-500/10 opacity-70 blur-xl animate-blob animation-delay-4000"></div>
+                            <div class="relative aspect-[4/3] rounded-2xl bg-white shadow-2xl overflow-hidden ring-1 ring-slate-900/10">
+                                <img class="absolute inset-0 w-full h-full object-cover" src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80" alt="Abstract visual for Deep Personality Profiles">
+                                <div class="absolute inset-0 bg-gradient-to-t from-slate-900/60 to-transparent"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Feature 2: Practical Management Guide -->
+                <div class="relative">
+                    <div class="lg:grid lg:grid-cols-2 lg:gap-x-16 lg:gap-y-10 lg:items-center">
+                        <div class="mb-10 lg:mb-0 lg:order-2">
+                            <div class="flex items-center mb-6">
+                                <div class="flex items-center justify-center w-16 h-16 bg-gradient-to-br from-mindmetrics-green to-emerald-600 rounded-2xl shadow-xl">
+                                    <svg class="w-9 h-9 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor">
+                                        <path stroke-linecap="round" stroke-linejoin="round" d="M9 12h3.75M9 15h3.75M9 18h3.75m3 .75H18a2.25 2.25 0 002.25-2.25V6.108c0-1.135-.845-2.098-1.976-2.192a48.424 48.424 0 00-1.123-.08m-5.801 0c-.065.21-.1.433-.1.664 0 .414.336.75.75.75h4.5a.75.75 0 00.75-.75 2.25 2.25 0 00-.1-.664m-5.8 0A2.251 2.251 0 0113.5 2.25H15c1.012 0 1.867.668 2.15 1.586m-5.8 0c-.376.023-.75.05-1.124.08C9.095 4.01 8.25 4.973 8.25 6.108V8.25m0 0H4.875c-.621 0-1.125.504-1.125 1.125v11.25c0 .621.504 1.125 1.125 1.125h9.75c.621 0 1.125-.504 1.125-1.125V9.375c0-.621-.504-1.125-1.125-1.125H8.25zM6.75 12h.008v.008H6.75V12zm0 3h.008v.008H6.75V15zm0 3h.008v.008H6.75V18z" />
+                                    </svg>
+                                </div>
+                                <div class="ml-5">
+                                    <span class="text-sm font-semibold text-mindmetrics-green uppercase tracking-wider">Feature 02</span>
+                                </div>
+                            </div>
+                            <h3 class="text-3xl font-bold text-slate-900 mb-4 tracking-tight">
+                                Practical Management Guide
+                            </h3>
+                            <p class="text-lg text-slate-600 leading-relaxed mb-6">
+                                Get actionable insights and management tips specifically tailored for each personality type to optimize your hiring, task assignment, and performance management processes.
+                            </p>
+                            <ul class="space-y-3 text-slate-600">
+                                <li class="flex items-start">
+                                    <svg class="w-6 h-6 text-mindmetrics-green mt-0.5 mr-3 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                                    </svg>
+                                    <span>Personalized management strategies</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <svg class="w-6 h-6 text-mindmetrics-green mt-0.5 mr-3 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                                    </svg>
+                                    <span>Communication style recommendations</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <svg class="w-6 h-6 text-mindmetrics-green mt-0.5 mr-3 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                                    </svg>
+                                    <span>Performance optimization tips</span>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="relative mt-10 lg:mt-0 lg:order-1" aria-hidden="true">
+                            <div class="absolute -inset-4 rounded-3xl bg-gradient-to-tr from-mindmetrics-green/10 via-transparent to-sky-500/10 opacity-70 blur-xl animate-blob animation-delay-2000"></div>
+                            <div class="relative aspect-[4/3] rounded-2xl bg-white shadow-2xl overflow-hidden ring-1 ring-slate-900/10">
+                                 <img class="absolute inset-0 w-full h-full object-cover" src="https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80" alt="Practical Management Guide Visual">
+                                 <div class="absolute inset-0 bg-gradient-to-t from-slate-900/50 to-transparent"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Feature 3: Strong Team Synergy -->
+                <div class="relative">
+                    <div class="lg:grid lg:grid-cols-2 lg:gap-x-16 lg:gap-y-10 lg:items-center">
+                        <div class="mb-10 lg:mb-0">
+                            <div class="flex items-center mb-6">
+                                <div class="flex items-center justify-center w-16 h-16 bg-gradient-to-br from-purple-500 to-pink-600 rounded-2xl shadow-xl">
+                                    <svg class="w-9 h-9 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor">
+                                        <path stroke-linecap="round" stroke-linejoin="round" d="M18 18.72a9.094 9.094 0 003.741-.479 3 3 0 00-4.682-2.72m.94 3.198l.001.031c0 .225-.012.447-.037.666A11.944 11.944 0 0112 21c-2.17 0-4.207-.576-5.963-1.584A6.062 6.062 0 016 18.719m12 0a5.971 5.971 0 00-.941-3.197m0 0A5.995 5.995 0 0012 12.75a5.995 5.995 0 00-5.058 2.772m0 0a3 3 0 00-4.681 2.72 8.986 8.986 0 003.74.477m.94-3.197a5.971 5.971 0 00-.94 3.197M15 6.75a3 3 0 11-6 0 3 3 0 016 0zm6 3a2.25 2.25 0 11-4.5 0 2.25 2.25 0 014.5 0zm-13.5 0a2.25 2.25 0 11-4.5 0 2.25 2.25 0 014.5 0z" />
+                                    </svg>
+                                </div>
+                                <div class="ml-5">
+                                    <span class="text-sm font-semibold text-purple-600 uppercase tracking-wider">Feature 03</span>
+                                </div>
+                            </div>
+                            <h3 class="text-3xl font-bold text-slate-900 mb-4 tracking-tight">
+                                Strong Team Synergy
+                            </h3>
+                            <p class="text-lg text-slate-600 leading-relaxed mb-6">
+                                Build more harmonious, collaborative, and high-performing teams by understanding how different personality types interact together.
+                            </p>
+                            <ul class="space-y-3 text-slate-600">
+                                <li class="flex items-start">
+                                    <svg class="w-6 h-6 text-mindmetrics-green mt-0.5 mr-3 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                                    </svg>
+                                    <span>Team compatibility analysis</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <svg class="w-6 h-6 text-mindmetrics-green mt-0.5 mr-3 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                                    </svg>
+                                    <span>Conflict resolution insights</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <svg class="w-6 h-6 text-mindmetrics-green mt-0.5 mr-3 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                                    </svg>
+                                    <span>Leadership development paths</span>
+                                </li>
+                            </ul>
+                        </div>
+                         <div class="relative mt-10 lg:mt-0" aria-hidden="true">
+                            <div class="absolute -inset-4 rounded-3xl bg-gradient-to-tr from-purple-500/10 via-transparent to-pink-500/10 opacity-70 blur-xl animate-blob animation-delay-6000"></div>
+                            <div class="relative aspect-[4/3] rounded-2xl bg-white shadow-2xl overflow-hidden ring-1 ring-slate-900/10">
+                                 <img class="absolute inset-0 w-full h-full object-cover" src="https://images.unsplash.com/photo-1517048676732-d65bc937f952?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80" alt="Team Synergy Visual">
+                                 <div class="absolute inset-0 bg-gradient-to-t from-slate-900/50 to-transparent"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </section>
 
@@ -147,6 +319,7 @@
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
             <h2 class="text-3xl font-extrabold text-slate-900 mb-4">Pricing</h2>
             <p class="text-lg text-slate-600 max-w-2xl mx-auto mb-12">Transparent pricing options tailored to your needs.</p>
+            <!-- Pricing cards will go here -->
         </div>
     </section>
 
@@ -156,6 +329,7 @@
                 <h2 class="text-3xl font-extrabold text-slate-900 mb-4">Frequently Asked Questions</h2>
                 <p class="text-lg text-slate-600 mb-12">Find answers to your questions here.</p>
             </div>
+            <!-- FAQ accordions will go here -->
         </div>
     </section>
 
@@ -179,7 +353,7 @@
     </footer>
 
     <script>
-        // Mobile Menu Toggle
+        // Mobil Menü Toggle
         const mobileMenuButton = document.getElementById('mobile-menu-button');
         const mobileMenu = document.getElementById('mobile-menu');
         const menuIconOpen = document.getElementById('menu-icon-open');
@@ -193,12 +367,12 @@
             mobileMenuButton.setAttribute('aria-expanded', !isExpanded);
         });
 
-        // Smooth scrolling for in-page links
+        // Sayfa içi linklere yumuşak kaydırma
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 e.preventDefault();
                 const targetId = this.getAttribute('href');
-                if (!mobileMenu.classList.contains('hidden') && targetId !== '#') { // Close menu only for section links
+                if (!mobileMenu.classList.contains('hidden') && targetId !== '#') { 
                     mobileMenu.classList.add('hidden');
                     menuIconOpen.classList.remove('hidden');
                     menuIconClose.classList.add('hidden');
@@ -209,10 +383,9 @@
                 } else {
                     const targetElement = document.querySelector(targetId);
                     if (targetElement) {
-                        // Account for header height (if sticky header exists)
                         const headerOffset = document.querySelector('header').offsetHeight || 0;
                         const elementPosition = targetElement.getBoundingClientRect().top + window.pageYOffset;
-                        const offsetPosition = elementPosition - headerOffset - 20; // 20px extra space
+                        const offsetPosition = elementPosition - headerOffset - 20; 
 
                         window.scrollTo({
                             top: offsetPosition,
