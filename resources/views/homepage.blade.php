@@ -312,44 +312,532 @@
     </section>
 
     <!-- PRICING SECTION -->
-    <section id="pricing" class="py-16 sm:py-20 bg-white">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+<section id="pricing" class="py-16 sm:py-20 bg-white relative overflow-hidden">
+    <!-- Background decorative elements -->
+    <div class="absolute inset-0 -z-10 opacity-40">
+        <div class="absolute top-1/3 left-1/4 w-72 h-72 bg-mindmetrics-indigo/10 rounded-full blur-3xl animate-blob animation-delay-2000"></div>
+        <div class="absolute bottom-1/3 right-1/4 w-64 h-64 bg-mindmetrics-green/10 rounded-full blur-3xl animate-blob animation-delay-4000"></div>
+    </div>
+    
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <!-- Section Header -->
+        <div class="text-center mb-16">
             <div class="inline-flex items-center justify-center px-4 py-1.5 mb-6 text-xs font-semibold tracking-wider text-mindmetrics-indigo uppercase bg-mindmetrics-indigo-light/70 rounded-full">
                 <svg class="w-4 h-4 mr-2" fill="currentColor" viewBox="0 0 20 20">
                     <path fill-rule="evenodd" d="M4 4a2 2 0 00-2 2v4a2 2 0 002 2V6h10a2 2 0 00-2-2H4zm2 6a2 2 0 012-2h8a2 2 0 012 2v4a2 2 0 01-2 2H8a2 2 0 01-2-2v-4zm6 4a2 2 0 100-4 2 2 0 000 4z" clip-rule="evenodd"/>
                 </svg>
-                Transparent Pricing
+                Simple Pricing
             </div>
             <h2 class="text-3xl sm:text-4xl font-extrabold text-slate-900 mb-4 tracking-tight">
-                Simple, <span class="text-transparent bg-clip-text bg-gradient-to-r from-mindmetrics-indigo to-mindmetrics-green">Transparent Pricing</span>
+                One Plan, <span class="text-transparent bg-clip-text bg-gradient-to-r from-mindmetrics-indigo to-mindmetrics-green">Unlimited Possibilities</span>
             </h2>
-            <p class="text-lg text-slate-600 max-w-2xl mx-auto mb-12 leading-relaxed">
-                Choose the plan that fits your organization's needs. No hidden fees, no surprises.
+            <p class="text-lg text-slate-600 max-w-2xl mx-auto mb-4 leading-relaxed">
+                Get complete access to our advanced MBTI personality assessment platform with comprehensive reporting and management insights.
             </p>
-            <!-- Pricing cards will go here -->
+            <p class="text-sm text-slate-500">
+                No hidden fees • Cancel anytime • 30-day money-back guarantee
+            </p>
         </div>
-    </section>
+
+        <!-- Pricing Card -->
+        <div class="max-w-md mx-auto">
+            <div class="relative bg-white rounded-3xl shadow-2xl overflow-hidden border border-slate-200/80 hover:shadow-3xl hover:border-mindmetrics-indigo/20 transition-all duration-300 group">
+                <!-- Popular badge -->
+                <div class="absolute -top-px left-1/2 -translate-x-1/2">
+                    <div class="inline-flex items-center px-6 py-2 bg-gradient-to-r from-mindmetrics-indigo to-mindmetrics-green text-white text-xs font-semibold tracking-wider uppercase rounded-b-xl shadow-lg">
+                        <svg class="w-4 h-4 mr-1.5" fill="currentColor" viewBox="0 0 20 20">
+                            <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+                        </svg>
+                        Most Popular
+                    </div>
+                </div>
+
+                <!-- Card content -->
+                <div class="px-8 pt-12 pb-8">
+                    <!-- Plan name -->
+                    <div class="text-center mb-8">
+                        <h3 class="text-2xl font-bold text-slate-900 mb-2">Professional Plan</h3>
+                        <p class="text-slate-600">Perfect for teams and organizations</p>
+                    </div>
+
+                    <!-- Price -->
+                    <div class="text-center mb-8">
+                        <div class="flex items-center justify-center mb-2">
+                            <span class="text-5xl font-extrabold text-slate-900">$14</span>
+                            <span class="text-2xl font-bold text-slate-600">.99</span>
+                        </div>
+                        <p class="text-slate-500 font-medium">per assessment</p>
+                        <div class="mt-3 inline-flex items-center px-3 py-1 bg-green-50 text-green-700 text-sm font-medium rounded-full border border-green-200">
+                            <svg class="w-4 h-4 mr-1" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+                            </svg>
+                            Volume discounts available
+                        </div>
+                    </div>
+
+                    <!-- Features -->
+                    <div class="mb-8">
+                        <h4 class="text-lg font-semibold text-slate-900 mb-4">Everything included:</h4>
+                        <ul class="space-y-3">
+                            <li class="flex items-start">
+                                <svg class="w-6 h-6 text-mindmetrics-green mt-0.5 mr-3 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                                </svg>
+                                <span class="text-slate-700 font-medium">Complete MBTI personality analysis</span>
+                            </li>
+                            <li class="flex items-start">
+                                <svg class="w-6 h-6 text-mindmetrics-green mt-0.5 mr-3 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                                </svg>
+                                <span class="text-slate-700 font-medium">Detailed employer report & insights</span>
+                            </li>
+                            <li class="flex items-start">
+                                <svg class="w-6 h-6 text-mindmetrics-green mt-0.5 mr-3 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                                </svg>
+                                <span class="text-slate-700 font-medium">Management & communication guides</span>
+                            </li>
+                            <li class="flex items-start">
+                                <svg class="w-6 h-6 text-mindmetrics-green mt-0.5 mr-3 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                                </svg>
+                                <span class="text-slate-700 font-medium">Team compatibility analysis</span>
+                            </li>
+                            <li class="flex items-start">
+                                <svg class="w-6 h-6 text-mindmetrics-green mt-0.5 mr-3 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                                </svg>
+                                <span class="text-slate-700 font-medium">Advanced analytics dashboard</span>
+                            </li>
+                            <li class="flex items-start">
+                                <svg class="w-6 h-6 text-mindmetrics-green mt-0.5 mr-3 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                                </svg>
+                                <span class="text-slate-700 font-medium">24/7 priority support</span>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <!-- CTA Button -->
+                    <div class="mb-6">
+                        <a href="#start-assessment" class="cta-button w-full group-hover:scale-105 transition-transform duration-200">
+                            Start Assessment Now
+                            <svg class="w-5 h-5 ml-2 -mr-1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+                                <path fill-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clip-rule="evenodd" />
+                            </svg>
+                        </a>
+                    </div>
+
+                    <!-- Trust indicators -->
+                    <div class="text-center text-xs text-slate-500 space-y-1">
+                        <p>✨ Instant access • No setup required</p>
+                        <p>🔒 Secure & GDPR compliant</p>
+                    </div>
+                </div>
+
+                <!-- Decorative gradient border -->
+                <div class="absolute inset-0 -z-10 bg-gradient-to-r from-mindmetrics-indigo/5 via-transparent to-mindmetrics-green/5 rounded-3xl transform scale-105 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+            </div>
+        </div>
+
+        <!-- Bottom section with additional info -->
+        <div class="mt-16 text-center">
+            <div class="max-w-3xl mx-auto">
+                <h3 class="text-xl font-semibold text-slate-900 mb-4">Need multiple assessments?</h3>
+                <p class="text-slate-600 mb-6">Contact us for volume pricing and enterprise solutions. We offer custom packages for organizations conducting 50+ assessments.</p>
+                <div class="flex flex-col sm:flex-row justify-center items-center space-y-3 sm:space-y-0 sm:space-x-6">
+                    <a href="#contact-sales" class="inline-flex items-center text-mindmetrics-indigo font-medium hover:text-mindmetrics-green transition-colors duration-200">
+                        <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8h2a2 2 0 012 2v6a2 2 0 01-2 2h-2v4l-4-4H9a2 2 0 01-2-2v-6a2 2 0 012-2h8z"/>
+                        </svg>
+                        Contact Sales Team
+                    </a>
+                    <a href="#demo" class="inline-flex items-center text-slate-600 font-medium hover:text-mindmetrics-indigo transition-colors duration-200">
+                        <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14.828 14.828a4 4 0 01-5.656 0M9 10h1m4 0h1m-6 4h8m-6 4h6"/>
+                        </svg>
+                        Schedule Demo
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
 
     <!-- FAQ SECTION -->
-    <section id="faq" class="py-16 sm:py-20 bg-slate-50">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="max-w-3xl mx-auto text-center">
-                <div class="inline-flex items-center justify-center px-4 py-1.5 mb-6 text-xs font-semibold tracking-wider text-mindmetrics-indigo uppercase bg-mindmetrics-indigo-light/70 rounded-full">
-                    <svg class="w-4 h-4 mr-2" fill="currentColor" viewBox="0 0 20 20">
-                        <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-8-3a1 1 0 00-.867.5 1 1 0 11-1.731-1A3 3 0 0113 8a3.001 3.001 0 01-2 2.83V11a1 1 0 11-2 0v-1a1 1 0 011-1 1 1 0 100-2zm0 8a1 1 0 100-2 1 1 0 000 2z" clip-rule="evenodd"/>
-                    </svg>
-                    Support Center
-                </div>
-                <h2 class="text-3xl sm:text-4xl font-extrabold text-slate-900 mb-4 tracking-tight">
-                    Frequently Asked <span class="text-transparent bg-clip-text bg-gradient-to-r from-mindmetrics-indigo to-mindmetrics-green">Questions</span>
-                </h2>
-                <p class="text-lg text-slate-600 mb-12 leading-relaxed">
-                    Find answers to the most common questions about our MBTI-based personality assessment platform.
-                </p>
+<!-- FAQ SECTION -->
+<section id="faq" class="py-16 sm:py-20 bg-slate-50 relative overflow-hidden">
+    <!-- Background decorative elements -->
+    <div class="absolute inset-0 -z-10 opacity-30">
+        <div class="absolute top-1/4 right-1/3 w-80 h-80 bg-mindmetrics-indigo/8 rounded-full blur-3xl animate-blob animation-delay-2000"></div>
+        <div class="absolute bottom-1/4 left-1/3 w-72 h-72 bg-mindmetrics-green/8 rounded-full blur-3xl animate-blob animation-delay-4000"></div>
+    </div>
+
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+        <!-- Section Header -->
+        <div class="text-center mb-16">
+            <div class="inline-flex items-center justify-center px-4 py-1.5 mb-6 text-xs font-semibold tracking-wider text-mindmetrics-indigo uppercase bg-mindmetrics-indigo-light/70 rounded-full">
+                <svg class="w-4 h-4 mr-2" fill="currentColor" viewBox="0 0 20 20">
+                    <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-8-3a1 1 0 00-.867.5 1 1 0 11-1.731-1A3 3 0 0113 8a3.001 3.001 0 01-2 2.83V11a1 1 0 11-2 0v-1a1 1 0 011-1 1 1 0 100-2zm0 8a1 1 0 100-2 1 1 0 000 2z" clip-rule="evenodd"/>
+                </svg>
+                Support Center
             </div>
-            <!-- FAQ accordions will go here -->
+            <h2 class="text-3xl sm:text-4xl font-extrabold text-slate-900 mb-4 tracking-tight">
+                Frequently Asked <span class="text-transparent bg-clip-text bg-gradient-to-r from-mindmetrics-indigo to-mindmetrics-green">Questions</span>
+            </h2>
+            <p class="text-lg text-slate-600 mb-8 leading-relaxed">
+                Find answers to the most common questions about our MBTI-based personality assessment platform.
+            </p>
+            <div class="inline-flex items-center px-4 py-2 bg-white rounded-full shadow-md border border-slate-200">
+                <svg class="w-5 h-5 text-mindmetrics-green mr-2" fill="currentColor" viewBox="0 0 20 20">
+                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+                </svg>
+                <span class="text-sm font-medium text-slate-700">Can't find your answer? <a href="#contact" class="text-mindmetrics-indigo hover:text-mindmetrics-green transition-colors">Contact us</a></span>
+            </div>
         </div>
-    </section>
+
+        <!-- FAQ Accordion -->
+        <div class="space-y-4">
+            <!-- FAQ Item 1 -->
+            <div class="faq-item bg-white rounded-2xl shadow-sm border border-slate-200/80 overflow-hidden hover:shadow-md transition-all duration-300">
+                <button class="faq-question w-full px-6 py-6 text-left flex items-center justify-between focus:outline-none focus:ring-2 focus:ring-mindmetrics-indigo/20 focus:ring-inset" 
+                        onclick="toggleFAQ(this)">
+                    <div class="flex items-center">
+                        <div class="flex-shrink-0 w-8 h-8 bg-mindmetrics-indigo/10 rounded-lg flex items-center justify-center mr-4">
+                            <svg class="w-5 h-5 text-mindmetrics-indigo" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clip-rule="evenodd"/>
+                            </svg>
+                        </div>
+                        <span class="text-lg font-semibold text-slate-900">What is MBTI and how does it help employers?</span>
+                    </div>
+                    <svg class="faq-icon w-6 h-6 text-slate-400 transform transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+                    </svg>
+                </button>
+                <div class="faq-answer px-6 pb-6">
+                    <div class="pl-12 text-slate-600 leading-relaxed">
+                        <p class="mb-3">MBTI (Myers-Briggs Type Indicator) is a scientifically-backed personality assessment that identifies 16 distinct personality types based on psychological preferences. For employers, this provides invaluable insights into:</p>
+                        <ul class="space-y-2 ml-4">
+                            <li class="flex items-start">
+                                <span class="w-2 h-2 bg-mindmetrics-green rounded-full mt-2 mr-3 flex-shrink-0"></span>
+                                <span>How candidates approach problem-solving and decision-making</span>
+                            </li>
+                            <li class="flex items-start">
+                                <span class="w-2 h-2 bg-mindmetrics-green rounded-full mt-2 mr-3 flex-shrink-0"></span>
+                                <span>Communication styles and teamwork preferences</span>
+                            </li>
+                            <li class="flex items-start">
+                                <span class="w-2 h-2 bg-mindmetrics-green rounded-full mt-2 mr-3 flex-shrink-0"></span>
+                                <span>Leadership potential and management styles</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- FAQ Item 2 -->
+            <div class="faq-item bg-white rounded-2xl shadow-sm border border-slate-200/80 overflow-hidden hover:shadow-md transition-all duration-300">
+                <button class="faq-question w-full px-6 py-6 text-left flex items-center justify-between focus:outline-none focus:ring-2 focus:ring-mindmetrics-indigo/20 focus:ring-inset" 
+                        onclick="toggleFAQ(this)">
+                    <div class="flex items-center">
+                        <div class="flex-shrink-0 w-8 h-8 bg-mindmetrics-green/10 rounded-lg flex items-center justify-center mr-4">
+                            <svg class="w-5 h-5 text-mindmetrics-green" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-12a1 1 0 10-2 0v4a1 1 0 00.293.707l2.828 2.829a1 1 0 101.415-1.415L11 9.586V6z" clip-rule="evenodd"/>
+                            </svg>
+                        </div>
+                        <span class="text-lg font-semibold text-slate-900">How long does the assessment take to complete?</span>
+                    </div>
+                    <svg class="faq-icon w-6 h-6 text-slate-400 transform transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+                    </svg>
+                </button>
+                <div class="faq-answer px-6 pb-6">
+                    <div class="pl-12 text-slate-600 leading-relaxed">
+                        <p class="mb-3">Our assessment is designed to be both comprehensive and time-efficient:</p>
+                        <div class="bg-slate-50 rounded-lg p-4 mb-3">
+                            <div class="flex items-center justify-between mb-2">
+                                <span class="font-medium text-slate-900">Assessment Duration:</span>
+                                <span class="text-mindmetrics-indigo font-semibold">15-20 minutes</span>
+                            </div>
+                            <div class="flex items-center justify-between">
+                                <span class="font-medium text-slate-900">Report Generation:</span>
+                                <span class="text-mindmetrics-green font-semibold">Instant</span>
+                            </div>
+                        </div>
+                        <p>The assessment consists of carefully crafted questions that don't require deep thinking - participants should go with their first instinct for the most accurate results.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- FAQ Item 3 -->
+            <div class="faq-item bg-white rounded-2xl shadow-sm border border-slate-200/80 overflow-hidden hover:shadow-md transition-all duration-300">
+                <button class="faq-question w-full px-6 py-6 text-left flex items-center justify-between focus:outline-none focus:ring-2 focus:ring-mindmetrics-indigo/20 focus:ring-inset" 
+                        onclick="toggleFAQ(this)">
+                    <div class="flex items-center">
+                        <div class="flex-shrink-0 w-8 h-8 bg-purple-100 rounded-lg flex items-center justify-center mr-4">
+                            <svg class="w-5 h-5 text-purple-600" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M4 4a2 2 0 00-2 2v8a2 2 0 002 2h12a2 2 0 002-2V6a2 2 0 00-2-2H4zm2 6a2 2 0 012-2h4a2 2 0 012 2v2a2 2 0 01-2 2H8a2 2 0 01-2-2v-2zm6 4a2 2 0 100-4 2 2 0 000 4z" clip-rule="evenodd"/>
+                            </svg>
+                        </div>
+                        <span class="text-lg font-semibold text-slate-900">What's included in the employer report?</span>
+                    </div>
+                    <svg class="faq-icon w-6 h-6 text-slate-400 transform transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+                    </svg>
+                </button>
+                <div class="faq-answer px-6 pb-6">
+                    <div class="pl-12 text-slate-600 leading-relaxed">
+                        <p class="mb-4">Our comprehensive employer report provides actionable insights across multiple dimensions:</p>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                            <div class="space-y-3">
+                                <div class="flex items-start">
+                                    <svg class="w-5 h-5 text-mindmetrics-green mt-0.5 mr-3 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                                        <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+                                    </svg>
+                                    <div>
+                                        <div class="font-medium text-slate-900">Personality Overview</div>
+                                        <div class="text-sm text-slate-500">Complete MBTI type breakdown</div>
+                                    </div>
+                                </div>
+                                <div class="flex items-start">
+                                    <svg class="w-5 h-5 text-mindmetrics-green mt-0.5 mr-3 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                                        <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+                                    </svg>
+                                    <div>
+                                        <div class="font-medium text-slate-900">Management Tips</div>
+                                        <div class="text-sm text-slate-500">How to effectively manage this person</div>
+                                    </div>
+                                </div>
+                                <div class="flex items-start">
+                                    <svg class="w-5 h-5 text-mindmetrics-green mt-0.5 mr-3 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                                        <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+                                    </svg>
+                                    <div>
+                                        <div class="font-medium text-slate-900">Team Dynamics</div>
+                                        <div class="text-sm text-slate-500">How they work with others</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="space-y-3">
+                                <div class="flex items-start">
+                                    <svg class="w-5 h-5 text-mindmetrics-green mt-0.5 mr-3 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                                        <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+                                    </svg>
+                                    <div>
+                                        <div class="font-medium text-slate-900">Communication Style</div>
+                                        <div class="text-sm text-slate-500">Preferred communication methods</div>
+                                    </div>
+                                </div>
+                                <div class="flex items-start">
+                                    <svg class="w-5 h-5 text-mindmetrics-green mt-0.5 mr-3 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                                        <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+                                    </svg>
+                                    <div>
+                                        <div class="font-medium text-slate-900">Stress Indicators</div>
+                                        <div class="text-sm text-slate-500">Warning signs and solutions</div>
+                                    </div>
+                                </div>
+                                <div class="flex items-start">
+                                    <svg class="w-5 h-5 text-mindmetrics-green mt-0.5 mr-3 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                                        <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+                                    </svg>
+                                    <div>
+                                        <div class="font-medium text-slate-900">Development Areas</div>
+                                        <div class="text-sm text-slate-500">Growth opportunities & recommendations</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- FAQ Item 4 -->
+            <div class="faq-item bg-white rounded-2xl shadow-sm border border-slate-200/80 overflow-hidden hover:shadow-md transition-all duration-300">
+                <button class="faq-question w-full px-6 py-6 text-left flex items-center justify-between focus:outline-none focus:ring-2 focus:ring-mindmetrics-indigo/20 focus:ring-inset" 
+                        onclick="toggleFAQ(this)">
+                    <div class="flex items-center">
+                        <div class="flex-shrink-0 w-8 h-8 bg-rose-100 rounded-lg flex items-center justify-center mr-4">
+                            <svg class="w-5 h-5 text-rose-600" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M3 6a3 3 0 013-3h10a1 1 0 01.8 1.6L14.25 8l2.55 3.4A1 1 0 0116 13H6a1 1 0 00-1 1v3a1 1 0 11-2 0V6z" clip-rule="evenodd"/>
+                            </svg>
+                        </div>
+                        <span class="text-lg font-semibold text-slate-900">Is the assessment suitable for all job roles?</span>
+                    </div>
+                    <svg class="faq-icon w-6 h-6 text-slate-400 transform transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+                    </svg>
+                </button>
+                <div class="faq-answer px-6 pb-6">
+                    <div class="pl-12 text-slate-600 leading-relaxed">
+                        <p class="mb-4">Yes! Our MBTI assessment is valuable across all industries and job levels. It's particularly effective for:</p>
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-4">
+                            <div class="flex items-center">
+                                <span class="w-2 h-2 bg-mindmetrics-indigo rounded-full mr-3"></span>
+                                <span class="font-medium">Leadership positions</span>
+                            </div>
+                            <div class="flex items-center">
+                                <span class="w-2 h-2 bg-mindmetrics-green rounded-full mr-3"></span>
+                                <span class="font-medium">Team-based roles</span>
+                            </div>
+                            <div class="flex items-center">
+                                <span class="w-2 h-2 bg-purple-500 rounded-full mr-3"></span>
+                                <span class="font-medium">Customer-facing positions</span>
+                            </div>
+                            <div class="flex items-center">
+                                <span class="w-2 h-2 bg-rose-500 rounded-full mr-3"></span>
+                                <span class="font-medium">Creative & technical roles</span>
+                            </div>
+                        </div>
+                        <div class="bg-amber-50 border border-amber-200 rounded-lg p-4">
+                            <div class="flex items-start">
+                                <svg class="w-5 h-5 text-amber-600 mt-0.5 mr-3 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd" d="M8.257 3.099c.765-1.36 2.722-1.36 3.486 0l5.58 9.92c.75 1.334-.213 2.98-1.742 2.98H4.42c-1.53 0-2.493-1.646-1.743-2.98l5.58-9.92zM11 13a1 1 0 11-2 0 1 1 0 012 0zm-1-8a1 1 0 00-1 1v3a1 1 0 002 0V6a1 1 0 00-1-1z" clip-rule="evenodd"/>
+                                </svg>
+                                <div>
+                                    <p class="text-amber-800 font-medium mb-1">Important Note:</p>
+                                    <p class="text-amber-700 text-sm">Personality assessments should complement, not replace, traditional hiring methods like skills testing and interviews.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- FAQ Item 5 -->
+            <div class="faq-item bg-white rounded-2xl shadow-sm border border-slate-200/80 overflow-hidden hover:shadow-md transition-all duration-300">
+                <button class="faq-question w-full px-6 py-6 text-left flex items-center justify-between focus:outline-none focus:ring-2 focus:ring-mindmetrics-indigo/20 focus:ring-inset" 
+                        onclick="toggleFAQ(this)">
+                    <div class="flex items-center">
+                        <div class="flex-shrink-0 w-8 h-8 bg-green-100 rounded-lg flex items-center justify-center mr-4">
+                            <svg class="w-5 h-5 text-green-600" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M5 9V7a5 5 0 0110 0v2a2 2 0 012 2v5a2 2 0 01-2 2H5a2 2 0 01-2-2v-5a2 2 0 012-2zm8-2v2H7V7a3 3 0 016 0z" clip-rule="evenodd"/>
+                            </svg>
+                        </div>
+                        <span class="text-lg font-semibold text-slate-900">How secure is candidate data?</span>
+                    </div>
+                    <svg class="faq-icon w-6 h-6 text-slate-400 transform transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+                    </svg>
+                </button>
+                <div class="faq-answer px-6 pb-6">
+                    <div class="pl-12 text-slate-600 leading-relaxed">
+                        <p class="mb-4">Data security and privacy are our top priorities. We implement industry-leading security measures:</p>
+                        <div class="space-y-4">
+                            <div class="flex items-start">
+                                <div class="w-6 h-6 bg-green-100 rounded-full flex items-center justify-center mr-3 mt-0.5 flex-shrink-0">
+                                    <svg class="w-4 h-4 text-green-600" fill="currentColor" viewBox="0 0 20 20">
+                                        <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+                                    </svg>
+                                </div>
+                                <div>
+                                    <div class="font-medium text-slate-900">GDPR & CCPA Compliant</div>
+                                    <div class="text-sm text-slate-500">Full compliance with international privacy regulations</div>
+                                </div>
+                            </div>
+                            <div class="flex items-start">
+                                <div class="w-6 h-6 bg-green-100 rounded-full flex items-center justify-center mr-3 mt-0.5 flex-shrink-0">
+                                    <svg class="w-4 h-4 text-green-600" fill="currentColor" viewBox="0 0 20 20">
+                                        <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+                                    </svg>
+                                </div>
+                                <div>
+                                    <div class="font-medium text-slate-900">256-bit SSL Encryption</div>
+                                    <div class="text-sm text-slate-500">Bank-level security for all data transmission</div>
+                                </div>
+                            </div>
+                            <div class="flex items-start">
+                                <div class="w-6 h-6 bg-green-100 rounded-full flex items-center justify-center mr-3 mt-0.5 flex-shrink-0">
+                                    <svg class="w-4 h-4 text-green-600" fill="currentColor" viewBox="0 0 20 20">
+                                        <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+                                    </svg>
+                                </div>
+                                <div>
+                                    <div class="font-medium text-slate-900">Controlled Access</div>
+                                    <div class="text-sm text-slate-500">Only authorized personnel can access assessment data</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- FAQ Item 6 -->
+            <div class="faq-item bg-white rounded-2xl shadow-sm border border-slate-200/80 overflow-hidden hover:shadow-md transition-all duration-300">
+                <button class="faq-question w-full px-6 py-6 text-left flex items-center justify-between focus:outline-none focus:ring-2 focus:ring-mindmetrics-indigo/20 focus:ring-inset" 
+                        onclick="toggleFAQ(this)">
+                    <div class="flex items-center">
+                        <div class="flex-shrink-0 w-8 h-8 bg-blue-100 rounded-lg flex items-center justify-center mr-4">
+                            <svg class="w-5 h-5 text-blue-600" fill="currentColor" viewBox="0 0 20 20">
+                                <path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z"/>
+                            </svg>
+                        </div>
+                        <span class="text-lg font-semibold text-slate-900">Do you offer customer support and training?</span>
+                    </div>
+                    <svg class="faq-icon w-6 h-6 text-slate-400 transform transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+                    </svg>
+                </button>
+                <div class="faq-answer px-6 pb-6">
+                    <div class="pl-12 text-slate-600 leading-relaxed">
+                        <p class="mb-4">Absolutely! We provide comprehensive support to ensure you get maximum value from our platform:</p>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
+                            <div class="bg-blue-50 rounded-lg p-4">
+                                <div class="flex items-center mb-2">
+                                    <svg class="w-5 h-5 text-blue-600 mr-2" fill="currentColor" viewBox="0 0 20 20">
+                                        <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a.75.75 0 000 1.5h.253a.25.25 0 01.244.304l-.459 2.066A1.75 1.75 0 0010.747 15H11a.75.75 0 000-1.5h-.253a.25.25 0 01-.244-.304l.459-2.066A1.75 1.75 0 009.253 9H9z" clip-rule="evenodd"/>
+                                    </svg>
+                                    <h4 class="font-semibold text-blue-900">24/7 Support</h4>
+                                </div>
+                                <p class="text-blue-800 text-sm">Round-the-clock technical support via email, chat, and phone</p>
+                            </div>
+                            <div class="bg-green-50 rounded-lg p-4">
+                                <div class="flex items-center mb-2">
+                                    <svg class="w-5 h-5 text-green-600 mr-2" fill="currentColor" viewBox="0 0 20 20">
+                                        <path d="M10.394 2.08a1 1 0 00-.788 0l-7 3a1 1 0 000 1.84L5.25 8.051a.999.999 0 01.356-.257l4-1.714a1 1 0 11.788 1.838L7.667 9.088l1.94.831a1 1 0 00.787 0l7-3a1 1 0 000-1.838l-7-3zM3.31 9.397L5 10.12v4.102a8.969 8.969 0 00-1.05-.174 1 1 0 01-.89-.89 11.115 11.115 0 01.25-3.762zM9.3 16.573A9.026 9.026 0 007 14.935v-3.957l1.818.78a3 3 0 002.364 0l5.508-2.361a11.026 11.026 0 01.25 3.762 1 1 0 01-.89.89 8.968 8.968 0 00-5.35 2.524 1 1 0 01-1.4 0zM6 18a1 1 0 001-1v-2.065a8.935 8.935 0 00-2-.712V17a1 1 0 001 1z"/>
+                                    </svg>
+                                    <h4 class="font-semibold text-green-900">Free Training</h4>
+                                </div>
+                                <p class="text-green-800 text-sm">Live webinars and training sessions on MBTI interpretation</p>
+                            </div>
+                        </div>
+                        <div class="flex items-center justify-between bg-slate-50 rounded-lg p-4">
+                            <div>
+                                <div class="font-medium text-slate-900">Need immediate help?</div>
+                                <div class="text-sm text-slate-600">Our average response time is under 2 hours</div>
+                            </div>
+                            <a href="#contact-support" class="inline-flex items-center px-4 py-2 bg-mindmetrics-indigo text-white text-sm font-medium rounded-lg hover:bg-mindmetrics-green transition-colors duration-200">
+                                Contact Support
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Bottom CTA -->
+        <div class="mt-16 text-center">
+            <div class="bg-gradient-to-r from-mindmetrics-indigo/5 to-mindmetrics-green/5 rounded-2xl p-8 border border-slate-200">
+                <h3 class="text-xl font-semibold text-slate-900 mb-3">Still have questions?</h3>
+                <p class="text-slate-600 mb-6 max-w-2xl mx-auto">Our team of MBTI experts is here to help you make the most of personality insights in your organization.</p>
+                <div class="flex flex-col sm:flex-row justify-center items-center space-y-3 sm:space-y-0 sm:space-x-4">
+                    <a href="#schedule-demo" class="cta-button">
+                        Schedule a Demo
+                        <svg class="w-5 h-5 ml-2 -mr-1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+                            <path fill-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clip-rule="evenodd" />
+                        </svg>
+                    </a>
+                    <a href="mailto:support@mindmetrics.com" class="inline-flex items-center px-6 py-3 text-mindmetrics-indigo border border-mindmetrics-indigo/20 rounded-lg font-medium hover:bg-mindmetrics-indigo/5 transition-colors duration-200">
+                        <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 7.89a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
+                        </svg>
+                        Email Us
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
 
     <!-- FOOTER -->
     <footer class="bg-slate-800 text-slate-400">
@@ -428,6 +916,54 @@
                 logoCarousel.style.animationPlayState = 'running';
             });
         }
+
+        
+// FAQ Accordion functionality - Animasyonlu version
+function toggleFAQ(button) {
+    const faqItem = button.closest('.faq-item');
+    const answer = faqItem.querySelector('.faq-answer');
+    const icon = button.querySelector('.faq-icon');
+    const isOpen = answer.classList.contains('open');
+    
+    // Tüm FAQ öğelerini kapat
+    document.querySelectorAll('.faq-item').forEach(item => {
+        const otherAnswer = item.querySelector('.faq-answer');
+        const otherIcon = item.querySelector('.faq-icon');
+        if (item !== faqItem) {
+            otherAnswer.classList.remove('open');
+            otherIcon.style.transform = 'rotate(0deg)';
+            item.classList.remove('ring-2', 'ring-mindmetrics-indigo/20', 'active');
+        }
+    });
+    
+    // Mevcut öğeyi aç/kapat
+    if (isOpen) {
+        answer.classList.remove('open');
+        icon.style.transform = 'rotate(0deg)';
+        faqItem.classList.remove('ring-2', 'ring-mindmetrics-indigo/20', 'active');
+    } else {
+        answer.classList.add('open');
+        icon.style.transform = 'rotate(180deg)';
+        faqItem.classList.add('ring-2', 'ring-mindmetrics-indigo/20', 'active');
+    }
+}
+
+// Sayfa yüklendiğinde tüm FAQ butonlarına stil uygula
+document.addEventListener('DOMContentLoaded', function() {
+    document.querySelectorAll('.faq-question').forEach(btn => {
+        btn.style.userSelect = 'none';
+        btn.style.webkitUserSelect = 'none';
+        btn.style.mozUserSelect = 'none';
+        btn.style.msUserSelect = 'none';
+        btn.style.webkitTouchCallout = 'none';
+        btn.style.webkitTapHighlightColor = 'transparent';
+        
+        btn.querySelectorAll('*').forEach(child => {
+            child.style.userSelect = 'none';
+            child.style.webkitUserSelect = 'none';
+        });
+    });
+});
     </script>
 </body>
 </html>
