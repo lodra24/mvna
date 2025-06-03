@@ -500,7 +500,7 @@
                 <!-- FAQ Item 1 -->
                 <div class="faq-item bg-white rounded-2xl shadow-sm border border-slate-200/80 overflow-hidden hover:shadow-md transition-all duration-300">
                     <button class="faq-question w-full px-6 py-6 text-left flex items-center justify-between focus:outline-none focus:ring-2 focus:ring-mindmetrics-indigo/20 focus:ring-inset"
-                            onclick="toggleFAQ(this)">
+                            >
                         <div class="flex items-center">
                             <div class="flex-shrink-0 w-8 h-8 bg-mindmetrics-indigo/10 rounded-lg flex items-center justify-center mr-4">
                                 <svg class="w-5 h-5 text-mindmetrics-indigo" fill="currentColor" viewBox="0 0 20 20">
@@ -537,7 +537,7 @@
                 <!-- FAQ Item 2 -->
                 <div class="faq-item bg-white rounded-2xl shadow-sm border border-slate-200/80 overflow-hidden hover:shadow-md transition-all duration-300">
                     <button class="faq-question w-full px-6 py-6 text-left flex items-center justify-between focus:outline-none focus:ring-2 focus:ring-mindmetrics-indigo/20 focus:ring-inset"
-                            onclick="toggleFAQ(this)">
+                            >
                         <div class="flex items-center">
                             <div class="flex-shrink-0 w-8 h-8 bg-mindmetrics-green/10 rounded-lg flex items-center justify-center mr-4">
                                 <svg class="w-5 h-5 text-mindmetrics-green" fill="currentColor" viewBox="0 0 20 20">
@@ -571,7 +571,7 @@
                 <!-- FAQ Item 3 -->
                 <div class="faq-item bg-white rounded-2xl shadow-sm border border-slate-200/80 overflow-hidden hover:shadow-md transition-all duration-300">
                     <button class="faq-question w-full px-6 py-6 text-left flex items-center justify-between focus:outline-none focus:ring-2 focus:ring-mindmetrics-indigo/20 focus:ring-inset"
-                            onclick="toggleFAQ(this)">
+                            >
                         <div class="flex items-center">
                             <div class="flex-shrink-0 w-8 h-8 bg-purple-100 rounded-lg flex items-center justify-center mr-4">
                                 <svg class="w-5 h-5 text-purple-600" fill="currentColor" viewBox="0 0 20 20">
@@ -654,7 +654,7 @@
                 <!-- FAQ Item 4 -->
                 <div class="faq-item bg-white rounded-2xl shadow-sm border border-slate-200/80 overflow-hidden hover:shadow-md transition-all duration-300">
                     <button class="faq-question w-full px-6 py-6 text-left flex items-center justify-between focus:outline-none focus:ring-2 focus:ring-mindmetrics-indigo/20 focus:ring-inset"
-                            onclick="toggleFAQ(this)">
+                            >
                         <div class="flex items-center">
                             <div class="flex-shrink-0 w-8 h-8 bg-rose-100 rounded-lg flex items-center justify-center mr-4">
                                 <svg class="w-5 h-5 text-rose-600" fill="currentColor" viewBox="0 0 20 20">
@@ -706,7 +706,7 @@
                 <!-- FAQ Item 5 -->
                 <div class="faq-item bg-white rounded-2xl shadow-sm border border-slate-200/80 overflow-hidden hover:shadow-md transition-all duration-300">
                     <button class="faq-question w-full px-6 py-6 text-left flex items-center justify-between focus:outline-none focus:ring-2 focus:ring-mindmetrics-indigo/20 focus:ring-inset"
-                            onclick="toggleFAQ(this)">
+                            >
                         <div class="flex items-center">
                             <div class="flex-shrink-0 w-8 h-8 bg-green-100 rounded-lg flex items-center justify-center mr-4">
                                 <svg class="w-5 h-5 text-green-600" fill="currentColor" viewBox="0 0 20 20">
@@ -764,7 +764,7 @@
                 <!-- FAQ Item 6 -->
                 <div class="faq-item bg-white rounded-2xl shadow-sm border border-slate-200/80 overflow-hidden hover:shadow-md transition-all duration-300">
                     <button class="faq-question w-full px-6 py-6 text-left flex items-center justify-between focus:outline-none focus:ring-2 focus:ring-mindmetrics-indigo/20 focus:ring-inset"
-                            onclick="toggleFAQ(this)">
+                            >
                         <div class="flex items-center">
                             <div class="flex-shrink-0 w-8 h-8 bg-blue-100 rounded-lg flex items-center justify-center mr-4">
                                 <svg class="w-5 h-5 text-blue-600" fill="currentColor" viewBox="0 0 20 20">
@@ -857,112 +857,5 @@
             <p class="text-sm">© {{ date('Y') }} MindMetrics. All rights reserved.</p>
         </div>
     </footer>
-
-    <script>
-        // Mobil Menü Toggle
-        const mobileMenuButton = document.getElementById('mobile-menu-button');
-        const mobileMenu = document.getElementById('mobile-menu');
-        const menuIconOpen = document.getElementById('menu-icon-open');
-        const menuIconClose = document.getElementById('menu-icon-close');
-
-        mobileMenuButton.addEventListener('click', () => {
-            mobileMenu.classList.toggle('hidden');
-            menuIconOpen.classList.toggle('hidden');
-            menuIconClose.classList.toggle('hidden');
-            const isExpanded = mobileMenuButton.getAttribute('aria-expanded') === 'true' || false;
-            mobileMenuButton.setAttribute('aria-expanded', !isExpanded);
-        });
-
-        // Sayfa içi linklere yumuşak kaydırma
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const targetId = this.getAttribute('href');
-                
-                if (!mobileMenu.classList.contains('hidden') && targetId !== '#') {
-                    mobileMenu.classList.add('hidden');
-                    menuIconOpen.classList.remove('hidden');
-                    menuIconClose.classList.add('hidden');
-                    mobileMenuButton.setAttribute('aria-expanded', 'false');
-                }
-                
-                if (targetId === '#') {
-                    window.scrollTo({ top: 0, behavior: 'smooth' });
-                } else {
-                    const targetElement = document.querySelector(targetId);
-                    if (targetElement) {
-                        const headerOffset = document.querySelector('header').offsetHeight || 0;
-                        const elementPosition = targetElement.getBoundingClientRect().top + window.pageYOffset;
-                        const offsetPosition = elementPosition - headerOffset - 20;
-                        
-                        window.scrollTo({
-                            top: offsetPosition,
-                            behavior: 'smooth'
-                        });
-                    }
-                }
-            });
-        });
-
-        // Logo carousel'ı kullanıcı etkileşiminde durdurma/başlatma
-        const logoCarousel = document.querySelector('.logo-carousel-track');
-        if (logoCarousel) {
-            logoCarousel.addEventListener('mouseenter', () => {
-                logoCarousel.style.animationPlayState = 'paused';
-            });
-            
-            logoCarousel.addEventListener('mouseleave', () => {
-                logoCarousel.style.animationPlayState = 'running';
-            });
-        }
-
-        
-    // FAQ Accordion functionality - Animasyonlu version
-    function toggleFAQ(button) {
-        const faqItem = button.closest('.faq-item');
-        const answer = faqItem.querySelector('.faq-answer');
-        const icon = button.querySelector('.faq-icon');
-        const isOpen = answer.classList.contains('open');
-        
-        // Tüm FAQ öğelerini kapat
-        document.querySelectorAll('.faq-item').forEach(item => {
-            const otherAnswer = item.querySelector('.faq-answer');
-            const otherIcon = item.querySelector('.faq-icon');
-            if (item !== faqItem) {
-                otherAnswer.classList.remove('open');
-                otherIcon.style.transform = 'rotate(0deg)';
-                item.classList.remove('ring-2', 'ring-mindmetrics-indigo/20', 'active');
-            }
-        });
-        
-        // Mevcut öğeyi aç/kapat
-        if (isOpen) {
-            answer.classList.remove('open');
-            icon.style.transform = 'rotate(0deg)';
-            faqItem.classList.remove('ring-2', 'ring-mindmetrics-indigo/20', 'active');
-        } else {
-            answer.classList.add('open');
-            icon.style.transform = 'rotate(180deg)';
-            faqItem.classList.add('ring-2', 'ring-mindmetrics-indigo/20', 'active');
-        }
-    }
-
-    // Sayfa yüklendiğinde tüm FAQ butonlarına stil uygula
-    document.addEventListener('DOMContentLoaded', function() {
-        document.querySelectorAll('.faq-question').forEach(btn => {
-            btn.style.userSelect = 'none';
-            btn.style.webkitUserSelect = 'none';
-            btn.style.mozUserSelect = 'none';
-            btn.style.msUserSelect = 'none';
-            btn.style.webkitTouchCallout = 'none';
-            btn.style.webkitTapHighlightColor = 'transparent';
-            
-            btn.querySelectorAll('*').forEach(child => {
-                child.style.userSelect = 'none';
-                child.style.webkitUserSelect = 'none';
-            });
-        });
-    });
-    </script>
 </body>
 </html>
