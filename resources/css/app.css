@@ -1,3 +1,4 @@
+/* resources/css/app.css */
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -359,23 +360,74 @@ body {
     }
     
     /* Mobile'da geometric pattern'ları azalt */
-    
-    .geometric-hexagon
-    {
-        opacity: 1;
+    /*
+    .geometric-hexagon {
+        opacity: 0.5; 
     }
+    */
 
-        /* Enhanced geometric patterns için mobil ayarı */
+    /* Enhanced geometric patterns için mobil ayarı */
+    /*
     .geometric-grid,
     .geometric-diamond,
     .geometric-wave,
     .geometric-circuit {
-        opacity: 1; /* Mobilde biraz daha az belirgin */
+        opacity: 0.7; // Mobilde biraz daha az belirgin 
+    }
+    */
+    
+    /* --- YENİ MOBİL ARKA PLAN AYARLARI --- */
+    .geometric-hexagon {
+        background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%236366f1' fill-opacity='0.025'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+    }
+
+    .geometric-grid {
+        background-image: 
+            radial-gradient(circle at 25px 25px, rgba(99, 102, 241, 0.025) 2px, transparent 2px),
+            radial-gradient(circle at 75px 75px, rgba(16, 185, 129, 0.025) 1.5px, transparent 1.5px),
+            linear-gradient(90deg, rgba(99, 102, 241, 0.015) 1px, transparent 1px),
+            linear-gradient(rgba(16, 185, 129, 0.015) 1px, transparent 1px);
+    }
+
+    .geometric-diamond {
+        background-image: 
+            url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%2310b981' fill-opacity='0.02'%3E%3Cpath d='M30 0l30 30-30 30L0 30z'/%3E%3C/g%3E%3C/svg%3E"),
+            radial-gradient(circle at 30px 30px, rgba(16, 185, 129, 0.005) 3px, transparent 3px),
+            linear-gradient(45deg, rgba(16, 185, 129, 0.01) 1px, transparent 1px),
+            linear-gradient(-45deg, rgba(99, 102, 241, 0.01) 1px, transparent 1px);
+    }
+
+    .geometric-wave {
+        background-image: 
+            url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%236366f1' fill-opacity='0.005'%3E%3Cpath d='M0,50 Q25,25 50,50 T100,50 V100 H0 Z'/%3E%3C/g%3E%3C/svg%3E"),
+            radial-gradient(circle at 50px 50px, rgba(99, 102, 241, 0.005) 2px, transparent 2px);
+    }
+
+    .geometric-circuit {
+        background-image: 
+            linear-gradient(90deg, rgba(99, 102, 241, 0.03) 1px, transparent 1px),
+            linear-gradient(rgba(99, 102, 241, 0.03) 1px, transparent 1px),
+            radial-gradient(circle at 20px 20px, rgba(16, 185, 129, 0.04) 2px, transparent 2px),
+            radial-gradient(circle at 60px 60px, rgba(99, 102, 241, 0.02) 1px, transparent 1px);
+    }
+
+    .geometric-floating::before {
+        background-image: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%236366f1' fill-opacity='0.02'%3E%3Cpolygon points='50 0 60 40 100 50 60 60 50 100 40 60 0 50 40 40'/%3E%3C/g%3E%3C/svg%3E");
+    }
+
+    .geometric-floating-green::before {
+        background-image: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%2310b981' fill-opacity='0.01'%3E%3Cpolygon points='50 0 60 40 100 50 60 60 50 100 40 60 0 50 40 40'/%3E%3C/g%3E%3C/svg%3E");
+    }
+
+    .geometric-floating-enhanced::before {
+        background-image: url("data:image/svg+xml,%3Csvg width='120' height='120' viewBox='0 0 120 120' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%2310b981' fill-opacity='0.03'%3E%3Ccircle cx='60' cy='20' r='8'/%3E%3Ccircle cx='100' cy='60' r='6'/%3E%3Ccircle cx='60' cy='100' r='8'/%3E%3Ccircle cx='20' cy='60' r='6'/%3E%3Cpath d='M60,20 L100,60 L60,100 L20,60 Z' stroke='%2310b981' stroke-width='1' fill='none' stroke-opacity='0.015'/%3E%3C/g%3E%3C/svg%3E");
     }
     
     .geometric-tech-overlay::after {
-        background-size: 120px 120px; /* Mobilde daha küçük pattern */
+        background-image: url("data:image/svg+xml,%3Csvg width='80' height='80' viewBox='0 0 80 80' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' stroke='%236366f1' stroke-width='1' stroke-opacity='0.025'%3E%3Cpath d='M20,20 L60,20 L60,60 L20,60 Z'/%3E%3Cpath d='M30,30 L50,30 L50,50 L30,50 Z'/%3E%3Ccircle cx='40' cy='10' r='3'/%3E%3Ccircle cx='70' cy='40' r='3'/%3E%3Ccircle cx='40' cy='70' r='3'/%3E%3Ccircle cx='10' cy='40' r='3'/%3E%3C/g%3E%3C/svg%3E");
+        background-size: 120px 120px; /* Mobilde daha küçük pattern - bu zaten vardı */
     }
+    /* --- YENİ MOBİL ARKA PLAN AYARLARI BİTİŞ --- */
 }
 
 @media (max-width: 640px) {
@@ -389,4 +441,3 @@ body {
         height: 40px;
     }
 }
-
