@@ -17,11 +17,15 @@
                     <h3>{{ $index + 1 }}. {{ $question->question_text }}</h3>
                     <div>
                         <input type="radio" name="answers[{{ $question->id }}]" id="question_{{ $question->id }}_a" value="A" required>
-                        <label for="question_{{ $question->id }}_a">Seçenek A</label>
+                        <label for="question_{{ $question->id }}_a">
+                            {{ config('mbti_question_options.' . $question->dimension . '.A', 'Seçenek A') }}
+                        </label>
                     </div>
                     <div>
                         <input type="radio" name="answers[{{ $question->id }}]" id="question_{{ $question->id }}_b" value="B" required>
-                        <label for="question_{{ $question->id }}_b">Seçenek B</label>
+                        <label for="question_{{ $question->id }}_b">
+                            {{ config('mbti_question_options.' . $question->dimension . '.B', 'Seçenek B') }}
+                        </label>
                     </div>
                 </div>
                 @if(!$loop->last) <hr> @endif
