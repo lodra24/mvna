@@ -1,0 +1,248 @@
+/* Test Form Components */
+
+/* Form Container */
+.test-form {
+    @apply space-y-8;
+}
+
+.test-form__section {
+    @apply space-y-6;
+}
+
+/* Input Groups */
+.test-input-group {
+    @apply space-y-2;
+}
+
+.test-input-group__label {
+    @apply block text-sm font-semibold text-slate-700 mb-2;
+}
+
+.test-input-group__input {
+    @apply w-full px-4 py-3 border border-slate-300 rounded-lg text-slate-900 placeholder-slate-400;
+    @apply focus:ring-2 focus:ring-mindmetrics-indigo focus:border-mindmetrics-indigo;
+    @apply transition-all duration-200 ease-in-out;
+    background: rgba(255, 255, 255, 0.8);
+    backdrop-filter: blur(5px);
+}
+
+.test-input-group__input:focus {
+    @apply shadow-lg;
+    transform: translateY(-1px);
+}
+
+.test-input-group__input--error {
+    @apply border-red-300 focus:ring-red-500 focus:border-red-500;
+}
+
+.test-input-group__error {
+    @apply text-sm text-red-600 mt-1;
+}
+
+/* Question Cards */
+.test-question {
+    @apply bg-white rounded-xl border border-slate-200 p-6 mb-6;
+    @apply transition-all duration-300 ease-in-out;
+    backdrop-filter: blur(10px);
+    background: rgba(255, 255, 255, 0.9);
+}
+
+.test-question:hover {
+    @apply shadow-lg border-slate-300;
+    transform: translateY(-2px);
+}
+
+.test-question__number {
+    @apply inline-flex items-center justify-center w-8 h-8 bg-mindmetrics-indigo text-white text-sm font-bold rounded-full mb-4;
+}
+
+.test-question__text {
+    @apply text-lg font-semibold text-slate-800 mb-6 leading-relaxed;
+}
+
+/* Radio Button Options */
+.test-options {
+    @apply space-y-4;
+}
+
+.test-option {
+    @apply relative;
+}
+
+.test-option__input {
+    @apply sr-only;
+}
+
+.test-option__label {
+    @apply flex items-center p-4 rounded-lg border-2 border-slate-200 cursor-pointer;
+    @apply transition-all duration-200 ease-in-out;
+    background: rgba(248, 250, 252, 0.8);
+    backdrop-filter: blur(5px);
+}
+
+.test-option__label:hover {
+    @apply border-mindmetrics-indigo bg-indigo-50;
+    transform: translateX(4px);
+}
+
+.test-option__input:checked + .test-option__label {
+    @apply border-mindmetrics-indigo bg-indigo-50;
+    box-shadow: 0 4px 6px -1px rgba(79, 70, 229, 0.1), 0 2px 4px -1px rgba(79, 70, 229, 0.06);
+}
+
+.test-option__radio {
+    @apply w-5 h-5 border-2 border-slate-300 rounded-full mr-4 flex-shrink-0;
+    @apply transition-all duration-200 ease-in-out;
+    position: relative;
+}
+
+.test-option__input:checked + .test-option__label .test-option__radio {
+    @apply border-mindmetrics-indigo bg-mindmetrics-indigo;
+}
+
+.test-option__radio::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: white;
+    transform: translate(-50%, -50%) scale(0);
+    transition: transform 0.2s ease-in-out;
+}
+
+.test-option__input:checked + .test-option__label .test-option__radio::after {
+    transform: translate(-50%, -50%) scale(1);
+}
+
+.test-option__text {
+    @apply text-slate-700 font-medium leading-relaxed;
+}
+
+/* Form Buttons */
+.test-button {
+    @apply inline-flex items-center justify-center px-8 py-4 text-base font-semibold rounded-lg;
+    @apply transition-all duration-200 ease-in-out;
+    @apply focus:outline-none focus:ring-2 focus:ring-offset-2;
+}
+
+.test-button--primary {
+    @apply bg-mindmetrics-indigo text-white hover:bg-indigo-600;
+    @apply focus:ring-mindmetrics-indigo shadow-lg;
+    transform: translateY(0);
+}
+
+.test-button--primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 15px -3px rgba(79, 70, 229, 0.3), 0 4px 6px -2px rgba(79, 70, 229, 0.2);
+}
+
+.test-button--primary:active {
+    transform: translateY(0);
+}
+
+.test-button--secondary {
+    @apply bg-white text-slate-700 border-2 border-slate-300 hover:bg-slate-50;
+    @apply focus:ring-slate-500;
+}
+
+.test-button--large {
+    @apply px-12 py-5 text-lg;
+}
+
+.test-button:disabled {
+    @apply opacity-50 cursor-not-allowed;
+    transform: none !important;
+}
+
+/* Form Validation */
+.test-form--invalid .test-question {
+    @apply border-red-200 bg-red-50;
+}
+
+.test-form--invalid .test-question__text {
+    @apply text-red-800;
+}
+
+/* Loading States */
+.test-button--loading {
+    @apply opacity-75 cursor-not-allowed;
+}
+
+.test-button--loading::after {
+    content: '';
+    @apply w-4 h-4 border-2 border-white border-t-transparent rounded-full ml-2;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+/* Form Progress */
+.test-form-progress {
+    @apply mb-8;
+}
+
+.test-form-progress__text {
+    @apply text-sm text-slate-600 mb-2 text-center;
+}
+
+.test-form-progress__bar {
+    @apply w-full bg-slate-200 rounded-full h-2;
+}
+
+.test-form-progress__fill {
+    @apply bg-gradient-to-r from-mindmetrics-indigo to-mindmetrics-green h-2 rounded-full;
+    @apply transition-all duration-500 ease-out;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .test-question {
+        @apply p-4;
+    }
+    
+    .test-question__text {
+        @apply text-base;
+    }
+    
+    .test-option__label {
+        @apply p-3;
+    }
+    
+    .test-button {
+        @apply w-full px-6 py-3 text-sm;
+    }
+    
+    .test-button--large {
+        @apply px-8 py-4 text-base;
+    }
+}
+
+/* Animation for question appearance */
+.test-question {
+    animation: questionSlideIn 0.5s ease-out;
+}
+
+@keyframes questionSlideIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Stagger animation for multiple questions */
+.test-question:nth-child(1) { animation-delay: 0.1s; }
+.test-question:nth-child(2) { animation-delay: 0.2s; }
+.test-question:nth-child(3) { animation-delay: 0.3s; }
+.test-question:nth-child(4) { animation-delay: 0.4s; }
+.test-question:nth-child(5) { animation-delay: 0.5s; }

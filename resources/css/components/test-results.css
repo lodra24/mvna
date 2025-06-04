@@ -1,0 +1,286 @@
+/* Test Results Components */
+
+/* Results Container */
+.test-results {
+    @apply space-y-8;
+}
+
+/* MBTI Type Display */
+.test-results__mbti-card {
+    @apply bg-gradient-to-br from-mindmetrics-indigo to-indigo-600 rounded-2xl p-8 text-center text-white;
+    @apply shadow-2xl border border-indigo-200;
+    position: relative;
+    overflow: hidden;
+}
+
+.test-results__mbti-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23ffffff' fill-opacity='0.1'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/svg%3E") repeat;
+    z-index: 0;
+    animation: patternFloat 25s linear infinite;
+}
+
+.test-results__mbti-card > * {
+    position: relative;
+    z-index: 1;
+}
+
+.test-results__mbti-type {
+    @apply text-5xl md:text-6xl font-black mb-4;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    letter-spacing: 0.1em;
+}
+
+.test-results__mbti-description {
+    @apply text-xl md:text-2xl font-medium opacity-90 leading-relaxed;
+}
+
+/* Score Cards Grid */
+.test-results__scores {
+    @apply grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6;
+}
+
+.test-score-card {
+    @apply bg-white rounded-xl border border-slate-200 p-6;
+    @apply transition-all duration-300 ease-in-out;
+    @apply hover:shadow-lg hover:border-slate-300;
+    backdrop-filter: blur(10px);
+    background: rgba(255, 255, 255, 0.95);
+}
+
+.test-score-card:hover {
+    transform: translateY(-4px);
+}
+
+.test-score-card__header {
+    @apply flex items-center justify-between mb-4;
+}
+
+.test-score-card__label {
+    @apply text-sm font-semibold text-slate-600 uppercase tracking-wide;
+}
+
+.test-score-card__icon {
+    @apply w-8 h-8 rounded-full flex items-center justify-center text-white text-sm font-bold;
+}
+
+.test-score-card__icon--e { @apply bg-red-500; }
+.test-score-card__icon--i { @apply bg-blue-500; }
+.test-score-card__icon--s { @apply bg-green-500; }
+.test-score-card__icon--n { @apply bg-purple-500; }
+.test-score-card__icon--t { @apply bg-yellow-500; }
+.test-score-card__icon--f { @apply bg-pink-500; }
+.test-score-card__icon--j { @apply bg-indigo-500; }
+.test-score-card__icon--p { @apply bg-orange-500; }
+
+.test-score-card__value {
+    @apply text-3xl font-bold text-slate-800 mb-2;
+}
+
+.test-score-card__description {
+    @apply text-sm text-slate-600 leading-relaxed;
+}
+
+/* Score Progress Bars */
+.test-score-progress {
+    @apply w-full bg-slate-200 rounded-full h-3 mb-3;
+    overflow: hidden;
+}
+
+.test-score-progress__bar {
+    @apply h-3 rounded-full transition-all duration-1000 ease-out;
+    background: linear-gradient(90deg, var(--start-color), var(--end-color));
+}
+
+.test-score-progress--e { --start-color: #ef4444; --end-color: #dc2626; }
+.test-score-progress--i { --start-color: #3b82f6; --end-color: #2563eb; }
+.test-score-progress--s { --start-color: #10b981; --end-color: #059669; }
+.test-score-progress--n { --start-color: #8b5cf6; --end-color: #7c3aed; }
+.test-score-progress--t { --start-color: #f59e0b; --end-color: #d97706; }
+.test-score-progress--f { --start-color: #ec4899; --end-color: #db2777; }
+.test-score-progress--j { --start-color: #6366f1; --end-color: #4f46e5; }
+.test-score-progress--p { --start-color: #f97316; --end-color: #ea580c; }
+
+/* Detailed Results Section */
+.test-results__details {
+    @apply bg-white rounded-2xl border border-slate-200 p-8;
+    backdrop-filter: blur(10px);
+    background: rgba(255, 255, 255, 0.95);
+}
+
+.test-results__section-title {
+    @apply text-2xl font-bold text-slate-800 mb-6 pb-3 border-b border-slate-200;
+}
+
+.test-results__description {
+    @apply text-slate-700 leading-relaxed space-y-4;
+}
+
+.test-results__description p {
+    @apply text-base;
+}
+
+.test-results__description strong {
+    @apply font-semibold text-slate-900;
+}
+
+/* Comparison Chart */
+.test-comparison {
+    @apply space-y-4;
+}
+
+.test-comparison__item {
+    @apply flex items-center justify-between p-4 bg-slate-50 rounded-lg;
+}
+
+.test-comparison__labels {
+    @apply flex justify-between w-full text-sm font-medium text-slate-600;
+}
+
+.test-comparison__bar {
+    @apply w-full h-2 bg-slate-200 rounded-full my-2 overflow-hidden;
+}
+
+.test-comparison__fill {
+    @apply h-2 rounded-full transition-all duration-1000 ease-out;
+}
+
+/* Action Buttons */
+.test-results__actions {
+    @apply flex flex-col sm:flex-row gap-4 justify-center items-center pt-8 border-t border-slate-200;
+}
+
+.test-action-button {
+    @apply inline-flex items-center justify-center px-8 py-4 text-base font-semibold rounded-lg;
+    @apply transition-all duration-200 ease-in-out;
+    @apply focus:outline-none focus:ring-2 focus:ring-offset-2;
+}
+
+.test-action-button--primary {
+    @apply bg-mindmetrics-green text-white hover:bg-mindmetrics-green-dark;
+    @apply focus:ring-mindmetrics-green shadow-lg;
+    transform: translateY(0);
+}
+
+.test-action-button--primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 15px -3px rgba(16, 185, 129, 0.3), 0 4px 6px -2px rgba(16, 185, 129, 0.2);
+}
+
+.test-action-button--secondary {
+    @apply bg-white text-slate-700 border-2 border-slate-300 hover:bg-slate-50;
+    @apply focus:ring-slate-500;
+}
+
+/* Statistics Cards */
+.test-stats {
+    @apply grid grid-cols-1 md:grid-cols-3 gap-6 mb-8;
+}
+
+.test-stat-card {
+    @apply bg-gradient-to-br from-white to-slate-50 rounded-xl border border-slate-200 p-6 text-center;
+    @apply transition-all duration-300 ease-in-out hover:shadow-lg;
+}
+
+.test-stat-card__icon {
+    @apply w-12 h-12 mx-auto mb-4 rounded-full flex items-center justify-center;
+    @apply bg-gradient-to-br from-mindmetrics-indigo to-indigo-600 text-white;
+}
+
+.test-stat-card__value {
+    @apply text-2xl font-bold text-slate-800 mb-2;
+}
+
+.test-stat-card__label {
+    @apply text-sm text-slate-600 font-medium;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .test-results__mbti-card {
+        @apply p-6;
+    }
+    
+    .test-results__mbti-type {
+        @apply text-4xl;
+    }
+    
+    .test-results__mbti-description {
+        @apply text-lg;
+    }
+    
+    .test-score-card {
+        @apply p-4;
+    }
+    
+    .test-score-card__value {
+        @apply text-2xl;
+    }
+    
+    .test-results__details {
+        @apply p-6;
+    }
+    
+    .test-action-button {
+        @apply w-full px-6 py-3 text-sm;
+    }
+}
+
+/* Animation for results appearance */
+.test-results__mbti-card {
+    animation: resultSlideIn 0.8s ease-out;
+}
+
+.test-score-card {
+    animation: scoreCardSlideIn 0.6s ease-out;
+}
+
+.test-score-card:nth-child(1) { animation-delay: 0.1s; }
+.test-score-card:nth-child(2) { animation-delay: 0.2s; }
+.test-score-card:nth-child(3) { animation-delay: 0.3s; }
+.test-score-card:nth-child(4) { animation-delay: 0.4s; }
+.test-score-card:nth-child(5) { animation-delay: 0.5s; }
+.test-score-card:nth-child(6) { animation-delay: 0.6s; }
+.test-score-card:nth-child(7) { animation-delay: 0.7s; }
+.test-score-card:nth-child(8) { animation-delay: 0.8s; }
+
+@keyframes resultSlideIn {
+    from {
+        opacity: 0;
+        transform: translateY(30px) scale(0.95);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+@keyframes scoreCardSlideIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Score progress bar animation */
+.test-score-progress__bar {
+    animation: progressFill 1.5s ease-out 0.5s both;
+}
+
+@keyframes progressFill {
+    from {
+        width: 0%;
+    }
+    to {
+        width: var(--progress-width);
+    }
+}

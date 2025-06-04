@@ -1,0 +1,313 @@
+/* Test Pages Main CSS Module */
+/* Import component styles */
+@import 'components/test-layout.css';
+@import 'components/test-forms.css';
+@import 'components/test-results.css';
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Test Pages Global Styles */
+:root {
+    --test-primary: theme('colors.mindmetrics-indigo');
+    --test-secondary: theme('colors.mindmetrics-green');
+    --test-accent: theme('colors.mindmetrics-green-dark');
+    --test-neutral-50: theme('colors.slate.50');
+    --test-neutral-100: theme('colors.slate.100');
+    --test-neutral-200: theme('colors.slate.200');
+    --test-neutral-700: theme('colors.slate.700');
+    --test-neutral-800: theme('colors.slate.800');
+}
+
+/* Base styles for test pages */
+.test-page {
+    @apply min-h-screen;
+    font-family: 'Inter', sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    overflow-x: hidden; /* Sadece yatay scroll'u engelle */
+    overflow-y: auto;   /* Dikey scroll'u açıkça aktif et */
+}
+
+/* Typography enhancements */
+.test-page h1,
+.test-page h2,
+.test-page h3,
+.test-page h4,
+.test-page h5,
+.test-page h6 {
+    @apply font-semibold tracking-tight;
+}
+
+.test-page p {
+    @apply leading-relaxed;
+}
+
+/* Focus styles for accessibility */
+.test-page *:focus {
+    @apply outline-none;
+}
+
+.test-page *:focus-visible {
+    @apply ring-2 ring-mindmetrics-indigo ring-offset-2;
+}
+
+/* Smooth scrolling */
+.test-page {
+    scroll-behavior: smooth;
+}
+
+/* Selection styles */
+.test-page ::selection {
+    @apply bg-mindmetrics-indigo text-white;
+}
+
+.test-page ::-moz-selection {
+    @apply bg-mindmetrics-indigo text-white;
+}
+
+/* Custom scrollbar for webkit browsers */
+.test-page ::-webkit-scrollbar {
+    width: 8px;
+}
+
+.test-page ::-webkit-scrollbar-track {
+    @apply bg-slate-100;
+}
+
+.test-page ::-webkit-scrollbar-thumb {
+    @apply bg-slate-300 rounded-full;
+}
+
+.test-page ::-webkit-scrollbar-thumb:hover {
+    @apply bg-slate-400;
+}
+
+/* Utility classes for test pages */
+.test-gradient-text {
+    background: linear-gradient(135deg, var(--test-primary), var(--test-secondary));
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.test-gradient-bg {
+    background: linear-gradient(135deg, var(--test-primary), var(--test-secondary));
+}
+
+.test-glass {
+    backdrop-filter: blur(10px);
+    background: rgba(255, 255, 255, 0.9);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.test-shadow-soft {
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+}
+
+.test-shadow-medium {
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+}
+
+.test-shadow-large {
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+}
+
+/* Animation utilities */
+.test-fade-in {
+    animation: testFadeIn 0.6s ease-out;
+}
+
+.test-slide-up {
+    animation: testSlideUp 0.6s ease-out;
+}
+
+.test-scale-in {
+    animation: testScaleIn 0.5s ease-out;
+}
+
+@keyframes testFadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes testSlideUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes testScaleIn {
+    from {
+        opacity: 0;
+        transform: scale(0.95);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+/* Loading states */
+.test-loading {
+    @apply relative overflow-hidden;
+}
+
+.test-loading::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(255, 255, 255, 0.4),
+        transparent
+    );
+    animation: testShimmer 1.5s infinite;
+}
+
+@keyframes testShimmer {
+    0% {
+        left: -100%;
+    }
+    100% {
+        left: 100%;
+    }
+}
+
+/* Error states */
+.test-error {
+    @apply border-red-300 bg-red-50 text-red-800;
+}
+
+.test-error-message {
+    @apply text-sm text-red-600 mt-1;
+}
+
+/* Success states */
+.test-success {
+    @apply border-green-300 bg-green-50 text-green-800;
+}
+
+.test-success-message {
+    @apply text-sm text-green-600 mt-1;
+}
+
+/* Warning states */
+.test-warning {
+    @apply border-yellow-300 bg-yellow-50 text-yellow-800;
+}
+
+.test-warning-message {
+    @apply text-sm text-yellow-600 mt-1;
+}
+
+/* Print styles */
+@media print {
+    .test-page {
+        @apply text-black bg-white;
+    }
+    
+    .test-navigation,
+    .test-action-button {
+        @apply hidden;
+    }
+    
+    .test-card {
+        @apply shadow-none border border-gray-300;
+    }
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+    .test-page {
+        --test-primary: #000000;
+        --test-secondary: #000000;
+    }
+    
+    .test-card {
+        @apply border-2 border-black;
+    }
+    
+    .test-button--primary {
+        @apply bg-black text-white border-2 border-black;
+    }
+}
+
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+    .test-page *,
+    .test-page *::before,
+    .test-page *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+}
+
+/* Dark mode support (for future implementation) */
+@media (prefers-color-scheme: dark) {
+    .test-page {
+        @apply bg-slate-900 text-white;
+    }
+    
+    .test-card {
+        @apply bg-slate-800 border-slate-700;
+    }
+    
+    .test-input-group__input {
+        @apply bg-slate-800 border-slate-700 text-white;
+    }
+}
+
+/* Custom component layer */
+@layer components {
+    .test-btn {
+        @apply inline-flex items-center justify-center px-6 py-3 text-sm font-semibold rounded-lg;
+        @apply transition-all duration-200 ease-in-out;
+        @apply focus:outline-none focus:ring-2 focus:ring-offset-2;
+    }
+    
+    .test-input {
+        @apply w-full px-4 py-3 border border-slate-300 rounded-lg;
+        @apply focus:ring-2 focus:ring-mindmetrics-indigo focus:border-mindmetrics-indigo;
+        @apply transition-all duration-200 ease-in-out;
+    }
+    
+    .test-card-base {
+        @apply bg-white rounded-xl border border-slate-200 p-6;
+        @apply transition-all duration-300 ease-in-out;
+    }
+}
+
+/* Responsive typography */
+@media (max-width: 640px) {
+    .test-page {
+        font-size: 14px;
+    }
+}
+
+@media (min-width: 641px) and (max-width: 1024px) {
+    .test-page {
+        font-size: 15px;
+    }
+}
+
+@media (min-width: 1025px) {
+    .test-page {
+        font-size: 16px;
+    }
+}

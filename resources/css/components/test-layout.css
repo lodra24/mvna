@@ -1,0 +1,123 @@
+/* Test Layout Components */
+
+/* Test sayfaları için genel layout */
+.test-layout {
+    @apply min-h-screen bg-gradient-to-br from-slate-50 to-slate-100;
+    font-family: 'Inter', sans-serif;
+}
+
+.test-container {
+    @apply max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-8;
+}
+
+/* Test Header */
+.test-header {
+    @apply text-center mb-8;
+}
+
+.test-header__title {
+    @apply text-4xl md:text-5xl font-bold text-slate-800 mb-4;
+    background: linear-gradient(135deg, theme('colors.mindmetrics-indigo'), theme('colors.mindmetrics-green'));
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.test-header__subtitle {
+    @apply text-lg md:text-xl text-slate-600 max-w-2xl mx-auto leading-relaxed;
+}
+
+/* Test Card */
+.test-card {
+    @apply bg-white rounded-2xl shadow-xl border border-slate-200/50 p-8 md:p-12;
+    backdrop-filter: blur(10px);
+    background: rgba(255, 255, 255, 0.95);
+}
+
+.test-card--elevated {
+    @apply shadow-2xl;
+    transform: translateY(-4px);
+}
+
+/* Test Navigation */
+.test-navigation {
+    @apply flex flex-col sm:flex-row gap-4 justify-center items-center mt-8 pt-8 border-t border-slate-200;
+}
+
+.test-nav-link {
+    @apply inline-flex items-center justify-center px-6 py-3 text-base font-semibold rounded-lg transition-all duration-200 ease-in-out;
+}
+
+.test-nav-link--primary {
+    @apply bg-mindmetrics-indigo text-white hover:bg-indigo-600 shadow-lg hover:shadow-xl;
+    transform: translateY(0);
+}
+
+.test-nav-link--primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 15px -3px rgba(79, 70, 229, 0.3), 0 4px 6px -2px rgba(79, 70, 229, 0.2);
+}
+
+.test-nav-link--secondary {
+    @apply bg-slate-100 text-slate-700 hover:bg-slate-200 border border-slate-300;
+}
+
+/* Progress Indicator */
+.test-progress {
+    @apply w-full bg-slate-200 rounded-full h-2 mb-8 mt-6;
+}
+
+.test-progress__bar {
+    @apply bg-gradient-to-r from-mindmetrics-indigo to-mindmetrics-green h-2 rounded-full transition-all duration-500 ease-out;
+}
+
+/* Geometric Background Patterns */
+.test-bg-pattern {
+    position: relative;
+    /* overflow: hidden; - Bu scroll'u engelliyor, kaldırıyoruz */
+}
+
+.test-bg-pattern::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: 
+        radial-gradient(circle at 25% 25%, rgba(79, 70, 229, 0.05) 2px, transparent 2px),
+        radial-gradient(circle at 75% 75%, rgba(16, 185, 129, 0.05) 1.5px, transparent 1.5px),
+        linear-gradient(90deg, rgba(79, 70, 229, 0.02) 1px, transparent 1px),
+        linear-gradient(rgba(16, 185, 129, 0.02) 1px, transparent 1px);
+    background-size: 80px 80px, 40px 40px, 20px 20px, 20px 20px;
+    background-position: 0 0, 20px 20px, 0 0, 0 0;
+    z-index: -1;
+    animation: patternFloat 20s linear infinite;
+}
+
+@keyframes patternFloat {
+    0% { transform: translateX(0) translateY(0); }
+    25% { transform: translateX(-20px) translateY(-10px); }
+    50% { transform: translateX(0) translateY(-20px); }
+    75% { transform: translateX(20px) translateY(-10px); }
+    100% { transform: translateX(0) translateY(0); }
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .test-container {
+        @apply px-4 py-6;
+    }
+    
+    .test-card {
+        @apply p-6;
+    }
+    
+    .test-header__title {
+        @apply text-3xl;
+    }
+    
+    .test-bg-pattern::before {
+        background-size: 60px 60px, 30px 30px, 15px 15px, 15px 15px;
+    }
+}
