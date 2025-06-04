@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\TestController; // Eklendi
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
@@ -18,3 +19,17 @@ Route::middleware('auth')->group(function () {
 });
 
 require __DIR__.'/auth.php';
+
+// Mevcut test.start rotası
+Route::get('/test/start', [TestController::class, 'start'])->name('test.start');
+
+// İstenen yeni POST rotası
+Route::post('/test/begin', [TestController::class, 'beginTest'])->name('test.begin');
+
+// YENİ EKLENEN ROTA
+Route::get('/test/questions', [TestController::class, 'showQuestions'])->name('test.questions');
+
+// Test cevaplarını gönderme rotası
+Route::post('/test/submit', [TestController::class, 'submitAnswers'])->name('test.submit');
+
+?>
