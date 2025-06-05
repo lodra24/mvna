@@ -13,6 +13,17 @@
 @section('content')
     @if(isset($questions) && count($questions) > 0)
 
+        <!-- Enhanced Progress Bar -->
+        <div class="enhanced-progress" data-user-name="{{ $userName }}">
+            <div class="progress-header">
+                <span class="question-counter" id="question-counter">Soru 1/{{ count($questions) }}</span>
+                <span class="progress-percentage" id="progress-percent">0%</span>
+            </div>
+            <div class="progress-bar-container">
+                <div class="progress-bar-fill" id="progress-bar-fill"></div>
+            </div>
+        </div>
+
         <!-- Form -->
         <form action="{{ route('test.submit') }}" method="POST" id="test-form" class="test-form">
             @csrf
@@ -20,7 +31,7 @@
             <!-- Questions -->
             <div class="space-y-6" id="questions-container">
                 @foreach($questions as $index => $question)
-                    <div class="test-question" data-question="{{ $index + 1 }}">
+                    <div class="test-question question-transition" data-question="{{ $index + 1 }}" data-question-index="{{ $index }}">
                         <!-- Question Number -->
                         <div class="test-question__number">{{ $index + 1 }}</div>
                         
@@ -67,6 +78,25 @@
                         </div>
                     </div>
                 @endforeach
+            </div>
+
+            <!-- Navigation Buttons -->
+            <div class="question-navigation">
+                <button type="button" id="prev-question-btn" class="nav-button nav-button--secondary" style="display: none;">
+                    <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
+                    </svg>
+                    Önceki Soru
+                </button>
+                
+                <div class="flex-1"></div>
+                
+                <button type="button" id="next-question-btn" class="nav-button nav-button--primary" disabled>
+                    Sonraki Soru
+                    <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                    </svg>
+                </button>
             </div>
 
             <!-- Submit Button -->
@@ -145,123 +175,7 @@
 
 @push('scripts')
 <script>
-document.addEventListener('DOMContentLoaded', function() {
-    const form = document.getElementById('test-form');
-    const submitBtn = document.getElementById('submit-btn');
-    const submitText = document.getElementById('submit-text');
-    const answeredCountEl = document.getElementById('answered-count');
-    const progressCircle = document.getElementById('progress-circle');
-    const progressPercent = document.getElementById('progress-percent');
-    
-    const totalQuestions = {{ count($questions ?? []) }};
-    let answeredQuestions = 0;
-    
-    // Auto-save key
-    const autoSaveKey = 'mbti_test_answers_{{ $userName }}';
-    
-    // Enable auto-save
-    enableAutoSave(form, autoSaveKey);
-    
-    // Track answered questions
-    function updateProgress() {
-        const checkedInputs = form.querySelectorAll('input[type="radio"]:checked');
-        answeredQuestions = checkedInputs.length;
-        
-        const percentage = Math.round((answeredQuestions / totalQuestions) * 100);
-        
-        // Update UI
-        answeredCountEl.textContent = answeredQuestions;
-        progressPercent.textContent = percentage + '%';
-        progressCircle.style.strokeDasharray = percentage + ', 100';
-        
-        // Enable/disable submit button
-        if (answeredQuestions === totalQuestions) {
-            submitBtn.disabled = false;
-            submitBtn.classList.remove('opacity-50', 'cursor-not-allowed');
-            submitText.textContent = 'Testi Tamamla';
-        } else {
-            submitBtn.disabled = true;
-            submitBtn.classList.add('opacity-50', 'cursor-not-allowed');
-            submitText.textContent = `${totalQuestions - answeredQuestions} soru kaldı`;
-        }
-    }
-    
-    // Add event listeners to radio buttons
-    const radioButtons = form.querySelectorAll('input[type="radio"]');
-    radioButtons.forEach(radio => {
-        radio.addEventListener('change', updateProgress);
-    });
-    
-    // Form submission
-    form.addEventListener('submit', function(e) {
-        if (answeredQuestions < totalQuestions) {
-            e.preventDefault();
-            showToast('Lütfen tüm soruları cevaplayın.', 'warning');
-            
-            // Scroll to first unanswered question
-            const firstUnanswered = form.querySelector('input[type="radio"]:not(:checked)');
-            if (firstUnanswered) {
-                const questionDiv = firstUnanswered.closest('.test-question');
-                questionDiv.scrollIntoView({ behavior: 'smooth', block: 'center' });
-                questionDiv.classList.add('ring-2', 'ring-yellow-400', 'ring-opacity-50');
-                setTimeout(() => {
-                    questionDiv.classList.remove('ring-2', 'ring-yellow-400', 'ring-opacity-50');
-                }, 2000);
-            }
-            return;
-        }
-        
-        // Show loading and clear auto-save
-        showLoading();
-        clearAutoSave(autoSaveKey);
-        
-        // Add loading state to button
-        submitBtn.classList.add('test-button--loading');
-        submitText.textContent = 'Sonuçlar hazırlanıyor...';
-    });
-    
-    // Keyboard navigation
-    document.addEventListener('keydown', function(e) {
-        if (e.key === 'ArrowDown' || e.key === 'ArrowUp') {
-            e.preventDefault();
-            const questions = Array.from(document.querySelectorAll('.test-question'));
-            const currentFocus = document.activeElement;
-            const currentQuestion = currentFocus.closest('.test-question');
-            
-            if (currentQuestion) {
-                const currentIndex = questions.indexOf(currentQuestion);
-                let nextIndex;
-                
-                if (e.key === 'ArrowDown') {
-                    nextIndex = Math.min(currentIndex + 1, questions.length - 1);
-                } else {
-                    nextIndex = Math.max(currentIndex - 1, 0);
-                }
-                
-                const nextQuestion = questions[nextIndex];
-                const firstRadio = nextQuestion.querySelector('input[type="radio"]');
-                firstRadio.focus();
-            }
-        }
-    });
-    
-    // Initialize progress
-    updateProgress();
-    
-    // Smooth scroll for better UX
-    const questions = document.querySelectorAll('.test-question');
-    questions.forEach((question, index) => {
-        question.style.animationDelay = (index * 0.1) + 's';
-    });
-    
-    // Auto-scroll to continue from where user left off
-    setTimeout(() => {
-        const firstUnanswered = form.querySelector('input[type="radio"]:not(:checked)');
-        if (firstUnanswered && answeredQuestions > 0) {
-            const questionDiv = firstUnanswered.closest('.test-question');
-            questionDiv.scrollIntoView({ behavior: 'smooth', block: 'center' });
-        }
-    }, 1000);
-});
+// Inline script devre dışı - QuestionManager tüm işlevselliği sağlıyor
+console.log('Inline script devre dışı - QuestionManager kullanılıyor');
 </script>
 @endpush

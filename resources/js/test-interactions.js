@@ -3,6 +3,267 @@
  * Modern MBTI Test sayfaları için özel JavaScript fonksiyonları
  */
 
+// Question Manager for single question display
+class QuestionManager {
+    constructor() {
+        this.currentQuestionIndex = 0;
+        this.totalQuestions = 0;
+        this.questions = [];
+        this.answers = {};
+        this.init();
+    }
+
+    init() {
+        this.setupQuestions();
+        this.setupEventListeners();
+        this.showCurrentQuestion();
+        this.updateProgress();
+    }
+
+    setupQuestions() {
+        this.questions = Array.from(document.querySelectorAll('.test-question'));
+        this.totalQuestions = this.questions.length;
+        
+        // Hide all questions initially
+        this.questions.forEach((question, index) => {
+            question.style.display = index === 0 ? 'block' : 'none';
+            question.classList.add('question-transition');
+        });
+    }
+
+    setupEventListeners() {
+        // Radio button change events
+        document.addEventListener('change', (e) => {
+            if (e.target.type === 'radio') {
+                this.handleAnswerSelection(e.target);
+            }
+        });
+
+        // Navigation button events
+        const prevBtn = document.getElementById('prev-question-btn');
+        const nextBtn = document.getElementById('next-question-btn');
+        
+        if (prevBtn) {
+            prevBtn.addEventListener('click', () => this.previousQuestion());
+        }
+        if (nextBtn) {
+            nextBtn.addEventListener('click', () => this.nextQuestion());
+        }
+
+        // Keyboard navigation
+        document.addEventListener('keydown', (e) => {
+            if (e.target.type === 'radio') {
+                this.handleKeyboardNavigation(e);
+            }
+        });
+    }
+
+    handleAnswerSelection(radioInput) {
+        const questionId = radioInput.getAttribute('data-question-id');
+        this.answers[questionId] = radioInput.value;
+        
+        // Add visual feedback
+        radioInput.closest('.test-option').classList.add('selected');
+        
+        // Auto-advance after short delay
+        setTimeout(() => {
+            if (this.currentQuestionIndex < this.totalQuestions - 1) {
+                this.nextQuestion();
+            } else {
+                this.updateSubmitButton();
+            }
+        }, 800);
+    }
+
+    handleKeyboardNavigation(e) {
+        switch (e.key) {
+            case 'ArrowLeft':
+                e.preventDefault();
+                this.previousQuestion();
+                break;
+            case 'ArrowRight':
+                e.preventDefault();
+                if (this.isCurrentQuestionAnswered()) {
+                    this.nextQuestion();
+                }
+                break;
+            case 'Enter':
+                if (this.currentQuestionIndex === this.totalQuestions - 1 && this.allQuestionsAnswered()) {
+                    document.getElementById('submit-btn')?.click();
+                }
+                break;
+        }
+    }
+
+    showCurrentQuestion() {
+        // Scroll pozisyonunu korumak için container'ı bul
+        const questionsContainer = document.getElementById('questions-container');
+        const currentScrollTop = window.pageYOffset || document.documentElement.scrollTop;
+        
+        this.questions.forEach((question, index) => {
+            if (index === this.currentQuestionIndex) {
+                // Önce mevcut soruyu gizle
+                question.classList.remove('question-active');
+                question.classList.add('question-hidden');
+                
+                // Kısa gecikme sonra yeni soruyu göster
+                setTimeout(() => {
+                    question.style.display = 'block';
+                    
+                    // Bir frame bekle sonra animasyonu başlat
+                    requestAnimationFrame(() => {
+                        question.classList.remove('question-hidden');
+                        question.classList.add('question-active');
+                        
+                        // Scroll pozisyonunu koru
+                        window.scrollTo(0, currentScrollTop);
+                        
+                        // Focus first radio button
+                        const firstRadio = question.querySelector('input[type="radio"]');
+                        if (firstRadio) {
+                            setTimeout(() => firstRadio.focus(), 150);
+                        }
+                    });
+                }, 50);
+            } else {
+                question.style.display = 'none';
+                question.classList.remove('question-active');
+                question.classList.add('question-hidden');
+            }
+        });
+        
+        this.updateNavigationButtons();
+        this.updateProgress();
+    }
+
+    nextQuestion() {
+        if (this.currentQuestionIndex < this.totalQuestions - 1) {
+            this.currentQuestionIndex++;
+            this.showCurrentQuestion();
+        }
+    }
+
+    previousQuestion() {
+        if (this.currentQuestionIndex > 0) {
+            this.currentQuestionIndex--;
+            this.showCurrentQuestion();
+        }
+    }
+
+    updateNavigationButtons() {
+        const prevBtn = document.getElementById('prev-question-btn');
+        const nextBtn = document.getElementById('next-question-btn');
+        
+        if (prevBtn) {
+            prevBtn.style.display = this.currentQuestionIndex === 0 ? 'none' : 'inline-flex';
+        }
+        
+        if (nextBtn) {
+            const isLastQuestion = this.currentQuestionIndex === this.totalQuestions - 1;
+            nextBtn.style.display = isLastQuestion ? 'none' : 'inline-flex';
+            nextBtn.disabled = !this.isCurrentQuestionAnswered();
+        }
+    }
+
+    updateProgress() {
+        const answeredCount = Object.keys(this.answers).length;
+        const percentage = Math.round((answeredCount / this.totalQuestions) * 100);
+        const currentQuestionNumber = this.currentQuestionIndex + 1;
+        
+        // Update progress elements
+        const progressCircle = document.getElementById('progress-circle');
+        const progressPercent = document.getElementById('progress-percent');
+        const answeredCountEl = document.getElementById('answered-count');
+        const questionCounter = document.getElementById('question-counter');
+        
+        if (progressCircle) {
+            progressCircle.style.strokeDasharray = percentage + ', 100';
+        }
+        if (progressPercent) {
+            progressPercent.textContent = percentage + '%';
+        }
+        if (answeredCountEl) {
+            answeredCountEl.textContent = answeredCount;
+        }
+        if (questionCounter) {
+            questionCounter.textContent = `Soru ${currentQuestionNumber}/${this.totalQuestions}`;
+        }
+        
+        this.updateSubmitButton();
+    }
+
+    updateSubmitButton() {
+        const submitBtn = document.getElementById('submit-btn');
+        const submitText = document.getElementById('submit-text');
+        
+        if (submitBtn && submitText) {
+            const allAnswered = this.allQuestionsAnswered();
+            const remainingQuestions = this.totalQuestions - Object.keys(this.answers).length;
+            
+            submitBtn.disabled = !allAnswered;
+            
+            if (allAnswered) {
+                submitBtn.classList.remove('opacity-50', 'cursor-not-allowed');
+                submitText.textContent = 'Testi Tamamla';
+            } else {
+                submitBtn.classList.add('opacity-50', 'cursor-not-allowed');
+                submitText.textContent = `${remainingQuestions} soru kaldı`;
+            }
+        }
+    }
+
+    isCurrentQuestionAnswered() {
+        const currentQuestion = this.questions[this.currentQuestionIndex];
+        const checkedRadio = currentQuestion.querySelector('input[type="radio"]:checked');
+        return !!checkedRadio;
+    }
+
+    allQuestionsAnswered() {
+        return Object.keys(this.answers).length === this.totalQuestions;
+    }
+
+    // Auto-save integration
+    saveProgress() {
+        const userName = document.querySelector('[data-user-name]')?.dataset.userName || 'user';
+        const saveKey = `mbti_test_answers_${userName}`;
+        
+        try {
+            const saveData = {
+                answers: this.answers,
+                currentQuestion: this.currentQuestionIndex
+            };
+            localStorage.setItem(saveKey, JSON.stringify(saveData));
+        } catch (error) {
+            console.warn('Progress save error:', error);
+        }
+    }
+
+    loadProgress() {
+        const userName = document.querySelector('[data-user-name]')?.dataset.userName || 'user';
+        const saveKey = `mbti_test_answers_${userName}`;
+        
+        try {
+            const savedData = localStorage.getItem(saveKey);
+            if (savedData) {
+                const data = JSON.parse(savedData);
+                this.answers = data.answers || {};
+                this.currentQuestionIndex = data.currentQuestion || 0;
+                
+                // Restore radio button states
+                Object.keys(this.answers).forEach(questionId => {
+                    const radio = document.querySelector(`input[data-question-id="${questionId}"][value="${this.answers[questionId]}"]`);
+                    if (radio) {
+                        radio.checked = true;
+                        radio.closest('.test-option').classList.add('selected');
+                    }
+                });
+            }
+        } catch (error) {
+            console.warn('Progress load error:', error);
+        }
+    }
+}
+
 // Test sayfası utilities
 class TestPageUtils {
     constructor() {
@@ -408,13 +669,36 @@ document.addEventListener('DOMContentLoaded', () => {
     // Initialize test page utilities
     new TestPageUtils();
     
-    // Initialize auto-save for test form if exists
+    // Initialize question manager for test questions page
     const testForm = document.getElementById('test-form');
-    if (testForm) {
+    if (testForm && document.querySelector('.test-question')) {
+        window.questionManager = new QuestionManager();
+        
+        // Load saved progress
+        window.questionManager.loadProgress();
+        
+        // Auto-save on answer changes
+        testForm.addEventListener('change', () => {
+            if (window.questionManager) {
+                window.questionManager.saveProgress();
+            }
+        });
+        
+        // Clear auto-save on successful form submission
+        testForm.addEventListener('submit', () => {
+            setTimeout(() => {
+                const userName = document.querySelector('[data-user-name]')?.dataset.userName || 'user';
+                const saveKey = `mbti_test_answers_${userName}`;
+                localStorage.removeItem(saveKey);
+            }, 1000);
+        });
+    }
+    
+    // Initialize auto-save for other forms
+    if (testForm && !document.querySelector('.test-question')) {
         const userName = document.querySelector('[data-user-name]')?.dataset.userName || 'user';
         const autoSave = new TestAutoSave('test-form', `mbti_test_answers_${userName}`);
         
-        // Clear auto-save on successful form submission
         testForm.addEventListener('submit', () => {
             setTimeout(() => {
                 autoSave.clearSavedData();
@@ -426,3 +710,4 @@ document.addEventListener('DOMContentLoaded', () => {
 // Export for global access
 window.TestPageUtils = TestPageUtils;
 window.TestAutoSave = TestAutoSave;
+window.QuestionManager = QuestionManager;

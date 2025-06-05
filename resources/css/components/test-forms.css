@@ -326,3 +326,341 @@
 .test-question:nth-child(3) { animation-delay: 0.3s; }
 .test-question:nth-child(4) { animation-delay: 0.4s; }
 .test-question:nth-child(5) { animation-delay: 0.5s; }
+
+/* ============================================ */
+/* QUESTION MANAGER STYLES - NEW ADDITIONS */
+/* ============================================ */
+
+/* Question Transition States */
+.question-transition {
+    transition: opacity 0.3s ease-out, transform 0.3s ease-out;
+}
+
+.question-hidden {
+    opacity: 0;
+    transform: translateY(15px);
+    pointer-events: none;
+}
+
+.question-active {
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: auto;
+}
+
+/* Enhanced Progress Bar */
+.enhanced-progress {
+    background: white;
+    border-radius: 12px;
+    padding: 20px;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+    margin-bottom: 24px;
+}
+
+.progress-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 12px;
+}
+
+.question-counter {
+    font-size: 1.125rem;
+    font-weight: 600;
+    color: #374151;
+}
+
+.progress-percentage {
+    font-size: 1.125rem;
+    font-weight: 700;
+    color: #4f46e5;
+}
+
+.progress-bar-container {
+    width: 100%;
+    height: 8px;
+    background-color: #e5e7eb;
+    border-radius: 9999px;
+    overflow: hidden;
+}
+
+.progress-bar-fill {
+    height: 100%;
+    background: linear-gradient(90deg, #4f46e5 0%, #7c3aed 100%);
+    border-radius: 9999px;
+    transition: width 0.5s ease-in-out;
+    width: 0%;
+}
+
+/* Navigation Buttons */
+.question-navigation {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 24px;
+    padding-top: 24px;
+    border-top: 1px solid #e5e7eb;
+}
+
+.nav-button {
+    display: inline-flex;
+    align-items: center;
+    padding: 12px 24px;
+    border-radius: 8px;
+    font-weight: 500;
+    transition: all 0.2s ease-in-out;
+    cursor: pointer;
+    border: none;
+    text-decoration: none;
+}
+
+.nav-button:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+.nav-button--primary {
+    background-color: #4f46e5;
+    color: white;
+}
+
+.nav-button--primary:hover:not(:disabled) {
+    background-color: #4338ca;
+    transform: translateY(-1px);
+}
+
+.nav-button--secondary {
+    background-color: #f3f4f6;
+    color: #374151;
+    border: 1px solid #d1d5db;
+}
+
+.nav-button--secondary:hover:not(:disabled) {
+    background-color: #e5e7eb;
+    transform: translateY(-1px);
+}
+
+/* Selected Option Feedback */
+.test-option.selected {
+    background-color: #eff6ff;
+    border-color: #3b82f6;
+    transform: scale(1.02);
+}
+
+.test-option.selected .test-option__radio {
+    border-color: #3b82f6;
+    background-color: #3b82f6;
+}
+
+.test-option.selected .test-option__radio::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 8px;
+    height: 8px;
+    background-color: white;
+    border-radius: 50%;
+}
+
+/* Enhanced Floating Progress */
+#floating-progress {
+    transition: all 0.3s ease-in-out;
+}
+
+#floating-progress:hover {
+    transform: scale(1.05);
+    box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1);
+}
+
+/* Question Animation Enhancements */
+@keyframes questionSlideInLeft {
+    from {
+        opacity: 0;
+        transform: translateX(-30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes questionSlideInRight {
+    from {
+        opacity: 0;
+        transform: translateX(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes questionSlideOutLeft {
+    from {
+        opacity: 1;
+        transform: translateX(0);
+    }
+    to {
+        opacity: 0;
+        transform: translateX(-30px);
+    }
+}
+
+@keyframes questionSlideOutRight {
+    from {
+        opacity: 1;
+        transform: translateX(0);
+    }
+    to {
+        opacity: 0;
+        transform: translateX(30px);
+    }
+}
+
+.question-slide-in-left {
+    animation: questionSlideInLeft 0.3s ease-out forwards;
+}
+
+.question-slide-in-right {
+    animation: questionSlideInRight 0.3s ease-out forwards;
+}
+
+.question-slide-out-left {
+    animation: questionSlideOutLeft 0.3s ease-out forwards;
+}
+
+.question-slide-out-right {
+    animation: questionSlideOutRight 0.3s ease-out forwards;
+}
+
+/* Progress Circle Animation */
+#progress-circle {
+    transition: stroke-dasharray 0.5s ease-in-out;
+}
+
+/* Responsive Design for Question Manager */
+@media (max-width: 768px) {
+    .enhanced-progress {
+        padding: 16px;
+        margin-bottom: 20px;
+    }
+    
+    .progress-header {
+        flex-direction: column;
+        gap: 8px;
+        text-align: center;
+    }
+    
+    .question-navigation {
+        flex-direction: column;
+        gap: 12px;
+    }
+    
+    .nav-button {
+        width: 100%;
+        justify-content: center;
+    }
+    
+    #floating-progress {
+        bottom: 20px;
+        right: 20px;
+        left: 20px;
+        border-radius: 12px;
+    }
+    
+    #floating-progress .flex {
+        justify-content: center;
+    }
+    
+    .question-counter,
+    .progress-percentage {
+        font-size: 1rem;
+    }
+}
+
+/* Accessibility Improvements */
+.nav-button:focus {
+    outline: 2px solid #4f46e5;
+    outline-offset: 2px;
+}
+
+.test-option:focus-within {
+    outline: none;
+}
+
+/* Remove default focus outline from radio inputs */
+.test-option__input:focus {
+    outline: none;
+}
+
+.test-option__label:focus {
+    outline: none;
+}
+
+/* Custom focus styles for better UX */
+.test-option__input:focus + .test-option__label {
+    box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.1);
+    border-color: #4f46e5;
+}
+
+/* Loading States for Navigation */
+.nav-button--loading {
+    position: relative;
+    color: transparent;
+}
+
+.nav-button--loading::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 20px;
+    height: 20px;
+    border: 2px solid transparent;
+    border-top: 2px solid currentColor;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+
+/* Pulse effect for current question */
+.question-active {
+    animation: questionPulse 2s ease-in-out infinite;
+}
+
+@keyframes questionPulse {
+    0%, 100% {
+        box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+    }
+    50% {
+        box-shadow: 0 8px 25px -5px rgba(79, 70, 229, 0.2);
+    }
+}
+
+/* Smooth transitions for option selection */
+.test-option__label {
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.test-option__input:checked + .test-option__label {
+    transform: scale(1.02);
+    box-shadow: 0 8px 25px -5px rgba(79, 70, 229, 0.3);
+}
+
+/* Progress indicator improvements */
+.progress-bar-fill {
+    background: linear-gradient(90deg, #4f46e5 0%, #7c3aed 50%, #06b6d4 100%);
+    background-size: 200% 100%;
+    animation: progressGradient 3s ease-in-out infinite;
+}
+
+@keyframes progressGradient {
+    0%, 100% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+}
