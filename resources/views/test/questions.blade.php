@@ -29,9 +29,9 @@
             @csrf
             
             <!-- Questions -->
-            <div class="space-y-6" id="questions-container">
+            <div class="questions-container" id="questions-container">
                 @foreach($questions as $index => $question)
-                    <div class="test-question question-transition" data-question="{{ $index + 1 }}" data-question-index="{{ $index }}">
+                    <div class="test-question" data-question="{{ $index + 1 }}" data-question-index="{{ $index }}">
                         <!-- Question Number -->
                         <div class="test-question__number">{{ $index + 1 }}</div>
                         

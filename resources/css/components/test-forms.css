@@ -304,48 +304,50 @@
     }
 }
 
-/* Animation for question appearance */
+/* ============================================ */
+/* YENİ QUESTION ANIMATION SYSTEM - FLICKER FIX */
+/* ============================================ */
+
+/* Container için sabit yükseklik - layout shift önleme */
+.questions-container {
+    position: relative;
+    min-height: 500px; /* Sabit yükseklik */
+    overflow: hidden;
+}
+
+/* Eski question transition sistemini tamamen değiştir */
 .test-question {
-    animation: questionSlideIn 0.5s ease-out;
-}
-
-@keyframes questionSlideIn {
-    from {
-        opacity: 0;
-        transform: translateY(20px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-/* Stagger animation for multiple questions */
-.test-question:nth-child(1) { animation-delay: 0.1s; }
-.test-question:nth-child(2) { animation-delay: 0.2s; }
-.test-question:nth-child(3) { animation-delay: 0.3s; }
-.test-question:nth-child(4) { animation-delay: 0.4s; }
-.test-question:nth-child(5) { animation-delay: 0.5s; }
-
-/* ============================================ */
-/* QUESTION MANAGER STYLES - NEW ADDITIONS */
-/* ============================================ */
-
-/* Question Transition States */
-.question-transition {
-    transition: opacity 0.3s ease-out, transform 0.3s ease-out;
-}
-
-.question-hidden {
+    position: absolute !important;
+    top: 0;
+    left: 0;
+    right: 0;
     opacity: 0;
-    transform: translateY(15px);
+    transform: translateX(30px);
+    transition: opacity 0.4s cubic-bezier(0.4, 0, 0.2, 1),
+                transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
     pointer-events: none;
+    visibility: hidden;
 }
 
-.question-active {
+.test-question.question-active {
     opacity: 1;
-    transform: translateY(0);
+    transform: translateX(0);
     pointer-events: auto;
+    visibility: visible;
+}
+
+.test-question.question-prev {
+    opacity: 0;
+    transform: translateX(-30px);
+    pointer-events: none;
+    visibility: hidden;
+}
+
+.test-question.question-next {
+    opacity: 0;
+    transform: translateX(30px);
+    pointer-events: none;
+    visibility: hidden;
 }
 
 /* Enhanced Progress Bar */
@@ -474,66 +476,7 @@
     box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1);
 }
 
-/* Question Animation Enhancements */
-@keyframes questionSlideInLeft {
-    from {
-        opacity: 0;
-        transform: translateX(-30px);
-    }
-    to {
-        opacity: 1;
-        transform: translateX(0);
-    }
-}
-
-@keyframes questionSlideInRight {
-    from {
-        opacity: 0;
-        transform: translateX(30px);
-    }
-    to {
-        opacity: 1;
-        transform: translateX(0);
-    }
-}
-
-@keyframes questionSlideOutLeft {
-    from {
-        opacity: 1;
-        transform: translateX(0);
-    }
-    to {
-        opacity: 0;
-        transform: translateX(-30px);
-    }
-}
-
-@keyframes questionSlideOutRight {
-    from {
-        opacity: 1;
-        transform: translateX(0);
-    }
-    to {
-        opacity: 0;
-        transform: translateX(30px);
-    }
-}
-
-.question-slide-in-left {
-    animation: questionSlideInLeft 0.3s ease-out forwards;
-}
-
-.question-slide-in-right {
-    animation: questionSlideInRight 0.3s ease-out forwards;
-}
-
-.question-slide-out-left {
-    animation: questionSlideOutLeft 0.3s ease-out forwards;
-}
-
-.question-slide-out-right {
-    animation: questionSlideOutRight 0.3s ease-out forwards;
-}
+/* ESKİ ANİMASYON SINIFLARINI KALDIR - ARTIK GEREKSİZ */
 
 /* Progress Circle Animation */
 #progress-circle {
@@ -625,19 +568,7 @@
     animation: spin 1s linear infinite;
 }
 
-/* Pulse effect for current question */
-.question-active {
-    animation: questionPulse 2s ease-in-out infinite;
-}
-
-@keyframes questionPulse {
-    0%, 100% {
-        box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
-    }
-    50% {
-        box-shadow: 0 8px 25px -5px rgba(79, 70, 229, 0.2);
-    }
-}
+/* Pulse effect kaldırıldı - flicker'a sebep oluyordu */
 
 /* Smooth transitions for option selection */
 .test-option__label {

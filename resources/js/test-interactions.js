@@ -10,6 +10,7 @@ class QuestionManager {
         this.totalQuestions = 0;
         this.questions = [];
         this.answers = {};
+        this.advanceTimer = null; // YENİ EKLEME
         this.init();
     }
 
@@ -24,10 +25,13 @@ class QuestionManager {
         this.questions = Array.from(document.querySelectorAll('.test-question'));
         this.totalQuestions = this.questions.length;
         
-        // Hide all questions initially
+        // Tüm soruları gizle, sadece ilkini göster
         this.questions.forEach((question, index) => {
-            question.style.display = index === 0 ? 'block' : 'none';
-            question.classList.add('question-transition');
+            if (index === 0) {
+                question.classList.add('question-active');
+            } else {
+                question.classList.add('question-next');
+            }
         });
     }
 
@@ -62,17 +66,20 @@ class QuestionManager {
         const questionId = radioInput.getAttribute('data-question-id');
         this.answers[questionId] = radioInput.value;
         
-        // Add visual feedback
+        // Seçim feedback'i
         radioInput.closest('.test-option').classList.add('selected');
         
-        // Auto-advance after short delay
-        setTimeout(() => {
+        // Çifte tetiklenmeyi önlemek için mevcut timer'ı temizle
+        clearTimeout(this.advanceTimer);
+        
+        // Auto-advance için debounced timer
+        this.advanceTimer = setTimeout(() => {
             if (this.currentQuestionIndex < this.totalQuestions - 1) {
                 this.nextQuestion();
             } else {
                 this.updateSubmitButton();
             }
-        }, 800);
+        }, 700); // Biraz daha uzun bekleme süresi
     }
 
     handleKeyboardNavigation(e) {
@@ -96,40 +103,36 @@ class QuestionManager {
     }
 
     showCurrentQuestion() {
-        // Scroll pozisyonunu korumak için container'ı bul
-        const questionsContainer = document.getElementById('questions-container');
         const currentScrollTop = window.pageYOffset || document.documentElement.scrollTop;
         
         this.questions.forEach((question, index) => {
+            // Tüm sınıfları temizle
+            question.classList.remove('question-active', 'question-prev', 'question-next');
+            
             if (index === this.currentQuestionIndex) {
-                // Önce mevcut soruyu gizle
-                question.classList.remove('question-active');
-                question.classList.add('question-hidden');
-                
-                // Kısa gecikme sonra yeni soruyu göster
-                setTimeout(() => {
-                    question.style.display = 'block';
-                    
-                    // Bir frame bekle sonra animasyonu başlat
-                    requestAnimationFrame(() => {
-                        question.classList.remove('question-hidden');
-                        question.classList.add('question-active');
-                        
-                        // Scroll pozisyonunu koru
-                        window.scrollTo(0, currentScrollTop);
-                        
-                        // Focus first radio button
-                        const firstRadio = question.querySelector('input[type="radio"]');
-                        if (firstRadio) {
-                            setTimeout(() => firstRadio.focus(), 150);
-                        }
-                    });
-                }, 50);
+                // Aktif soruyu göster
+                question.classList.add('question-active');
+            } else if (index < this.currentQuestionIndex) {
+                // Geçmiş sorular
+                question.classList.add('question-prev');
             } else {
-                question.style.display = 'none';
-                question.classList.remove('question-active');
-                question.classList.add('question-hidden');
+                // Gelecek sorular
+                question.classList.add('question-next');
             }
+        });
+        
+        // Scroll pozisyonunu koru
+        requestAnimationFrame(() => {
+            window.scrollTo(0, currentScrollTop);
+            
+            // Focus işlemini animasyon tamamlandıktan sonra yap
+            setTimeout(() => {
+                const activeQuestion = this.questions[this.currentQuestionIndex];
+                const firstRadio = activeQuestion.querySelector('input[type="radio"]');
+                if (firstRadio) {
+                    firstRadio.focus();
+                }
+            }, 400);
         });
         
         this.updateNavigationButtons();

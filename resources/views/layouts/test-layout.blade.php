@@ -19,7 +19,7 @@
     <!-- Additional head content -->
     @stack('head')
 </head>
-<body class="test-page test-layout test-bg-pattern">
+<body class="test-page test-layout test-bg-pattern" style="overflow-x: hidden;">
     <!-- Test Header -->
     <header class="test-container">
         <div class="test-header">
