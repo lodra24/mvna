@@ -3,28 +3,15 @@
 @section('title', 'MBTI Testi')
 
 @section('page-title')
-    Merhaba, {{ $userName }}! <span style="color: #f59e0b;">👋</span>
+    Merhaba, {{ $userName }}! <span style="color: #f59e0b !important; background: none !important; -webkit-text-fill-color: #f59e0b !important;">👋</span>
 @endsection
 
 @section('page-subtitle')
     Her soru için size en uygun seçeneği işaretleyin. Doğru ya da yanlış cevap yoktur, sadece sizin için en doğal olanı seçin.
 @endsection
 
-@section('progress', '50')
-
 @section('content')
     @if(isset($questions) && count($questions) > 0)
-        <!-- Progress Info -->
-        <div class="test-form-progress mb-12">
-            <div class="test-form-progress__text">
-                <span class="font-semibold text-mindmetrics-indigo">{{ count($questions) }}</span> soru
-                <span class="text-slate-500">•</span>
-                <span class="text-slate-600">Tahmini süre: {{ ceil(count($questions) * 0.25) }} dakika</span>
-            </div>
-            <div class="test-form-progress__bar">
-                <div class="test-form-progress__fill" style="width: 0%" id="progress-fill"></div>
-            </div>
-        </div>
 
         <!-- Form -->
         <form action="{{ route('test.submit') }}" method="POST" id="test-form" class="test-form">
@@ -163,7 +150,6 @@ document.addEventListener('DOMContentLoaded', function() {
     const submitBtn = document.getElementById('submit-btn');
     const submitText = document.getElementById('submit-text');
     const answeredCountEl = document.getElementById('answered-count');
-    const progressFill = document.getElementById('progress-fill');
     const progressCircle = document.getElementById('progress-circle');
     const progressPercent = document.getElementById('progress-percent');
     
@@ -185,7 +171,6 @@ document.addEventListener('DOMContentLoaded', function() {
         
         // Update UI
         answeredCountEl.textContent = answeredQuestions;
-        progressFill.style.width = percentage + '%';
         progressPercent.textContent = percentage + '%';
         progressCircle.style.strokeDasharray = percentage + ', 100';
         

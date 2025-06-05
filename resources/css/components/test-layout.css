@@ -7,12 +7,12 @@
 }
 
 .test-container {
-    @apply max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-8;
+    @apply max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-4;
 }
 
 /* Test Header */
 .test-header {
-    @apply text-center mb-8;
+    @apply text-center mb-4;
 }
 
 .test-header__title {

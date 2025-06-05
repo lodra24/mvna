@@ -45,12 +45,6 @@
                 </p>
             @endif
             
-            <!-- Progress Indicator -->
-            @hasSection('progress')
-                <div class="test-progress">
-                    <div class="test-progress__bar" style="width: @yield('progress', '0')%"></div>
-                </div>
-            @endif
         </div>
     </header>
 
