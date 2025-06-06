@@ -174,13 +174,14 @@ class QuestionManager {
         const currentQuestionNumber = this.currentQuestionIndex + 1;
         
         // Update progress elements
-        const progressCircle = document.getElementById('progress-circle');
+        const progressBarFill = document.getElementById('progress-bar-fill');
         const progressPercent = document.getElementById('progress-percent');
         const answeredCountEl = document.getElementById('answered-count');
         const questionCounter = document.getElementById('question-counter');
         
-        if (progressCircle) {
-            progressCircle.style.strokeDasharray = percentage + ', 100';
+        // Update main progress bar
+        if (progressBarFill) {
+            progressBarFill.style.width = percentage + '%';
         }
         if (progressPercent) {
             progressPercent.textContent = percentage + '%';

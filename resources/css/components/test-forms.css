@@ -474,22 +474,9 @@
     border-radius: 50%;
 }
 
-/* Enhanced Floating Progress */
-#floating-progress {
-    transition: all 0.3s ease-in-out;
-}
-
-#floating-progress:hover {
-    transform: scale(1.05);
-    box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1);
-}
 
 /* ESKİ ANİMASYON SINIFLARINI KALDIR - ARTIK GEREKSİZ */
 
-/* Progress Circle Animation */
-#progress-circle {
-    transition: stroke-dasharray 0.5s ease-in-out;
-}
 
 /* Responsive Design for Question Manager */
 @media (max-width: 768px) {

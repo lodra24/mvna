@@ -114,38 +114,6 @@
             </div>
         </form>
 
-        <!-- Floating Progress -->
-        <div class="fixed bottom-4 right-4 bg-white rounded-full shadow-lg border border-slate-200 p-3 z-40" id="floating-progress">
-            <div class="flex items-center space-x-3">
-                <div class="w-8 h-8 relative">
-                    <svg class="w-8 h-8 transform -rotate-90" viewBox="0 0 36 36">
-                        <path
-                            d="M18 2.0845
-                            a 15.9155 15.9155 0 0 1 0 31.831
-                            a 15.9155 15.9155 0 0 1 0 -31.831"
-                            fill="none"
-                            stroke="#e5e7eb"
-                            stroke-width="3"
-                        />
-                        <path
-                            id="progress-circle"
-                            d="M18 2.0845
-                            a 15.9155 15.9155 0 0 1 0 31.831
-                            a 15.9155 15.9155 0 0 1 0 -31.831"
-                            fill="none"
-                            stroke="#4f46e5"
-                            stroke-width="3"
-                            stroke-dasharray="0, 100"
-                            stroke-linecap="round"
-                        />
-                    </svg>
-                    <div class="absolute inset-0 flex items-center justify-center">
-                        <span class="text-xs font-semibold text-slate-700" id="progress-percent">0%</span>
-                    </div>
-                </div>
-                <span class="text-sm font-medium text-slate-700">İlerleme</span>
-            </div>
-        </div>
 
     @else
         <!-- No Questions Found -->
