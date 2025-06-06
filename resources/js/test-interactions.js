@@ -66,7 +66,15 @@ class QuestionManager {
         const questionId = radioInput.getAttribute('data-question-id');
         this.answers[questionId] = radioInput.value;
         
+        // --- ÇÖZÜM: BU SATIRI EKLEYİN ---
+        // Her cevap seçildiğinde progress bar'ı anında güncelle.
+        this.updateProgress();
+        // --- ÇÖZÜM BİTTİ ---
+
         // Seçim feedback'i
+        // Önceki tüm 'selected' sınıflarını kaldıralım ki sadece mevcut seçim parlasın.
+        const parentQuestion = radioInput.closest('.test-question');
+        parentQuestion.querySelectorAll('.test-option').forEach(opt => opt.classList.remove('selected'));
         radioInput.closest('.test-option').classList.add('selected');
         
         // Çifte tetiklenmeyi önlemek için mevcut timer'ı temizle
@@ -77,6 +85,8 @@ class QuestionManager {
             if (this.currentQuestionIndex < this.totalQuestions - 1) {
                 this.nextQuestion();
             } else {
+                // Son soruda progress bar'ın %100 olduğundan emin olmak için tekrar çağırabiliriz
+                // ama yukarıda zaten ekledik, bu yüzden sadece butonu güncellemek yeterli.
                 this.updateSubmitButton();
             }
         }, 700); // Biraz daha uzun bekleme süresi
@@ -179,9 +189,14 @@ class QuestionManager {
         const answeredCountEl = document.getElementById('answered-count');
         const questionCounter = document.getElementById('question-counter');
         
-        // Update main progress bar
+        // Update main progress bar - %100'de tam dolması için özel kontrol
         if (progressBarFill) {
-            progressBarFill.style.width = percentage + '%';
+            if (percentage === 100) {
+                progressBarFill.style.width = '100%';
+                progressBarFill.style.borderRadius = '9999px';
+            } else {
+                progressBarFill.style.width = percentage + '%';
+            }
         }
         if (progressPercent) {
             progressPercent.textContent = percentage + '%';
