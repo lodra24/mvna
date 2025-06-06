@@ -80,8 +80,10 @@
                 @endforeach
             </div>
 
-            <!-- Navigation Buttons -->
-            <div class="question-navigation">
+            {{-- --- DEĞİŞİKLİK BAŞLANGIÇ --- --}}
+            <!-- Navigation & Submission Buttons (Güncellenmiş) -->
+            <div class="question-navigation" id="question-navigation-footer">
+                <!-- Previous Button -->
                 <button type="button" id="prev-question-btn" class="nav-button nav-button--secondary" style="display: none;">
                     <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
@@ -89,29 +91,26 @@
                     Önceki Soru
                 </button>
                 
+                <!-- Spacer: Butonları iki uca yaslar -->
                 <div class="flex-1"></div>
                 
-                <button type="button" id="next-question-btn" class="nav-button nav-button--primary" disabled>
-                    Sonraki Soru
-                    <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
-                    </svg>
-                </button>
-            </div>
+                {{-- "Sonraki Soru" Butonu TAMAMEN KALDIRILDI --}}
 
-            <!-- Submit Button -->
-            <div class="text-center mt-12 pt-8 border-t border-slate-200">
-                <button type="submit" id="submit-btn" class="test-button test-button--primary test-button--large" disabled>
-                    <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
-                    </svg>
-                    <span id="submit-text">Testi Tamamla</span>
-                </button>
-                
-                <p class="text-sm text-slate-500 mt-3">
-                    <span id="answered-count">0</span> / {{ count($questions) }} soru cevaplanmış
-                </p>
+                <!-- Submit Button Wrapper (JS ile yönetilecek) -->
+                {{-- "text-center" sınıfı kaldırıldı, "flex" ve "items-end" eklendi --}}
+                <div id="submit-button-wrapper" class="flex flex-col items-end" style="display: none;">
+                    <button type="submit" id="submit-btn" class="test-button test-button--primary test-button--large" disabled>
+                        <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                        </svg>
+                        <span id="submit-text">Testi Tamamla</span>
+                    </button>
+                    <p class="text-sm text-slate-500 mt-2"> {{-- mt-3'ten mt-2'ye düşürüldü --}}
+                        <span id="answered-count">0</span> / {{ count($questions) }} soru cevaplanmış
+                    </p>
+                </div>
             </div>
+            {{-- --- DEĞİŞİKLİK BİTİŞ --- --}}
         </form>
 
 

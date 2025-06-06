@@ -2,7 +2,7 @@
 
 /* Form Container */
 .test-form {
-    @apply space-y-8;
+    /* @apply space-y-8; BU SATIR SİLİNDİ VEYA YORUMA ALINDI */
 }
 
 /* Fade in animation for test start page */
@@ -311,8 +311,11 @@
 /* Container için sabit yükseklik - layout shift önleme */
 .questions-container {
     position: relative;
-    min-height: 500px; /* Sabit yükseklik */
+    /* min-height: 500px;  BU SATIR SİLİNDİ VEYA YORUMA ALINDI */
     overflow: hidden;
+    /* --- DEĞİŞİKLİK BAŞLANGIÇ: YÜKSEKLİK GEÇİŞİ EKLEYİN --- */
+    transition: height 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    /* --- DEĞİŞİKLİK BİTİŞ --- */
 }
 
 /* Eski question transition sistemini tamamen değiştir */
@@ -409,10 +412,13 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-top: 24px;
-    padding-top: 24px;
+    /* --- DEĞİŞİKLİK BAŞLANGIÇ: ÜST BOŞLUKLARI AZALTIN --- */
+    margin-top: 16px; /* 24px'den 16px'e düşürüldü */
+    padding-top: 16px; /* 24px'den 16px'e düşürüldü */
+    /* --- DEĞİŞİKLİK BİTİŞ --- */
     border-top: 1px solid #e5e7eb;
 }
+
 
 .nav-button {
     display: inline-flex;

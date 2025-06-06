@@ -45,14 +45,12 @@ class QuestionManager {
 
         // Navigation button events
         const prevBtn = document.getElementById('prev-question-btn');
-        const nextBtn = document.getElementById('next-question-btn');
+        // const nextBtn = document.getElementById('next-question-btn'); // BU SATIRI SİLİN
         
         if (prevBtn) {
             prevBtn.addEventListener('click', () => this.previousQuestion());
         }
-        if (nextBtn) {
-            nextBtn.addEventListener('click', () => this.nextQuestion());
-        }
+        // if (nextBtn) { ... } // BU if BLOKUNU TAMAMEN SİLİN
 
         // Keyboard navigation
         document.addEventListener('keydown', (e) => {
@@ -113,6 +111,9 @@ class QuestionManager {
     }
 
     showCurrentQuestion() {
+        // --- DEĞİŞİKLİK BAŞLANGIÇ ---
+        const container = document.getElementById('questions-container');
+        // --- DEĞİŞİKLİK BİTİŞ ---
         const currentScrollTop = window.pageYOffset || document.documentElement.scrollTop;
         
         this.questions.forEach((question, index) => {
@@ -130,6 +131,16 @@ class QuestionManager {
                 question.classList.add('question-next');
             }
         });
+
+        // --- DEĞİŞİKLİK BAŞLANGIÇ: Konteyner yüksekliğini dinamik olarak ayarla ---
+        const activeQuestion = this.questions[this.currentQuestionIndex];
+        if (container && activeQuestion) {
+            // Yüksekliği ayarlamadan önce bir sonraki frame'i bekle
+            requestAnimationFrame(() => {
+                container.style.height = `${activeQuestion.offsetHeight}px`;
+            });
+        }
+        // --- DEĞİŞİKLİK BİTİŞ ---
         
         // Scroll pozisyonunu koru
         requestAnimationFrame(() => {
@@ -165,17 +176,24 @@ class QuestionManager {
 
     updateNavigationButtons() {
         const prevBtn = document.getElementById('prev-question-btn');
-        const nextBtn = document.getElementById('next-question-btn');
+        const submitWrapper = document.getElementById('submit-button-wrapper');
+        const allAnswered = this.allQuestionsAnswered();
         
+        // --- DEĞİŞİKLİK BAŞLANGIÇ: Mantığı tamamen yeniden yazıyoruz ---
+
+        // Kural 1: "Önceki Soru" butonunu yönet.
+        // Eğer ilk soruda değilsek her zaman göster.
         if (prevBtn) {
-            prevBtn.style.display = this.currentQuestionIndex === 0 ? 'none' : 'inline-flex';
+            prevBtn.style.display = this.currentQuestionIndex > 0 ? 'inline-flex' : 'none';
+        }
+    
+        // Kural 2: "Testi Tamamla" butonunu yönet.
+        // Eğer tüm sorular cevaplandıysa her zaman göster.
+        if (submitWrapper) {
+            submitWrapper.style.display = allAnswered ? 'flex' : 'none'; // 'block' yerine 'flex'
         }
         
-        if (nextBtn) {
-            const isLastQuestion = this.currentQuestionIndex === this.totalQuestions - 1;
-            nextBtn.style.display = isLastQuestion ? 'none' : 'inline-flex';
-            nextBtn.disabled = !this.isCurrentQuestionAnswered();
-        }
+        // --- DEĞİŞİKLİK BİTİŞ ---
     }
 
     updateProgress() {
@@ -209,6 +227,8 @@ class QuestionManager {
         }
         
         this.updateSubmitButton();
+        // --- DEĞİŞİKLİK: Navigasyon butonlarını da güncelle
+        this.updateNavigationButtons();
     }
 
     updateSubmitButton() {
