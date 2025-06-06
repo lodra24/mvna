@@ -329,6 +329,14 @@
     visibility: hidden;
 }
 
+/* İlk soru için varsayılan görünür durumu */
+.test-question[data-question="1"] {
+    opacity: 1;
+    transform: translateX(0);
+    pointer-events: auto;
+    visibility: visible;
+}
+
 .test-question.question-active {
     opacity: 1;
     transform: translateX(0);
