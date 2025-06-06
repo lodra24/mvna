@@ -17,6 +17,9 @@ class QuestionManager {
     init() {
         this.setupQuestions();
         this.setupEventListeners();
+        // --- YENİ EKLEME ---
+        this.setupVisualNav();
+        // --- BİTİŞ ---
         this.showCurrentQuestion();
         this.updateProgress();
     }
@@ -59,6 +62,28 @@ class QuestionManager {
             }
         });
     }
+
+    // --- YENİ METOT BAŞLANGICI ---
+    setupVisualNav() {
+        const container = document.getElementById('visual-nav-dots');
+        if (!container) return;
+
+        container.addEventListener('click', (e) => {
+            const dot = e.target.closest('.nav-dot');
+            if (dot && dot.dataset.questionIndex) {
+                const index = parseInt(dot.dataset.questionIndex, 10);
+                this.goToQuestion(index);
+            }
+        });
+    }
+
+    goToQuestion(index) {
+        if (index >= 0 && index < this.totalQuestions) {
+            this.currentQuestionIndex = index;
+            this.showCurrentQuestion();
+        }
+    }
+    // --- YENİ METOT BİTİŞİ ---
 
     handleAnswerSelection(radioInput) {
         const questionId = radioInput.getAttribute('data-question-id');
@@ -227,8 +252,11 @@ class QuestionManager {
         }
         
         this.updateSubmitButton();
-        // --- DEĞİŞİKLİK: Navigasyon butonlarını da güncelle
         this.updateNavigationButtons();
+
+        // --- YENİ EKLEME ---
+        this.updateVisualNavDots();
+        // --- BİTİŞ ---
     }
 
     updateSubmitButton() {
@@ -250,6 +278,30 @@ class QuestionManager {
             }
         }
     }
+
+    // --- YENİ METOT BAŞLANGICI ---
+    updateVisualNavDots() {
+        const dots = document.querySelectorAll('.nav-dot');
+        if (dots.length === 0) return;
+
+        dots.forEach((dot, index) => {
+            const questionId = dot.dataset.questionId;
+            
+            // Önceki sınıfları temizle
+            dot.classList.remove('active', 'answered');
+
+            // Cevaplanmış mı kontrol et
+            if (this.answers.hasOwnProperty(questionId)) {
+                dot.classList.add('answered');
+            }
+
+            // Aktif mi kontrol et
+            if (index === this.currentQuestionIndex) {
+                dot.classList.add('active');
+            }
+        });
+    }
+    // --- YENİ METOT BİTİŞİ ---
 
     isCurrentQuestionAnswered() {
         const currentQuestion = this.questions[this.currentQuestionIndex];

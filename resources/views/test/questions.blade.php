@@ -22,6 +22,22 @@
             <div class="progress-bar-container">
                 <div class="progress-bar-fill" id="progress-bar-fill"></div>
             </div>
+            
+            {{-- --- YENİ EKLENECEK BÖLÜM BAŞLANGICI --- --}}
+            <!-- Visual Navigation Dots -->
+            <div class="visual-nav-dots" id="visual-nav-dots">
+                @foreach($questions as $index => $question)
+                    <button
+                        type="button"
+                        class="nav-dot"
+                        data-question-index="{{ $index }}"
+                        data-question-id="{{ $question->id }}"
+                        aria-label="Soru {{ $index + 1 }}'e git"
+                    ></button>
+                @endforeach
+            </div>
+            {{-- --- YENİ EKLENECEK BÖLÜM BİTİŞİ --- --}}
+            
         </div>
 
         <!-- Form -->

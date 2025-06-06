@@ -598,3 +598,50 @@
         background-position: 100% 50%;
     }
 }
+
+/* ============================================ */
+/* --- YENİ EKLENECEK BÖLÜM BAŞLANGICI ---      */
+/* ============================================ */
+/* Visual Navigation Dots                     */
+/* ============================================ */
+
+.visual-nav-dots {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 6px; /* Noktalar arası boşluk */
+    margin-top: 16px; /* Progress bar ile arasındaki boşluk */
+    padding: 0 4px;
+}
+
+.nav-dot {
+    height: 8px;
+    flex-grow: 1; /* Tüm alanı kaplamalarını sağlar */
+    background-color: #e5e7eb; /* Temel renk (gri) */
+    border-radius: 9999px; /* Tam yuvarlak kenarlar */
+    border: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    padding: 0;
+}
+
+.nav-dot:hover {
+    background-color: #d1d5db; /* Üzerine gelince biraz daha koyu gri */
+    transform: scaleY(1.5); /* Hafifçe yükselir */
+}
+
+/* Cevaplanmış soru noktası */
+.nav-dot.answered {
+    background-color: #a5b4fc; /* Cevaplanmış rengi (açık indigo) */
+}
+
+/* Aktif (mevcut) soru noktası */
+.nav-dot.active {
+    background-color: #4f46e5; /* Aktif rengi (koyu indigo) */
+    transform: scaleY(2); /* Daha belirgin şekilde yükselir */
+    box-shadow: 0 0 8px rgba(79, 70, 229, 0.5);
+}
+
+/* ============================================ */
+/* --- YENİ EKLENECEK BÖLÜM BİTİŞİ ---        */
+/* ============================================ */
