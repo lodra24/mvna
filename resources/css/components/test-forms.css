@@ -399,9 +399,11 @@
 
 .progress-bar-fill {
     height: 100%;
-    background: linear-gradient(90deg, #4f46e5 0%, #7c3aed 100%);
+    background: linear-gradient(90deg, #6366f1 0%, #8b5cf6 100%);
+    background-size: 200% 100%;
     border-radius: 9999px;
-    transition: width 0.5s ease-in-out;
+    animation: progressGradient 3s ease-in-out infinite;
+    transition: width 0.6s cubic-bezier(0.4, 0, 0.2, 1);
     width: 0%;
     max-width: 100%;
     box-sizing: border-box;
@@ -460,14 +462,14 @@
 
 /* Selected Option Feedback */
 .test-option.selected {
-    background-color: #eff6ff;
-    border-color: #3b82f6;
+    background-color: #f0fdf4; /* Açık yeşil arka plan (Tailwind: green-50) */
+    border-color: #10B981; /* Ana yeşil renk (mindmetrics-green) */
     transform: scale(1.02);
 }
 
 .test-option.selected .test-option__radio {
-    border-color: #3b82f6;
-    background-color: #3b82f6;
+    border-color: #10B981; /* Ana yeşil renk */
+    background-color: #10B981; /* Ana yeşil renk */
 }
 
 .test-option.selected .test-option__radio::after {
@@ -632,14 +634,14 @@
 
 /* Cevaplanmış soru noktası */
 .nav-dot.answered {
-    background-color: #a5b4fc; /* Cevaplanmış rengi (açık indigo) */
+    background-color: #cbd5e1; /* Daha nötr ve sakin bir gri (Tailwind: slate-300) */
 }
 
 /* Aktif (mevcut) soru noktası */
 .nav-dot.active {
     background-color: #4f46e5; /* Aktif rengi (koyu indigo) */
-    transform: scaleY(2); /* Daha belirgin şekilde yükselir */
-    box-shadow: 0 0 8px rgba(79, 70, 229, 0.5);
+    transform: scaleY(1.75) translateY(1px);; /* Daha belirgin şekilde yükselir */
+    box-shadow: none;
 }
 
 /* ============================================ */
