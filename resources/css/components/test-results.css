@@ -42,31 +42,108 @@
 
 /* Score Cards Grid */
 .test-results__scores {
-    @apply grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 2rem;
+    align-items: stretch;
+    margin: 2rem 0;
 }
 
 .test-score-card {
-    @apply bg-white rounded-xl border border-slate-200 p-6;
-    @apply transition-all duration-300 ease-in-out;
-    @apply hover:shadow-lg hover:border-slate-300;
-    backdrop-filter: blur(10px);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    min-height: 280px;
     background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    border-radius: 20px;
+    padding: 2rem 1.5rem;
+    box-shadow: 0 10px 40px 0 rgba(31, 38, 135, 0.2);
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+    overflow: hidden;
+}
+
+.test-score-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(135deg, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0.05) 100%);
+    pointer-events: none;
+    z-index: 0;
+}
+
+.test-score-card > * {
+    position: relative;
+    z-index: 1;
 }
 
 .test-score-card:hover {
-    transform: translateY(-4px);
+    transform: translateY(-12px) scale(1.03);
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.15);
+    border-color: rgba(255, 255, 255, 0.5);
 }
 
 .test-score-card__header {
-    @apply flex items-center justify-between mb-4;
+    @apply mb-6;
+    flex-shrink: 0;
+    width: 100%;
 }
 
 .test-score-card__label {
-    @apply text-sm font-semibold text-slate-600 uppercase tracking-wide;
+    @apply text-sm font-bold text-slate-700 uppercase tracking-wider;
+    line-height: 1.3;
+    margin-bottom: 1.5rem;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.test-score-card__icon-container {
+    position: relative;
+    width: 80px;
+    height: 80px;
+    margin: 0 auto 1.5rem;
 }
 
 .test-score-card__icon {
-    @apply w-8 h-8 rounded-full flex items-center justify-center text-white text-sm font-bold;
+    @apply w-16 h-16 rounded-full flex items-center justify-center text-white text-lg font-bold;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 2;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.test-score-card__progress-ring {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 80px;
+    height: 80px;
+    transform: rotate(-90deg);
+}
+
+.test-score-card__progress-circle {
+    fill: none;
+    stroke-width: 4;
+    stroke-linecap: round;
+    transition: stroke-dasharray 1s ease-in-out;
+}
+
+.test-score-card__progress-bg {
+    stroke: #e2e8f0;
+}
+
+.test-score-card__progress-fill {
+    stroke-dasharray: 0 251.2;
+    transition: stroke-dasharray 1.5s ease-in-out 0.5s;
 }
 
 .test-score-card__icon--e { @apply bg-red-500; }
@@ -79,32 +156,30 @@
 .test-score-card__icon--p { @apply bg-orange-500; }
 
 .test-score-card__value {
-    @apply text-3xl font-bold text-slate-800 mb-2;
+    @apply text-4xl font-black mb-4;
+    color: #1e293b;
+    flex-shrink: 0;
+    text-align: center;
+    letter-spacing: -0.02em;
 }
 
 .test-score-card__description {
     @apply text-sm text-slate-600 leading-relaxed;
+    text-align: center;
+    line-height: 1.5;
+    margin-top: auto;
+    padding: 0 0.5rem;
 }
 
-/* Score Progress Bars */
-.test-score-progress {
-    @apply w-full bg-slate-200 rounded-full h-3 mb-3;
-    overflow: hidden;
-}
-
-.test-score-progress__bar {
-    @apply h-3 rounded-full transition-all duration-1000 ease-out;
-    background: linear-gradient(90deg, var(--start-color), var(--end-color));
-}
-
-.test-score-progress--e { --start-color: #ef4444; --end-color: #dc2626; }
-.test-score-progress--i { --start-color: #3b82f6; --end-color: #2563eb; }
-.test-score-progress--s { --start-color: #10b981; --end-color: #059669; }
-.test-score-progress--n { --start-color: #8b5cf6; --end-color: #7c3aed; }
-.test-score-progress--t { --start-color: #f59e0b; --end-color: #d97706; }
-.test-score-progress--f { --start-color: #ec4899; --end-color: #db2777; }
-.test-score-progress--j { --start-color: #6366f1; --end-color: #4f46e5; }
-.test-score-progress--p { --start-color: #f97316; --end-color: #ea580c; }
+/* Progress Ring Colors */
+.test-score-progress--e .test-score-card__progress-fill { stroke: #ef4444; }
+.test-score-progress--i .test-score-card__progress-fill { stroke: #3b82f6; }
+.test-score-progress--s .test-score-card__progress-fill { stroke: #10b981; }
+.test-score-progress--n .test-score-card__progress-fill { stroke: #8b5cf6; }
+.test-score-progress--t .test-score-card__progress-fill { stroke: #f59e0b; }
+.test-score-progress--f .test-score-card__progress-fill { stroke: #ec4899; }
+.test-score-progress--j .test-score-card__progress-fill { stroke: #6366f1; }
+.test-score-progress--p .test-score-card__progress-fill { stroke: #f97316; }
 
 /* Detailed Results Section */
 .test-results__details {
@@ -201,7 +276,42 @@
 }
 
 /* Responsive adjustments */
+@media (max-width: 640px) {
+    .test-results__scores {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+    
+    .test-score-card {
+        min-height: 240px;
+        padding: 1.5rem 1rem;
+    }
+    
+    .test-score-card__icon-container {
+        width: 60px;
+        height: 60px;
+    }
+    
+    .test-score-card__icon {
+        @apply w-12 h-12 text-base;
+    }
+    
+    .test-score-card__progress-ring {
+        width: 60px;
+        height: 60px;
+    }
+    
+    .test-score-card__value {
+        @apply text-3xl;
+    }
+}
+
 @media (max-width: 768px) {
+    .test-results__scores {
+        grid-template-columns: 1fr 1fr;
+        gap: 1.5rem;
+    }
+    
     .test-results__mbti-card {
         @apply p-6;
     }
@@ -214,20 +324,34 @@
         @apply text-lg;
     }
     
-    .test-score-card {
-        @apply p-4;
-    }
-    
-    .test-score-card__value {
-        @apply text-2xl;
-    }
-    
     .test-results__details {
         @apply p-6;
     }
     
     .test-action-button {
         @apply w-full px-6 py-3 text-sm;
+    }
+}
+
+@media (min-width: 1024px) {
+    .test-results__scores {
+        grid-template-columns: repeat(4, 1fr);
+        gap: 2.5rem;
+    }
+    
+    .test-score-card {
+        min-height: 300px;
+        padding: 2.5rem 2rem;
+    }
+}
+
+@media (min-width: 1280px) {
+    .test-results__scores {
+        gap: 3rem;
+    }
+    
+    .test-score-card {
+        min-height: 320px;
     }
 }
 
@@ -283,4 +407,85 @@
     to {
         width: var(--progress-width);
     }
+}
+
+/* New Modern Animations */
+@keyframes iconPulse {
+    0%, 100% {
+        transform: scale(1);
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+    }
+    50% {
+        transform: scale(1.1);
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.25);
+    }
+}
+
+@keyframes textShine {
+    0%, 100% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+}
+
+@keyframes progressGlow {
+    0% {
+        filter: brightness(1) saturate(1);
+    }
+    100% {
+        filter: brightness(1.1) saturate(1.2);
+    }
+}
+
+@keyframes shimmer {
+    0% {
+        transform: translateX(-100%);
+        opacity: 0;
+    }
+    50% {
+        opacity: 1;
+    }
+    100% {
+        transform: translateX(100%);
+        opacity: 0;
+    }
+}
+
+@keyframes patternFloat {
+    0% {
+        transform: translateX(0) translateY(0);
+    }
+    25% {
+        transform: translateX(10px) translateY(-5px);
+    }
+    50% {
+        transform: translateX(-5px) translateY(10px);
+    }
+    75% {
+        transform: translateX(-10px) translateY(-10px);
+    }
+    100% {
+        transform: translateX(0) translateY(0);
+    }
+}
+
+/* Enhanced Card Hover Effects */
+.test-score-card {
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.test-score-card:hover .test-score-card__icon {
+    animation-duration: 1s;
+}
+
+.test-score-card:hover .test-score-progress__bar {
+    filter: brightness(1.2) saturate(1.3);
+}
+
+/* Improved Focus States */
+.test-score-card:focus-within {
+    outline: 2px solid rgba(99, 102, 241, 0.5);
+    outline-offset: 2px;
 }

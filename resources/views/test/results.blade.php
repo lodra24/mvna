@@ -101,18 +101,29 @@
                 @endphp
                 
                 @foreach($scoreDetails as $key => $detail)
-                    @php $score = $scores[$key] ?? 0; @endphp
+                    @php
+                        $score = $scores[$key] ?? 0;
+                        $progressPercentage = $maxScore > 0 ? ($score / $maxScore) * 100 : 0;
+                        $circumference = 2 * 3.14159 * 36; // radius = 36
+                        $strokeDasharray = ($progressPercentage / 100) * $circumference;
+                    @endphp
                     <div class="test-score-card">
                         <div class="test-score-card__header">
-                            <div class="test-score-card__label">{{ $detail['label'] }} ({{ $key }})</div>
+                            <div class="test-score-card__label">{{ strtoupper($detail['label']) }} ({{ $key }})</div>
+                        </div>
+                        
+                        <div class="test-score-card__icon-container">
+                            <svg class="test-score-card__progress-ring" viewBox="0 0 80 80">
+                                <circle class="test-score-card__progress-circle test-score-card__progress-bg"
+                                        cx="40" cy="40" r="36"></circle>
+                                <circle class="test-score-card__progress-circle test-score-card__progress-fill test-score-progress--{{ $detail['icon'] }}"
+                                        cx="40" cy="40" r="36"
+                                        style="stroke-dasharray: {{ $strokeDasharray }} {{ $circumference }}"></circle>
+                            </svg>
                             <div class="test-score-card__icon test-score-card__icon--{{ $detail['icon'] }}">{{ $key }}</div>
                         </div>
                         
                         <div class="test-score-card__value">{{ $score }} puan</div>
-                        
-                        <div class="test-score-progress test-score-progress--{{ $detail['icon'] }}">
-                            <div class="test-score-progress__bar" style="--progress-width: {{ $maxScore > 0 ? ($score / $maxScore) * 100 : 0 }}%; width: {{ $maxScore > 0 ? ($score / $maxScore) * 100 : 0 }}%"></div>
-                        </div>
                         
                         <div class="test-score-card__description">{{ $detail['description'] }}</div>
                     </div>
@@ -183,34 +194,59 @@
 @push('scripts')
 <script>
 document.addEventListener('DOMContentLoaded', function() {
-    // Animate score progress bars
-    const progressBars = document.querySelectorAll('.test-score-progress__bar');
-    progressBars.forEach((bar, index) => {
+    // Animate circular progress rings
+    const progressRings = document.querySelectorAll('.test-score-card__progress-fill');
+    progressRings.forEach((ring, index) => {
+        const currentStrokeDasharray = ring.style.strokeDasharray;
+        ring.style.strokeDasharray = '0 251.2'; // Start with 0 progress
+        
         setTimeout(() => {
-            bar.style.width = bar.style.getPropertyValue('--progress-width');
-        }, 500 + (index * 100));
+            ring.style.strokeDasharray = currentStrokeDasharray;
+        }, 800 + (index * 150));
     });
     
     // Add celebration effect
     setTimeout(() => {
-        showToast('Test başarıyla tamamlandı! 🎉', 'success', 4000);
+        if (typeof showToast === 'function') {
+            showToast('Test başarıyla tamamlandı! 🎉', 'success', 4000);
+        }
     }, 1000);
     
     // Clear any auto-saved data
     const userName = '{{ $userName ?? "user" }}';
-    clearAutoSave(`mbti_test_answers_${userName}`);
+    if (typeof clearAutoSave === 'function') {
+        clearAutoSave(`mbti_test_answers_${userName}`);
+    }
     
     // Add smooth reveal animation to result cards
     const cards = document.querySelectorAll('.test-score-card');
     cards.forEach((card, index) => {
         card.style.opacity = '0';
-        card.style.transform = 'translateY(20px)';
+        card.style.transform = 'translateY(30px) scale(0.95)';
         
         setTimeout(() => {
-            card.style.transition = 'all 0.6s ease-out';
+            card.style.transition = 'all 0.8s cubic-bezier(0.4, 0, 0.2, 1)';
             card.style.opacity = '1';
-            card.style.transform = 'translateY(0)';
-        }, 800 + (index * 100));
+            card.style.transform = 'translateY(0) scale(1)';
+        }, 600 + (index * 150));
+    });
+    
+    // Add hover effects for icons
+    const iconContainers = document.querySelectorAll('.test-score-card__icon-container');
+    iconContainers.forEach(container => {
+        container.addEventListener('mouseenter', function() {
+            const icon = this.querySelector('.test-score-card__icon');
+            if (icon) {
+                icon.style.transform = 'translate(-50%, -50%) scale(1.1)';
+            }
+        });
+        
+        container.addEventListener('mouseleave', function() {
+            const icon = this.querySelector('.test-score-card__icon');
+            if (icon) {
+                icon.style.transform = 'translate(-50%, -50%) scale(1)';
+            }
+        });
     });
 });
 </script>
