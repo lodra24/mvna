@@ -138,31 +138,81 @@
             <div class="test-results__details">
                 <h2 class="test-results__section-title">{{ $mbtiType }} Kişilik Tipi Hakkında</h2>
                 <div class="test-results__description">
-                    @php
-                        $descriptions = [
-                            'INTJ' => 'INTJ\'ler doğal stratejistlerdir. Karmaşık sistemleri anlama ve iyileştirme konusunda yeteneklidirler. Bağımsız çalışmayı tercih ederler ve uzun vadeli hedeflere odaklanırlar.',
-                            'INTP' => 'INTP\'ler teorik düşünürlerdir. Yeni fikirler geliştirme ve karmaşık problemleri çözme konusunda yeteneklidirler. Esneklik ve özerklik ararlar.',
-                            'ENTJ' => 'ENTJ\'ler doğal liderlerdir. Organizasyon ve yönetim konusunda yeteneklidirler. Hedef odaklı çalışır ve ekipleri motive etmede başarılıdırlar.',
-                            'ENTP' => 'ENTP\'ler yenilikçi düşünürlerdir. Yaratıcı problem çözme ve beyin fırtınası yapmaktan hoşlanırlar. Çeşitlilik ve değişim ararlar.',
-                            'INFJ' => 'INFJ\'ler idealiste ve vizyonerlerdir. İnsanlara yardım etme konusunda tutkulu ve empati yetenekleri yüksektir. Anlamlı işler yapmayı tercih ederler.',
-                            'INFP' => 'INFP\'ler değer odaklı bireylerdir. Yaratıcılık ve otantiklik önemlidir. Kişisel gelişim ve anlamlı işler peşinde koşarlar.',
-                            'ENFJ' => 'ENFJ\'ler doğal mentorlarıdır. İnsanları geliştirme ve motive etme konusunda yeteneklidirler. Takım çalışması ve işbirliğini tercih ederler.',
-                            'ENFP' => 'ENFP\'ler coşkulu ve yaratıcıdırlar. Yeni fikirler ve projeler konusunda heyecan duyarlar. İnsan odaklı çalışma ortamlarını tercih ederler.',
-                            'ISTJ' => 'ISTJ\'ler güvenilir ve sistematiktirler. Detaylara dikkat eder ve prosedürleri takip etmeyi tercih ederler. İstikrarlı ve öngörülebilir ortamları severler.',
-                            'ISFJ' => 'ISFJ\'ler destekleyici ve özenlidirler. İnsanlara hizmet etme konusunda tutkulu ve pratik yardım sağlamaktan hoşlanırlar.',
-                            'ESTJ' => 'ESTJ\'ler organize ve verimlidirler. Yönetim ve koordinasyon konusunda yeteneklidirler. Sonuç odaklı çalışır ve hedeflere ulaşmaya odaklanırlar.',
-                            'ESFJ' => 'ESFJ\'ler sosyal ve destekleyicidirler. Takım uyumu ve pozitif çalışma ortamı yaratma konusunda yeteneklidirler.',
-                            'ISTP' => 'ISTP\'ler pratik problem çözücülerdir. Teknik konularda yetenekli ve hands-on yaklaşımı tercih ederler. Esneklik ve özerklik ararlar.',
-                            'ISFP' => 'ISFP\'ler uyumlu ve yaratıcıdırlar. Kişisel değerlerine uygun işler yapmayı tercih ederler. Sakin ve destekleyici ortamları severler.',
-                            'ESTP' => 'ESTP\'ler enerjik ve pratiktirler. Hızlı karar verme ve acil durumlarda çalışma konusunda yeteneklidirler. Dinamik ortamları tercih ederler.',
-                            'ESFP' => 'ESFP\'ler coşkulu ve insancıldırlar. Takım çalışması ve pozitif enerji yaratma konusunda yeteneklidirler. İnsan etkileşimi olan işleri tercih ederler.'
-                        ];
-                    @endphp
-                    <p><strong>Genel Özellikler:</strong> {{ $descriptions[$mbtiType] ?? 'Bu kişilik tipi hakkında detaylı bilgi yakında eklenecektir.' }}</p>
-                    
-                    <p><strong>Kariyer Önerileri:</strong> {{ $mbtiType }} kişilik tipine sahip bireyler genellikle analitik düşünme, problem çözme ve stratejik planlama gerektiren alanlarda başarılı olurlar.</p>
-                    
-                    <p><strong>Çalışma Tarzı:</strong> Kendi kişilik tipinize uygun çalışma ortamları ve yöntemler seçerek daha verimli ve mutlu olabilirsiniz.</p>
+                    @if($mbtiTypeDetail)
+                        <!-- İşveren için Profil Özeti -->
+                        @if($mbtiTypeDetail->profile_summary_for_employer)
+                            <h3><strong>İşveren için Profil Özeti</strong></h3>
+                            <p>{{ $mbtiTypeDetail->profile_summary_for_employer }}</p>
+                        @endif
+
+                        <!-- İş Yerindeki Temel Güçlü Yönler -->
+                        @if($mbtiTypeDetail->key_strengths_in_workplace && count($mbtiTypeDetail->key_strengths_in_workplace) > 0)
+                            <h3><strong>İş Yerindeki Temel Güçlü Yönler</strong></h3>
+                            <ul>
+                                @foreach($mbtiTypeDetail->key_strengths_in_workplace as $strength)
+                                    <li>✅ {{ $strength }}</li>
+                                @endforeach
+                            </ul>
+                        @endif
+
+                        <!-- Potansiyel Gelişim Alanları -->
+                        @if($mbtiTypeDetail->potential_development_areas_for_workplace_effectiveness && count($mbtiTypeDetail->potential_development_areas_for_workplace_effectiveness) > 0)
+                            <h3><strong>Potansiyel Gelişim Alanları</strong></h3>
+                            <ul>
+                                @foreach($mbtiTypeDetail->potential_development_areas_for_workplace_effectiveness as $area)
+                                    <li>🔄 {{ $area }}</li>
+                                @endforeach
+                            </ul>
+                        @endif
+
+                        <!-- İletişim Tarzı ve İşveren İçin İpuçları -->
+                        @if($mbtiTypeDetail->communication_style_and_tips_for_employer)
+                            <h3><strong>İletişim Tarzı ve İşveren İçin İpuçları</strong></h3>
+                            <p>{{ $mbtiTypeDetail->communication_style_and_tips_for_employer }}</p>
+                        @endif
+
+                        <!-- Görev Yönetimi Yaklaşımı ve İşveren İçin İpuçları -->
+                        @if($mbtiTypeDetail->task_management_approach_and_tips_for_employer)
+                            <h3><strong>Görev Yönetimi Yaklaşımı ve İşveren İçin İpuçları</strong></h3>
+                            <p>{{ $mbtiTypeDetail->task_management_approach_and_tips_for_employer }}</p>
+                        @endif
+
+                        <!-- Motivasyon Faktörleri ve İşveren İçin Öneriler -->
+                        @if($mbtiTypeDetail->motivators_for_employer_to_leverage && count($mbtiTypeDetail->motivators_for_employer_to_leverage) > 0)
+                            <h3><strong>Motivasyon Faktörleri ve İşveren İçin Öneriler</strong></h3>
+                            <ul>
+                                @foreach($mbtiTypeDetail->motivators_for_employer_to_leverage as $motivator)
+                                    <li>🎯 {{ $motivator }}</li>
+                                @endforeach
+                            </ul>
+                        @endif
+
+                        <!-- Geri Bildirim Alıcılığı ve İşveren Rehberliği -->
+                        @if($mbtiTypeDetail->feedback_receptivity_and_guidance_for_employer)
+                            <h3><strong>Geri Bildirim Alıcılığı ve İşveren Rehberliği</strong></h3>
+                            <p>{{ $mbtiTypeDetail->feedback_receptivity_and_guidance_for_employer }}</p>
+                        @endif
+
+                        <!-- Takım İşbirliği Tarzı -->
+                        @if($mbtiTypeDetail->team_collaboration_style_for_employer)
+                            <h3><strong>Takım İşbirliği Tarzı</strong></h3>
+                            <p>{{ $mbtiTypeDetail->team_collaboration_style_for_employer }}</p>
+                        @endif
+
+                        <!-- Liderlik Potansiyeli ve Tarz Notları -->
+                        @if($mbtiTypeDetail->leadership_potential_or_style_notes_for_employer)
+                            <h3><strong>Liderlik Potansiyeli ve Tarz Notları</strong></h3>
+                            <p>{{ $mbtiTypeDetail->leadership_potential_or_style_notes_for_employer }}</p>
+                        @endif
+
+                        <!-- Çalışma Ortamı Tercihleri -->
+                        @if($mbtiTypeDetail->work_environment_preferences_for_employer)
+                            <h3><strong>Çalışma Ortamı Tercihleri</strong></h3>
+                            <p>{{ $mbtiTypeDetail->work_environment_preferences_for_employer }}</p>
+                        @endif
+                    @else
+                        <p>Bu kişilik tipi için detaylı rapor bilgisi henüz eklenmemiştir.</p>
+                    @endif
                 </div>
             </div>
         @endif
