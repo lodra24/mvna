@@ -2,7 +2,9 @@
 
 @section('title', 'Test Sonucunuz')
 
-@section('page-title', 'Tebrikler! 🎉')
+@section('page-title')
+    Tebrikler! <span class="emoji-fix">🎉</span>
+@endsection
 
 @section('page-subtitle')
     MBTI kişilik analizi tamamlandı. Aşağıda detaylı sonuçlarınızı inceleyebilirsiniz.

@@ -121,3 +121,10 @@
         background-size: 60px 60px, 30px 30px, 15px 15px, 15px 15px;
     }
 }
+
+/* Emoji Fix - Yeşil renk sorunu çözümü */
+.emoji-fix {
+    color: #f59e0b !important;
+    background: none !important;
+    -webkit-text-fill-color: #f59e0b !important;
+}

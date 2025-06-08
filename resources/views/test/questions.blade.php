@@ -3,7 +3,7 @@
 @section('title', 'MBTI Testi')
 
 @section('page-title')
-    Merhaba, {{ $userName }}! <span style="color: #f59e0b !important; background: none !important; -webkit-text-fill-color: #f59e0b !important;">👋</span>
+    Merhaba, {{ $userName }}! <span class="emoji-fix">👋</span>
 @endsection
 
 @section('page-subtitle')
