@@ -15,6 +15,7 @@ use App\Models\User;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Str;
+use App\Models\MbtiTypeDetail;
 
 class TestController extends Controller
 {
@@ -178,7 +179,10 @@ class TestController extends Controller
             'status' => 'completed'
         ]);
         
+        // MBTI tipine ait detayları veritabanından al
+        $mbtiTypeDetail = MbtiTypeDetail::where('mbti_type', $mbtiType)->first();
+        
         // Kullanıcıyı sonuçlar sayfasına yönlendir
-        return view('test.results', compact('mbtiType', 'scores'));
+        return view('test.results', compact('mbtiType', 'scores', 'mbtiTypeDetail'));
     }
 }
