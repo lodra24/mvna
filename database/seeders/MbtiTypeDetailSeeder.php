@@ -260,5 +260,253 @@ class MbtiTypeDetailSeeder extends Seeder
             'team_collaboration_style_for_employer' => 'Takım çalışmasında enerji ve motivasyon odaklı yaklaşım sergilerler. Ekip üyelerini bir araya getirme ve pozitif atmosfer yaratma konusunda etkili çalışırlar. Çapraz fonksiyonel takımlarda değerli katkılar sunarlar. Brainstorming ve yaratıcı problem çözme seanslarında ekip performansını artırırlar.',
             'leadership_potential_or_style_notes_for_employer' => 'İlham verici ve katılımcı liderlik potansiyeline sahiptirler. Ekip motivasyonu, yaratıcı vizyon oluşturma ve değişim yönetimi konularında etkili liderlik sergilerler. Liderlik pozisyonlarında yaratıcı özgürlük ve insan odaklı yaklaşım yetkisi verildiğinde en iyi performansı sergilerler. Demokratik ve etkileşimli liderlik tarzını benimser, ekip üyelerinin potansiyelini ortaya çıkarmaya odaklanır.'
         ]);
+
+        // ISTJ (Lojistikçi) kişilik tipi için detaylı iş profili
+        MbtiTypeDetail::create([
+            'mbti_type' => 'ISTJ',
+            'type_name' => 'Lojistikçi',
+            'profile_summary_for_employer' => 'ISTJ tipi çalışanlar, güvenilirlik ve sistematik yaklaşımları ile organizasyona istikrar getiren değerli ekip üyeleridir. Detay odaklı çalışma, süreç yönetimi ve kalite kontrolü konularında üstün performans sergilerler. Metodical yaklaşımları ve sorumluluk bilinçleri sayesinde tutarlı ve güvenilir sonuçlar üretirler.',
+            'key_strengths_in_workplace' => [
+                'Detay odaklı ve titiz çalışma yaklaşımı',
+                'Güvenilir süreç yönetimi ve kalite kontrolü',
+                'Sistematik planlama ve organize etme becerileri',
+                'Sorumluluk bilinci ve taahhütlere bağlılık'
+            ],
+            'potential_development_areas_for_workplace_effectiveness' => [
+                'Değişim ve yeniliklere adaptasyon hızını artırma',
+                'Yaratıcı ve esnek çözümlere açıklık geliştirme',
+                'Takım içi iletişimi daha proaktif hale getirme',
+                'Risk alma ve deneysel yaklaşımlara tolerans gösterme'
+            ],
+            'communication_style_and_tips_for_employer' => 'ISTJ çalışanlar net, yapılandırılmış ve gerçeklere dayalı iletişimi tercih ederler. Onlarla iletişim kurarken somut veriler ve açık talimatlar sunun. Yazılı iletişimi destekleyin ve değişiklikleri önceden bildirin. Eleştirileri objektif kriterler üzerinden sunduğunuzda daha yapıcı karşılanır.',
+            'task_management_approach_and_tips_for_employer' => 'Görev yönetiminde net süreçler ve açık beklentiler belirleyin. Detaylı proje planları ve zaman çizelgeleri sağlayın. Kalite standartlarını net olarak tanımlayın ve düzenli kontrol noktaları oluşturun. Rutin ve tekrarlanan görevlerde uzmanlaşmalarına olanak tanıyın.',
+            'feedback_receptivity_and_guidance_for_employer' => 'Geri bildirim verirken objektif kriterler ve somut örnekler kullanın. Performans değerlendirmelerini ölçülebilir standartlar üzerinden yapın ve gelişim önerilerinizi yapılandırılmış bir plan ile sunun. Başarılarını takdir edin ve güvenilirliklerini vurgulayın.',
+            'work_environment_preferences_for_employer' => 'Organize, sessiz ve öngörülebilir çalışma ortamları tercih ederler. Net iş tanımları ve düzenli rutinler motivasyonlarını artırır. Bireysel çalışma alanları ve minimal kesinti ortamları sağlamaya çalışın. Geleneksel ofis düzeni ve yapılandırılmış süreçlerin olduğu ortamlarda daha verimli çalışırlar.',
+            'motivators_for_employer_to_leverage' => [
+                'Net sorumluluklar ve ölçülebilir hedefler',
+                'Kalite ve mükemmellik odaklı projeler',
+                'Düzenli rutinler ve öngörülebilir süreçler',
+                'Başarı takdiri ve güvenilirlik vurgusu'
+            ],
+            'team_collaboration_style_for_employer' => 'Takım çalışmasında güvenilirlik ve istikrar odaklı yaklaşım sergilerler. Net rol tanımları olan, organize takımlarda etkili çalışırlar. Süreç odaklı işbirliği ve kalite kontrolü konularında değerli katkılar sunarlar. Küçük, istikrarlı takım yapılarını tercih ederler.',
+            'leadership_potential_or_style_notes_for_employer' => 'Güvenilir ve süreç odaklı liderlik potansiyeline sahiptirler. Operasyonel yönetim, kalite kontrolü ve ekip organizasyonu konularında etkili liderlik sergilerler. Liderlik pozisyonlarında net yetki ve sorumluluk tanımları verildiğinde en iyi performansı sergilerler. Geleneksel ve istikrar odaklı liderlik tarzını benimserler.'
+        ]);
+
+        // ISFJ (Savunmacı/Koruyucu) kişilik tipi için detaylı iş profili
+        MbtiTypeDetail::create([
+            'mbti_type' => 'ISFJ',
+            'type_name' => 'Savunmacı',
+            'profile_summary_for_employer' => 'ISFJ tipi çalışanlar, fedakar yaklaşımları ve güçlü destek yetenekleri ile organizasyona uyum ve istikrar getiren değerli ekip üyeleridir. İnsan kaynakları desteği, müşteri hizmetleri ve ekip uyumu konularında üstün performans sergilerler. Koruyucu yaklaşımları ve empati yetenekleri sayesinde pozitif çalışma ortamları oluştururlar.',
+            'key_strengths_in_workplace' => [
+                'Güçlü empati ve insan odaklı destek sağlama',
+                'Detay odaklı ve titiz hizmet kalitesi',
+                'Ekip uyumu ve çatışma çözümü becerileri',
+                'Fedakar çalışma ve başkalarının ihtiyaçlarını önceleme'
+            ],
+            'potential_development_areas_for_workplace_effectiveness' => [
+                'Kendi ihtiyaçlarını da ifade etme becerisi geliştirme',
+                'Eleştirel geri bildirim verme konusunda cesaret artırma',
+                'Değişim ve yeniliklere adaptasyon hızını artırma',
+                'Aşırı sorumluluk alma eğilimini dengeleme'
+            ],
+            'communication_style_and_tips_for_employer' => 'ISFJ çalışanlar sıcak, destekleyici ve kişi odaklı iletişimi tercih ederler. Onlarla iletişim kurarken empati gösterin ve kişisel değerlerini anlayın. Bire bir görüşmeleri destekleyin ve fikirlerini rahatça ifade edebilecekleri ortam sağlayın. Eleştirileri yapıcı ve destekleyici tonla sunduğunuzda daha etkili olur.',
+            'task_management_approach_and_tips_for_employer' => 'Görev yönetiminde insan odaklı projeler ve destek rollerini önceliklendirin. Net hedefler belirleyin ancak uygulama konusunda esneklik tanıyın. Müşteri hizmetleri, ekip desteği ve organizasyonel uyum görevlerini verin. Başkalarına yardım etme fırsatları sunan projeler atayın.',
+            'feedback_receptivity_and_guidance_for_employer' => 'Geri bildirim verirken destekleyici ve kişisel yaklaşım benimseyin. Performans değerlendirmelerini ekip katkısı ve insan ilişkileri üzerinden yapın. Fedakar çalışmalarını takdir edin ve gelişim önerilerinizi mentorluk yaklaşımıyla sunun. Kişisel eleştirilerden kaçının ve yapıcı geri bildirimler verin.',
+            'work_environment_preferences_for_employer' => 'Uyumlu, destekleyici ve pozitif çalışma ortamları tercih ederler. Ekip içi işbirliği ve samimi ilişkiler motivasyonlarını artırır. Çatışmasız ve stressiz ortamlar sağlamaya çalışın. İnsan odaklı değerlerin önemsendiği, empati ve anlayışın hakim olduğu ortamlarda daha verimli çalışırlar.',
+            'motivators_for_employer_to_leverage' => [
+                'İnsan odaklı ve destek sağlayan projeler',
+                'Ekip uyumu ve organizasyonel kültür geliştirme',
+                'Müşteri memnuniyeti ve hizmet kalitesi odaklı görevler',
+                'Takdir edilme ve katkılarının görülmesi'
+            ],
+            'team_collaboration_style_for_employer' => 'Takım çalışmasında destek ve uyum odaklı yaklaşım sergilerler. Ekip üyelerinin ihtiyaçlarını karşılama ve çatışma çözümü konusunda etkili çalışırlar. Samimi, küçük takımlarda daha rahat hissederler. Ekip moralini yüksek tutma ve pozitif atmosfer yaratma konularında değerli katkılar sunarlar.',
+            'leadership_potential_or_style_notes_for_employer' => 'Destekleyici ve hizmetkar liderlik potansiyeline sahiptirler. Ekip gelişimi, insan kaynakları yönetimi ve organizasyonel kültür oluşturma konularında etkili liderlik sergilerler. Liderlik pozisyonlarında empati ve destek yetkisi verildiğinde en iyi performansı sergilerler. Koruyucu ve ekip odaklı liderlik tarzını benimserler.'
+        ]);
+
+        // ESTJ (Yönetici) kişilik tipi için detaylı iş profili
+        MbtiTypeDetail::create([
+            'mbti_type' => 'ESTJ',
+            'type_name' => 'Yönetici',
+            'profile_summary_for_employer' => 'ESTJ tipi çalışanlar, güçlü organizasyon yetenekleri ve sistemli yaklaşımları ile işletmeye düzen ve verimlilik getiren değerli ekip üyeleridir. Proje yönetimi, operasyonel verimlilik ve ekip koordinasyonu konularında üstün performans sergilerler. Liderlik yetenekleri ve sonuç odaklı yaklaşımları sayesinde hedeflere ulaşmada etkili sonuçlar üretirler.',
+            'key_strengths_in_workplace' => [
+                'Güçlü organizasyon ve proje yönetimi becerileri',
+                'Sistemli yaklaşım ve operasyonel verimlilik sağlama',
+                'Doğal liderlik ve ekip koordinasyonu yetenekleri',
+                'Sonuç odaklı çalışma ve hedef odaklılık'
+            ],
+            'potential_development_areas_for_workplace_effectiveness' => [
+                'Esneklik ve yaratıcı çözümlere açıklık geliştirme',
+                'Sabırlı dinleme ve farklı görüşlere tolerans artırma',
+                'Detaylara odaklanma ve mikro-yönetim eğilimini dengeleme',
+                'Ekip üyelerinin bireysel çalışma stillerine uyum sağlama'
+            ],
+            'communication_style_and_tips_for_employer' => 'ESTJ çalışanlar doğrudan, net ve sonuç odaklı iletişimi tercih ederler. Onlarla iletişim kurarken açık hedefler ve somut beklentiler belirtin. Hızlı karar verme süreçlerini destekleyin ve verimlilik odaklı yaklaşımları takdir edin. Eleştirileri performans ve sonuç odaklı sunduğunuzda daha etkili olur.',
+            'task_management_approach_and_tips_for_employer' => 'Görev yönetiminde liderlik sorumlulukları ve organizasyonel görevler verin. Net hedefler, ölçülebilir sonuçlar ve zaman çizelgeleri belirleyin. Proje yönetimi ve ekip koordinasyonu sorumluluğu tanıyın. Operasyonel verimlilik ve sistem iyileştirme projelerini önceliklendirin.',
+            'feedback_receptivity_and_guidance_for_employer' => 'Geri bildirim verirken doğrudan, açık ve sonuç odaklı yaklaşım benimseyin. Performans değerlendirmelerini ölçülebilir kriterler ve başarı metrikleri üzerinden yapın. Liderlik becerilerini takdir edin ve gelişim önerilerinizi organizasyonel hedeflerle ilişkilendirin. Objektif ve yapıcı eleştirileri kabul ederler.',
+            'work_environment_preferences_for_employer' => 'Organize, verimli ve hedef odaklı çalışma ortamları tercih ederler. Net hiyerarşi ve sorumluluk tanımları motivasyonlarını artırır. Liderlik fırsatları ve karar verme yetkisi sağlamaya çalışın. Sonuç odaklı ve performans temelli değerlendirmelerin yapıldığı ortamlarda daha verimli çalışırlar.',
+            'motivators_for_employer_to_leverage' => [
+                'Liderlik sorumlulukları ve yönetim fırsatları',
+                'Organizasyonel verimlilik ve sistem iyileştirme projeleri',
+                'Net hedefler ve ölçülebilir başarı kriterleri',
+                'Başarı tanınması ve kariyer gelişim imkanları'
+            ],
+            'team_collaboration_style_for_employer' => 'Takım çalışmasında liderlik ve koordinasyon odaklı yaklaşım sergilerler. Ekip organizasyonu, görev dağılımı ve süreç yönetimi konularında etkili çalışırlar. Büyük takımlarda bile düzen ve verimlilik sağlayabilirler. Sonuç odaklı işbirliği ve performans temelli çalışma ortamlarını tercih ederler.',
+            'leadership_potential_or_style_notes_for_employer' => 'Güçlü doğal liderlik potansiyeline sahiptirler ve direktif liderlik tarzı benimserler. Operasyonel yönetim, ekip koordinasyonu ve organizasyonel verimlilik konularında başarılıdırlar. Liderlik pozisyonlarında geniş yetki ve organizasyonel sorumluluk verildiğinde en iyi performansı sergilerler. Geleneksel ve sonuç odaklı liderlik yaklaşımını benimserler.'
+        ]);
+
+        // ESFJ (Konsolos) kişilik tipi için detaylı iş profili
+        MbtiTypeDetail::create([
+            'mbti_type' => 'ESFJ',
+            'type_name' => 'Konsolos',
+            'profile_summary_for_employer' => 'ESFJ tipi çalışanlar, güçlü sosyal yetenekleri ve hizmet odaklı yaklaşımları ile organizasyona uyum ve pozitif enerji getiren değerli ekip üyeleridir. Müşteri ilişkileri, ekip koordinasyonu ve organizasyonel kültür geliştirme konularında üstün performans sergilerler. İnsani yaklaşımları ve topluluk odaklı çalışma tarzları sayesinde güçlü iş ilişkileri oluştururlar.',
+            'key_strengths_in_workplace' => [
+                'Güçlü sosyal beceriler ve müşteri odaklı hizmet',
+                'Ekip uyumu ve pozitif çalışma ortamı yaratma',
+                'Organizasyonel kültür geliştirme ve topluluk oluşturma',
+                'Detay odaklı ve titiz hizmet kalitesi sağlama'
+            ],
+            'potential_development_areas_for_workplace_effectiveness' => [
+                'Eleştirel geri bildirim verme konusunda cesaret artırma',
+                'Kendi görüşlerini daha assertif şekilde ifade etme',
+                'Değişim ve yeniliklere adaptasyon hızını artırma',
+                'Çatışma durumlarında daha objektif yaklaşım geliştirme'
+            ],
+            'communication_style_and_tips_for_employer' => 'ESFJ çalışanlar sıcak, destekleyici ve topluluk odaklı iletişimi tercih ederler. Onlarla iletişim kurarken kişisel ilgi gösterin ve ekip dinamiklerini vurgulayın. Açık takdir ve pozitif geri bildirimler verin. Organizasyonel değerleri ve toplumsal faydayı ön plana çıkardığınızda daha motive olurlar.',
+            'task_management_approach_and_tips_for_employer' => 'Görev yönetiminde insan odaklı projeler ve müşteri hizmetleri rollerini önceliklendirin. Net hedefler belirleyin ve ekip işbirliği fırsatları sunun. Organizasyonel etkinlikler, kültür geliştirme ve müşteri ilişkileri görevlerini verin. Sosyal etkileşim gerektiren projeleri atayın.',
+            'feedback_receptivity_and_guidance_for_employer' => 'Geri bildirim verirken destekleyici ve pozitif yaklaşım benimseyin. Performans değerlendirmelerini ekip katkısı ve müşteri memnuniyeti üzerinden yapın. Sosyal becerilerini ve ekip odaklı çalışmalarını takdir edin. Gelişim önerilerinizi kişisel gelişim fırsatları olarak sunduğunuzda daha etkili olur.',
+            'work_environment_preferences_for_employer' => 'Sosyal, işbirliği odaklı ve pozitif çalışma ortamları tercih ederler. Ekip etkileşimi ve açık iletişim kanalları motivasyonlarını artırır. Müşteri teması ve hizmet odaklı roller sağlamaya çalışın. İnsani değerlerin önemsendiği, topluluk hissinin güçlü olduğu ortamlarda daha verimli çalışırlar.',
+            'motivators_for_employer_to_leverage' => [
+                'Müşteri hizmetleri ve insan odaklı projeler',
+                'Ekip etkinlikleri ve organizasyonel kültür geliştirme',
+                'Sosyal sorumluluk ve toplumsal fayda sağlayan görevler',
+                'Takdir edilme ve ekip içindeki değerli rolü vurgulama'
+            ],
+            'team_collaboration_style_for_employer' => 'Takım çalışmasında uyum ve sosyal bağlantı odaklı yaklaşım sergilerler. Ekip moralini yüksek tutma ve pozitif atmosfer yaratma konusunda etkili çalışırlar. Büyük takımlarda bile sosyal uyumu sağlayabilirler. Ekip etkinlikleri ve işbirliği projelerinde değerli katkılar sunarlar.',
+            'leadership_potential_or_style_notes_for_employer' => 'Sosyal ve destekleyici liderlik potansiyeline sahiptirler. Ekip motivasyonu, organizasyonel kültür oluşturma ve müşteri ilişkileri yönetimi konularında etkili liderlik sergilerler. Liderlik pozisyonlarında insan kaynakları ve topluluk oluşturma yetkisi verildiğinde en iyi performansı sergilerler. Katılımcı ve hizmet odaklı liderlik tarzını benimserler.'
+        ]);
+
+        // ISTP (Zanaatkar/Sanal) kişilik tipi için detaylı iş profili
+        MbtiTypeDetail::create([
+            'mbti_type' => 'ISTP',
+            'type_name' => 'Zanaatkar',
+            'profile_summary_for_employer' => 'ISTP tipi çalışanlar, pratik problem çözme yetenekleri ve teknik uzmanlıkları ile organizasyona somut değer katan dinamik ekip üyeleridir. Anlık çözüm geliştirme, sistem optimizasyonu ve hands-on yaklaşımlar konularında üstün performans sergilerler. Esnek adaptasyon yetenekleri ve analitik düşünce yapıları sayesinde karmaşık teknik sorunlarda etkili sonuçlar üretirler.',
+            'key_strengths_in_workplace' => [
+                'Pratik ve teknik problem çözme konusunda üstün yetenek',
+                'Araçlar, sistemler ve teknolojilerle usta düzeyde çalışma',
+                'Anlık adaptasyon ve kriz yönetimi becerileri',
+                'Bağımsız çalışma ve öz-yönlendirme kapasitesi'
+            ],
+            'potential_development_areas_for_workplace_effectiveness' => [
+                'Uzun vadeli planlama ve stratejik düşünme becerilerini geliştirme',
+                'Takım içi düzenli iletişim ve güncelleme paylaşımı',
+                'Teorik ve kavramsal çalışmalara tolerans artırma',
+                'Rutin raporlama ve dokümantasyon alışkanlığı geliştirme'
+            ],
+            'communication_style_and_tips_for_employer' => 'ISTP çalışanlar kısa, net ve sonuç odaklı iletişimi tercih ederler. Onlarla iletişim kurarken somut örnekler ve pratik uygulamalar sunun. Gereksiz toplantılardan kaçının ve teknik detayları vurgulayın. Eleştirileri objektif verilerle desteklediğinizde ve çözüm odaklı sunduğunuzda daha yapıcı karşılanır.',
+            'task_management_approach_and_tips_for_employer' => 'Görev yönetiminde özerklik ve teknik özgürlük sağlayın. Hands-on projeler verin ve sonuç odaklı değerlendirmeler yapın. Mikro-yönetimden kaçının ve acil durum müdahalesi gerektiren görevlerde onlara güvenin. Teknik araştırma ve geliştirme projelerini önceliklendirin.',
+            'feedback_receptivity_and_guidance_for_employer' => 'Geri bildirim verirken doğrudan, teknik temelli ve çözüm odaklı yaklaşım benimseyin. Performans değerlendirmelerini somut sonuçlar üzerinden yapın ve gelişim önerilerinizi pratik uygulamalarla destekleyin. Teknik başarılarını takdir edin ve yeni araç/teknoloji öğrenme fırsatları sunun.',
+            'work_environment_preferences_for_employer' => 'Esnek, kesintisiz ve teknik araçların bol olduğu çalışma ortamları tercih ederler. Bireysel çalışma alanları ve hands-on deneyim imkanları motivasyonlarını artırır. Uzaktan çalışma seçenekleri ve esnek saatler sağlamaya çalışın. Teknik laboratuvar ve atölye benzeri ortamlarda daha verimli çalışırlar.',
+            'motivators_for_employer_to_leverage' => [
+                'Teknik zorluklar ve hands-on problem çözme projeleri',
+                'Yeni araç ve teknolojilerle çalışma fırsatları',
+                'Özerklik ve bağımsız karar verme yetkisi',
+                'Acil durum müdahalesi ve kriz çözümü sorumlulukları'
+            ],
+            'team_collaboration_style_for_employer' => 'Takım çalışmasında pratik katkı ve teknik destek odaklı yaklaşım sergilerler. Küçük, teknik odaklı takımlarda daha etkili çalışırlar. Brainstorming seanslarında uygulanabilir çözümler sunarlar. Sosyal aktivitelerden ziyade iş odaklı işbirliğini tercih ederler.',
+            'leadership_potential_or_style_notes_for_employer' => 'Teknik uzmanlık temelli liderlik potansiyeline sahiptirler. Kriz yönetimi, teknik proje liderliği ve problem çözme konularında etkili liderlik sergilerler. Liderlik pozisyonlarında teknik özerklik ve hands-on yaklaşım yetkisi verildiğinde en iyi performansı sergilerler. Pragmatik ve sonuç odaklı liderlik tarzını benimserler.'
+        ]);
+
+        // ISFP (Maceracı) kişilik tipi için detaylı iş profili
+        MbtiTypeDetail::create([
+            'mbti_type' => 'ISFP',
+            'type_name' => 'Maceracı',
+            'profile_summary_for_employer' => 'ISFP tipi çalışanlar, yaratıcı yaklaşımları ve güçlü estetik duyarlılıkları ile organizasyona özgünlük ve yenilik getiren değerli ekip üyeleridir. Yaratıcı projeler, bireysel ifade ve değer temelli çalışmalar konularında üstün performans sergilerler. Esnek adaptasyon yetenekleri ve empati odaklı yaklaşımları sayesinde insan merkezli çözümler üretirler.',
+            'key_strengths_in_workplace' => [
+                'Yaratıcı düşünme ve özgün çözümler geliştirme',
+                'Güçlü estetik duyarlılık ve tasarım becerileri',
+                'Bireysel motivasyon ve öz-yönlendirme kapasitesi',
+                'Empati ve farklılıklara saygı gösterme yeteneği'
+            ],
+            'potential_development_areas_for_workplace_effectiveness' => [
+                'Zaman yönetimi ve deadline odaklılık geliştirme',
+                'Yapılandırılmış süreçlere uyum sağlama becerisini artırma',
+                'Takım içi proaktif iletişim ve güncelleme paylaşımı',
+                'Eleştiri ve geri bildirimleri objektif değerlendirme'
+            ],
+            'communication_style_and_tips_for_employer' => 'ISFP çalışanlar samimi, değer temelli ve bireysel iletişimi tercih ederler. Onlarla iletişim kurarken kişisel değerlerini ve yaratıcı vizyonlarını anlayın. Bire bir görüşmeler yapın ve fikirlerini geliştirmeleri için zaman tanıyın. Eleştirileri destekleyici ve gelişim odaklı sunduğunuzda daha yapıcı karşılanır.',
+            'task_management_approach_and_tips_for_employer' => 'Görev yönetiminde yaratıcı özgürlük ve esnek süreçler sağlayın. Anlamlı ve değer uyumu olan projeler verin. Mikro-yönetimden kaçının ve bireysel çalışma tarzlarını destekleyin. Yaratıcı ve estetik odaklı projeleri önceliklendirin.',
+            'feedback_receptivity_and_guidance_for_employer' => 'Geri bildirim verirken empatik ve destekleyici yaklaşım benimseyin. Performans değerlendirmelerini yaratıcı katkılar ve bireysel gelişim üzerinden yapın. Güçlü yanlarını vurgulayın ve gelişim önerilerinizi kişisel değerler çerçevesinde sunun. Yapıcı eleştirileri yaratıcı fırsatlar olarak sunduğunuzda daha etkili olur.',
+            'work_environment_preferences_for_employer' => 'Esnek, yaratıcı ve estetik açıdan hoş çalışma ortamları tercih ederler. Bireysel çalışma alanları ve yaratıcı ifade imkanları motivasyonlarını artırır. Doğal ışık ve rahat atmosfer sağlamaya çalışın. Özgünlüğün değer gördüğü, farklılıkların desteklendiği ortamlarda daha verimli çalışırlar.',
+            'motivators_for_employer_to_leverage' => [
+                'Yaratıcı ve estetik odaklı projeler',
+                'Bireysel ifade ve özgünlük fırsatları',
+                'Değer uyumu olan anlamlı çalışmalar',
+                'Esnek çalışma düzenlemeleri ve özerklik'
+            ],
+            'team_collaboration_style_for_employer' => 'Takım çalışmasında yaratıcılık ve empati odaklı yaklaşım sergilerler. Farklı perspektifleri anlama ve yaratıcı çözümler geliştirme konusunda etkili çalışırlar. Küçük, samimi takımlarda daha rahat hissederler. Brainstorming ve yaratıcı problem çözme seanslarında değerli katkılar sunarlar.',
+            'leadership_potential_or_style_notes_for_employer' => 'İlham verici ve değer temelli liderlik potansiyeline sahiptirler. Yaratıcı vizyon oluşturma, ekip üyelerinin bireysel güçlerini keşfetme ve özgün çözümler geliştirme konularında etkili liderlik sergilerler. Liderlik pozisyonlarında yaratıcı özgürlük ve değer uyumu yetkisi verildiğinde en iyi performansı sergilerler. Demokratik ve ilham verici liderlik tarzını benimserler.'
+        ]);
+
+        // ESTP (Girişimci) kişilik tipi için detaylı iş profili
+        MbtiTypeDetail::create([
+            'mbti_type' => 'ESTP',
+            'type_name' => 'Girişimci',
+            'profile_summary_for_employer' => 'ESTP tipi çalışanlar, dinamik enerjileri ve anlık fırsat değerlendirme yetenekleri ile organizasyona hız ve adaptasyon getiren değerli ekip üyeleridir. Satış, müzakere ve hızlı karar gerektiren durumlar konularında üstün performans sergilerler. Risk alma cesaretleri ve pragmatik yaklaşımları sayesinde rekabetçi ortamlarda etkili sonuçlar üretirler.',
+            'key_strengths_in_workplace' => [
+                'Hızlı karar verme ve anlık fırsat değerlendirme',
+                'Güçlü sosyal beceriler ve ikna etme yetenekleri',
+                'Risk alma cesareti ve girişimci yaklaşımlar',
+                'Yüksek enerji ve dinamik çalışma kapasitesi'
+            ],
+            'potential_development_areas_for_workplace_effectiveness' => [
+                'Uzun vadeli planlama ve stratejik düşünme becerilerini geliştirme',
+                'Detay odaklılık ve titizlik konusunda gelişim sağlama',
+                'Sabırlı analiz ve derinlemesine araştırma alışkanlığı',
+                'Rutin görevlere karşı motivasyon sürdürme'
+            ],
+            'communication_style_and_tips_for_employer' => 'ESTP çalışanlar enerjik, doğrudan ve etkileşimli iletişimi tercih ederler. Onlarla iletişim kurarken hızlı tempolu ve sonuç odaklı yaklaşım benimseyin. Yüz yüze görüşmeleri destekleyin ve dinamik tartışma ortamları sağlayın. Eleştirileri hızlı ve aksiyon odaklı sunduğunuzda daha yapıcı karşılanır.',
+            'task_management_approach_and_tips_for_employer' => 'Görev yönetiminde çeşitlilik ve hızlı tempo sağlayın. Satış, müzakere ve müşteri ilişkileri odaklı projeler verin. Rutin görevleri minimize edin ve rekabetçi hedefler belirleyin. Anlık karar verme yetkisi tanıyın ve sonuç odaklı değerlendirmeler yapın.',
+            'feedback_receptivity_and_guidance_for_employer' => 'Geri bildirim verirken doğrudan, hızlı ve aksiyon odaklı yaklaşım benimseyin. Performans değerlendirmelerini somut sonuçlar ve başarı metrikleri üzerinden yapın. Girişimci yaklaşımlarını takdir edin ve yeni fırsatlar ile ilişkilendirin. Rekabetçi başarıları vurgulayın.',
+            'work_environment_preferences_for_employer' => 'Dinamik, hızlı tempolu ve sosyal etkileşimin yoğun olduğu çalışma ortamları tercih ederler. Müşteri teması ve dış saha çalışması motivasyonlarını artırır. Esnek çalışma düzenlemeleri ve hareket özgürlüğü sağlamaya çalışın. Rekabetçi ve başarı odaklı ortamlarda daha verimli çalışırlar.',
+            'motivators_for_employer_to_leverage' => [
+                'Rekabetçi hedefler ve başarı odaklı projeler',
+                'Satış, müzakere ve müşteri ilişkileri fırsatları',
+                'Hızlı karar verme yetkisi ve özerklik',
+                'Çeşitli görevler ve değişken sorumluluklar'
+            ],
+            'team_collaboration_style_for_employer' => 'Takım çalışmasında enerji ve motivasyon odaklı yaklaşım sergilerler. Ekip dinamizmini artırma ve hızlı çözümler geliştirme konusunda etkili çalışırlar. Rekabetçi takım ortamlarında başarılı olurlar. Brainstorming ve hızlı karar gerektiren durumlarda değerli katkılar sunarlar.',
+            'leadership_potential_or_style_notes_for_employer' => 'Dinamik ve sonuç odaklı liderlik potansiyeline sahiptirler. Satış ekibi liderliği, kriz yönetimi ve hızlı büyüme dönemlerinde etkili liderlik sergilerler. Liderlik pozisyonlarında hızlı karar verme ve risk alma yetkisi verildiğinde en iyi performansı sergilerler. Pragmatik ve girişimci liderlik tarzını benimserler.'
+        ]);
+
+        // ESFP (Eğlendirici) kişilik tipi için detaylı iş profili
+        MbtiTypeDetail::create([
+            'mbti_type' => 'ESFP',
+            'type_name' => 'Eğlendirici',
+            'profile_summary_for_employer' => 'ESFP tipi çalışanlar, coşkulu enerjileri ve güçlü sosyal yetenekleri ile organizasyona pozitif atmosfer ve insan odaklı yaklaşım getiren değerli ekip üyeleridir. Müşteri hizmetleri, ekip motivasyonu ve yaratıcı sunum konularında üstün performans sergilerler. Spontane adaptasyon yetenekleri ve empati odaklı yaklaşımları sayesinde dinamik çalışma ortamlarında etkili sonuçlar üretirler.',
+            'key_strengths_in_workplace' => [
+                'Güçlü sosyal beceriler ve müşteri odaklı hizmet',
+                'Pozitif enerji ve ekip motivasyonu sağlama',
+                'Spontane adaptasyon ve anlık problem çözme',
+                'Yaratıcı sunum ve etkileşimli iletişim yetenekleri'
+            ],
+            'potential_development_areas_for_workplace_effectiveness' => [
+                'Uzun vadeli planlama ve stratejik düşünme becerilerini geliştirme',
+                'Detay odaklılık ve dokümantasyon alışkanlığı',
+                'Zaman yönetimi ve önceliklendirme becerilerini artırma',
+                'Eleştirel analiz ve objektif değerlendirme kapasitesi'
+            ],
+            'communication_style_and_tips_for_employer' => 'ESFP çalışanlar enerjik, sıcak ve etkileşimli iletişimi tercih ederler. Onlarla iletişim kurarken coşkularını destekleyin ve kişisel ilgi gösterin. Yüz yüze görüşmeleri ve ekip toplantılarını teşvik edin. Eleştirileri pozitif tonla ve gelişim fırsatları olarak sunduğunuzda daha yapıcı karşılanır.',
+            'task_management_approach_and_tips_for_employer' => 'Görev yönetiminde çeşitlilik ve sosyal etkileşim sağlayın. Müşteri odaklı, yaratıcı ve ekip işbirliği gerektiren projeler verin. Rutin görevleri minimize edin ve spontane çözümler gerektiren durumları önceliklendirin. Kısa vadeli hedefler ile motivasyonu sürdürün.',
+            'feedback_receptivity_and_guidance_for_employer' => 'Geri bildirim verirken pozitif, destekleyici ve kişisel yaklaşım benimseyin. Performans değerlendirmelerini ekip katkısı ve müşteri memnuniyeti üzerinden yapın. Sosyal becerilerini ve pozitif etkilerini takdir edin. Gelişim önerilerinizi yeni deneyimler ve fırsatlar olarak sunduğunuzda daha etkili olur.',
+            'work_environment_preferences_for_employer' => 'Dinamik, sosyal ve etkileşimli çalışma ortamları tercih ederler. Müşteri teması ve ekip işbirliği motivasyonlarını artırır. Esnek çalışma düzenlemeleri ve yaratıcı ifade imkanları sağlamaya çalışın. Pozitif enerji ve eğlenceli atmosferin desteklendiği ortamlarda daha verimli çalışırlar.',
+            'motivators_for_employer_to_leverage' => [
+                'Müşteri odaklı ve sosyal etkileşim gerektiren projeler',
+                'Yaratıcı sunum ve etkinlik organizasyonu fırsatları',
+                'Ekip motivasyonu ve pozitif atmosfer yaratma görevleri',
+                'Çeşitli deneyimler ve yeni insanlarla tanışma imkanları'
+            ],
+            'team_collaboration_style_for_employer' => 'Takım çalışmasında enerji ve pozitif atmosfer odaklı yaklaşım sergilerler. Ekip moralini yüksek tutma ve sosyal bağlantıları güçlendirme konusunda etkili çalışırlar. Büyük takımlarda bile uyumlu çalışma ortamı yaratabilirler. Ekip etkinlikleri ve yaratıcı projelerinde değerli katkılar sunarlar.',
+            'leadership_potential_or_style_notes_for_employer' => 'İlham verici ve insan odaklı liderlik potansiyeline sahiptirler. Ekip motivasyonu, müşteri ilişkileri yönetimi ve pozitif kültür oluşturma konularında etkili liderlik sergilerler. Liderlik pozisyonlarında sosyal etkileşim ve yaratıcı yaklaşım yetkisi verildiğinde en iyi performansı sergilerler. Katılımcı ve eğlenceli liderlik tarzını benimser, ekip üyelerinin potansiyelini ortaya çıkarmaya odaklanır.'
+        ]);
     }
 }
