@@ -21,11 +21,22 @@ class TestController extends Controller
 {
     /**
      * 'test.start' view'ını gösterir.
+     * Giriş yapmış kullanıcının daha önceden test sonucu varsa dashboard'a yönlendirir.
      *
-     * @return \Illuminate\View\View
+     * @return \Illuminate\View\View|\Illuminate\Http\RedirectResponse
      */
-    public function start(): View
+    public function start(): View|RedirectResponse
     {
+        // Giriş yapmış kullanıcının daha önceden bir test sonucu olup olmadığını kontrol et
+        if (Auth::check()) {
+            $existingTestResult = Auth::user()->testResults()->first();
+            
+            if ($existingTestResult) {
+                return redirect()->route('dashboard')
+                    ->with('info', 'Zaten tamamlanmış bir testiniz bulunmaktadır. Sonuçlarınızı buradan inceleyebilirsiniz.');
+            }
+        }
+        
         return view('test.start');
     }
 
@@ -69,9 +80,9 @@ class TestController extends Controller
      * Test cevaplarını alır ve işler.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\View\View
+     * @return \Illuminate\Http\RedirectResponse
      */
-    public function submitAnswers(Request $request): View
+    public function submitAnswers(Request $request): RedirectResponse
     {
         // MBTI skorlarını tutmak için dizi başlat
         $scores = [
@@ -165,7 +176,7 @@ class TestController extends Controller
         }
         
         // Test sonucunu veritabanına kaydet
-        TestResult::create([
+        $newTestResult = TestResult::create([
             'user_id' => $userId,
             'mbti_type' => $mbtiType,
             'e_score' => $scores['E'],
@@ -176,13 +187,60 @@ class TestController extends Controller
             'f_score' => $scores['F'],
             'j_score' => $scores['J'],
             'p_score' => $scores['P'],
-            'status' => 'completed'
+            'status' => 'pending_payment'
         ]);
         
-        // MBTI tipine ait detayları veritabanından al
-        $mbtiTypeDetail = MbtiTypeDetail::where('mbti_type', $mbtiType)->first();
+        // Kullanıcıyı ödeme sayfasına yönlendir
+        return redirect()->route('test.payment', ['testResult' => $newTestResult->id]);
+    }
+
+    /**
+     * Ödeme sayfasını gösterir.
+     *
+     * @param  \App\Models\TestResult  $testResult
+     * @return \Illuminate\View\View|\Illuminate\Http\RedirectResponse
+     */
+    public function showPaymentPage(TestResult $testResult)
+    {
+        // Raporun doğru kullanıcıya ait olduğunu doğrula
+        if ($testResult->user_id !== Auth::id()) {
+            abort(403);
+        }
         
-        // Kullanıcıyı sonuçlar sayfasına yönlendir
-        return view('test.results', compact('mbtiType', 'scores', 'mbtiTypeDetail'));
+        // Eğer rapor zaten ödenmişse, direkt sonuç sayfasına yönlendir
+        if ($testResult->status === 'completed') {
+            return redirect()->route('test.showResult', ['testResult' => $testResult->id]);
+        }
+        
+        // Ödeme bekliyorsa, ödeme sayfasını göster
+        return view('test.payment', compact('testResult'));
+    }
+
+    /**
+     * Ödenmiş test sonucunu gösterir.
+     *
+     * @param  \App\Models\TestResult  $testResult
+     * @return \Illuminate\View\View
+     */
+    public function showResult(TestResult $testResult)
+    {
+        // Raporun doğru kullanıcıya ait olduğunu ve ödemesinin yapıldığını doğrula
+        if ($testResult->user_id !== Auth::id() || $testResult->status !== 'completed') {
+            abort(403, 'Bu rapora erişim yetkiniz bulunmamaktadır.');
+        }
+        
+        // Raporu göstermek için gereken verileri topla
+        $mbtiTypeDetail = MbtiTypeDetail::where('mbti_type', $testResult->mbti_type)->first();
+        
+        $scores = [
+            'E' => $testResult->e_score, 'I' => $testResult->i_score,
+            'S' => $testResult->s_score, 'N' => $testResult->n_score,
+            'T' => $testResult->t_score, 'F' => $testResult->f_score,
+            'J' => $testResult->j_score, 'P' => $testResult->p_score,
+        ];
+        
+        $mbtiType = $testResult->mbti_type;
+        
+        return view('test.results', compact('mbtiType', 'scores', 'mbtiTypeDetail', 'testResult'));
     }
 }

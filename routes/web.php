@@ -32,4 +32,10 @@ Route::get('/test/questions', [TestController::class, 'showQuestions'])->name('t
 // Test cevaplarını gönderme rotası
 Route::post('/test/submit', [TestController::class, 'submitAnswers'])->name('test.submit');
 
+// Ödeme sayfasını gösterme rotası
+Route::get('/test/payment/{testResult}', [TestController::class, 'showPaymentPage'])->middleware('auth')->name('test.payment');
+
+// Ödenmiş test sonucunu gösterme rotası
+Route::get('/test/result/{testResult}', [TestController::class, 'showResult'])->middleware('auth')->name('test.showResult');
+
 ?>
