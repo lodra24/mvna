@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
+use App\Mail\UserRegisteredWelcome;
 use App\Models\User;
 use App\Models\TestResult;
 use Illuminate\Auth\Events\Registered;
@@ -10,6 +11,7 @@ use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Mail;
 use Illuminate\Validation\Rules;
 use Illuminate\View\View;
 
@@ -53,6 +55,9 @@ class RegisteredUserController extends Controller
         event(new Registered($user));
 
         Auth::login($user);
+
+        // Hoş geldiniz e-postasını gönder
+        Mail::to($user->email)->send(new UserRegisteredWelcome($user));
 
         // Session'da bekleyen test sonucu var mı kontrol et
         if (session()->has('pending_test_result')) {
