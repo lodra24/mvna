@@ -16,6 +16,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Str;
 use App\Models\MbtiTypeDetail;
+use Barryvdh\DomPDF\Facade\Pdf;
 
 class TestController extends Controller
 {
@@ -171,5 +172,32 @@ class TestController extends Controller
         $mbtiType = $testResult->mbti_type;
         
         return view('test.results', compact('mbtiType', 'scores', 'mbtiTypeDetail', 'testResult'));
+    }
+
+    /**
+     * PDF raporu indirir.
+     *
+     * @param  \App\Models\TestResult  $testResult
+     * @return \Illuminate\Http\Response
+     */
+    public function downloadReport(TestResult $testResult)
+    {
+        // Raporun doğru kullanıcıya ait olduğunu ve ödemesinin yapıldığını doğrula
+        if ($testResult->user_id !== Auth::id() || $testResult->status !== 'completed') {
+            abort(403, 'Bu rapora erişim yetkiniz bulunmamaktadır.');
+        }
+        
+        // Raporu göstermek için gereken verileri topla
+        $mbtiTypeDetail = MbtiTypeDetail::where('mbti_type', $testResult->mbti_type)->first();
+        
+        $mbtiType = $testResult->mbti_type;
+        
+        // PDF dosya adını oluştur
+        $fileName = 'MindMetrics_Raporu_' . $mbtiType . '.pdf';
+        
+        // PDF'i oluştur ve indir
+        $pdf = Pdf::loadView('test.report_pdf', compact('mbtiType', 'mbtiTypeDetail', 'testResult'));
+        
+        return $pdf->download($fileName);
     }
 }

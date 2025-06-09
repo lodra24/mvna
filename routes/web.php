@@ -39,6 +39,9 @@ Route::get('/test/payment/{testResult}', [TestController::class, 'showPaymentPag
 // Ödenmiş test sonucunu gösterme rotası
 Route::get('/test/result/{testResult}', [TestController::class, 'showResult'])->middleware('auth')->name('test.showResult');
 
+// PDF raporu indirme rotası
+Route::get('/test/result/{testResult}/download', [TestController::class, 'downloadReport'])->middleware('auth')->name('test.downloadReport');
+
 // Test sonrası kayıt/giriş sayfası
 Route::get('/auth/register-or-login', [RegisteredUserController::class, 'showRegisterOrLogin'])->name('auth.showRegisterOrLogin');
 
