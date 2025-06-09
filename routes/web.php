@@ -36,6 +36,9 @@ Route::post('/test/submit', [TestController::class, 'submitAnswers'])->name('tes
 // Ödeme sayfasını gösterme rotası
 Route::get('/test/payment/{testResult}', [TestController::class, 'showPaymentPage'])->middleware('auth')->name('test.payment');
 
+// Sahte ödeme işlemini tamamlama rotası
+Route::get('/test/payment/{testResult}/success', [TestController::class, 'handleSuccessfulPayment'])->middleware('auth')->name('test.handlePayment');
+
 // Ödenmiş test sonucunu gösterme rotası
 Route::get('/test/result/{testResult}', [TestController::class, 'showResult'])->middleware('auth')->name('test.showResult');
 
