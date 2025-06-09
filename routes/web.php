@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\TestController; // Eklendi
+use App\Http\Controllers\Auth\RegisteredUserController; // Yeni eklendi
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
@@ -37,5 +38,8 @@ Route::get('/test/payment/{testResult}', [TestController::class, 'showPaymentPag
 
 // Ödenmiş test sonucunu gösterme rotası
 Route::get('/test/result/{testResult}', [TestController::class, 'showResult'])->middleware('auth')->name('test.showResult');
+
+// Test sonrası kayıt/giriş sayfası
+Route::get('/auth/register-or-login', [RegisteredUserController::class, 'showRegisterOrLogin'])->name('auth.showRegisterOrLogin');
 
 ?>
