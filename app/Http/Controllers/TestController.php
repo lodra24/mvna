@@ -235,4 +235,18 @@ class TestController extends Controller
         return redirect()->route('test.showResult', ['testResult' => $testResult->id])
             ->with('success', 'Ödemeniz başarıyla tamamlandı. Raporunuza şimdi erişebilirsiniz.');
     }
+
+    /**
+     * Kullanıcı paneli (dashboard) sayfasını gösterir.
+     * Giriş yapmış kullanıcının tüm test sonuçlarını listeler.
+     *
+     * @return \Illuminate\View\View
+     */
+    public function dashboard(): View
+    {
+        // Giriş yapmış kullanıcının tüm test sonuçlarını al
+        $testResults = Auth::user()->testResults()->orderBy('created_at', 'desc')->get();
+        
+        return view('dashboard', compact('testResults'));
+    }
 }
