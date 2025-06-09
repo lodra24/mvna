@@ -18,6 +18,8 @@ use Illuminate\Support\Str;
 use App\Models\MbtiTypeDetail;
 use App\Models\Payment;
 use Barryvdh\DomPDF\Facade\Pdf;
+use Illuminate\Support\Facades\Mail;
+use App\Mail\PaymentSuccessful;
 
 class TestController extends Controller
 {
@@ -230,6 +232,9 @@ class TestController extends Controller
             'payment_gateway' => 'test',
             'gateway_response' => ['test' => 'Sahte ödeme işlemi']
         ]);
+
+        // Ödeme başarılı e-postasını gönder
+        Mail::to($testResult->user->email)->send(new PaymentSuccessful($testResult));
 
         // Kullanıcıyı başarı mesajı ile sonuç sayfasına yönlendir
         return redirect()->route('test.showResult', ['testResult' => $testResult->id])
