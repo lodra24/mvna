@@ -84,114 +84,43 @@ class TestController extends Controller
      */
     public function submitAnswers(Request $request): RedirectResponse
     {
-        // MBTI skorlarını tutmak için dizi başlat
+        // 1. Skorları hesapla
         $scores = [
-            'E' => 0,
-            'I' => 0,
-            'S' => 0,
-            'N' => 0,
-            'T' => 0,
-            'F' => 0,
-            'J' => 0,
-            'P' => 0
+            'E' => 0, 'I' => 0, 'S' => 0, 'N' => 0,
+            'T' => 0, 'F' => 0, 'J' => 0, 'P' => 0
         ];
-
-        // Formdan gelen cevapları al
+        
         $submittedAnswers = $request->input('answers', []);
-
-        // Her cevap için skorlama yap
+        
         foreach ($submittedAnswers as $questionId => $chosenOption) {
-            // Veritabanından soruyu bul
             $question = Question::find($questionId);
-
             if ($question) {
-                // Seçilen opsiyona göre MBTI harfini al
-                if ($chosenOption === 'A') {
-                    $mbtiLetter = $question->option_a_value;
-                } elseif ($chosenOption === 'B') {
-                    $mbtiLetter = $question->option_b_value;
-                } else {
-                    continue; // Geçersiz seçenek, atla
-                }
-
-                // MBTI harfine karşılık gelen skoru artır
+                $mbtiLetter = ($chosenOption === 'A') ? $question->option_a_value : $question->option_b_value;
                 if (isset($scores[$mbtiLetter])) {
                     $scores[$mbtiLetter]++;
                 }
             }
         }
 
-        // MBTI tipini belirle
+        // 2. MBTI Tipini belirle
         $mbtiType = '';
+        $mbtiType .= ($scores['E'] >= $scores['I']) ? 'E' : 'I';
+        $mbtiType .= ($scores['S'] >= $scores['N']) ? 'S' : 'N';
+        $mbtiType .= ($scores['T'] >= $scores['F']) ? 'T' : 'F';
+        $mbtiType .= ($scores['J'] >= $scores['P']) ? 'J' : 'P';
         
-        // E/I Boyutu
-        if ($scores['E'] >= $scores['I']) {
-            $mbtiType .= 'E';
-        } else {
-            $mbtiType .= 'I';
-        }
-        
-        // S/N Boyutu
-        if ($scores['S'] >= $scores['N']) {
-            $mbtiType .= 'S';
-        } else {
-            $mbtiType .= 'N';
-        }
-        
-        // T/F Boyutu
-        if ($scores['T'] >= $scores['F']) {
-            $mbtiType .= 'T';
-        } else {
-            $mbtiType .= 'F';
-        }
-        
-        // J/P Boyutu
-        if ($scores['J'] >= $scores['P']) {
-            $mbtiType .= 'J';
-        } else {
-            $mbtiType .= 'P';
-        }
-        
-        // Kullanıcıyı belirleme/oluşturma mantığı
-        $userId = null;
-        
-        if (Auth::check()) {
-            // Kullanıcı giriş yapmışsa, onun ID'sini kullan
-            $userId = Auth::id();
-        } else {
-            // Kullanıcı misafirse, session'dan userName'i al ve kullanıcı oluştur/bul
-            $userName = $request->session()->get('userName', 'Misafir');
-            $guestEmail = Str::slug($userName) . '@guest.example.com';
-            
-            $user = User::firstOrCreate(
-                ['email' => $guestEmail],
-                [
-                    'name' => $userName,
-                    'password' => Hash::make(Str::random(10)),
-                    'role' => 'guest'
-                ]
-            );
-            
-            $userId = $user->id;
-        }
-        
-        // Test sonucunu veritabanına kaydet
-        $newTestResult = TestResult::create([
-            'user_id' => $userId,
+        // 3. Test sonucunu bir dizi olarak hazırla
+        $testResultData = [
             'mbti_type' => $mbtiType,
-            'e_score' => $scores['E'],
-            'i_score' => $scores['I'],
-            's_score' => $scores['S'],
-            'n_score' => $scores['N'],
-            't_score' => $scores['T'],
-            'f_score' => $scores['F'],
-            'j_score' => $scores['J'],
-            'p_score' => $scores['P'],
-            'status' => 'pending_payment'
-        ]);
+            'scores' => $scores,
+            'status' => 'pending_registration' // Yeni bir durum
+        ];
         
-        // Kullanıcıyı ödeme sayfasına yönlendir
-        return redirect()->route('test.payment', ['testResult' => $newTestResult->id]);
+        // 4. Bu sonucu veritabanına DEĞİL, session'a kaydet
+        $request->session()->put('pending_test_result', $testResultData);
+        
+        // 5. Kullanıcıyı, sonucu ve tipi gösteren yeni bir kayıt/giriş rotasına yönlendir
+        return redirect()->route('auth.showRegisterOrLogin')->with('mbti_type', $mbtiType);
     }
 
     /**
