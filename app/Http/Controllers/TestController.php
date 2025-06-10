@@ -52,6 +52,11 @@ class TestController extends Controller
      */
     public function beginTest(Request $request): RedirectResponse
     {
+        // Giriş yapmış kullanıcının daha önceden test sonucu olup olmadığını kontrol et
+        if (Auth::check() && Auth::user()->testResults()->exists()) {
+            return redirect()->route('dashboard')->with('info', 'Zaten tamamlanmış bir testiniz bulunmaktadır.');
+        }
+        
         $request->validate([
             'name' => 'required|string|max:255',
         ]);
