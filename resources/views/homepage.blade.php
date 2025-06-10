@@ -9,7 +9,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
-<body class="antialiased">
+<body class="antialiased" x-data="{ showDemoModal: false }">
     <!-- HEADER / NAVIGATION -->
     <header class="w-full bg-white/80 backdrop-blur-md sticky top-0 z-50 border-b border-slate-200/80">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -831,23 +831,119 @@
                     <h3 class="text-xl font-semibold text-slate-900 mb-3">Still have questions?</h3>
                     <p class="text-slate-600 mb-6 max-w-2xl mx-auto">Our team of MBTI experts is here to help you make the most of personality insights in your organization.</p>
                     <div class="flex flex-col sm:flex-row justify-center items-center space-y-3 sm:space-y-0 sm:space-x-4">
-                        <a href="#schedule-demo" class="cta-button">
+                        <a href="#" @click.prevent="showDemoModal = true" class="cta-button">
                             Schedule a Demo
                             <svg class="w-5 h-5 ml-2 -mr-1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
                                 <path fill-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clip-rule="evenodd" />
                             </svg>
                         </a>
-                        <a href="mailto:support@mindmetrics.com" class="inline-flex items-center px-6 py-3 text-mindmetrics-indigo border border-mindmetrics-indigo/20 rounded-lg font-medium hover:bg-mindmetrics-indigo/5 transition-colors duration-200">
+                        <a href="#" @click.prevent="showDemoModal = true" class="inline-flex items-center px-6 py-3 text-mindmetrics-indigo border border-mindmetrics-indigo/20 rounded-lg font-medium hover:bg-mindmetrics-indigo/5 transition-colors duration-200">
                             <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 7.89a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
                             </svg>
-                            Email Us
+                            Contact Sales Team
                         </a>
                     </div>
                 </div>
             </div>
         </div>
     </section>
+
+    <!-- Demo Request Modal -->
+    <div x-show="showDemoModal"
+         x-transition:enter="transition ease-out duration-300"
+         x-transition:enter-start="opacity-0"
+         x-transition:enter-end="opacity-100"
+         x-transition:leave="transition ease-in duration-200"
+         x-transition:leave-start="opacity-100"
+         x-transition:leave-end="opacity-0"
+         class="fixed inset-0 z-50 overflow-y-auto"
+         style="display: none;">
+        <!-- Background overlay -->
+        <div class="fixed inset-0 bg-black bg-opacity-50 backdrop-blur-sm transition-opacity"
+             @click="showDemoModal = false"></div>
+        
+        <!-- Modal container -->
+        <div class="flex min-h-full items-center justify-center p-4">
+            <!-- Modal content -->
+            <div x-show="showDemoModal"
+                 x-transition:enter="transition ease-out duration-300"
+                 x-transition:enter-start="opacity-0 transform scale-95"
+                 x-transition:enter-end="opacity-100 transform scale-100"
+                 x-transition:leave="transition ease-in duration-200"
+                 x-transition:leave-start="opacity-100 transform scale-100"
+                 x-transition:leave-end="opacity-0 transform scale-95"
+                 class="relative w-full max-w-md bg-white rounded-2xl shadow-2xl ring-1 ring-slate-900/10 overflow-hidden">
+                
+                <!-- Modal header -->
+                <div class="bg-gradient-to-r from-mindmetrics-indigo to-mindmetrics-green px-6 py-4">
+                    <div class="flex items-center justify-between">
+                        <h3 class="text-lg font-semibold text-white">Schedule a Demo</h3>
+                        <button @click="showDemoModal = false"
+                                class="text-white/80 hover:text-white transition-colors duration-200">
+                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+                
+                <!-- Modal body -->
+                <div class="p-6">
+                    <p class="text-slate-600 mb-6 leading-relaxed">
+                        Get a personalized demonstration of our MBTI assessment platform and discover how it can transform your hiring and management processes.
+                    </p>
+                    
+                    <!-- Demo request form -->
+                    <form class="space-y-4">
+                        <div>
+                            <label for="demo-name" class="block text-sm font-medium text-slate-700 mb-2">Full Name</label>
+                            <input type="text" id="demo-name" name="name"
+                                   class="w-full px-3 py-2 border border-slate-300 rounded-lg focus:ring-2 focus:ring-mindmetrics-indigo/20 focus:border-mindmetrics-indigo transition-colors duration-200"
+                                   placeholder="Enter your full name">
+                        </div>
+                        
+                        <div>
+                            <label for="demo-email" class="block text-sm font-medium text-slate-700 mb-2">Email Address</label>
+                            <input type="email" id="demo-email" name="email"
+                                   class="w-full px-3 py-2 border border-slate-300 rounded-lg focus:ring-2 focus:ring-mindmetrics-indigo/20 focus:border-mindmetrics-indigo transition-colors duration-200"
+                                   placeholder="Enter your email address">
+                        </div>
+                        
+                        <div>
+                            <label for="demo-company" class="block text-sm font-medium text-slate-700 mb-2">Company Name</label>
+                            <input type="text" id="demo-company" name="company"
+                                   class="w-full px-3 py-2 border border-slate-300 rounded-lg focus:ring-2 focus:ring-mindmetrics-indigo/20 focus:border-mindmetrics-indigo transition-colors duration-200"
+                                   placeholder="Enter your company name">
+                        </div>
+                        
+                        <div>
+                            <label for="demo-message" class="block text-sm font-medium text-slate-700 mb-2">Message (Optional)</label>
+                            <textarea id="demo-message" name="message" rows="3"
+                                      class="w-full px-3 py-2 border border-slate-300 rounded-lg focus:ring-2 focus:ring-mindmetrics-indigo/20 focus:border-mindmetrics-indigo transition-colors duration-200"
+                                      placeholder="Tell us about your specific needs..."></textarea>
+                        </div>
+                        
+                        <!-- Submit button -->
+                        <button type="submit"
+                                class="w-full bg-gradient-to-r from-mindmetrics-indigo to-mindmetrics-green text-white font-medium py-3 px-4 rounded-lg hover:shadow-lg transform hover:scale-105 transition-all duration-200">
+                            Request Demo
+                        </button>
+                    </form>
+                    
+                    <!-- Trust indicators -->
+                    <div class="mt-4 pt-4 border-t border-slate-200">
+                        <div class="flex items-center justify-center text-xs text-slate-500">
+                            <svg class="w-4 h-4 text-green-500 mr-1" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+                            </svg>
+                            We'll respond within 24 hours
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 
     <!-- FOOTER -->
     <footer class="bg-slate-800 text-slate-400">
