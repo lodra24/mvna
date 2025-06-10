@@ -28,9 +28,16 @@
                     <a href="#features" class="nav-link">Features</a>
                     <a href="#pricing" class="nav-link">Pricing</a>
                     <a href="#faq" class="nav-link">FAQ</a>
-                    <a href="{{ route('login') }}" class="inline-flex items-center justify-center px-4 py-2 text-sm font-medium text-mindmetrics-indigo bg-mindmetrics-indigo-light hover:bg-indigo-200 rounded-md transition-colors duration-200">
-                        Sign In
-                    </a>
+                    @guest
+                        <a href="{{ route('login') }}" class="inline-flex items-center justify-center px-4 py-2 text-sm font-medium text-mindmetrics-indigo bg-mindmetrics-indigo-light hover:bg-indigo-200 rounded-md transition-colors duration-200">
+                            Sign In
+                        </a>
+                    @endguest
+                    @auth
+                        <a href="{{ route('dashboard') }}" class="inline-flex items-center justify-center px-4 py-2 text-sm font-medium text-mindmetrics-indigo bg-mindmetrics-indigo-light hover:bg-indigo-200 rounded-md transition-colors duration-200">
+                            {{ Auth::user()->name }}
+                        </a>
+                    @endauth
                 </nav>
                 <!-- Mobile Menu Button -->
                 <div class="md:hidden flex items-center">
@@ -55,7 +62,12 @@
             </div>
             <div class="pt-4 pb-3 border-t border-slate-200">
                 <div class="px-5">
-                    <a href="{{ route('login') }}" class="block w-full px-4 py-2 text-center text-base font-medium text-mindmetrics-indigo bg-mindmetrics-indigo-light hover:bg-indigo-200 rounded-md">Sign In</a>
+                    @guest
+                        <a href="{{ route('login') }}" class="block w-full px-4 py-2 text-center text-base font-medium text-mindmetrics-indigo bg-mindmetrics-indigo-light hover:bg-indigo-200 rounded-md">Sign In</a>
+                    @endguest
+                    @auth
+                        <a href="{{ route('dashboard') }}" class="block w-full px-4 py-2 text-center text-base font-medium text-mindmetrics-indigo bg-mindmetrics-indigo-light hover:bg-indigo-200 rounded-md">{{ Auth::user()->name }}</a>
+                    @endauth
                 </div>
             </div>
         </div>
