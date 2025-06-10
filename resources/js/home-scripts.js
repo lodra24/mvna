@@ -111,4 +111,53 @@ document.addEventListener('DOMContentLoaded', function() {
             child.style.webkitUserSelect = 'none';
         });
     });
+    
+    // Demo Form Submit Function
+    window.submitDemoForm = function() {
+        // Form verilerini al
+        const form = event.target;
+        const formData = new FormData(form);
+        
+        // Basit validasyon
+        const name = formData.get('name');
+        const email = formData.get('email');
+        const company = formData.get('company');
+        
+        if (!name || !email || !company) {
+            alert('Lütfen tüm zorunlu alanları doldurun.');
+            return;
+        }
+        
+        // Email format kontrolü
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        if (!emailRegex.test(email)) {
+            alert('Lütfen geçerli bir email adresi girin.');
+            return;
+        }
+        
+        // Modal'ı kapat
+        if (window.Alpine) {
+            Alpine.store('demoModal', false);
+        }
+        
+        // Toast mesajını göster
+        setTimeout(() => {
+            if (window.Alpine) {
+                const data = Alpine.$data(document.body);
+                data.toastMessage = 'Your message has been sent successfully! We will get back to you within 24 hours.';
+                data.showToast = true;
+                data.showDemoModal = false;
+            }
+        }, 300);
+        
+        // Form'u temizle
+        form.reset();
+        
+        console.log('Demo request submitted:', {
+            name: name,
+            email: email,
+            company: company,
+            message: formData.get('message')
+        });
+    }
 });
