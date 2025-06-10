@@ -341,13 +341,13 @@
                     Simple Pricing
                 </div>
                 <h2 class="text-3xl sm:text-4xl font-extrabold text-slate-900 mb-4 tracking-tight">
-                    One Plan, <span class="text-transparent bg-clip-text bg-gradient-to-r from-mindmetrics-indigo to-mindmetrics-green">Unlimited Possibilities</span>
+                    Comprehensive Analysis, <span class="text-transparent bg-clip-text bg-gradient-to-r from-mindmetrics-indigo to-mindmetrics-green">Career Investment</span>
                 </h2>
                 <p class="text-lg text-slate-600 max-w-2xl mx-auto mb-4 leading-relaxed">
-                    Get complete access to our advanced MBTI personality assessment platform with comprehensive reporting and management insights.
+                    Transform your career potential with our advanced MBTI personality assessment platform that delivers comprehensive insights and actionable management strategies.
                 </p>
                 <p class="text-sm text-slate-500">
-                    No hidden fees • Cancel anytime • 30-day money-back guarantee
+                    One-time transparent pricing • Lifetime access • 30-day money-back guarantee
                 </p>
             </div>
 
@@ -368,72 +368,93 @@
                     <div class="px-8 pt-12 pb-8">
                         <!-- Plan name -->
                         <div class="text-center mb-8">
-                            <h3 class="text-2xl font-bold text-slate-900 mb-2">Professional Plan</h3>
-                            <p class="text-slate-600">Perfect for teams and organizations</p>
+                            <h3 class="text-2xl font-bold text-slate-900 mb-2">What's Inside Your Report?</h3>
+                            <p class="text-slate-600">Comprehensive insights that add value to your career</p>
                         </div>
 
-                        <!-- Price -->
+                        <!-- Value Proposition -->
                         <div class="text-center mb-8">
-                            <div class="flex items-center justify-center mb-2">
-                                <span class="text-5xl font-extrabold text-slate-900">$14</span>
-                                <span class="text-2xl font-bold text-slate-600">.99</span>
-                            </div>
-                            <p class="text-slate-500 font-medium">per assessment</p>
-                            <div class="mt-3 inline-flex items-center px-3 py-1 bg-green-50 text-green-700 text-sm font-medium rounded-full border border-green-200">
-                                <svg class="w-4 h-4 mr-1" fill="currentColor" viewBox="0 0 20 20">
-                                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
-                                </svg>
-                                Volume discounts available
+                            <div class="bg-gradient-to-r from-mindmetrics-indigo/10 to-mindmetrics-green/10 rounded-xl p-6 mb-4">
+                                <h4 class="text-lg font-semibold text-slate-900 mb-2">Complete Career Analysis Package</h4>
+                                <p class="text-slate-600 text-sm leading-relaxed">One transparent investment for lifetime access to all these professional insights and development tools.</p>
                             </div>
                         </div>
 
-                        <!-- Features -->
+                        <!-- Report Contents -->
                         <div class="mb-8">
-                            <h4 class="text-lg font-semibold text-slate-900 mb-4">Everything included:</h4>
-                            <ul class="space-y-3">
-                                <li class="flex items-start">
-                                    <svg class="w-6 h-6 text-mindmetrics-green mt-0.5 mr-3 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
-                                    </svg>
-                                    <span class="text-slate-700 font-medium">Complete MBTI personality analysis</span>
-                                </li>
-                                <li class="flex items-start">
-                                    <svg class="w-6 h-6 text-mindmetrics-green mt-0.5 mr-3 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
-                                    </svg>
-                                    <span class="text-slate-700 font-medium">Detailed employer report & insights</span>
-                                </li>
-                                <li class="flex items-start">
-                                    <svg class="w-6 h-6 text-mindmetrics-green mt-0.5 mr-3 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
-                                    </svg>
-                                    <span class="text-slate-700 font-medium">Management & communication guides</span>
-                                </li>
-                                <li class="flex items-start">
-                                    <svg class="w-6 h-6 text-mindmetrics-green mt-0.5 mr-3 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
-                                    </svg>
-                                    <span class="text-slate-700 font-medium">Team compatibility analysis</span>
-                                </li>
-                                <li class="flex items-start">
-                                    <svg class="w-6 h-6 text-mindmetrics-green mt-0.5 mr-3 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
-                                    </svg>
-                                    <span class="text-slate-700 font-medium">Advanced analytics dashboard</span>
-                                </li>
-                                <li class="flex items-start">
-                                    <svg class="w-6 h-6 text-mindmetrics-green mt-0.5 mr-3 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
-                                    </svg>
-                                    <span class="text-slate-700 font-medium">24/7 priority support</span>
-                                </li>
-                            </ul>
+                            <div class="space-y-4">
+                                <div class="flex items-start">
+                                    <div class="flex-shrink-0 w-8 h-8 bg-mindmetrics-indigo/10 rounded-lg flex items-center justify-center mr-4 mt-0.5">
+                                        <svg class="w-5 h-5 text-mindmetrics-indigo" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>
+                                        </svg>
+                                    </div>
+                                    <div>
+                                        <h5 class="font-semibold text-slate-900 mb-1">Detailed MBTI Personality Profile</h5>
+                                        <p class="text-sm text-slate-600">Complete 16-type analysis with cognitive function mapping</p>
+                                    </div>
+                                </div>
+                                
+                                <div class="flex items-start">
+                                    <div class="flex-shrink-0 w-8 h-8 bg-mindmetrics-green/10 rounded-lg flex items-center justify-center mr-4 mt-0.5">
+                                        <svg class="w-5 h-5 text-mindmetrics-green" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/>
+                                        </svg>
+                                    </div>
+                                    <div>
+                                        <h5 class="font-semibold text-slate-900 mb-1">Employer-Focused Strengths Analysis</h5>
+                                        <p class="text-sm text-slate-600">Key strengths and value propositions for workplace success</p>
+                                    </div>
+                                </div>
+                                
+                                <div class="flex items-start">
+                                    <div class="flex-shrink-0 w-8 h-8 bg-purple-100 rounded-lg flex items-center justify-center mr-4 mt-0.5">
+                                        <svg class="w-5 h-5 text-purple-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"/>
+                                        </svg>
+                                    </div>
+                                    <div>
+                                        <h5 class="font-semibold text-slate-900 mb-1">Development Areas & Growth Tips</h5>
+                                        <p class="text-sm text-slate-600">Personalized improvement strategies and actionable insights</p>
+                                    </div>
+                                </div>
+                                
+                                <div class="flex items-start">
+                                    <div class="flex-shrink-0 w-8 h-8 bg-blue-100 rounded-lg flex items-center justify-center mr-4 mt-0.5">
+                                        <svg class="w-5 h-5 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"/>
+                                        </svg>
+                                    </div>
+                                    <div>
+                                        <h5 class="font-semibold text-slate-900 mb-1">Ideal Work Environment Analysis</h5>
+                                        <p class="text-sm text-slate-600">Optimal workplace conditions and team dynamics preferences</p>
+                                    </div>
+                                </div>
+                                
+                                <div class="flex items-start">
+                                    <div class="flex-shrink-0 w-8 h-8 bg-rose-100 rounded-lg flex items-center justify-center mr-4 mt-0.5">
+                                        <svg class="w-5 h-5 text-rose-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>
+                                        </svg>
+                                    </div>
+                                    <div>
+                                        <h5 class="font-semibold text-slate-900 mb-1">PDF Download & Sharing</h5>
+                                        <p class="text-sm text-slate-600">Professional report format for portfolio and interviews</p>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="mt-6 p-4 bg-gradient-to-r from-mindmetrics-indigo/5 to-mindmetrics-green/5 rounded-lg border border-slate-200">
+                                <p class="text-sm text-slate-700 text-center font-medium">
+                                    <span class="text-mindmetrics-indigo">One-time investment</span> for comprehensive career insights that provide <span class="text-mindmetrics-green">lifetime value</span> to your professional development.
+                                </p>
+                            </div>
                         </div>
 
                         <!-- CTA Button -->
                         <div class="mb-6">
-                            <a href="#start-assessment" class="cta-button w-full group-hover:scale-105 transition-transform duration-200">
-                                Start Assessment Now
+                            <a href="{{ route('test.start') }}" class="cta-button w-full group-hover:scale-105 transition-transform duration-200">
+                                Get My Report
                                 <svg class="w-5 h-5 ml-2 -mr-1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
                                     <path fill-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clip-rule="evenodd" />
                                 </svg>
@@ -455,20 +476,20 @@
             <!-- Bottom section with additional info -->
             <div class="mt-16 text-center">
                 <div class="max-w-3xl mx-auto">
-                    <h3 class="text-xl font-semibold text-slate-900 mb-4">Need multiple assessments?</h3>
-                    <p class="text-slate-600 mb-6">Contact us for volume pricing and enterprise solutions. We offer custom packages for organizations conducting 50+ assessments.</p>
+                    <h3 class="text-xl font-semibold text-slate-900 mb-4">Ready to unlock your career potential?</h3>
+                    <p class="text-slate-600 mb-6">Join thousands of professionals who have transformed their career trajectory with our comprehensive MBTI analysis. Start your journey to better self-understanding and workplace success.</p>
                     <div class="flex flex-col sm:flex-row justify-center items-center space-y-3 sm:space-y-0 sm:space-x-6">
-                        <a href="#contact-sales" class="inline-flex items-center text-mindmetrics-indigo font-medium hover:text-mindmetrics-green transition-colors duration-200">
+                        <a href="{{ route('test.start') }}" class="inline-flex items-center text-mindmetrics-indigo font-medium hover:text-mindmetrics-green transition-colors duration-200">
                             <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8h2a2 2 0 012 2v6a2 2 0 01-2 2h-2v4l-4-4H9a2 2 0 01-2-2v-6a2 2 0 012-2h8z"/>
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
                             </svg>
-                            Contact Sales Team
+                            Start Your Assessment
                         </a>
                         <a href="#demo" class="inline-flex items-center text-slate-600 font-medium hover:text-mindmetrics-indigo transition-colors duration-200">
                             <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14.828 14.828a4 4 0 01-5.656 0M9 10h1m4 0h1m-6 4h8m-6 4h6"/>
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8.228 9c.549-1.165 2.03-2 3.772-2 2.21 0 4 1.343 4 3 0 1.4-1.278 2.575-3.006 2.907-.542.104-.994.54-.994 1.093m0 3h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
                             </svg>
-                            Schedule Demo
+                            Learn More
                         </a>
                     </div>
                 </div>
