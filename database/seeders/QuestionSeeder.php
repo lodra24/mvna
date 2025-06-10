@@ -18,8 +18,7 @@ class QuestionSeeder extends Seeder
             'question_text' => 'Bir sosyal etkinlikte genellikle nasıl davranırsınız?',
             'dimension' => 'E/I',
             'option_a_value' => 'E',
-            'option_b_value' => 'I',
-            'category' => 'Enerji Yönelimi'
+            'option_b_value' => 'I'
         ]);
 
         // S/N (Sensing/Intuition) - Bilgi Toplama
@@ -27,8 +26,7 @@ class QuestionSeeder extends Seeder
             'question_text' => 'Bir problemi çözerken hangi yaklaşımı tercih edersiniz?',
             'dimension' => 'S/N',
             'option_a_value' => 'S',
-            'option_b_value' => 'N',
-            'category' => 'Bilgi Toplama'
+            'option_b_value' => 'N'
         ]);
 
         // T/F (Thinking/Feeling) - Karar Verme
@@ -36,8 +34,7 @@ class QuestionSeeder extends Seeder
             'question_text' => 'Önemli bir karar verirken neye öncelik verirsiniz?',
             'dimension' => 'T/F',
             'option_a_value' => 'T',
-            'option_b_value' => 'F',
-            'category' => 'Karar Verme'
+            'option_b_value' => 'F'
         ]);
 
         // J/P (Judging/Perceiving) - Yaşam Tarzı
@@ -45,8 +42,7 @@ class QuestionSeeder extends Seeder
             'question_text' => 'Günlük hayatınızı nasıl organize etmeyi tercih edersiniz?',
             'dimension' => 'J/P',
             'option_a_value' => 'J',
-            'option_b_value' => 'P',
-            'category' => 'Yaşam Tarzı'
+            'option_b_value' => 'P'
         ]);
     }
 }
