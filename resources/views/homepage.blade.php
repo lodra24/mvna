@@ -358,9 +358,9 @@
                     <div class="absolute -top-px left-1/2 -translate-x-1/2">
                         <div class="inline-flex items-center px-6 py-2 bg-gradient-to-r from-mindmetrics-indigo to-mindmetrics-green text-white text-xs font-semibold tracking-wider uppercase rounded-b-xl shadow-lg">
                             <svg class="w-4 h-4 mr-1.5" fill="currentColor" viewBox="0 0 20 20">
-                                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+                                <path fill-rule="evenodd" d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
                             </svg>
-                            Most Popular
+                            Career Advantage
                         </div>
                     </div>
 
@@ -473,28 +473,6 @@
                 </div>
             </div>
 
-            <!-- Bottom section with additional info -->
-            <div class="mt-16 text-center">
-                <div class="max-w-3xl mx-auto">
-                    <h3 class="text-xl font-semibold text-slate-900 mb-4">Ready to unlock your career potential?</h3>
-                    <p class="text-slate-600 mb-6">Join thousands of professionals who have transformed their career trajectory with our comprehensive MBTI analysis. Start your journey to better self-understanding and workplace success.</p>
-                    <div class="flex flex-col sm:flex-row justify-center items-center space-y-3 sm:space-y-0 sm:space-x-6">
-                        <a href="{{ route('test.start') }}" class="inline-flex items-center text-mindmetrics-indigo font-medium hover:text-mindmetrics-green transition-colors duration-200">
-                            <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
-                            </svg>
-                            Start Your Assessment
-                        </a>
-                        <a href="#demo" class="inline-flex items-center text-slate-600 font-medium hover:text-mindmetrics-indigo transition-colors duration-200">
-                            <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8.228 9c.549-1.165 2.03-2 3.772-2 2.21 0 4 1.343 4 3 0 1.4-1.278 2.575-3.006 2.907-.542.104-.994.54-.994 1.093m0 3h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
-                            </svg>
-                            Learn More
-                        </a>
-                    </div>
-                </div>
-            </div>
-        </div>
     </section>
 
     <!-- FAQ SECTION - Wave Pattern + Circuit Board Eklendi -->
