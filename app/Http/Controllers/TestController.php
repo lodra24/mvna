@@ -37,7 +37,7 @@ class TestController extends Controller
             
             if ($existingTestResult) {
                 return redirect()->route('dashboard')
-                    ->with('info', 'Zaten tamamlanmış bir testiniz bulunmaktadır. Sonuçlarınızı buradan inceleyebilirsiniz.');
+                    ->with('info', 'You already have a completed test. You can review your results here.');
             }
         }
         
@@ -54,7 +54,7 @@ class TestController extends Controller
     {
         // Giriş yapmış kullanıcının daha önceden test sonucu olup olmadığını kontrol et
         if (Auth::check() && Auth::user()->testResults()->exists()) {
-            return redirect()->route('dashboard')->with('info', 'Zaten tamamlanmış bir testiniz bulunmaktadır.');
+            return redirect()->route('dashboard')->with('info', 'You already have a completed test.');
         }
         
         $request->validate([
@@ -164,7 +164,7 @@ class TestController extends Controller
     {
         // Raporun doğru kullanıcıya ait olduğunu ve ödemesinin yapıldığını doğrula
         if ($testResult->user_id !== Auth::id() || $testResult->status !== 'completed') {
-            abort(403, 'Bu rapora erişim yetkiniz bulunmamaktadır.');
+            abort(403, 'You do not have permission to access this report.');
         }
         
         // Raporu göstermek için gereken verileri topla
@@ -192,7 +192,7 @@ class TestController extends Controller
     {
         // Raporun doğru kullanıcıya ait olduğunu ve ödemesinin yapıldığını doğrula
         if ($testResult->user_id !== Auth::id() || $testResult->status !== 'completed') {
-            abort(403, 'Bu rapora erişim yetkiniz bulunmamaktadır.');
+            abort(403, 'You do not have permission to access this report.');
         }
         
         // Raporu göstermek için gereken verileri topla
@@ -219,7 +219,7 @@ class TestController extends Controller
     {
         // Raporun doğru kullanıcıya ait olduğunu doğrula
         if ($testResult->user_id !== Auth::id()) {
-            abort(403, 'Bu rapora erişim yetkiniz bulunmamaktadır.');
+            abort(403, 'You do not have permission to access this report.');
         }
 
         // Test sonucunun durumunu 'completed' olarak güncelle
@@ -243,7 +243,7 @@ class TestController extends Controller
 
         // Kullanıcıyı başarı mesajı ile sonuç sayfasına yönlendir
         return redirect()->route('test.showResult', ['testResult' => $testResult->id])
-            ->with('success', 'Ödemeniz başarıyla tamamlandı. Raporunuza şimdi erişebilirsiniz.');
+            ->with('success', 'Your payment has been completed successfully. You can now access your report.');
     }
 
     /**

@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="tr">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MBTI Kişilik Analizi Raporu - {{ $mbtiType }}</title>
+    <title>MBTI Personality Analysis Report - {{ $mbtiType }}</title>
     <style>
         body {
             font-family: DejaVu Sans, sans-serif;
@@ -164,39 +164,39 @@
 <body>
     <div class="header">
         <div class="logo">MindMetrics</div>
-        <div class="report-title">MBTI Kişilik Analizi Raporu</div>
-        <div class="report-subtitle">Profesyonel Kişilik Değerlendirmesi</div>
+        <div class="report-title">MBTI Personality Analysis Report</div>
+        <div class="report-subtitle">Professional Personality Assessment</div>
     </div>
 
     <div class="mbti-type-section">
-        <div class="mbti-type">{{ $mbtiType ?? 'Belirlenemedi' }}</div>
+        <div class="mbti-type">{{ $mbtiType ?? 'Undetermined' }}</div>
         <div class="mbti-description">
             @php
                 $typeDescriptions = [
-                    'INTJ' => 'Mimar - Yaratıcı ve stratejik düşünür',
-                    'INTP' => 'Düşünür - Yenilikçi mucitler',
-                    'ENTJ' => 'Komutan - Cesur, yaratıcı ve güçlü iradeli liderler',
-                    'ENTP' => 'Tartışmacı - Akıllı ve meraklı düşünürler',
-                    'INFJ' => 'Avukat - Yaratıcı ve içgörülü ilham vericiler',
-                    'INFP' => 'Arabulucu - Şiirsel, nazik ve özgecil insanlar',
-                    'ENFJ' => 'Başrol - Karizmatik ve ilham verici liderler',
-                    'ENFP' => 'Kampanyacı - Coşkulu, yaratıcı ve sosyal özgür ruhlar',
-                    'ISTJ' => 'Lojistikçi - Pratik ve gerçekçi, güvenilir çalışanlar',
-                    'ISFJ' => 'Koruyucu - Sıcakkanlı ve özverili koruyucular',
-                    'ESTJ' => 'Yönetici - Mükemmel yöneticiler, eşsiz yönetim yetenekleri',
-                    'ESFJ' => 'Konsolos - Olağanüstü derecede özenli, sosyal ve popüler insanlar',
-                    'ISTP' => 'Sanal - Cesur ve pratik deneyimciler',
-                    'ISFP' => 'Maceracı - Esnek ve büyüleyici sanatçılar',
-                    'ESTP' => 'Girişimci - Akıllı, enerjik ve algısal insanlar',
-                    'ESFP' => 'Eğlendirici - Kendiliğinden, enerjik ve coşkulu insanlar'
+                    'INTJ' => 'Architect - Creative and strategic thinker',
+                    'INTP' => 'Thinker - Innovative inventors',
+                    'ENTJ' => 'Commander - Bold, creative and strong-willed leaders',
+                    'ENTP' => 'Debater - Smart and curious thinkers',
+                    'INFJ' => 'Advocate - Creative and insightful inspirers',
+                    'INFP' => 'Mediator - Poetic, kind and altruistic people',
+                    'ENFJ' => 'Protagonist - Charismatic and inspiring leaders',
+                    'ENFP' => 'Campaigner - Enthusiastic, creative and social free spirits',
+                    'ISTJ' => 'Logistician - Practical and realistic, reliable workers',
+                    'ISFJ' => 'Protector - Warm-hearted and dedicated protectors',
+                    'ESTJ' => 'Executive - Excellent administrators with unique management skills',
+                    'ESFJ' => 'Consul - Extraordinarily caring, social and popular people',
+                    'ISTP' => 'Virtuoso - Bold and practical experimenters',
+                    'ISFP' => 'Adventurer - Flexible and charming artists',
+                    'ESTP' => 'Entrepreneur - Smart, energetic and perceptive people',
+                    'ESFP' => 'Entertainer - Spontaneous, energetic and enthusiastic people'
                 ];
             @endphp
-            {{ $typeDescriptions[$mbtiType] ?? 'Kişilik tipiniz belirlendi' }}
+            {{ $typeDescriptions[$mbtiType] ?? 'Your personality type has been determined' }}
         </div>
     </div>
 
     <div class="section scores-section">
-        <div class="section-title">Detaylı Skorlar</div>
+        <div class="section-title">Detailed Scores</div>
         <div class="scores-grid">
             <div class="score-row">
                 <div class="score-cell">
@@ -241,7 +241,7 @@
         <!-- İşveren için Profil Özeti -->
         @if($mbtiTypeDetail->profile_summary_for_employer)
             <div class="section">
-                <div class="section-title">İşveren için Profil Özeti</div>
+                <div class="section-title">Profile Summary for Employers</div>
                 <div class="section-content">
                     <p>{{ $mbtiTypeDetail->profile_summary_for_employer }}</p>
                 </div>
@@ -251,7 +251,7 @@
         <!-- İş Yerindeki Temel Güçlü Yönler -->
         @if($mbtiTypeDetail->key_strengths_in_workplace && count($mbtiTypeDetail->key_strengths_in_workplace) > 0)
             <div class="section">
-                <div class="section-title">İş Yerindeki Temel Güçlü Yönler</div>
+                <div class="section-title">Key Strengths in the Workplace</div>
                 <div class="section-content">
                     <ul>
                         @foreach($mbtiTypeDetail->key_strengths_in_workplace as $strength)
@@ -265,7 +265,7 @@
         <!-- Potansiyel Gelişim Alanları -->
         @if($mbtiTypeDetail->potential_development_areas_for_workplace_effectiveness && count($mbtiTypeDetail->potential_development_areas_for_workplace_effectiveness) > 0)
             <div class="section">
-                <div class="section-title">Potansiyel Gelişim Alanları</div>
+                <div class="section-title">Potential Development Areas</div>
                 <div class="section-content">
                     <ul>
                         @foreach($mbtiTypeDetail->potential_development_areas_for_workplace_effectiveness as $area)
@@ -279,7 +279,7 @@
         <!-- İletişim Tarzı ve İşveren İçin İpuçları -->
         @if($mbtiTypeDetail->communication_style_and_tips_for_employer)
             <div class="section page-break">
-                <div class="section-title">İletişim Tarzı ve İşveren İçin İpuçları</div>
+                <div class="section-title">Communication Style and Tips for Employers</div>
                 <div class="section-content">
                     <p>{{ $mbtiTypeDetail->communication_style_and_tips_for_employer }}</p>
                 </div>
@@ -289,7 +289,7 @@
         <!-- Görev Yönetimi Yaklaşımı ve İşveren İçin İpuçları -->
         @if($mbtiTypeDetail->task_management_approach_and_tips_for_employer)
             <div class="section">
-                <div class="section-title">Görev Yönetimi Yaklaşımı ve İşveren İçin İpuçları</div>
+                <div class="section-title">Task Management Approach and Tips for Employers</div>
                 <div class="section-content">
                     <p>{{ $mbtiTypeDetail->task_management_approach_and_tips_for_employer }}</p>
                 </div>
@@ -299,7 +299,7 @@
         <!-- Motivasyon Faktörleri ve İşveren İçin Öneriler -->
         @if($mbtiTypeDetail->motivators_for_employer_to_leverage && count($mbtiTypeDetail->motivators_for_employer_to_leverage) > 0)
             <div class="section">
-                <div class="section-title">Motivasyon Faktörleri ve İşveren İçin Öneriler</div>
+                <div class="section-title">Motivation Factors and Recommendations for Employers</div>
                 <div class="section-content">
                     <ul>
                         @foreach($mbtiTypeDetail->motivators_for_employer_to_leverage as $motivator)
@@ -313,7 +313,7 @@
         <!-- Geri Bildirim Alıcılığı ve İşveren Rehberliği -->
         @if($mbtiTypeDetail->feedback_receptivity_and_guidance_for_employer)
             <div class="section">
-                <div class="section-title">Geri Bildirim Alıcılığı ve İşveren Rehberliği</div>
+                <div class="section-title">Feedback Receptivity and Employer Guidance</div>
                 <div class="section-content">
                     <p>{{ $mbtiTypeDetail->feedback_receptivity_and_guidance_for_employer }}</p>
                 </div>
@@ -323,7 +323,7 @@
         <!-- Takım İşbirliği Tarzı -->
         @if($mbtiTypeDetail->team_collaboration_style_for_employer)
             <div class="section">
-                <div class="section-title">Takım İşbirliği Tarzı</div>
+                <div class="section-title">Team Collaboration Style</div>
                 <div class="section-content">
                     <p>{{ $mbtiTypeDetail->team_collaboration_style_for_employer }}</p>
                 </div>
@@ -333,7 +333,7 @@
         <!-- Liderlik Potansiyeli ve Tarz Notları -->
         @if($mbtiTypeDetail->leadership_potential_or_style_notes_for_employer)
             <div class="section">
-                <div class="section-title">Liderlik Potansiyeli ve Tarz Notları</div>
+                <div class="section-title">Leadership Potential and Style Notes</div>
                 <div class="section-content">
                     <p>{{ $mbtiTypeDetail->leadership_potential_or_style_notes_for_employer }}</p>
                 </div>
@@ -343,7 +343,7 @@
         <!-- Çalışma Ortamı Tercihleri -->
         @if($mbtiTypeDetail->work_environment_preferences_for_employer)
             <div class="section">
-                <div class="section-title">Çalışma Ortamı Tercihleri</div>
+                <div class="section-title">Work Environment Preferences</div>
                 <div class="section-content">
                     <p>{{ $mbtiTypeDetail->work_environment_preferences_for_employer }}</p>
                 </div>
@@ -351,17 +351,17 @@
         @endif
     @else
         <div class="section">
-            <div class="section-title">Rapor Bilgisi</div>
+            <div class="section-title">Report Information</div>
             <div class="section-content">
-                <p>Bu kişilik tipi için detaylı rapor bilgisi henüz eklenmemiştir.</p>
+                <p>Detailed report information for this personality type has not been added yet.</p>
             </div>
         </div>
     @endif
 
     <div class="footer">
-        <p>Bu rapor MindMetrics MBTI Kişilik Analizi sistemi tarafından oluşturulmuştur.</p>
-        <p>Rapor Tarihi: {{ now()->format('d.m.Y H:i') }}</p>
-        <p>© {{ date('Y') }} MindMetrics. Tüm hakları saklıdır.</p>
+        <p>This report was generated by the MindMetrics MBTI Personality Analysis system.</p>
+        <p>Report Date: {{ now()->format('m/d/Y H:i') }}</p>
+        <p>© {{ date('Y') }} MindMetrics. All rights reserved.</p>
     </div>
 </body>
 </html>

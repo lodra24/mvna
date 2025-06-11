@@ -13,33 +13,33 @@ class QuestionSeeder extends Seeder
      */
     public function run(): void
     {
-        // E/I (Extraversion/Introversion) - Enerji Yönelimi
+        // E/I (Extraversion/Introversion) - Energy Orientation
         Question::create([
-            'question_text' => 'Bir sosyal etkinlikte genellikle nasıl davranırsınız?',
+            'question_text' => 'How do you typically behave at a social event?',
             'dimension' => 'E/I',
             'option_a_value' => 'E',
             'option_b_value' => 'I'
         ]);
 
-        // S/N (Sensing/Intuition) - Bilgi Toplama
+        // S/N (Sensing/Intuition) - Information Gathering
         Question::create([
-            'question_text' => 'Bir problemi çözerken hangi yaklaşımı tercih edersiniz?',
+            'question_text' => 'Which approach do you prefer when solving a problem?',
             'dimension' => 'S/N',
             'option_a_value' => 'S',
             'option_b_value' => 'N'
         ]);
 
-        // T/F (Thinking/Feeling) - Karar Verme
+        // T/F (Thinking/Feeling) - Decision Making
         Question::create([
-            'question_text' => 'Önemli bir karar verirken neye öncelik verirsiniz?',
+            'question_text' => 'What do you prioritize when making an important decision?',
             'dimension' => 'T/F',
             'option_a_value' => 'T',
             'option_b_value' => 'F'
         ]);
 
-        // J/P (Judging/Perceiving) - Yaşam Tarzı
+        // J/P (Judging/Perceiving) - Lifestyle
         Question::create([
-            'question_text' => 'Günlük hayatınızı nasıl organize etmeyi tercih edersiniz?',
+            'question_text' => 'How do you prefer to organize your daily life?',
             'dimension' => 'J/P',
             'option_a_value' => 'J',
             'option_b_value' => 'P'

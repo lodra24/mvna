@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="tr" class="scroll-smooth">
+<html lang="en" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -69,7 +69,7 @@
         <div class="flex items-center justify-center min-h-screen">
             <div class="text-center">
                 <div class="inline-block animate-spin rounded-full h-12 w-12 border-b-2 border-mindmetrics-indigo mb-4"></div>
-                <p class="text-slate-600 font-medium">İşleniyor...</p>
+                <p class="text-slate-600 font-medium">Processing...</p>
             </div>
         </div>
     </div>

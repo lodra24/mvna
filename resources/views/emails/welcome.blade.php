@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="tr">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MindMetrics'e Hoş Geldiniz</title>
+    <title>Welcome to MindMetrics</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -62,35 +62,35 @@
     <div class="email-container">
         <div class="header">
             <div class="logo">MindMetrics</div>
-            <h1>Hoş Geldiniz!</h1>
+            <h1>Welcome!</h1>
         </div>
         
         <div class="content">
-            <p class="welcome-text">Merhaba {{ $user->name }},</p>
+            <p class="welcome-text">Hello {{ $user->name }},</p>
             
-            <p>MindMetrics topluluğuna katıldığınız için teşekkür ederiz! Kişilik analizleri ve zihinsel sağlık değerlendirmeleri konusunda size yardımcı olmaktan mutluluk duyacağız.</p>
+            <p>Thank you for joining the MindMetrics community! We're excited to help you with personality analysis and mental health assessments.</p>
             
-            <p>Hesabınız başarıyla oluşturuldu ve artık platformumuzun tüm özelliklerinden yararlanabilirsiniz:</p>
+            <p>Your account has been successfully created and you can now take advantage of all the features of our platform:</p>
             
             <ul>
-                <li>MBTI kişilik testleri</li>
-                <li>Detaylı kişilik analizi raporları</li>
-                <li>Kişisel gelişim önerileri</li>
-                <li>İlerleme takibi</li>
+                <li>MBTI personality tests</li>
+                <li>Detailed personality analysis reports</li>
+                <li>Personal development recommendations</li>
+                <li>Progress tracking</li>
             </ul>
             
-            <p>Hemen başlamak için kontrol panelinize gidin:</p>
+            <p>To get started right away, go to your dashboard:</p>
             
             <div style="text-align: center;">
-                <a href="{{ route('dashboard') }}" class="button">Kontrol Panelinize Gidin</a>
+                <a href="{{ route('dashboard') }}" class="button">Go to Your Dashboard</a>
             </div>
             
-            <p>Herhangi bir sorunuz olursa, bizimle iletişime geçmekten çekinmeyin.</p>
+            <p>If you have any questions, please don't hesitate to contact us.</p>
         </div>
         
         <div class="footer">
-            <p>İyi günler,<br>MindMetrics Ekibi</p>
-            <p><small>Bu e-posta otomatik olarak gönderilmiştir.</small></p>
+            <p>Best regards,<br>MindMetrics Team</p>
+            <p><small>This email was sent automatically.</small></p>
         </div>
     </div>
 </body>

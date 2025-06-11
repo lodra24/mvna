@@ -2,19 +2,19 @@
 
 return [
     'E/I' => [
-        'A' => 'Başkalarıyla etkileşimde bulunarak enerji toplarım ve genellikle dışa dönük ve konuşkanım.',
-        'B' => 'Yalnız kalarak veya iç dünyama odaklanarak enerji toplarım ve genellikle düşünceli ve sakinim.',
+        'A' => 'I gain energy by interacting with others and am generally outgoing and talkative.',
+        'B' => 'I gain energy by being alone or focusing on my inner world and am generally thoughtful and calm.',
     ],
     'S/N' => [
-        'A' => 'Genellikle somut verilere, gerçeklere ve geçmiş deneyimlere güvenirim; pratik ve gerçekçiyimdir.',
-        'B' => 'Genellikle olasılıklara, bağlantılara ve gelecekteki potansiyele odaklanırım; hayal gücü geniş ve kavramsalımdır.',
+        'A' => 'I generally rely on concrete data, facts, and past experiences; I am practical and realistic.',
+        'B' => 'I generally focus on possibilities, connections, and future potential; I am imaginative and conceptual.',
     ],
     'T/F' => [
-        'A' => 'Kararlarımı mantık, analiz ve objektif kriterlere göre veririm; adil ve ilkeli olmaya çalışırım.',
-        'B' => 'Kararlarımı değerlerime, başkalarının duygularına ve uyuma göre veririm; empatik ve merhametli olmaya çalışırım.',
+        'A' => 'I make decisions based on logic, analysis, and objective criteria; I strive to be fair and principled.',
+        'B' => 'I make decisions based on my values, others\' feelings, and harmony; I strive to be empathetic and compassionate.',
     ],
     'J/P' => [
-        'A' => 'Hayatımı planlı, düzenli ve yapılandırılmış bir şekilde yaşamayı tercih ederim; kararlı ve organizeyimdir.',
-        'B' => 'Hayatımı esnek, spontane ve seçeneklere açık bir şekilde yaşamayı tercih ederim; uyumlu ve meraklıyımdır.',
+        'A' => 'I prefer to live my life in a planned, organized, and structured way; I am decisive and organized.',
+        'B' => 'I prefer to live my life in a flexible, spontaneous, and open-to-options way; I am adaptable and curious.',
     ],
 ];

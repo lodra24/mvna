@@ -1,11 +1,11 @@
 @extends('layouts.test-layout')
 
-@section('title', 'Teste Başla')
+@section('title', 'Start the Test')
 
 @section('page-title', 'MBTI Vocational NexusPoint Analysis')
 
 @section('page-subtitle')
-    Kişilik tipinizi keşfedin ve kariyer potansiyelinizi ortaya çıkarın. Bu kapsamlı analiz, güçlü yönlerinizi ve ideal çalışma ortamınızı belirlemenize yardımcı olacak.
+    Discover your personality type and unlock your career potential. This comprehensive analysis will help you identify your strengths and ideal work environment.
 @endsection
 
 
@@ -18,8 +18,8 @@
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"></path>
                 </svg>
             </div>
-            <h2 class="text-2xl font-bold text-slate-800 mb-2 test-title-slide">Başlamaya Hazır mısınız?</h2>
-            <p class="text-slate-600 test-form-element">Test yaklaşık 10-15 dakika sürecek ve 60 sorudan oluşmaktadır.</p>
+            <h2 class="text-2xl font-bold text-slate-800 mb-2 test-title-slide">Ready to Begin?</h2>
+            <p class="text-slate-600 test-form-element">The test will take approximately 10-15 minutes and consists of 60 questions.</p>
         </div>
 
         <!-- Form -->
@@ -33,7 +33,7 @@
                         <svg class="w-4 h-4 mr-2 text-mindmetrics-indigo" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"></path>
                         </svg>
-                        Adınız ve Soyadınız
+                        Your Full Name
                     </span>
                 </label>
                 <input
@@ -41,7 +41,7 @@
                     name="name"
                     id="name"
                     class="test-input-group__input"
-                    placeholder="Örn: Ahmet Yılmaz"
+                    placeholder="e.g., Jane Doe"
                     required
                     autocomplete="name"
                     maxlength="100"
@@ -58,10 +58,9 @@
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
                     </svg>
                     <div>
-                        <h4 class="text-sm font-semibold text-slate-800 mb-1">Gizlilik Garantisi</h4>
+                        <h4 class="text-sm font-semibold text-slate-800 mb-1">Privacy Guarantee</h4>
                         <p class="text-sm text-slate-600">
-                            Verdiğiniz bilgiler tamamen gizli tutulur ve sadece test sonuçlarınızı kişiselleştirmek için kullanılır.
-                            Hiçbir şekilde üçüncü taraflarla paylaşılmaz.
+                            The information you provide is kept completely confidential and is only used to personalize your test results. It will not be shared with third parties.
                         </p>
                     </div>
                 </div>
@@ -75,8 +74,8 @@
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
                         </svg>
                     </div>
-                    <h5 class="font-semibold text-blue-800 text-sm mb-1">Süre</h5>
-                    <p class="text-blue-600 text-xs">10-15 Dakika</p>
+                    <h5 class="font-semibold text-blue-800 text-sm mb-1">Duration</h5>
+                    <p class="text-blue-600 text-xs">10-15 Minutes</p>
                 </div>
                 
                 <div class="bg-gradient-to-br from-green-50 to-emerald-50 border border-green-200 rounded-lg p-4 text-center">
@@ -85,8 +84,8 @@
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v10a2 2 0 002 2h8a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"></path>
                         </svg>
                     </div>
-                    <h5 class="font-semibold text-green-800 text-sm mb-1">Sorular</h5>
-                    <p class="text-green-600 text-xs">60 Soru</p>
+                    <h5 class="font-semibold text-green-800 text-sm mb-1">Questions</h5>
+                    <p class="text-green-600 text-xs">60 Questions</p>
                 </div>
                 
                 <div class="bg-gradient-to-br from-purple-50 to-violet-50 border border-purple-200 rounded-lg p-4 text-center">
@@ -95,8 +94,8 @@
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
                         </svg>
                     </div>
-                    <h5 class="font-semibold text-purple-800 text-sm mb-1">Sonuç</h5>
-                    <p class="text-purple-600 text-xs">Anında</p>
+                    <h5 class="font-semibold text-purple-800 text-sm mb-1">Result</h5>
+                    <p class="text-purple-600 text-xs">Instant</p>
                 </div>
             </div>
 
@@ -106,7 +105,7 @@
                     <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"></path>
                     </svg>
-                    Teste Başla
+                    Start Test
                 </button>
             </div>
         </form>
@@ -118,7 +117,7 @@
         <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"></path>
         </svg>
-        Ana Sayfaya Dön
+        Back to Homepage
     </a>
 @endsection
 
@@ -132,7 +131,7 @@ document.addEventListener('DOMContentLoaded', function() {
     form.addEventListener('submit', function(e) {
         if (!validateForm(form)) {
             e.preventDefault();
-            showToast('Lütfen tüm alanları doldurun.', 'error');
+            showToast('Please fill in all required fields.', 'error');
             return;
         }
         

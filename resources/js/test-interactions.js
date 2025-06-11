@@ -248,7 +248,7 @@ class QuestionManager {
             answeredCountEl.textContent = answeredCount;
         }
         if (questionCounter) {
-            questionCounter.textContent = `Soru ${currentQuestionNumber}/${this.totalQuestions}`;
+            questionCounter.textContent = `Question ${currentQuestionNumber}/${this.totalQuestions}`;
         }
         
         this.updateSubmitButton();
@@ -271,10 +271,10 @@ class QuestionManager {
             
             if (allAnswered) {
                 submitBtn.classList.remove('opacity-50', 'cursor-not-allowed');
-                submitText.textContent = 'Testi Tamamla';
+                submitText.textContent = 'Complete Test';
             } else {
                 submitBtn.classList.add('opacity-50', 'cursor-not-allowed');
-                submitText.textContent = `${remainingQuestions} soru kaldı`;
+                submitText.textContent = `${remainingQuestions} questions left`;
             }
         }
     }
@@ -401,13 +401,13 @@ class TestPageUtils {
 
         if (isRequired && !value) {
             isValid = false;
-            errorMessage = 'Bu alan zorunludur.';
+            errorMessage = 'This field is required.';
         } else if (fieldType === 'email' && value && !this.isValidEmail(value)) {
             isValid = false;
-            errorMessage = 'Geçerli bir e-posta adresi girin.';
+            errorMessage = 'Please enter a valid email address.';
         } else if (fieldType === 'text' && field.name === 'name' && value && value.length < 2) {
             isValid = false;
-            errorMessage = 'Ad en az 2 karakter olmalıdır.';
+            errorMessage = 'Name must be at least 2 characters.';
         }
 
         this.toggleFieldError(field, !isValid, errorMessage);

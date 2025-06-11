@@ -1,13 +1,13 @@
 @extends('layouts.test-layout')
 
-@section('title', 'MBTI Testi')
+@section('title', 'MBTI Test')
 
 @section('page-title')
-    Merhaba, {{ $userName }}! <span class="emoji-fix">👋</span>
+    Hello, {{ $userName }}! <span class="emoji-fix">👋</span>
 @endsection
 
 @section('page-subtitle')
-    Her soru için size en uygun seçeneği işaretleyin. Doğru ya da yanlış cevap yoktur, sadece sizin için en doğal olanı seçin.
+    For each question, select the option that best suits you. There are no right or wrong answers, just choose what feels most natural.
 @endsection
 
 @section('content')
@@ -16,7 +16,7 @@
         <!-- Enhanced Progress Bar -->
         <div class="enhanced-progress" data-user-name="{{ $userName }}">
             <div class="progress-header">
-                <span class="question-counter" id="question-counter">Soru 1/{{ count($questions) }}</span>
+                <span class="question-counter" id="question-counter">Question 1/{{ count($questions) }}</span>
                 <span class="progress-percentage" id="progress-percent">0%</span>
             </div>
             <div class="progress-bar-container">
@@ -32,7 +32,7 @@
                         class="nav-dot"
                         data-question-index="{{ $index }}"
                         data-question-id="{{ $question->id }}"
-                        aria-label="Soru {{ $index + 1 }}'e git"
+                        aria-label="Go to question {{ $index + 1 }}"
                     ></button>
                 @endforeach
             </div>
@@ -69,7 +69,7 @@
                                 <label for="question_{{ $question->id }}_a" class="test-option__label">
                                     <div class="test-option__radio"></div>
                                     <span class="test-option__text">
-                                        {{ config('mbti_question_options.' . $question->dimension . '.A', 'Seçenek A') }}
+                                        {{ config('mbti_question_options.' . $question->dimension . '.A', 'Option A') }}
                                     </span>
                                 </label>
                             </div>
@@ -87,7 +87,7 @@
                                 <label for="question_{{ $question->id }}_b" class="test-option__label">
                                     <div class="test-option__radio"></div>
                                     <span class="test-option__text">
-                                        {{ config('mbti_question_options.' . $question->dimension . '.B', 'Seçenek B') }}
+                                        {{ config('mbti_question_options.' . $question->dimension . '.B', 'Option B') }}
                                     </span>
                                 </label>
                             </div>
@@ -104,7 +104,7 @@
                     <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
                     </svg>
-                    Önceki Soru
+                    Previous Question
                 </button>
                 
                 <!-- Spacer: Butonları iki uca yaslar -->
@@ -119,10 +119,10 @@
                         <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
                         </svg>
-                        <span id="submit-text">Testi Tamamla</span>
+                        <span id="submit-text">Complete Test</span>
                     </button>
                     <p class="text-sm text-slate-500 mt-2"> {{-- mt-3'ten mt-2'ye düşürüldü --}}
-                        <span id="answered-count">0</span> / {{ count($questions) }} soru cevaplanmış
+                        <span id="answered-count">0</span> / {{ count($questions) }} questions answered
                     </p>
                 </div>
             </div>
@@ -138,10 +138,10 @@
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-2.5L13.732 4c-.77-.833-1.964-.833-2.732 0L3.732 16.5c-.77.833.192 2.5 1.732 2.5z"></path>
                 </svg>
             </div>
-            <h3 class="text-xl font-semibold text-slate-800 mb-2">Soru Bulunamadı</h3>
-            <p class="text-slate-600 mb-6">Gösterilecek soru bulunamadı. Lütfen daha sonra tekrar deneyin.</p>
+            <h3 class="text-xl font-semibold text-slate-800 mb-2">No Questions Found</h3>
+            <p class="text-slate-600 mb-6">No questions could be found. Please try again later.</p>
             <a href="{{ route('test.start') }}" class="test-button test-button--primary">
-                Yeniden Dene
+                Try Again
             </a>
         </div>
     @endif
@@ -152,7 +152,7 @@
         <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"></path>
         </svg>
-        Geri Dön
+        Go Back
     </a>
 @endsection
 

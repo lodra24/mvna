@@ -8,11 +8,11 @@
     <!-- Header Section -->
     <div class="auth-header">
         @if(session('mbti_type'))
-            <h1 class="auth-title">Sonucunuz: <span class="result-type">{{ session('mbti_type') }}!</span></h1>
-            <p class="auth-subtitle">Raporunuza erişmek için kayıt olun veya giriş yapın.</p>
+            <h1 class="auth-title">Your Result: <span class="result-type">{{ session('mbti_type') }}!</span></h1>
+            <p class="auth-subtitle">Register or log in to access your report.</p>
         @else
-            <h1 class="auth-title">Hesap Oluşturun veya <span class="gradient-text">Giriş Yapın</span></h1>
-            <p class="auth-subtitle">Test sonucunuza erişmek için lütfen kayıt olun veya mevcut hesabınızla giriş yapın.</p>
+            <h1 class="auth-title">Create Account or <span class="gradient-text">Log In</span></h1>
+            <p class="auth-subtitle">Please register or log in with your existing account to access your test results.</p>
         @endif
     </div>
 
@@ -24,13 +24,13 @@
                 <svg class="tab-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 16l-4-4m0 0l4-4m-4 4h14m-5 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h7a3 3 0 013 3v1"></path>
                 </svg>
-                Giriş Yap
+                Login
             </button>
             <button class="auth-tab" data-tab="register">
                 <svg class="tab-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M18 9v3m0 0v3m0-3h3m-3 0h-3m-2-5a4 4 0 11-8 0 4 4 0 018 0zM3 20a6 6 0 0112 0v1H3v-1z"></path>
                 </svg>
-                Kayıt Ol
+                Register
             </button>
         </div>
 
@@ -39,8 +39,8 @@
             <!-- Login Form -->
             <div class="auth-form-panel active" id="login-panel">
                 <div class="form-header">
-                    <h2 class="form-title">Giriş Yap</h2>
-                    <p class="form-subtitle">Hesabınıza giriş yaparak test sonucunuza erişin</p>
+                    <h2 class="form-title">Login</h2>
+                    <p class="form-subtitle">Log in to your account to access your test results</p>
                 </div>
 
                 <!-- Session Status -->
@@ -55,7 +55,7 @@
                             <svg class="label-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 12a4 4 0 10-8 0 4 4 0 008 0zm0 0v1.5a2.5 2.5 0 005 0V12a9 9 0 10-9 9m4.5-1.206a8.959 8.959 0 01-4.5 1.207"></path>
                             </svg>
-                            Email Adresiniz
+                            Your Email Address
                         </label>
                         <input
                             id="login_email"
@@ -66,7 +66,7 @@
                             required
                             autofocus
                             autocomplete="username"
-                            placeholder="ornek@email.com"
+                            placeholder="example@email.com"
                         />
                         <x-input-error :messages="$errors->get('email')" class="input-error" />
                     </div>
@@ -77,7 +77,7 @@
                             <svg class="label-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"></path>
                             </svg>
-                            Şifreniz
+                            Your Password
                         </label>
                         <input
                             id="login_password"
@@ -96,12 +96,12 @@
                         <label class="remember-label">
                             <input type="checkbox" name="remember" class="remember-checkbox">
                             <span class="checkmark"></span>
-                            <span class="remember-text">Beni Hatırla</span>
+                            <span class="remember-text">Remember Me</span>
                         </label>
                         
                         @if (Route::has('password.request'))
                             <a href="{{ route('password.request') }}" class="forgot-link">
-                                Şifremi Unuttum
+                                Forgot Password?
                             </a>
                         @endif
                     </div>
@@ -112,7 +112,7 @@
                             <svg class="button-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 16l-4-4m0 0l4-4m-4 4h14m-5 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h7a3 3 0 013 3v1"></path>
                             </svg>
-                            Giriş Yap
+                            Login
                         </button>
                     </div>
                 </form>
@@ -121,8 +121,8 @@
             <!-- Register Form -->
             <div class="auth-form-panel" id="register-panel">
                 <div class="form-header">
-                    <h2 class="form-title">Hesap Oluştur</h2>
-                    <p class="form-subtitle">Yeni bir hesap oluşturarak test sonucunuza erişin</p>
+                    <h2 class="form-title">Create Account</h2>
+                    <p class="form-subtitle">Create a new account to access your test results</p>
                 </div>
 
                 <form method="POST" action="{{ route('register') }}" class="auth-form" id="register-form">
@@ -134,7 +134,7 @@
                             <svg class="label-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"></path>
                             </svg>
-                            Adınız Soyadınız
+                            Full Name
                         </label>
                         <input
                             id="register_name"
@@ -145,7 +145,7 @@
                             required
                             autofocus
                             autocomplete="name"
-                            placeholder="Adınız Soyadınız"
+                            placeholder="Full Name"
                         />
                         <x-input-error :messages="$errors->get('name')" class="input-error" />
                     </div>
@@ -156,7 +156,7 @@
                             <svg class="label-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 12a4 4 0 10-8 0 4 4 0 008 0zm0 0v1.5a2.5 2.5 0 005 0V12a9 9 0 10-9 9m4.5-1.206a8.959 8.959 0 01-4.5 1.207"></path>
                             </svg>
-                            Email Adresiniz
+                            Your Email Address
                         </label>
                         <input
                             id="register_email"
@@ -166,7 +166,7 @@
                             value="{{ old('email') }}"
                             required
                             autocomplete="username"
-                            placeholder="ornek@email.com"
+                            placeholder="example@email.com"
                         />
                         <x-input-error :messages="$errors->get('email')" class="input-error" />
                     </div>
@@ -177,7 +177,7 @@
                             <svg class="label-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"></path>
                             </svg>
-                            Şifreniz
+                            Your Password
                         </label>
                         <input
                             id="register_password"
@@ -186,7 +186,7 @@
                             name="password"
                             required
                             autocomplete="new-password"
-                            placeholder="En az 8 karakter"
+                            placeholder="At least 8 characters"
                         />
                         <x-input-error :messages="$errors->get('password')" class="input-error" />
                     </div>
@@ -197,7 +197,7 @@
                             <svg class="label-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
                             </svg>
-                            Şifre Onayı
+                            Confirm Password
                         </label>
                         <input
                             id="register_password_confirmation"
@@ -206,7 +206,7 @@
                             name="password_confirmation"
                             required
                             autocomplete="new-password"
-                            placeholder="Şifrenizi tekrar girin"
+                            placeholder="Re-enter your password"
                         />
                         <x-input-error :messages="$errors->get('password_confirmation')" class="input-error" />
                     </div>
@@ -217,7 +217,7 @@
                             <svg class="button-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M18 9v3m0 0v3m0-3h3m-3 0h-3m-2-5a4 4 0 11-8 0 4 4 0 018 0zM3 20a6 6 0 0112 0v1H3v-1z"></path>
                             </svg>
-                            Hesap Oluştur
+                            Create Account
                         </button>
                     </div>
                 </form>

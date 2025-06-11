@@ -1,4 +1,4 @@
-console.log("home-scripts.js başarıyla yüklendi!");
+console.log("home-scripts.js loaded successfully!");
 // Mobil Menü Toggle
 const mobileMenuButton = document.getElementById('mobile-menu-button');
 const mobileMenu = document.getElementById('mobile-menu');
@@ -124,14 +124,14 @@ document.addEventListener('DOMContentLoaded', function() {
         const company = formData.get('company');
         
         if (!name || !email || !company) {
-            alert('Lütfen tüm zorunlu alanları doldurun.');
+            alert('Please fill in all required fields.');
             return;
         }
         
         // Email format kontrolü
         const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
         if (!emailRegex.test(email)) {
-            alert('Lütfen geçerli bir email adresi girin.');
+            alert('Please enter a valid email address.');
             return;
         }
         

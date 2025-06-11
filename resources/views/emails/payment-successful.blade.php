@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="tr">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ödemeniz Başarıyla Alındı - MindMetrics</title>
+    <title>Your Payment Was Successful - MindMetrics</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -87,46 +87,46 @@
         <div class="header">
             <div class="logo">MindMetrics</div>
             <div class="success-icon">✅</div>
-            <h1>Ödemeniz Başarıyla Alındı!</h1>
+            <h1>Your Payment Was Successful!</h1>
         </div>
         
         <div class="content">
-            <p class="welcome-text">Merhaba {{ $testResult->user->name }},</p>
+            <p class="welcome-text">Hello {{ $testResult->user->name }},</p>
             
-            <p>MindMetrics raporunuz için yaptığınız ödeme başarıyla alınmıştır. Teşekkür ederiz!</p>
+            <p>Your payment for the MindMetrics report has been successfully processed. Thank you!</p>
             
             <div class="highlight-box">
-                <p><strong>Raporunuz hazır!</strong> Aşağıdaki butonları kullanarak kişilik analizi raporunuza hemen erişebilirsiniz.</p>
+                <p><strong>Your report is ready!</strong> You can immediately access your personality analysis report using the buttons below.</p>
             </div>
             
-            <p>Raporunuzda şunları bulacaksınız:</p>
+            <p>In your report, you will find:</p>
             
             <ul>
-                <li>Detaylı MBTI kişilik analizi</li>
-                <li>Güçlü yönleriniz ve gelişim alanlarınız</li>
-                <li>Kariyer önerileri</li>
-                <li>İlişki ve iletişim tarzınız</li>
-                <li>Kişisel gelişim önerileri</li>
+                <li>Detailed MBTI personality analysis</li>
+                <li>Your strengths and development areas</li>
+                <li>Career recommendations</li>
+                <li>Your relationship and communication style</li>
+                <li>Personal development suggestions</li>
             </ul>
             
             <div class="button-container">
                 <a href="{{ route('test.showResult', ['testResult' => $testResult->id]) }}" class="button">
-                    📊 Raporu Görüntüle
+                    📊 View Report
                 </a>
                 <br>
                 <a href="{{ route('test.downloadReport', ['testResult' => $testResult->id]) }}" class="button secondary">
-                    📄 PDF Olarak İndir
+                    📄 Download PDF
                 </a>
             </div>
             
-            <p>Raporunuzu inceledikten sonra herhangi bir sorunuz olursa, bizimle iletişime geçmekten çekinmeyin.</p>
+            <p>If you have any questions after reviewing your report, please don't hesitate to contact us.</p>
             
-            <p>MindMetrics'i seçtiğiniz için teşekkür ederiz!</p>
+            <p>Thank you for choosing MindMetrics!</p>
         </div>
         
         <div class="footer">
-            <p>İyi günler,<br>MindMetrics Ekibi</p>
-            <p><small>Bu e-posta otomatik olarak gönderilmiştir.</small></p>
+            <p>Best regards,<br>MindMetrics Team</p>
+            <p><small>This email was sent automatically.</small></p>
         </div>
     </div>
 </body>

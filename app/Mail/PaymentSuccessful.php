@@ -29,7 +29,7 @@ class PaymentSuccessful extends Mailable
     public function envelope(): Envelope
     {
         return new Envelope(
-            subject: 'Ödemeniz Başarıyla Alındı - Raporunuz Hazır!',
+            subject: 'Your Payment is Successful - Your Report is Ready!',
         );
     }
 

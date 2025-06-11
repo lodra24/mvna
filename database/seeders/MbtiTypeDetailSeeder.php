@@ -13,500 +13,500 @@ class MbtiTypeDetailSeeder extends Seeder
      */
     public function run(): void
     {
-        // INTJ (Mimar) kişilik tipi için detaylı iş profili
+        // INTJ (Architect) personality type detailed work profile
         MbtiTypeDetail::create([
             'mbti_type' => 'INTJ',
-            'type_name' => 'Mimar',
-            'profile_summary_for_employer' => 'INTJ tipi çalışanlar, stratejik düşünme yeteneği ve uzun vadeli vizyonları ile öne çıkan değerli ekip üyeleridir. Karmaşık problemleri analiz etme, sistematik çözümler geliştirme ve bağımsız çalışma konularında üstün performans sergilerler. Yüksek standartları ve mükemmeliyetçi yaklaşımları sayesinde kaliteli sonuçlar üretirler.',
+            'type_name' => 'Architect',
+            'profile_summary_for_employer' => 'INTJ employees are valuable team members who stand out with their strategic thinking abilities and long-term vision. They demonstrate superior performance in analyzing complex problems, developing systematic solutions, and working independently. They produce quality results through their high standards and perfectionist approaches.',
             'key_strengths_in_workplace' => [
-                'Stratejik planlama ve uzun vadeli vizyon geliştirme',
-                'Karmaşık problemleri analiz etme ve sistematik çözümler üretme',
-                'Bağımsız çalışma ve öz-yönetim becerileri',
-                'Yenilikçi yaklaşımlar ve yaratıcı çözümler geliştirme'
+                'Strategic planning and long-term vision development',
+                'Analyzing complex problems and creating systematic solutions',
+                'Independent work and self-management skills',
+                'Developing innovative approaches and creative solutions'
             ],
             'potential_development_areas_for_workplace_effectiveness' => [
-                'Takım içi iletişim becerilerini geliştirme',
-                'Detayları paylaşma ve süreçleri şeffaflaştırma',
-                'Sabırsızlık eğilimini kontrol altına alma',
-                'Farklı çalışma stillerine tolerans gösterme'
+                'Improving team communication skills',
+                'Sharing details and making processes transparent',
+                'Controlling impatience tendencies',
+                'Showing tolerance for different work styles'
             ],
-            'communication_style_and_tips_for_employer' => 'INTJ çalışanlar doğrudan, özlü ve mantıklı iletişimi tercih ederler. Onlarla iletişim kurarken somut veriler ve mantıklı gerekçeler sunun. Gereksiz toplantılardan kaçının ve önemli konuları yazılı olarak iletmeyi tercih edin. Eleştirileri yapıcı ve objektif bir şekilde sunduğunuzda daha iyi karşılanır.',
-            'task_management_approach_and_tips_for_employer' => 'Görev yönetiminde özerklik ve esneklik sağlayın. Net hedefler ve son teslim tarihleri belirleyin, ancak süreci nasıl yönetecekleri konusunda onlara güvenin. Mikro-yönetimden kaçının ve sonuç odaklı değerlendirme yapın. Karmaşık ve entelektüel açıdan zorlayıcı projeler verin.',
-            'feedback_receptivity_and_guidance_for_employer' => 'Geri bildirim verirken objektif veriler ve somut örnekler kullanın. Performans değerlendirmelerini mantıklı kriterler üzerinden yapın ve gelişim önerilerinizi net bir şekilde ifade edin. Duygusal yaklaşımlardan ziyade analitik ve yapıcı geri bildirimler tercih ederler.',
-            'work_environment_preferences_for_employer' => 'Sessiz, organize ve kesintisiz çalışma ortamları tercih ederler. Açık ofis düzeninden ziyade özel çalışma alanları sağlamaya çalışın. Esnek çalışma saatleri ve uzaktan çalışma imkanları motivasyonlarını artırır. Teknolojik altyapının güçlü olduğu ortamlarda daha verimli çalışırlar.',
+            'communication_style_and_tips_for_employer' => 'INTJ employees prefer direct, concise, and logical communication. When communicating with them, provide concrete data and logical justifications. Avoid unnecessary meetings and prefer to communicate important matters in writing. Criticisms are better received when presented constructively and objectively.',
+            'task_management_approach_and_tips_for_employer' => 'Provide autonomy and flexibility in task management. Set clear goals and deadlines, but trust them on how they manage the process. Avoid micro-management and make result-oriented evaluations. Give complex and intellectually challenging projects.',
+            'feedback_receptivity_and_guidance_for_employer' => 'Use objective data and concrete examples when giving feedback. Conduct performance evaluations based on logical criteria and clearly express your development suggestions. They prefer analytical and constructive feedback rather than emotional approaches.',
+            'work_environment_preferences_for_employer' => 'They prefer quiet, organized, and uninterrupted work environments. Try to provide private workspaces rather than open office layouts. Flexible working hours and remote work opportunities increase their motivation. They work more efficiently in environments with strong technological infrastructure.',
             'motivators_for_employer_to_leverage' => [
-                'Entelektüel açıdan zorlayıcı ve karmaşık projeler',
-                'Özerklik ve bağımsız karar verme yetkisi',
-                'Uzun vadeli hedefler ve stratejik projeler',
-                'Sürekli öğrenme ve gelişim fırsatları'
+                'Intellectually challenging and complex projects',
+                'Autonomy and independent decision-making authority',
+                'Long-term goals and strategic projects',
+                'Continuous learning and development opportunities'
             ],
-            'team_collaboration_style_for_employer' => 'Takım çalışmasında kalite ve verimlilik odaklı yaklaşım sergilerler. Küçük, yetenekli takımlarda daha etkili çalışırlar. Rol ve sorumlulukların net olarak tanımlandığı ortamlarda başarılı olurlar. Brainstorming seanslarında değerli katkılar sunarlar ancak sosyal aktivitelere katılım konusunda isteksiz olabilirler.',
-            'leadership_potential_or_style_notes_for_employer' => 'Doğal liderlik potansiyeline sahiptirler ve vizyoner liderlik tarzı benimserler. Stratejik kararlar alma, uzun vadeli planlar geliştirme ve ekibi hedefler doğrultusunda yönlendirme konularında başarılıdırlar. Liderlik pozisyonlarında bağımsızlık ve karar verme yetkisi verildiğinde en iyi performansı sergilerler.'
+            'team_collaboration_style_for_employer' => 'They demonstrate a quality and efficiency-focused approach in teamwork. They work more effectively in small, talented teams. They succeed in environments where roles and responsibilities are clearly defined. They provide valuable contributions in brainstorming sessions but may be reluctant to participate in social activities.',
+            'leadership_potential_or_style_notes_for_employer' => 'They have natural leadership potential and adopt a visionary leadership style. They are successful in making strategic decisions, developing long-term plans, and directing the team towards goals. They perform best in leadership positions when given independence and decision-making authority.'
         ]);
 
-        // INTP (Düşünür) kişilik tipi için detaylı iş profili
+        // INTP (Thinker) personality type detailed work profile
         MbtiTypeDetail::create([
             'mbti_type' => 'INTP',
-            'type_name' => 'Düşünür',
-            'profile_summary_for_employer' => 'INTP tipi çalışanlar, analitik düşünce gücü ve teorik problem çözme yetenekleri ile değer katan ekip üyeleridir. Karmaşık sistemleri anlama, yenilikçi çözümler geliştirme ve derinlemesine araştırma yapma konularında olağanüstü performans sergilerler. Objektif yaklaşımları ve mantıklı analizleri sayesinde kaliteli sonuçlar üretirler.',
+            'type_name' => 'Thinker',
+            'profile_summary_for_employer' => 'INTP employees are team members who add value with their analytical thinking power and theoretical problem-solving abilities. They demonstrate extraordinary performance in understanding complex systems, developing innovative solutions, and conducting in-depth research. They produce quality results through their objective approaches and logical analyses.',
             'key_strengths_in_workplace' => [
-                'Karmaşık teorik problemleri analiz etme ve çözüm geliştirme',
-                'Yenilikçi ve özgün yaklaşımlar ile sistem optimizasyonu',
-                'Derinlemesine araştırma ve veri analizi becerileri',
-                'Objektif değerlendirme ve mantık temelli karar verme'
+                'Analyzing complex theoretical problems and developing solutions',
+                'System optimization with innovative and original approaches',
+                'In-depth research and data analysis skills',
+                'Objective evaluation and logic-based decision making'
             ],
             'potential_development_areas_for_workplace_effectiveness' => [
-                'Proje teslim tarihlerine odaklanma ve zaman yönetimi',
-                'Takım içi düzenli iletişim ve güncelleme paylaşımı',
-                'Pratik uygulamaya yönelik sonuç odaklılık geliştirme',
-                'Rutin görevlere karşı motivasyon sürdürme'
+                'Focusing on project deadlines and time management',
+                'Regular team communication and update sharing',
+                'Developing result-orientation for practical applications',
+                'Maintaining motivation for routine tasks'
             ],
-            'communication_style_and_tips_for_employer' => 'INTP çalışanlar mantıklı, analitik ve derinlemesine iletişimi tercih ederler. Onlarla iletişim kurarken teorik temeller ve mantıklı açıklamalar sunun. Fikirlerini geliştirmeleri için zaman tanıyın ve düşüncelerini ifade etmelerine olanak sağlayın. Eleştirileri objektif verilerle desteklediğinizde daha yapıcı karşılanır.',
-            'task_management_approach_and_tips_for_employer' => 'Görev yönetiminde esneklik ve yaratıcılık için alan sağlayın. Net sonuçlar tanımlayın ancak süreci nasıl yönetecekleri konusunda özgürlük verin. Araştırma ve geliştirme odaklı projeler verin. Rutin görevleri minimize edin ve entelektüel açıdan zorlayıcı işler önceliklendirin.',
-            'feedback_receptivity_and_guidance_for_employer' => 'Geri bildirim verirken mantıklı gerekçeler ve objektif kriterler kullanın. Performans değerlendirmelerini analitik yaklaşımla yapın ve gelişim önerilerinizi teorik temeller ile destekleyin. Kişisel eleştirilerden ziyade iş odaklı, yapıcı geri bildirimler tercih ederler.',
-            'work_environment_preferences_for_employer' => 'Sessiz, düşünmeye elverişli ve kesintisiz çalışma ortamları tercih ederler. Bireysel çalışma alanları ve esnek çalışma düzenlemeleri sağlamaya çalışın. Araştırma kaynaklarına kolay erişim ve güçlü teknolojik altyapı motivasyonlarını artırır. Sosyal baskının az olduğu ortamlarda daha verimli çalışırlar.',
+            'communication_style_and_tips_for_employer' => 'INTP employees prefer logical, analytical, and in-depth communication. When communicating with them, provide theoretical foundations and logical explanations. Give them time to develop their ideas and allow them to express their thoughts. Criticisms are more constructively received when supported with objective data.',
+            'task_management_approach_and_tips_for_employer' => 'Provide space for flexibility and creativity in task management. Define clear results but give them freedom on how they manage the process. Give research and development-focused projects. Minimize routine tasks and prioritize intellectually challenging work.',
+            'feedback_receptivity_and_guidance_for_employer' => 'Use logical justifications and objective criteria when giving feedback. Conduct performance evaluations with an analytical approach and support your development suggestions with theoretical foundations. They prefer work-focused, constructive feedback rather than personal criticism.',
+            'work_environment_preferences_for_employer' => 'They prefer quiet, contemplative, and uninterrupted work environments. Try to provide individual workspaces and flexible work arrangements. Easy access to research resources and strong technological infrastructure increases their motivation. They work more efficiently in environments with low social pressure.',
             'motivators_for_employer_to_leverage' => [
-                'Teorik ve analitik açıdan zorlayıcı projeler',
-                'Araştırma ve geliştirme fırsatları',
-                'Özgün çözümler geliştirme imkanı',
-                'Sürekli öğrenme ve keşfetme olanakları'
+                'Theoretically and analytically challenging projects',
+                'Research and development opportunities',
+                'Opportunity to develop original solutions',
+                'Continuous learning and exploration opportunities'
             ],
-            'team_collaboration_style_for_employer' => 'Takım çalışmasında fikir geliştirme ve problem çözme odaklı yaklaşım sergilerler. Brainstorming ve analitik tartışmalarda değerli katkılar sunarlar. Küçük, uzmanlık odaklı takımlarda daha etkili çalışırlar. Sosyal etkileşimden ziyade işbirliği temelli çalışma ortamlarını tercih ederler.',
-            'leadership_potential_or_style_notes_for_employer' => 'Geleneksel liderlik tarzından ziyade uzmanlık temelli liderlik sergilerler. Teknik konularda rehberlik etme, yenilikçi çözümler geliştirme ve analitik yaklaşımlar ile ekibi yönlendirme konularında başarılıdırlar. Liderlik pozisyonlarında teknik özerklik ve araştırma yetkisi verildiğinde en iyi performansı sergilerler.'
+            'team_collaboration_style_for_employer' => 'They demonstrate an idea development and problem-solving focused approach in teamwork. They provide valuable contributions in brainstorming and analytical discussions. They work more effectively in small, expertise-focused teams. They prefer collaboration-based work environments rather than social interaction.',
+            'leadership_potential_or_style_notes_for_employer' => 'They demonstrate expertise-based leadership rather than traditional leadership style. They are successful in providing guidance on technical matters, developing innovative solutions, and directing the team with analytical approaches. They perform best in leadership positions when given technical autonomy and research authority.'
         ]);
 
-        // ENTJ (Komutan) kişilik tipi için detaylı iş profili
+        // ENTJ (Commander) personality type detailed work profile
         MbtiTypeDetail::create([
             'mbti_type' => 'ENTJ',
-            'type_name' => 'Komutan',
-            'profile_summary_for_employer' => 'ENTJ tipi çalışanlar, doğal liderlik yetenekleri ve stratejik vizyon ile öne çıkan güçlü ekip üyeleridir. Organizasyon yönetimi, hedef odaklı çalışma ve ekip motivasyonu konularında üstün performans sergilerler. Sonuç odaklı yaklaşımları ve kararlı duruşları sayesinde projeleri başarıyla tamamlarlar.',
+            'type_name' => 'Commander',
+            'profile_summary_for_employer' => 'ENTJ employees are strong team members who stand out with their natural leadership abilities and strategic vision. They demonstrate superior performance in organizational management, goal-oriented work, and team motivation. They successfully complete projects through their results-focused approaches and decisive stance.',
             'key_strengths_in_workplace' => [
-                'Doğal liderlik ve ekip yönetimi yetenekleri',
-                'Stratejik planlama ve hedef belirleme becerileri',
-                'Hızlı karar verme ve etkili uygulama gücü',
-                'Organizasyonel verimlilik ve süreç optimizasyonu'
+                'Natural leadership and team management abilities',
+                'Strategic planning and goal-setting skills',
+                'Quick decision-making and effective implementation power',
+                'Organizational efficiency and process optimization'
             ],
             'potential_development_areas_for_workplace_effectiveness' => [
-                'Sabırlı dinleme ve empati geliştirme',
-                'Detaylara odaklanma ve titizlik artırma',
-                'Farklı görüşlere açıklık ve tolerans gösterme',
-                'Ekip üyelerinin gelişim hızlarına uyum sağlama'
+                'Developing patient listening and empathy skills',
+                'Focusing on details and increasing thoroughness',
+                'Showing openness and tolerance to different viewpoints',
+                'Adapting to team members\' development pace'
             ],
-            'communication_style_and_tips_for_employer' => 'ENTJ çalışanlar doğrudan, net ve sonuç odaklı iletişimi tercih ederler. Onlarla iletişim kurarken açık hedefler ve somut beklentiler belirtin. Hızlı karar verme süreçlerini destekleyin ve gereksiz detaylardan kaçının. Eleştirileri performans odaklı ve gelişim yönlü sunduğunuzda daha etkili olur.',
-            'task_management_approach_and_tips_for_employer' => 'Görev yönetiminde liderlik yetkisi ve karar verme gücü sağlayın. Net hedefler, ölçülebilir sonuçlar ve son teslim tarihleri belirleyin. Ekip yönetimi sorumluluğu verin ve süreçleri optimize etme yetkisi tanıyın. Zorlayıcı ve stratejik öneme sahip projeler atayın.',
-            'feedback_receptivity_and_guidance_for_employer' => 'Geri bildirim verirken doğrudan, açık ve sonuç odaklı yaklaşım benimseyin. Performans değerlendirmelerini ölçülebilir kriterler üzerinden yapın ve gelişim önerilerinizi stratejik hedeflerle ilişkilendirin. Yapıcı eleştirileri kabul ederler ancak gerekçelerin mantıklı olmasını beklerler.',
-            'work_environment_preferences_for_employer' => 'Dinamik, hızlı tempolu ve sonuç odaklı çalışma ortamları tercih ederler. Liderlik pozisyonları ve karar verme yetkisi motivasyonlarını artırır. Ekip etkileşiminin yoğun olduğu, işbirliği temelli ortamlarda daha verimli çalışırlar. Teknolojik araçlar ve verimlilik sistemleri sağlamaya çalışın.',
+            'communication_style_and_tips_for_employer' => 'ENTJ employees prefer direct, clear, and results-oriented communication. When communicating with them, set clear goals and concrete expectations. Support quick decision-making processes and avoid unnecessary details. Criticisms are more effective when presented with a performance-focused and development-oriented approach.',
+            'task_management_approach_and_tips_for_employer' => 'Provide leadership authority and decision-making power in task management. Set clear goals, measurable results, and deadlines. Give team management responsibilities and grant authority to optimize processes. Assign challenging and strategically important projects.',
+            'feedback_receptivity_and_guidance_for_employer' => 'Adopt a direct, clear, and results-oriented approach when giving feedback. Conduct performance evaluations based on measurable criteria and relate your development suggestions to strategic goals. They accept constructive criticism but expect logical justifications.',
+            'work_environment_preferences_for_employer' => 'They prefer dynamic, fast-paced, and results-oriented work environments. Leadership positions and decision-making authority increase their motivation. They work more efficiently in collaborative environments with intensive team interaction. Try to provide technological tools and efficiency systems.',
             'motivators_for_employer_to_leverage' => [
-                'Liderlik sorumlulukları ve ekip yönetimi fırsatları',
-                'Stratejik öneme sahip ve zorlayıcı projeler',
-                'Organizasyonel gelişim ve değişim yönetimi',
-                'Başarı tanınması ve kariyer gelişim imkanları'
+                'Leadership responsibilities and team management opportunities',
+                'Strategically important and challenging projects',
+                'Organizational development and change management',
+                'Recognition of success and career development opportunities'
             ],
-            'team_collaboration_style_for_employer' => 'Takım çalışmasında liderlik ve koordinasyon odaklı yaklaşım sergilerler. Ekip motivasyonunu artırma, hedefleri belirleme ve süreçleri yönetme konularında etkili çalışırlar. Büyük takımlarda bile etkili liderlik sergileyebilirler. Sonuç odaklı işbirliği ve performans temelli çalışma ortamlarını tercih ederler.',
-            'leadership_potential_or_style_notes_for_employer' => 'Güçlü doğal liderlik potansiyeline sahiptirler ve direktif liderlik tarzı benimserler. Stratejik hedefler belirleme, ekibi motive etme ve sonuçları takip etme konularında başarılıdırlar. Liderlik pozisyonlarında geniş yetki ve sorumluluk verildiğinde en iyi performansı sergilerler. Organizasyonel değişim ve büyüme süreçlerini etkili yönetirler.'
+            'team_collaboration_style_for_employer' => 'They demonstrate a leadership and coordination-focused approach in teamwork. They work effectively in increasing team motivation, setting goals, and managing processes. They can display effective leadership even in large teams. They prefer results-oriented collaboration and performance-based work environments.',
+            'leadership_potential_or_style_notes_for_employer' => 'They have strong natural leadership potential and adopt a directive leadership style. They are successful in setting strategic goals, motivating the team, and tracking results. They perform best in leadership positions when given broad authority and responsibility. They effectively manage organizational change and growth processes.'
         ]);
 
-        // ENTP (Tartışmacı) kişilik tipi için detaylı iş profili
+        // ENTP (Debater) personality type detailed work profile
         MbtiTypeDetail::create([
             'mbti_type' => 'ENTP',
-            'type_name' => 'Tartışmacı',
-            'profile_summary_for_employer' => 'ENTP tipi çalışanlar, yenilikçi düşünce yapıları ve yaratıcı problem çözme yetenekleri ile değer katan dinamik ekip üyeleridir. Brainstorming, yeni fikirlerin geliştirilmesi ve değişim yönetimi konularında üstün performans sergilerler. Adaptasyon yetenekleri ve enerjik yaklaşımları sayesinde zorlu projelerde başarılı sonuçlar üretirler.',
+            'type_name' => 'Debater',
+            'profile_summary_for_employer' => 'ENTP employees are dynamic team members who add value with their innovative thinking structures and creative problem-solving abilities. They demonstrate superior performance in brainstorming, developing new ideas, and change management. They produce successful results in challenging projects through their adaptation abilities and energetic approaches.',
             'key_strengths_in_workplace' => [
-                'Yaratıcı problem çözme ve yenilikçi yaklaşımlar',
-                'Hızlı adaptasyon ve değişim yönetimi becerileri',
-                'Etkili iletişim ve ikna etme yetenekleri',
-                'Çok yönlü düşünme ve alternatif çözümler geliştirme'
+                'Creative problem solving and innovative approaches',
+                'Quick adaptation and change management skills',
+                'Effective communication and persuasion abilities',
+                'Multi-dimensional thinking and developing alternative solutions'
             ],
             'potential_development_areas_for_workplace_effectiveness' => [
-                'Detay odaklılık ve titizlik geliştirme',
-                'Uzun vadeli projelerde odaklanma sürdürme',
-                'Rutin görevlere karşı motivasyon artırma',
-                'Sabırlı uygulama ve takip etme becerilerini güçlendirme'
+                'Developing detail-focus and thoroughness',
+                'Maintaining focus on long-term projects',
+                'Increasing motivation for routine tasks',
+                'Strengthening patient implementation and follow-up skills'
             ],
-            'communication_style_and_tips_for_employer' => 'ENTP çalışanlar enerjik, etkileşimli ve fikir odaklı iletişimi tercih ederler. Onlarla iletişim kurarken açık tartışma ortamları sağlayın ve fikirlerini geliştirmelerine olanak tanıyın. Brainstorming seanslarını destekleyin ve yaratıcı önerilerini değerlendirin. Eleştirileri gelişim odaklı ve fikir temelli sunduğunuzda daha yapıcı karşılanır.',
-            'task_management_approach_and_tips_for_employer' => 'Görev yönetiminde esneklik ve yaratıcılık için alan sağlayın. Çeşitli projeler ve değişken görevler verin. Rutin işleri minimize edin ve yenilikçi yaklaşımlar gerektiren projeler önceliklendirin. Takım işbirliği ve fikir paylaşımı fırsatları sunun. Kısa vadeli hedefler ile uzun vadeli vizyonu dengelemeye çalışın.',
-            'feedback_receptivity_and_guidance_for_employer' => 'Geri bildirim verirken etkileşimli ve tartışmaya açık yaklaşım benimseyin. Performans değerlendirmelerini gelişim odaklı yapın ve yeni fırsatlar ile ilişkilendirin. Yaratıcı katkılarını tanıyın ve gelişim önerilerinizi fikir geliştirme fırsatları olarak sunun. Yapıcı tartışmaları teşvik edin.',
-            'work_environment_preferences_for_employer' => 'Dinamik, etkileşimli ve değişken çalışma ortamları tercih ederler. Açık iletişim kanalları ve işbirliği fırsatları motivasyonlarını artırır. Esnek çalışma düzenlemeleri ve çeşitli proje imkanları sağlamaya çalışın. Sosyal etkileşimin yoğun olduğu, enerjik ortamlarda daha verimli çalışırlar.',
+            'communication_style_and_tips_for_employer' => 'ENTP employees prefer energetic, interactive, and idea-focused communication. When communicating with them, provide open discussion environments and allow them to develop their ideas. Support brainstorming sessions and evaluate their creative suggestions. Criticisms are more constructively received when presented with a development-focused and idea-based approach.',
+            'task_management_approach_and_tips_for_employer' => 'Provide space for flexibility and creativity in task management. Give various projects and variable tasks. Minimize routine work and prioritize projects requiring innovative approaches. Offer team collaboration and idea-sharing opportunities. Try to balance short-term goals with long-term vision.',
+            'feedback_receptivity_and_guidance_for_employer' => 'Adopt an interactive and discussion-open approach when giving feedback. Conduct performance evaluations with a development focus and relate them to new opportunities. Recognize their creative contributions and present your development suggestions as idea development opportunities. Encourage constructive discussions.',
+            'work_environment_preferences_for_employer' => 'They prefer dynamic, interactive, and variable work environments. Open communication channels and collaboration opportunities increase their motivation. Try to provide flexible work arrangements and various project opportunities. They work more efficiently in energetic environments with intensive social interaction.',
             'motivators_for_employer_to_leverage' => [
-                'Yenilikçi ve yaratıcı projeler',
-                'Çeşitli görevler ve değişken sorumluluklar',
-                'Takım işbirliği ve fikir paylaşımı fırsatları',
-                'Sürekli öğrenme ve gelişim imkanları'
+                'Innovative and creative projects',
+                'Various tasks and variable responsibilities',
+                'Team collaboration and idea-sharing opportunities',
+                'Continuous learning and development opportunities'
             ],
-            'team_collaboration_style_for_employer' => 'Takım çalışmasında enerji ve yaratıcılık odaklı yaklaşım sergilerler. Brainstorming seanslarında değerli katkılar sunar ve ekip motivasyonunu artırırlar. Çapraz fonksiyonel takımlarda etkili çalışırlar ve farklı perspektifleri bir araya getirme konusunda başarılıdırlar. İşbirliği temelli ve dinamik çalışma ortamlarını tercih ederler.',
-            'leadership_potential_or_style_notes_for_employer' => 'Yenilikçi ve ilham verici liderlik potansiyeline sahiptirler. Değişim yönetimi, ekip motivasyonu ve yaratıcı çözümler geliştirme konularında etkili liderlik sergilerler. Liderlik pozisyonlarında esneklik ve yenilik yetkisi verildiğinde en iyi performansı sergilerler. Geleneksel hiyerarşiden ziyade işbirliği temelli liderlik tarzını benimserler.'
+            'team_collaboration_style_for_employer' => 'They demonstrate an energy and creativity-focused approach in teamwork. They provide valuable contributions in brainstorming sessions and increase team motivation. They work effectively in cross-functional teams and are successful in bringing different perspectives together. They prefer collaboration-based and dynamic work environments.',
+            'leadership_potential_or_style_notes_for_employer' => 'They have innovative and inspiring leadership potential. They demonstrate effective leadership in change management, team motivation, and developing creative solutions. They perform best in leadership positions when given flexibility and innovation authority. They adopt a collaboration-based leadership style rather than traditional hierarchy.'
         ]);
 
-        // INFJ (Avukat) kişilik tipi için detaylı iş profili
+        // INFJ (Advocate) personality type detailed work profile
         MbtiTypeDetail::create([
             'mbti_type' => 'INFJ',
-            'type_name' => 'Avukat',
-            'profile_summary_for_employer' => 'INFJ tipi çalışanlar, derin empati yetenekleri ve güçlü değer sistemleri ile öne çıkan değerli ekip üyeleridir. İnsan odaklı çözümler geliştirme, uzun vadeli vizyon oluşturma ve anlamlı projeler yürütme konularında üstün performans sergilerler. Sessiz kararlılıkları ve mükemmeliyetçi yaklaşımları sayesinde kaliteli ve sürdürülebilir sonuçlar üretirler.',
+            'type_name' => 'Advocate',
+            'profile_summary_for_employer' => 'INFJ employees are valuable team members who stand out with their deep empathy abilities and strong value systems. They demonstrate superior performance in developing human-centered solutions, creating long-term vision, and executing meaningful projects. They produce quality and sustainable results through their quiet determination and perfectionist approaches.',
             'key_strengths_in_workplace' => [
-                'Derin empati ve insan psikolojisini anlama yeteneği',
-                'Uzun vadeli vizyon ve stratejik düşünme becerileri',
-                'Yüksek kalite standartları ve detay odaklı çalışma',
-                'Değer temelli karar verme ve etik yaklaşımlar'
+                'Deep empathy and ability to understand human psychology',
+                'Long-term vision and strategic thinking skills',
+                'High quality standards and detail-focused work',
+                'Value-based decision making and ethical approaches'
             ],
             'potential_development_areas_for_workplace_effectiveness' => [
-                'Çatışma durumlarında daha assertif olma',
-                'Eleştirileri kişisel algılamama becerisi geliştirme',
-                'Mükemmeliyetçilik nedeniyle gecikmeleri önleme',
-                'Büyük gruplarda kendini ifade etme becerisini artırma'
+                'Being more assertive in conflict situations',
+                'Developing skills to not take criticism personally',
+                'Preventing delays due to perfectionism',
+                'Increasing ability to express oneself in large groups'
             ],
-            'communication_style_and_tips_for_employer' => 'INFJ çalışanlar derin, anlamlı ve empati temelli iletişimi tercih ederler. Onlarla iletişim kurarken değerlerini ve motivasyonlarını anlayın. Bireysel görüşmeler yapın ve fikirlerini geliştirmeleri için zaman tanıyın. Eleştirileri yapıcı ve destekleyici bir tonla sunduğunuzda daha etkili olur. Projelerin insan üzerindeki etkilerini vurgulayın.',
-            'task_management_approach_and_tips_for_employer' => 'Görev yönetiminde anlamlı ve değer temelli projeler verin. Net hedefler belirleyin ancak yaratıcı süreçleri yönetme konusunda özgürlük tanıyın. Kalite odaklı değerlendirmeler yapın ve mükemmeliyetçi eğilimlerini destekleyin. İnsan odaklı ve toplumsal fayda sağlayan projeleri önceliklendirin.',
-            'feedback_receptivity_and_guidance_for_employer' => 'Geri bildirim verirken destekleyici ve yapıcı yaklaşım benimseyin. Performans değerlendirmelerini değer temelli kriterler ile yapın ve kişisel gelişim fırsatları sunun. Başarılarını takdir edin ve gelişim önerilerinizi mentorlu bir yaklaşımla sunun. Kişisel eleştirilerden ziyade iş odaklı geri bildirimler tercih ederler.',
-            'work_environment_preferences_for_employer' => 'Sessiz, huzurlu ve kesintisiz çalışma ortamları tercih ederler. Pozitif ekip dinamiği ve değer uyumu olan ortamlar motivasyonlarını artırır. Esnek çalışma düzenlemeleri ve bireysel çalışma alanları sağlamaya çalışın. Anlamlı projelerin yürütüldüğü, etik değerlerin önemsendiği ortamlarda daha verimli çalışırlar.',
+            'communication_style_and_tips_for_employer' => 'INFJ employees prefer deep, meaningful, and empathy-based communication. When communicating with them, understand their values and motivations. Conduct individual meetings and give them time to develop their ideas. Criticisms are more effective when presented with a constructive and supportive tone. Emphasize the human impact of projects.',
+            'task_management_approach_and_tips_for_employer' => 'Provide meaningful and value-based projects in task management. Set clear goals but give freedom in managing creative processes. Conduct quality-focused evaluations and support their perfectionist tendencies. Prioritize human-centered and socially beneficial projects.',
+            'feedback_receptivity_and_guidance_for_employer' => 'Adopt a supportive and constructive approach when giving feedback. Conduct performance evaluations with value-based criteria and offer personal development opportunities. Appreciate their achievements and present your development suggestions with a mentoring approach. They prefer work-focused feedback rather than personal criticism.',
+            'work_environment_preferences_for_employer' => 'They prefer quiet, peaceful, and uninterrupted work environments. Positive team dynamics and value-aligned environments increase their motivation. Try to provide flexible work arrangements and individual workspaces. They work more efficiently in environments where meaningful projects are executed and ethical values are prioritized.',
             'motivators_for_employer_to_leverage' => [
-                'Anlamlı ve toplumsal fayda sağlayan projeler',
-                'Kişisel gelişim ve mentorluk fırsatları',
-                'Yaratıcı özgürlük ve kalite odaklı çalışma',
-                'Değer uyumu olan ekip ve organizasyon kültürü'
+                'Meaningful and socially beneficial projects',
+                'Personal development and mentoring opportunities',
+                'Creative freedom and quality-focused work',
+                'Value-aligned team and organizational culture'
             ],
-            'team_collaboration_style_for_employer' => 'Takım çalışmasında empati ve uyum odaklı yaklaşım sergilerler. Ekip üyelerinin güçlü yanlarını keşfetme ve destekleme konusunda etkili çalışırlar. Küçük, samimi takımlarda daha rahat çalışırlar. Çatışma çözümü ve ekip uyumunu sağlama konularında değerli katkılar sunarlar.',
-            'leadership_potential_or_style_notes_for_employer' => 'Sessiz ve ilham verici liderlik potansiyeline sahiptirler. Vizyon belirleme, ekip motivasyonu ve değer temelli karar verme konularında etkili liderlik sergilerler. Liderlik pozisyonlarında empati ve anlayış yetkisi verildiğinde en iyi performansı sergilerler. Hizmetkar liderlik tarzını benimser ve ekip üyelerinin gelişimini önceliklendirir.'
+            'team_collaboration_style_for_employer' => 'They demonstrate an empathy and harmony-focused approach in teamwork. They work effectively in discovering and supporting team members\' strengths. They work more comfortably in small, intimate teams. They provide valuable contributions in conflict resolution and ensuring team harmony.',
+            'leadership_potential_or_style_notes_for_employer' => 'They have quiet and inspiring leadership potential. They demonstrate effective leadership in vision setting, team motivation, and value-based decision making. They perform best in leadership positions when given empathy and understanding authority. They adopt a servant leadership style and prioritize team members\' development.'
         ]);
 
-        // INFP (Arabulucu) kişilik tipi için detaylı iş profili
+        // INFP (Mediator) personality type detailed work profile
         MbtiTypeDetail::create([
             'mbti_type' => 'INFP',
-            'type_name' => 'Arabulucu',
-            'profile_summary_for_employer' => 'INFP tipi çalışanlar, güçlü değer sistemleri ve yaratıcı yaklaşımları ile öne çıkan özgün ekip üyeleridir. Bireysel motivasyon, yaratıcı problem çözme ve değer temelli projeler yürütme konularında üstün performans sergilerler. Özgünlük arayışları ve esnek yaklaşımları sayesinde yenilikçi ve sürdürülebilir çözümler üretirler.',
+            'type_name' => 'Mediator',
+            'profile_summary_for_employer' => 'INFP employees are unique team members who stand out with their strong value systems and creative approaches. They demonstrate superior performance in individual motivation, creative problem solving, and executing value-based projects. They produce innovative and sustainable solutions through their pursuit of authenticity and flexible approaches.',
             'key_strengths_in_workplace' => [
-                'Güçlü değer sistemi ve etik karar verme',
-                'Yaratıcı düşünme ve özgün çözümler geliştirme',
-                'Bireysel motivasyon ve öz-yönlendirme becerileri',
-                'Empati ve farklılıklara saygı gösterme'
+                'Strong value system and ethical decision making',
+                'Creative thinking and developing original solutions',
+                'Individual motivation and self-direction skills',
+                'Empathy and respect for differences'
             ],
             'potential_development_areas_for_workplace_effectiveness' => [
-                'Zaman yönetimi ve deadline odaklılık geliştirme',
-                'Yapılandırılmış süreçlere uyum sağlama',
-                'Eleştiri ve geri bildirimleri objektif değerlendirme',
-                'Takım içi düzenli iletişim ve güncelleme paylaşımı'
+                'Developing time management and deadline focus',
+                'Adapting to structured processes',
+                'Objectively evaluating criticism and feedback',
+                'Regular team communication and update sharing'
             ],
-            'communication_style_and_tips_for_employer' => 'INFP çalışanlar samimi, değer temelli ve bireysel iletişimi tercih ederler. Onlarla iletişim kurarken kişisel değerlerini ve motivasyonlarını anlayın. Bire bir görüşmeler yapın ve fikirlerini rahatça ifade edebilecekleri ortam sağlayın. Eleştirileri destekleyici ve gelişim odaklı sunduğunuzda daha yapıcı karşılanır.',
-            'task_management_approach_and_tips_for_employer' => 'Görev yönetiminde esneklik ve yaratıcı özgürlük sağlayın. Değer uyumu olan projeler verin ve anlamlı hedefler belirleyin. Mikro-yönetimden kaçının ve sonuç odaklı değerlendirmeler yapın. Bireysel çalışma tarzlarını destekleyin ve yaratıcı süreçlere zaman tanıyın.',
-            'feedback_receptivity_and_guidance_for_employer' => 'Geri bildirim verirken empatik ve destekleyici yaklaşım benimseyin. Performans değerlendirmelerini kişisel gelişim odaklı yapın ve güçlü yanlarını vurgulayın. Yapıcı eleştirileri değer temelli çerçevede sunun ve gelişim fırsatları ile ilişkilendirin. Kişisel saldırı algısı yaratmayacak şekilde objektif geri bildirimler verin.',
-            'work_environment_preferences_for_employer' => 'Esnek, yaratıcı ve değer uyumu olan çalışma ortamları tercih ederler. Bireysel çalışma alanları ve esnek çalışma saatleri motivasyonlarını artırır. Pozitif ekip kültürü ve farklılıklara saygı gösterilen ortamlar sağlamaya çalışın. Yaratıcı projelerin desteklendiği, özgünlüğün değer gördüğü ortamlarda daha verimli çalışırlar.',
+            'communication_style_and_tips_for_employer' => 'INFP employees prefer sincere, value-based, and individual communication. When communicating with them, understand their personal values and motivations. Conduct one-on-one meetings and provide an environment where they can express their ideas comfortably. Criticisms are more constructively received when presented supportively and development-focused.',
+            'task_management_approach_and_tips_for_employer' => 'Provide flexibility and creative freedom in task management. Give value-aligned projects and set meaningful goals. Avoid micro-management and conduct results-oriented evaluations. Support individual work styles and allow time for creative processes.',
+            'feedback_receptivity_and_guidance_for_employer' => 'Adopt an empathetic and supportive approach when giving feedback. Conduct performance evaluations with a personal development focus and emphasize their strengths. Present constructive criticism within a value-based framework and relate it to development opportunities. Give objective feedback that won\'t create a perception of personal attack.',
+            'work_environment_preferences_for_employer' => 'They prefer flexible, creative, and value-aligned work environments. Individual workspaces and flexible working hours increase their motivation. Try to provide positive team culture and environments that respect differences. They work more efficiently in environments where creative projects are supported and authenticity is valued.',
             'motivators_for_employer_to_leverage' => [
-                'Değer uyumu olan anlamlı projeler',
-                'Yaratıcı özgürlük ve bireysel ifade imkanları',
-                'Esnek çalışma düzenlemeleri ve özerklik',
-                'Kişisel gelişim ve öz-gerçekleştirme fırsatları'
+                'Value-aligned meaningful projects',
+                'Creative freedom and individual expression opportunities',
+                'Flexible work arrangements and autonomy',
+                'Personal development and self-actualization opportunities'
             ],
-            'team_collaboration_style_for_employer' => 'Takım çalışmasında uyum ve empati odaklı yaklaşım sergilerler. Farklı perspektifleri anlama ve destekleme konusunda etkili çalışırlar. Küçük, samimi takımlarda daha rahat hissederler. Çatışma çözümü ve ekip içi uyumu sağlama konularında arabuluculuk rolü üstlenebilirler.',
-            'leadership_potential_or_style_notes_for_employer' => 'Değer temelli ve ilham verici liderlik potansiyeline sahiptirler. Ekip üyelerinin bireysel güçlerini keşfetme ve destekleme konularında etkili liderlik sergilerler. Liderlik pozisyonlarında özgünlük ve değer uyumu yetkisi verildiğinde en iyi performansı sergilerler. Demokratik ve katılımcı liderlik tarzını benimser.'
+            'team_collaboration_style_for_employer' => 'They demonstrate a harmony and empathy-focused approach in teamwork. They work effectively in understanding and supporting different perspectives. They feel more comfortable in small, intimate teams. They can take on mediation roles in conflict resolution and ensuring team harmony.',
+            'leadership_potential_or_style_notes_for_employer' => 'They have value-based and inspiring leadership potential. They demonstrate effective leadership in discovering and supporting team members\' individual strengths. They perform best in leadership positions when given authenticity and value alignment authority. They adopt a democratic and participative leadership style.'
         ]);
 
-        // ENFJ (Başrol) kişilik tipi için detaylı iş profili
+        // ENFJ (Protagonist) personality type detailed work profile
         MbtiTypeDetail::create([
             'mbti_type' => 'ENFJ',
-            'type_name' => 'Başrol',
-            'profile_summary_for_employer' => 'ENFJ tipi çalışanlar, karizmatik liderlik yetenekleri ve güçlü insan odaklı yaklaşımları ile öne çıkan değerli ekip üyeleridir. Ekip motivasyonu, organizasyonel gelişim ve insan kaynakları yönetimi konularında üstün performans sergilerler. İlham verici yaklaşımları ve empati yetenekleri sayesinde yüksek performanslı takımlar oluştururlar.',
+            'type_name' => 'Protagonist',
+            'profile_summary_for_employer' => 'ENFJ employees are valuable team members who stand out with their charismatic leadership abilities and strong human-centered approaches. They demonstrate superior performance in team motivation, organizational development, and human resources management. They create high-performing teams through their inspiring approaches and empathy abilities.',
             'key_strengths_in_workplace' => [
-                'Karizmatik liderlik ve ekip motivasyonu sağlama',
-                'İnsan kaynakları geliştirme ve mentorluk becerileri',
-                'Etkili iletişim ve ikna etme yetenekleri',
-                'Organizasyonel kültür oluşturma ve değişim yönetimi'
+                'Charismatic leadership and providing team motivation',
+                'Human resources development and mentoring skills',
+                'Effective communication and persuasion abilities',
+                'Organizational culture creation and change management'
             ],
             'potential_development_areas_for_workplace_effectiveness' => [
-                'Objektif karar verme ve duygusal mesafe koruma',
-                'Kendi ihtiyaçlarını da önceliklendirme',
-                'Eleştirel geri bildirim verme becerisini geliştirme',
-                'Aşırı sorumluluk alma eğilimini kontrol etme'
+                'Objective decision making and maintaining emotional distance',
+                'Prioritizing their own needs as well',
+                'Developing critical feedback giving skills',
+                'Controlling tendency to take excessive responsibility'
             ],
-            'communication_style_and_tips_for_employer' => 'ENFJ çalışanlar sıcak, ilham verici ve kişi odaklı iletişimi tercih ederler. Onlarla iletişim kurarken ekip ve organizasyon vizyonunu vurgulayın. Açık ve destekleyici geri bildirimler verin. İnsan odaklı hedefler ve toplumsal faydayı ön plana çıkardığınızda daha motive olurlar. Takım toplantılarında aktif rol almalarını destekleyin.',
-            'task_management_approach_and_tips_for_employer' => 'Görev yönetiminde liderlik sorumlulukları ve ekip koordinasyonu verin. İnsan kaynakları odaklı projeler atayın ve mentorluk fırsatları sağlayın. Organizasyonel gelişim ve kültür oluşturma görevlerini önceliklendirin. Ekip başarısını ölçülebilir hale getirin ve kolektif hedefler belirleyin.',
-            'feedback_receptivity_and_guidance_for_employer' => 'Geri bildirim verirken destekleyici ve gelişim odaklı yaklaşım benimseyin. Performans değerlendirmelerini ekip başarısı ve insan gelişimi kriterlerini içerecek şekilde yapın. Liderlik becerilerini tanıyın ve gelişim fırsatları sunun. Yapıcı eleştirileri organizasyonel fayda çerçevesinde sunduğunuzda daha etkili olur.',
-            'work_environment_preferences_for_employer' => 'İşbirliği odaklı, dinamik ve insan merkezli çalışma ortamları tercih ederler. Açık iletişim kanalları ve ekip etkileşimi motivasyonlarını artırır. Liderlik fırsatları ve mentorluk imkanları sağlamaya çalışın. Pozitif organizasyon kültürünün desteklendiği, değer temelli çalışma ortamlarında daha verimli çalışırlar.',
+            'communication_style_and_tips_for_employer' => 'ENFJ employees prefer warm, inspiring, and person-focused communication. When communicating with them, emphasize team and organizational vision. Give open and supportive feedback. They become more motivated when you highlight human-centered goals and social benefits. Support their active participation in team meetings.',
+            'task_management_approach_and_tips_for_employer' => 'Provide leadership responsibilities and team coordination in task management. Assign human resources-focused projects and provide mentoring opportunities. Prioritize organizational development and culture creation tasks. Make team success measurable and set collective goals.',
+            'feedback_receptivity_and_guidance_for_employer' => 'Adopt a supportive and development-focused approach when giving feedback. Conduct performance evaluations to include team success and human development criteria. Recognize their leadership skills and offer development opportunities. Constructive criticism is more effective when presented within the framework of organizational benefit.',
+            'work_environment_preferences_for_employer' => 'They prefer collaboration-focused, dynamic, and human-centered work environments. Open communication channels and team interaction increase their motivation. Try to provide leadership opportunities and mentoring possibilities. They work more efficiently in value-based work environments where positive organizational culture is supported.',
             'motivators_for_employer_to_leverage' => [
-                'Liderlik sorumlulukları ve ekip geliştirme fırsatları',
-                'İnsan odaklı ve toplumsal fayda sağlayan projeler',
-                'Mentorluk ve kişisel gelişim programları',
-                'Organizasyonel kültür oluşturma ve değişim yönetimi'
+                'Leadership responsibilities and team development opportunities',
+                'Human-centered and socially beneficial projects',
+                'Mentoring and personal development programs',
+                'Organizational culture creation and change management'
             ],
-            'team_collaboration_style_for_employer' => 'Takım çalışmasında liderlik ve koordinasyon odaklı yaklaşım sergilerler. Ekip üyelerinin güçlü yanlarını keşfetme ve geliştirme konusunda etkili çalışırlar. Büyük takımlarda bile uyumlu çalışma ortamı yaratabilirler. Ekip motivasyonu ve performans artırma konularında değerli katkılar sunarlar.',
-            'leadership_potential_or_style_notes_for_employer' => 'Güçlü doğal liderlik potansiyeline sahiptirler ve transformasyonel liderlik tarzı benimserler. Vizyon oluşturma, ekip ilham verme ve organizasyonel değişim yönetimi konularında başarılıdırlar. Liderlik pozisyonlarında insan kaynakları yetkisi ve mentorluk sorumluluğu verildiğinde en iyi performansı sergilerler. İnsani değerleri önceleyen, katılımcı liderlik yaklaşımını benimserler.'
+            'team_collaboration_style_for_employer' => 'They demonstrate a leadership and coordination-focused approach in teamwork. They work effectively in discovering and developing team members\' strengths. They can create harmonious work environments even in large teams. They provide valuable contributions in team motivation and performance improvement.',
+            'leadership_potential_or_style_notes_for_employer' => 'They have strong natural leadership potential and adopt a transformational leadership style. They are successful in vision creation, team inspiration, and organizational change management. They perform best in leadership positions when given human resources authority and mentoring responsibility. They adopt a participative leadership approach that prioritizes human values.'
         ]);
 
-        // ENFP (Kampanyacı) kişilik tipi için detaylı iş profili
+        // ENFP (Campaigner) personality type detailed work profile
         MbtiTypeDetail::create([
             'mbti_type' => 'ENFP',
-            'type_name' => 'Kampanyacı',
-            'profile_summary_for_employer' => 'ENFP tipi çalışanlar, coşkulu enerjileri ve yaratıcı yaklaşımları ile öne çıkan dinamik ekip üyeleridir. İnovasyon yönetimi, ekip motivasyonu ve yaratıcı problem çözme konularında üstün performans sergilerler. İlham verici yaklaşımları ve insan odaklı çözümleri sayesinde pozitif çalışma ortamları oluştururlar.',
+            'type_name' => 'Campaigner',
+            'profile_summary_for_employer' => 'ENFP employees are dynamic team members who stand out with their enthusiastic energy and creative approaches. They demonstrate superior performance in innovation management, team motivation, and creative problem solving. They create positive work environments through their inspiring approaches and human-centered solutions.',
             'key_strengths_in_workplace' => [
-                'Yaratıcı düşünme ve yenilikçi çözümler geliştirme',
-                'Güçlü iletişim becerileri ve ekip motivasyonu',
-                'Hızlı adaptasyon ve değişim yönetimi yetenekleri',
-                'İnsan ilişkilerinde empati ve bağlantı kurma'
+                'Creative thinking and developing innovative solutions',
+                'Strong communication skills and team motivation',
+                'Quick adaptation and change management abilities',
+                'Empathy and connection building in human relationships'
             ],
             'potential_development_areas_for_workplace_effectiveness' => [
-                'Detay odaklılık ve titizlik geliştirme',
-                'Uzun vadeli projelerde odaklanma sürdürme',
-                'Zaman yönetimi ve önceliklendirme becerilerini artırma',
-                'Rutin görevlere karşı motivasyon sürdürme'
+                'Developing detail focus and thoroughness',
+                'Maintaining focus on long-term projects',
+                'Improving time management and prioritization skills',
+                'Sustaining motivation for routine tasks'
             ],
-            'communication_style_and_tips_for_employer' => 'ENFP çalışanlar enerjik, etkileşimli ve ilham verici iletişimi tercih ederler. Onlarla iletişim kurarken coşkularını destekleyin ve yaratıcı fikirlerini dinleyin. Brainstorming seansları düzenleyin ve ekip etkileşimini teşvik edin. Eleştirileri gelişim fırsatları olarak sunduğunuzda ve pozitif tonla verdiğinizde daha yapıcı karşılanır.',
-            'task_management_approach_and_tips_for_employer' => 'Görev yönetiminde çeşitlilik ve yaratıcı özgürlük sağlayın. İnovasyon odaklı projeler verin ve ekip işbirliği fırsatları sunun. Rutin görevleri minimize edin ve insan odaklı, anlamlı projeler önceliklendirin. Kısa vadeli hedefler ile uzun vadeli vizyonu dengelemeye çalışın.',
-            'feedback_receptivity_and_guidance_for_employer' => 'Geri bildirim verirken pozitif ve destekleyici yaklaşım benimseyin. Performans değerlendirmelerini yaratıcı katkılar ve ekip etkisi üzerinden yapın. Güçlü yanlarını vurgulayın ve gelişim önerilerinizi yeni fırsatlar ile ilişkilendirin. Eleştirileri yapıcı tartışma ortamında sunduğunuzda daha etkili olur.',
-            'work_environment_preferences_for_employer' => 'Dinamik, etkileşimli ve yaratıcı çalışma ortamları tercih ederler. Açık iletişim kanalları ve işbirliği fırsatları motivasyonlarını artırır. Esnek çalışma düzenlemeleri ve çeşitli proje imkanları sağlamaya çalışın. Pozitif enerji ve yenilikçiliğin desteklendiği ortamlarda daha verimli çalışırlar.',
+            'communication_style_and_tips_for_employer' => 'ENFP employees prefer energetic, interactive, and inspiring communication. When communicating with them, support their enthusiasm and listen to their creative ideas. Organize brainstorming sessions and encourage team interaction. Criticisms are more constructively received when presented as development opportunities and given with a positive tone.',
+            'task_management_approach_and_tips_for_employer' => 'Provide variety and creative freedom in task management. Give innovation-focused projects and offer team collaboration opportunities. Minimize routine tasks and prioritize human-centered, meaningful projects. Try to balance short-term goals with long-term vision.',
+            'feedback_receptivity_and_guidance_for_employer' => 'Adopt a positive and supportive approach when giving feedback. Conduct performance evaluations based on creative contributions and team impact. Emphasize their strengths and relate your development suggestions to new opportunities. Criticisms are more effective when presented in a constructive discussion environment.',
+            'work_environment_preferences_for_employer' => 'They prefer dynamic, interactive, and creative work environments. Open communication channels and collaboration opportunities increase their motivation. Try to provide flexible work arrangements and various project opportunities. They work more efficiently in environments where positive energy and innovation are supported.',
             'motivators_for_employer_to_leverage' => [
-                'Yaratıcı ve yenilikçi projeler',
-                'Ekip işbirliği ve insan odaklı çalışmalar',
-                'Çeşitli görevler ve değişken sorumluluklar',
-                'Kişisel gelişim ve ilham verici liderlik fırsatları'
+                'Creative and innovative projects',
+                'Team collaboration and human-centered work',
+                'Various tasks and variable responsibilities',
+                'Personal development and inspiring leadership opportunities'
             ],
-            'team_collaboration_style_for_employer' => 'Takım çalışmasında enerji ve motivasyon odaklı yaklaşım sergilerler. Ekip üyelerini bir araya getirme ve pozitif atmosfer yaratma konusunda etkili çalışırlar. Çapraz fonksiyonel takımlarda değerli katkılar sunarlar. Brainstorming ve yaratıcı problem çözme seanslarında ekip performansını artırırlar.',
-            'leadership_potential_or_style_notes_for_employer' => 'İlham verici ve katılımcı liderlik potansiyeline sahiptirler. Ekip motivasyonu, yaratıcı vizyon oluşturma ve değişim yönetimi konularında etkili liderlik sergilerler. Liderlik pozisyonlarında yaratıcı özgürlük ve insan odaklı yaklaşım yetkisi verildiğinde en iyi performansı sergilerler. Demokratik ve etkileşimli liderlik tarzını benimser, ekip üyelerinin potansiyelini ortaya çıkarmaya odaklanır.'
+            'team_collaboration_style_for_employer' => 'They demonstrate an energy and motivation-focused approach in teamwork. They work effectively in bringing team members together and creating positive atmosphere. They provide valuable contributions in cross-functional teams. They enhance team performance in brainstorming and creative problem-solving sessions.',
+            'leadership_potential_or_style_notes_for_employer' => 'They have inspiring and participative leadership potential. They demonstrate effective leadership in team motivation, creative vision creation, and change management. They perform best in leadership positions when given creative freedom and human-centered approach authority. They adopt a democratic and interactive leadership style, focusing on bringing out team members\' potential.'
         ]);
 
-        // ISTJ (Lojistikçi) kişilik tipi için detaylı iş profili
+        // ISTJ (Logistician) personality type detailed work profile
         MbtiTypeDetail::create([
             'mbti_type' => 'ISTJ',
-            'type_name' => 'Lojistikçi',
-            'profile_summary_for_employer' => 'ISTJ tipi çalışanlar, güvenilirlik ve sistematik yaklaşımları ile organizasyona istikrar getiren değerli ekip üyeleridir. Detay odaklı çalışma, süreç yönetimi ve kalite kontrolü konularında üstün performans sergilerler. Metodical yaklaşımları ve sorumluluk bilinçleri sayesinde tutarlı ve güvenilir sonuçlar üretirler.',
+            'type_name' => 'Logistician',
+            'profile_summary_for_employer' => 'ISTJ employees are valuable team members who bring stability to the organization with their reliability and systematic approaches. They demonstrate superior performance in detail-focused work, process management, and quality control. They produce consistent and reliable results through their methodical approaches and sense of responsibility.',
             'key_strengths_in_workplace' => [
-                'Detay odaklı ve titiz çalışma yaklaşımı',
-                'Güvenilir süreç yönetimi ve kalite kontrolü',
-                'Sistematik planlama ve organize etme becerileri',
-                'Sorumluluk bilinci ve taahhütlere bağlılık'
+                'Detail-focused and meticulous work approach',
+                'Reliable process management and quality control',
+                'Systematic planning and organizing skills',
+                'Sense of responsibility and commitment to obligations'
             ],
             'potential_development_areas_for_workplace_effectiveness' => [
-                'Değişim ve yeniliklere adaptasyon hızını artırma',
-                'Yaratıcı ve esnek çözümlere açıklık geliştirme',
-                'Takım içi iletişimi daha proaktif hale getirme',
-                'Risk alma ve deneysel yaklaşımlara tolerans gösterme'
+                'Increasing adaptation speed to change and innovations',
+                'Developing openness to creative and flexible solutions',
+                'Making team communication more proactive',
+                'Showing tolerance for risk-taking and experimental approaches'
             ],
-            'communication_style_and_tips_for_employer' => 'ISTJ çalışanlar net, yapılandırılmış ve gerçeklere dayalı iletişimi tercih ederler. Onlarla iletişim kurarken somut veriler ve açık talimatlar sunun. Yazılı iletişimi destekleyin ve değişiklikleri önceden bildirin. Eleştirileri objektif kriterler üzerinden sunduğunuzda daha yapıcı karşılanır.',
-            'task_management_approach_and_tips_for_employer' => 'Görev yönetiminde net süreçler ve açık beklentiler belirleyin. Detaylı proje planları ve zaman çizelgeleri sağlayın. Kalite standartlarını net olarak tanımlayın ve düzenli kontrol noktaları oluşturun. Rutin ve tekrarlanan görevlerde uzmanlaşmalarına olanak tanıyın.',
-            'feedback_receptivity_and_guidance_for_employer' => 'Geri bildirim verirken objektif kriterler ve somut örnekler kullanın. Performans değerlendirmelerini ölçülebilir standartlar üzerinden yapın ve gelişim önerilerinizi yapılandırılmış bir plan ile sunun. Başarılarını takdir edin ve güvenilirliklerini vurgulayın.',
-            'work_environment_preferences_for_employer' => 'Organize, sessiz ve öngörülebilir çalışma ortamları tercih ederler. Net iş tanımları ve düzenli rutinler motivasyonlarını artırır. Bireysel çalışma alanları ve minimal kesinti ortamları sağlamaya çalışın. Geleneksel ofis düzeni ve yapılandırılmış süreçlerin olduğu ortamlarda daha verimli çalışırlar.',
+            'communication_style_and_tips_for_employer' => 'ISTJ employees prefer clear, structured, and fact-based communication. When communicating with them, provide concrete data and clear instructions. Support written communication and announce changes in advance. Criticisms are more constructively received when presented through objective criteria.',
+            'task_management_approach_and_tips_for_employer' => 'Set clear processes and explicit expectations in task management. Provide detailed project plans and timelines. Clearly define quality standards and establish regular checkpoints. Allow them to specialize in routine and repetitive tasks.',
+            'feedback_receptivity_and_guidance_for_employer' => 'Use objective criteria and concrete examples when giving feedback. Conduct performance evaluations based on measurable standards and present your development suggestions with a structured plan. Appreciate their achievements and emphasize their reliability.',
+            'work_environment_preferences_for_employer' => 'They prefer organized, quiet, and predictable work environments. Clear job descriptions and regular routines increase their motivation. Try to provide individual workspaces and minimal interruption environments. They work more efficiently in environments with traditional office layout and structured processes.',
             'motivators_for_employer_to_leverage' => [
-                'Net sorumluluklar ve ölçülebilir hedefler',
-                'Kalite ve mükemmellik odaklı projeler',
-                'Düzenli rutinler ve öngörülebilir süreçler',
-                'Başarı takdiri ve güvenilirlik vurgusu'
+                'Clear responsibilities and measurable goals',
+                'Quality and excellence-focused projects',
+                'Regular routines and predictable processes',
+                'Recognition of success and emphasis on reliability'
             ],
-            'team_collaboration_style_for_employer' => 'Takım çalışmasında güvenilirlik ve istikrar odaklı yaklaşım sergilerler. Net rol tanımları olan, organize takımlarda etkili çalışırlar. Süreç odaklı işbirliği ve kalite kontrolü konularında değerli katkılar sunarlar. Küçük, istikrarlı takım yapılarını tercih ederler.',
-            'leadership_potential_or_style_notes_for_employer' => 'Güvenilir ve süreç odaklı liderlik potansiyeline sahiptirler. Operasyonel yönetim, kalite kontrolü ve ekip organizasyonu konularında etkili liderlik sergilerler. Liderlik pozisyonlarında net yetki ve sorumluluk tanımları verildiğinde en iyi performansı sergilerler. Geleneksel ve istikrar odaklı liderlik tarzını benimserler.'
+            'team_collaboration_style_for_employer' => 'They demonstrate a reliability and stability-focused approach in teamwork. They work effectively in organized teams with clear role definitions. They provide valuable contributions in process-focused collaboration and quality control. They prefer small, stable team structures.',
+            'leadership_potential_or_style_notes_for_employer' => 'They have reliable and process-focused leadership potential. They demonstrate effective leadership in operational management, quality control, and team organization. They perform best in leadership positions when given clear authority and responsibility definitions. They adopt a traditional and stability-focused leadership style.'
         ]);
 
-        // ISFJ (Savunmacı/Koruyucu) kişilik tipi için detaylı iş profili
+        // ISFJ (Defender) personality type detailed work profile
         MbtiTypeDetail::create([
             'mbti_type' => 'ISFJ',
-            'type_name' => 'Savunmacı',
-            'profile_summary_for_employer' => 'ISFJ tipi çalışanlar, fedakar yaklaşımları ve güçlü destek yetenekleri ile organizasyona uyum ve istikrar getiren değerli ekip üyeleridir. İnsan kaynakları desteği, müşteri hizmetleri ve ekip uyumu konularında üstün performans sergilerler. Koruyucu yaklaşımları ve empati yetenekleri sayesinde pozitif çalışma ortamları oluştururlar.',
+            'type_name' => 'Defender',
+            'profile_summary_for_employer' => 'ISFJ employees are valuable team members who bring harmony and stability to the organization with their selfless approaches and strong support abilities. They demonstrate superior performance in human resources support, customer service, and team harmony. They create positive work environments through their protective approaches and empathy abilities.',
             'key_strengths_in_workplace' => [
-                'Güçlü empati ve insan odaklı destek sağlama',
-                'Detay odaklı ve titiz hizmet kalitesi',
-                'Ekip uyumu ve çatışma çözümü becerileri',
-                'Fedakar çalışma ve başkalarının ihtiyaçlarını önceleme'
+                'Strong empathy and providing human-centered support',
+                'Detail-focused and meticulous service quality',
+                'Team harmony and conflict resolution skills',
+                'Selfless work and prioritizing others\' needs'
             ],
             'potential_development_areas_for_workplace_effectiveness' => [
-                'Kendi ihtiyaçlarını da ifade etme becerisi geliştirme',
-                'Eleştirel geri bildirim verme konusunda cesaret artırma',
-                'Değişim ve yeniliklere adaptasyon hızını artırma',
-                'Aşırı sorumluluk alma eğilimini dengeleme'
+                'Developing skills to express their own needs as well',
+                'Increasing courage in giving critical feedback',
+                'Increasing adaptation speed to change and innovations',
+                'Balancing tendency to take excessive responsibility'
             ],
-            'communication_style_and_tips_for_employer' => 'ISFJ çalışanlar sıcak, destekleyici ve kişi odaklı iletişimi tercih ederler. Onlarla iletişim kurarken empati gösterin ve kişisel değerlerini anlayın. Bire bir görüşmeleri destekleyin ve fikirlerini rahatça ifade edebilecekleri ortam sağlayın. Eleştirileri yapıcı ve destekleyici tonla sunduğunuzda daha etkili olur.',
-            'task_management_approach_and_tips_for_employer' => 'Görev yönetiminde insan odaklı projeler ve destek rollerini önceliklendirin. Net hedefler belirleyin ancak uygulama konusunda esneklik tanıyın. Müşteri hizmetleri, ekip desteği ve organizasyonel uyum görevlerini verin. Başkalarına yardım etme fırsatları sunan projeler atayın.',
-            'feedback_receptivity_and_guidance_for_employer' => 'Geri bildirim verirken destekleyici ve kişisel yaklaşım benimseyin. Performans değerlendirmelerini ekip katkısı ve insan ilişkileri üzerinden yapın. Fedakar çalışmalarını takdir edin ve gelişim önerilerinizi mentorluk yaklaşımıyla sunun. Kişisel eleştirilerden kaçının ve yapıcı geri bildirimler verin.',
-            'work_environment_preferences_for_employer' => 'Uyumlu, destekleyici ve pozitif çalışma ortamları tercih ederler. Ekip içi işbirliği ve samimi ilişkiler motivasyonlarını artırır. Çatışmasız ve stressiz ortamlar sağlamaya çalışın. İnsan odaklı değerlerin önemsendiği, empati ve anlayışın hakim olduğu ortamlarda daha verimli çalışırlar.',
+            'communication_style_and_tips_for_employer' => 'ISFJ employees prefer warm, supportive, and person-focused communication. When communicating with them, show empathy and understand their personal values. Support one-on-one meetings and provide an environment where they can express their ideas comfortably. Criticisms are more effective when presented with a constructive and supportive tone.',
+            'task_management_approach_and_tips_for_employer' => 'Prioritize human-centered projects and support roles in task management. Set clear goals but allow flexibility in implementation. Give customer service, team support, and organizational harmony tasks. Assign projects that offer opportunities to help others.',
+            'feedback_receptivity_and_guidance_for_employer' => 'Adopt a supportive and personal approach when giving feedback. Conduct performance evaluations based on team contribution and human relationships. Appreciate their selfless work and present your development suggestions with a mentoring approach. Avoid personal criticism and give constructive feedback.',
+            'work_environment_preferences_for_employer' => 'They prefer harmonious, supportive, and positive work environments. Team collaboration and intimate relationships increase their motivation. Try to provide conflict-free and stress-free environments. They work more efficiently in environments where human-centered values are prioritized and empathy and understanding prevail.',
             'motivators_for_employer_to_leverage' => [
-                'İnsan odaklı ve destek sağlayan projeler',
-                'Ekip uyumu ve organizasyonel kültür geliştirme',
-                'Müşteri memnuniyeti ve hizmet kalitesi odaklı görevler',
-                'Takdir edilme ve katkılarının görülmesi'
+                'Human-centered and supportive projects',
+                'Team harmony and organizational culture development',
+                'Customer satisfaction and service quality-focused tasks',
+                'Being appreciated and having their contributions recognized'
             ],
-            'team_collaboration_style_for_employer' => 'Takım çalışmasında destek ve uyum odaklı yaklaşım sergilerler. Ekip üyelerinin ihtiyaçlarını karşılama ve çatışma çözümü konusunda etkili çalışırlar. Samimi, küçük takımlarda daha rahat hissederler. Ekip moralini yüksek tutma ve pozitif atmosfer yaratma konularında değerli katkılar sunarlar.',
-            'leadership_potential_or_style_notes_for_employer' => 'Destekleyici ve hizmetkar liderlik potansiyeline sahiptirler. Ekip gelişimi, insan kaynakları yönetimi ve organizasyonel kültür oluşturma konularında etkili liderlik sergilerler. Liderlik pozisyonlarında empati ve destek yetkisi verildiğinde en iyi performansı sergilerler. Koruyucu ve ekip odaklı liderlik tarzını benimserler.'
+            'team_collaboration_style_for_employer' => 'They demonstrate a support and harmony-focused approach in teamwork. They work effectively in meeting team members\' needs and conflict resolution. They feel more comfortable in intimate, small teams. They provide valuable contributions in maintaining team morale and creating positive atmosphere.',
+            'leadership_potential_or_style_notes_for_employer' => 'They have supportive and servant leadership potential. They demonstrate effective leadership in team development, human resources management, and organizational culture creation. They perform best in leadership positions when given empathy and support authority. They adopt a protective and team-focused leadership style.'
         ]);
 
-        // ESTJ (Yönetici) kişilik tipi için detaylı iş profili
+        // ESTJ (Executive) personality type detailed work profile
         MbtiTypeDetail::create([
             'mbti_type' => 'ESTJ',
-            'type_name' => 'Yönetici',
-            'profile_summary_for_employer' => 'ESTJ tipi çalışanlar, güçlü organizasyon yetenekleri ve sistemli yaklaşımları ile işletmeye düzen ve verimlilik getiren değerli ekip üyeleridir. Proje yönetimi, operasyonel verimlilik ve ekip koordinasyonu konularında üstün performans sergilerler. Liderlik yetenekleri ve sonuç odaklı yaklaşımları sayesinde hedeflere ulaşmada etkili sonuçlar üretirler.',
+            'type_name' => 'Executive',
+            'profile_summary_for_employer' => 'ESTJ employees are valuable team members who bring order and efficiency to the business with their strong organizational abilities and systematic approaches. They demonstrate superior performance in project management, operational efficiency, and team coordination. They produce effective results in achieving goals through their leadership abilities and results-oriented approaches.',
             'key_strengths_in_workplace' => [
-                'Güçlü organizasyon ve proje yönetimi becerileri',
-                'Sistemli yaklaşım ve operasyonel verimlilik sağlama',
-                'Doğal liderlik ve ekip koordinasyonu yetenekleri',
-                'Sonuç odaklı çalışma ve hedef odaklılık'
+                'Strong organization and project management skills',
+                'Systematic approach and providing operational efficiency',
+                'Natural leadership and team coordination abilities',
+                'Results-oriented work and goal focus'
             ],
             'potential_development_areas_for_workplace_effectiveness' => [
-                'Esneklik ve yaratıcı çözümlere açıklık geliştirme',
-                'Sabırlı dinleme ve farklı görüşlere tolerans artırma',
-                'Detaylara odaklanma ve mikro-yönetim eğilimini dengeleme',
-                'Ekip üyelerinin bireysel çalışma stillerine uyum sağlama'
+                'Developing flexibility and openness to creative solutions',
+                'Patient listening and increasing tolerance for different viewpoints',
+                'Focusing on details and balancing micro-management tendency',
+                'Adapting to team members\' individual work styles'
             ],
-            'communication_style_and_tips_for_employer' => 'ESTJ çalışanlar doğrudan, net ve sonuç odaklı iletişimi tercih ederler. Onlarla iletişim kurarken açık hedefler ve somut beklentiler belirtin. Hızlı karar verme süreçlerini destekleyin ve verimlilik odaklı yaklaşımları takdir edin. Eleştirileri performans ve sonuç odaklı sunduğunuzda daha etkili olur.',
-            'task_management_approach_and_tips_for_employer' => 'Görev yönetiminde liderlik sorumlulukları ve organizasyonel görevler verin. Net hedefler, ölçülebilir sonuçlar ve zaman çizelgeleri belirleyin. Proje yönetimi ve ekip koordinasyonu sorumluluğu tanıyın. Operasyonel verimlilik ve sistem iyileştirme projelerini önceliklendirin.',
-            'feedback_receptivity_and_guidance_for_employer' => 'Geri bildirim verirken doğrudan, açık ve sonuç odaklı yaklaşım benimseyin. Performans değerlendirmelerini ölçülebilir kriterler ve başarı metrikleri üzerinden yapın. Liderlik becerilerini takdir edin ve gelişim önerilerinizi organizasyonel hedeflerle ilişkilendirin. Objektif ve yapıcı eleştirileri kabul ederler.',
-            'work_environment_preferences_for_employer' => 'Organize, verimli ve hedef odaklı çalışma ortamları tercih ederler. Net hiyerarşi ve sorumluluk tanımları motivasyonlarını artırır. Liderlik fırsatları ve karar verme yetkisi sağlamaya çalışın. Sonuç odaklı ve performans temelli değerlendirmelerin yapıldığı ortamlarda daha verimli çalışırlar.',
+            'communication_style_and_tips_for_employer' => 'ESTJ employees prefer direct, clear, and results-oriented communication. When communicating with them, set clear goals and concrete expectations. Support quick decision-making processes and appreciate efficiency-focused approaches. Criticisms are more effective when presented with a performance and results-focused approach.',
+            'task_management_approach_and_tips_for_employer' => 'Provide leadership responsibilities and organizational tasks in task management. Set clear goals, measurable results, and timelines. Grant project management and team coordination responsibility. Prioritize operational efficiency and system improvement projects.',
+            'feedback_receptivity_and_guidance_for_employer' => 'Adopt a direct, clear, and results-oriented approach when giving feedback. Conduct performance evaluations based on measurable criteria and success metrics. Appreciate their leadership skills and relate your development suggestions to organizational goals. They accept objective and constructive criticism.',
+            'work_environment_preferences_for_employer' => 'They prefer organized, efficient, and goal-oriented work environments. Clear hierarchy and responsibility definitions increase their motivation. Try to provide leadership opportunities and decision-making authority. They work more efficiently in environments where results-oriented and performance-based evaluations are conducted.',
             'motivators_for_employer_to_leverage' => [
-                'Liderlik sorumlulukları ve yönetim fırsatları',
-                'Organizasyonel verimlilik ve sistem iyileştirme projeleri',
-                'Net hedefler ve ölçülebilir başarı kriterleri',
-                'Başarı tanınması ve kariyer gelişim imkanları'
+                'Leadership responsibilities and management opportunities',
+                'Organizational efficiency and system improvement projects',
+                'Clear goals and measurable success criteria',
+                'Recognition of success and career development opportunities'
             ],
-            'team_collaboration_style_for_employer' => 'Takım çalışmasında liderlik ve koordinasyon odaklı yaklaşım sergilerler. Ekip organizasyonu, görev dağılımı ve süreç yönetimi konularında etkili çalışırlar. Büyük takımlarda bile düzen ve verimlilik sağlayabilirler. Sonuç odaklı işbirliği ve performans temelli çalışma ortamlarını tercih ederler.',
-            'leadership_potential_or_style_notes_for_employer' => 'Güçlü doğal liderlik potansiyeline sahiptirler ve direktif liderlik tarzı benimserler. Operasyonel yönetim, ekip koordinasyonu ve organizasyonel verimlilik konularında başarılıdırlar. Liderlik pozisyonlarında geniş yetki ve organizasyonel sorumluluk verildiğinde en iyi performansı sergilerler. Geleneksel ve sonuç odaklı liderlik yaklaşımını benimserler.'
+            'team_collaboration_style_for_employer' => 'They demonstrate a leadership and coordination-focused approach in teamwork. They work effectively in team organization, task distribution, and process management. They can provide order and efficiency even in large teams. They prefer results-oriented collaboration and performance-based work environments.',
+            'leadership_potential_or_style_notes_for_employer' => 'They have strong natural leadership potential and adopt a directive leadership style. They are successful in operational management, team coordination, and organizational efficiency. They perform best in leadership positions when given broad authority and organizational responsibility. They adopt a traditional and results-oriented leadership approach.'
         ]);
 
-        // ESFJ (Konsolos) kişilik tipi için detaylı iş profili
+        // ESFJ (Consul) personality type detailed work profile
         MbtiTypeDetail::create([
             'mbti_type' => 'ESFJ',
-            'type_name' => 'Konsolos',
-            'profile_summary_for_employer' => 'ESFJ tipi çalışanlar, güçlü sosyal yetenekleri ve hizmet odaklı yaklaşımları ile organizasyona uyum ve pozitif enerji getiren değerli ekip üyeleridir. Müşteri ilişkileri, ekip koordinasyonu ve organizasyonel kültür geliştirme konularında üstün performans sergilerler. İnsani yaklaşımları ve topluluk odaklı çalışma tarzları sayesinde güçlü iş ilişkileri oluştururlar.',
+            'type_name' => 'Consul',
+            'profile_summary_for_employer' => 'ESFJ employees are valuable team members who bring harmony and positive energy to the organization with their strong social abilities and service-oriented approaches. They demonstrate superior performance in customer relations, team coordination, and organizational culture development. They build strong business relationships through their humanistic approaches and community-focused work styles.',
             'key_strengths_in_workplace' => [
-                'Güçlü sosyal beceriler ve müşteri odaklı hizmet',
-                'Ekip uyumu ve pozitif çalışma ortamı yaratma',
-                'Organizasyonel kültür geliştirme ve topluluk oluşturma',
-                'Detay odaklı ve titiz hizmet kalitesi sağlama'
+                'Strong social skills and customer-focused service',
+                'Team harmony and creating positive work environment',
+                'Organizational culture development and community building',
+                'Detail-focused and providing meticulous service quality'
             ],
             'potential_development_areas_for_workplace_effectiveness' => [
-                'Eleştirel geri bildirim verme konusunda cesaret artırma',
-                'Kendi görüşlerini daha assertif şekilde ifade etme',
-                'Değişim ve yeniliklere adaptasyon hızını artırma',
-                'Çatışma durumlarında daha objektif yaklaşım geliştirme'
+                'Increasing courage in giving critical feedback',
+                'Expressing their own views more assertively',
+                'Increasing adaptation speed to change and innovations',
+                'Developing more objective approach in conflict situations'
             ],
-            'communication_style_and_tips_for_employer' => 'ESFJ çalışanlar sıcak, destekleyici ve topluluk odaklı iletişimi tercih ederler. Onlarla iletişim kurarken kişisel ilgi gösterin ve ekip dinamiklerini vurgulayın. Açık takdir ve pozitif geri bildirimler verin. Organizasyonel değerleri ve toplumsal faydayı ön plana çıkardığınızda daha motive olurlar.',
-            'task_management_approach_and_tips_for_employer' => 'Görev yönetiminde insan odaklı projeler ve müşteri hizmetleri rollerini önceliklendirin. Net hedefler belirleyin ve ekip işbirliği fırsatları sunun. Organizasyonel etkinlikler, kültür geliştirme ve müşteri ilişkileri görevlerini verin. Sosyal etkileşim gerektiren projeleri atayın.',
-            'feedback_receptivity_and_guidance_for_employer' => 'Geri bildirim verirken destekleyici ve pozitif yaklaşım benimseyin. Performans değerlendirmelerini ekip katkısı ve müşteri memnuniyeti üzerinden yapın. Sosyal becerilerini ve ekip odaklı çalışmalarını takdir edin. Gelişim önerilerinizi kişisel gelişim fırsatları olarak sunduğunuzda daha etkili olur.',
-            'work_environment_preferences_for_employer' => 'Sosyal, işbirliği odaklı ve pozitif çalışma ortamları tercih ederler. Ekip etkileşimi ve açık iletişim kanalları motivasyonlarını artırır. Müşteri teması ve hizmet odaklı roller sağlamaya çalışın. İnsani değerlerin önemsendiği, topluluk hissinin güçlü olduğu ortamlarda daha verimli çalışırlar.',
+            'communication_style_and_tips_for_employer' => 'ESFJ employees prefer warm, supportive, and community-focused communication. When communicating with them, show personal interest and emphasize team dynamics. Give open appreciation and positive feedback. They become more motivated when you highlight organizational values and social benefits.',
+            'task_management_approach_and_tips_for_employer' => 'Prioritize human-centered projects and customer service roles in task management. Set clear goals and offer team collaboration opportunities. Give organizational events, culture development, and customer relations tasks. Assign projects that require social interaction.',
+            'feedback_receptivity_and_guidance_for_employer' => 'Adopt a supportive and positive approach when giving feedback. Conduct performance evaluations based on team contribution and customer satisfaction. Appreciate their social skills and team-focused work. Your development suggestions are more effective when presented as personal development opportunities.',
+            'work_environment_preferences_for_employer' => 'They prefer social, collaboration-focused, and positive work environments. Team interaction and open communication channels increase their motivation. Try to provide customer contact and service-oriented roles. They work more efficiently in environments where human values are prioritized and community spirit is strong.',
             'motivators_for_employer_to_leverage' => [
-                'Müşteri hizmetleri ve insan odaklı projeler',
-                'Ekip etkinlikleri ve organizasyonel kültür geliştirme',
-                'Sosyal sorumluluk ve toplumsal fayda sağlayan görevler',
-                'Takdir edilme ve ekip içindeki değerli rolü vurgulama'
+                'Customer service and human-centered projects',
+                'Team activities and organizational culture development',
+                'Social responsibility and socially beneficial tasks',
+                'Being appreciated and emphasizing their valuable role in the team'
             ],
-            'team_collaboration_style_for_employer' => 'Takım çalışmasında uyum ve sosyal bağlantı odaklı yaklaşım sergilerler. Ekip moralini yüksek tutma ve pozitif atmosfer yaratma konusunda etkili çalışırlar. Büyük takımlarda bile sosyal uyumu sağlayabilirler. Ekip etkinlikleri ve işbirliği projelerinde değerli katkılar sunarlar.',
-            'leadership_potential_or_style_notes_for_employer' => 'Sosyal ve destekleyici liderlik potansiyeline sahiptirler. Ekip motivasyonu, organizasyonel kültür oluşturma ve müşteri ilişkileri yönetimi konularında etkili liderlik sergilerler. Liderlik pozisyonlarında insan kaynakları ve topluluk oluşturma yetkisi verildiğinde en iyi performansı sergilerler. Katılımcı ve hizmet odaklı liderlik tarzını benimserler.'
+            'team_collaboration_style_for_employer' => 'They demonstrate a harmony and social connection-focused approach in teamwork. They work effectively in maintaining team morale and creating positive atmosphere. They can ensure social harmony even in large teams. They provide valuable contributions in team activities and collaboration projects.',
+            'leadership_potential_or_style_notes_for_employer' => 'They have social and supportive leadership potential. They demonstrate effective leadership in team motivation, organizational culture creation, and customer relations management. They perform best in leadership positions when given human resources and community building authority. They adopt a participative and service-oriented leadership style.'
         ]);
 
-        // ISTP (Zanaatkar/Sanal) kişilik tipi için detaylı iş profili
+        // ISTP (Virtuoso) personality type detailed work profile
         MbtiTypeDetail::create([
             'mbti_type' => 'ISTP',
-            'type_name' => 'Zanaatkar',
-            'profile_summary_for_employer' => 'ISTP tipi çalışanlar, pratik problem çözme yetenekleri ve teknik uzmanlıkları ile organizasyona somut değer katan dinamik ekip üyeleridir. Anlık çözüm geliştirme, sistem optimizasyonu ve hands-on yaklaşımlar konularında üstün performans sergilerler. Esnek adaptasyon yetenekleri ve analitik düşünce yapıları sayesinde karmaşık teknik sorunlarda etkili sonuçlar üretirler.',
+            'type_name' => 'Virtuoso',
+            'profile_summary_for_employer' => 'ISTP employees are dynamic team members who add concrete value to the organization with their practical problem-solving abilities and technical expertise. They demonstrate superior performance in instant solution development, system optimization, and hands-on approaches. They produce effective results in complex technical problems through their flexible adaptation abilities and analytical thinking structures.',
             'key_strengths_in_workplace' => [
-                'Pratik ve teknik problem çözme konusunda üstün yetenek',
-                'Araçlar, sistemler ve teknolojilerle usta düzeyde çalışma',
-                'Anlık adaptasyon ve kriz yönetimi becerileri',
-                'Bağımsız çalışma ve öz-yönlendirme kapasitesi'
+                'Superior ability in practical and technical problem solving',
+                'Master-level work with tools, systems, and technologies',
+                'Instant adaptation and crisis management skills',
+                'Independent work and self-direction capacity'
             ],
             'potential_development_areas_for_workplace_effectiveness' => [
-                'Uzun vadeli planlama ve stratejik düşünme becerilerini geliştirme',
-                'Takım içi düzenli iletişim ve güncelleme paylaşımı',
-                'Teorik ve kavramsal çalışmalara tolerans artırma',
-                'Rutin raporlama ve dokümantasyon alışkanlığı geliştirme'
+                'Developing long-term planning and strategic thinking skills',
+                'Regular team communication and update sharing',
+                'Increasing tolerance for theoretical and conceptual work',
+                'Developing routine reporting and documentation habits'
             ],
-            'communication_style_and_tips_for_employer' => 'ISTP çalışanlar kısa, net ve sonuç odaklı iletişimi tercih ederler. Onlarla iletişim kurarken somut örnekler ve pratik uygulamalar sunun. Gereksiz toplantılardan kaçının ve teknik detayları vurgulayın. Eleştirileri objektif verilerle desteklediğinizde ve çözüm odaklı sunduğunuzda daha yapıcı karşılanır.',
-            'task_management_approach_and_tips_for_employer' => 'Görev yönetiminde özerklik ve teknik özgürlük sağlayın. Hands-on projeler verin ve sonuç odaklı değerlendirmeler yapın. Mikro-yönetimden kaçının ve acil durum müdahalesi gerektiren görevlerde onlara güvenin. Teknik araştırma ve geliştirme projelerini önceliklendirin.',
-            'feedback_receptivity_and_guidance_for_employer' => 'Geri bildirim verirken doğrudan, teknik temelli ve çözüm odaklı yaklaşım benimseyin. Performans değerlendirmelerini somut sonuçlar üzerinden yapın ve gelişim önerilerinizi pratik uygulamalarla destekleyin. Teknik başarılarını takdir edin ve yeni araç/teknoloji öğrenme fırsatları sunun.',
-            'work_environment_preferences_for_employer' => 'Esnek, kesintisiz ve teknik araçların bol olduğu çalışma ortamları tercih ederler. Bireysel çalışma alanları ve hands-on deneyim imkanları motivasyonlarını artırır. Uzaktan çalışma seçenekleri ve esnek saatler sağlamaya çalışın. Teknik laboratuvar ve atölye benzeri ortamlarda daha verimli çalışırlar.',
+            'communication_style_and_tips_for_employer' => 'ISTP employees prefer short, clear, and results-oriented communication. When communicating with them, provide concrete examples and practical applications. Avoid unnecessary meetings and emphasize technical details. Criticisms are more constructively received when supported with objective data and presented solution-focused.',
+            'task_management_approach_and_tips_for_employer' => 'Provide autonomy and technical freedom in task management. Give hands-on projects and conduct results-oriented evaluations. Avoid micro-management and trust them in tasks requiring emergency intervention. Prioritize technical research and development projects.',
+            'feedback_receptivity_and_guidance_for_employer' => 'Adopt a direct, technically-based, and solution-focused approach when giving feedback. Conduct performance evaluations based on concrete results and support your development suggestions with practical applications. Appreciate their technical achievements and offer opportunities to learn new tools/technologies.',
+            'work_environment_preferences_for_employer' => 'They prefer flexible, uninterrupted work environments with abundant technical tools. Individual workspaces and hands-on experience opportunities increase their motivation. Try to provide remote work options and flexible hours. They work more efficiently in technical laboratory and workshop-like environments.',
             'motivators_for_employer_to_leverage' => [
-                'Teknik zorluklar ve hands-on problem çözme projeleri',
-                'Yeni araç ve teknolojilerle çalışma fırsatları',
-                'Özerklik ve bağımsız karar verme yetkisi',
-                'Acil durum müdahalesi ve kriz çözümü sorumlulukları'
+                'Technical challenges and hands-on problem-solving projects',
+                'Opportunities to work with new tools and technologies',
+                'Autonomy and independent decision-making authority',
+                'Emergency intervention and crisis resolution responsibilities'
             ],
-            'team_collaboration_style_for_employer' => 'Takım çalışmasında pratik katkı ve teknik destek odaklı yaklaşım sergilerler. Küçük, teknik odaklı takımlarda daha etkili çalışırlar. Brainstorming seanslarında uygulanabilir çözümler sunarlar. Sosyal aktivitelerden ziyade iş odaklı işbirliğini tercih ederler.',
-            'leadership_potential_or_style_notes_for_employer' => 'Teknik uzmanlık temelli liderlik potansiyeline sahiptirler. Kriz yönetimi, teknik proje liderliği ve problem çözme konularında etkili liderlik sergilerler. Liderlik pozisyonlarında teknik özerklik ve hands-on yaklaşım yetkisi verildiğinde en iyi performansı sergilerler. Pragmatik ve sonuç odaklı liderlik tarzını benimserler.'
+            'team_collaboration_style_for_employer' => 'They demonstrate a practical contribution and technical support-focused approach in teamwork. They work more effectively in small, technically-focused teams. They offer applicable solutions in brainstorming sessions. They prefer work-focused collaboration rather than social activities.',
+            'leadership_potential_or_style_notes_for_employer' => 'They have technical expertise-based leadership potential. They demonstrate effective leadership in crisis management, technical project leadership, and problem solving. They perform best in leadership positions when given technical autonomy and hands-on approach authority. They adopt a pragmatic and results-oriented leadership style.'
         ]);
 
-        // ISFP (Maceracı) kişilik tipi için detaylı iş profili
+        // ISFP (Adventurer) personality type detailed work profile
         MbtiTypeDetail::create([
             'mbti_type' => 'ISFP',
-            'type_name' => 'Maceracı',
-            'profile_summary_for_employer' => 'ISFP tipi çalışanlar, yaratıcı yaklaşımları ve güçlü estetik duyarlılıkları ile organizasyona özgünlük ve yenilik getiren değerli ekip üyeleridir. Yaratıcı projeler, bireysel ifade ve değer temelli çalışmalar konularında üstün performans sergilerler. Esnek adaptasyon yetenekleri ve empati odaklı yaklaşımları sayesinde insan merkezli çözümler üretirler.',
+            'type_name' => 'Adventurer',
+            'profile_summary_for_employer' => 'ISFP employees are valuable team members who bring authenticity and innovation to the organization with their creative approaches and strong aesthetic sensibilities. They demonstrate superior performance in creative projects, individual expression, and value-based work. They produce human-centered solutions through their flexible adaptation abilities and empathy-focused approaches.',
             'key_strengths_in_workplace' => [
-                'Yaratıcı düşünme ve özgün çözümler geliştirme',
-                'Güçlü estetik duyarlılık ve tasarım becerileri',
-                'Bireysel motivasyon ve öz-yönlendirme kapasitesi',
-                'Empati ve farklılıklara saygı gösterme yeteneği'
+                'Creative thinking and developing original solutions',
+                'Strong aesthetic sensibility and design skills',
+                'Individual motivation and self-direction capacity',
+                'Empathy and ability to respect differences'
             ],
             'potential_development_areas_for_workplace_effectiveness' => [
-                'Zaman yönetimi ve deadline odaklılık geliştirme',
-                'Yapılandırılmış süreçlere uyum sağlama becerisini artırma',
-                'Takım içi proaktif iletişim ve güncelleme paylaşımı',
-                'Eleştiri ve geri bildirimleri objektif değerlendirme'
+                'Developing time management and deadline focus',
+                'Improving ability to adapt to structured processes',
+                'Proactive team communication and update sharing',
+                'Objectively evaluating criticism and feedback'
             ],
-            'communication_style_and_tips_for_employer' => 'ISFP çalışanlar samimi, değer temelli ve bireysel iletişimi tercih ederler. Onlarla iletişim kurarken kişisel değerlerini ve yaratıcı vizyonlarını anlayın. Bire bir görüşmeler yapın ve fikirlerini geliştirmeleri için zaman tanıyın. Eleştirileri destekleyici ve gelişim odaklı sunduğunuzda daha yapıcı karşılanır.',
-            'task_management_approach_and_tips_for_employer' => 'Görev yönetiminde yaratıcı özgürlük ve esnek süreçler sağlayın. Anlamlı ve değer uyumu olan projeler verin. Mikro-yönetimden kaçının ve bireysel çalışma tarzlarını destekleyin. Yaratıcı ve estetik odaklı projeleri önceliklendirin.',
-            'feedback_receptivity_and_guidance_for_employer' => 'Geri bildirim verirken empatik ve destekleyici yaklaşım benimseyin. Performans değerlendirmelerini yaratıcı katkılar ve bireysel gelişim üzerinden yapın. Güçlü yanlarını vurgulayın ve gelişim önerilerinizi kişisel değerler çerçevesinde sunun. Yapıcı eleştirileri yaratıcı fırsatlar olarak sunduğunuzda daha etkili olur.',
-            'work_environment_preferences_for_employer' => 'Esnek, yaratıcı ve estetik açıdan hoş çalışma ortamları tercih ederler. Bireysel çalışma alanları ve yaratıcı ifade imkanları motivasyonlarını artırır. Doğal ışık ve rahat atmosfer sağlamaya çalışın. Özgünlüğün değer gördüğü, farklılıkların desteklendiği ortamlarda daha verimli çalışırlar.',
+            'communication_style_and_tips_for_employer' => 'ISFP employees prefer sincere, value-based, and individual communication. When communicating with them, understand their personal values and creative visions. Conduct one-on-one meetings and give them time to develop their ideas. Criticisms are more constructively received when presented supportively and development-focused.',
+            'task_management_approach_and_tips_for_employer' => 'Provide creative freedom and flexible processes in task management. Give meaningful and value-aligned projects. Avoid micro-management and support individual work styles. Prioritize creative and aesthetically-focused projects.',
+            'feedback_receptivity_and_guidance_for_employer' => 'Adopt an empathetic and supportive approach when giving feedback. Conduct performance evaluations based on creative contributions and individual development. Emphasize their strengths and present your development suggestions within the framework of personal values. Constructive criticism is more effective when presented as creative opportunities.',
+            'work_environment_preferences_for_employer' => 'They prefer flexible, creative, and aesthetically pleasant work environments. Individual workspaces and creative expression opportunities increase their motivation. Try to provide natural light and comfortable atmosphere. They work more efficiently in environments where authenticity is valued and differences are supported.',
             'motivators_for_employer_to_leverage' => [
-                'Yaratıcı ve estetik odaklı projeler',
-                'Bireysel ifade ve özgünlük fırsatları',
-                'Değer uyumu olan anlamlı çalışmalar',
-                'Esnek çalışma düzenlemeleri ve özerklik'
+                'Creative and aesthetically-focused projects',
+                'Individual expression and authenticity opportunities',
+                'Value-aligned meaningful work',
+                'Flexible work arrangements and autonomy'
             ],
-            'team_collaboration_style_for_employer' => 'Takım çalışmasında yaratıcılık ve empati odaklı yaklaşım sergilerler. Farklı perspektifleri anlama ve yaratıcı çözümler geliştirme konusunda etkili çalışırlar. Küçük, samimi takımlarda daha rahat hissederler. Brainstorming ve yaratıcı problem çözme seanslarında değerli katkılar sunarlar.',
-            'leadership_potential_or_style_notes_for_employer' => 'İlham verici ve değer temelli liderlik potansiyeline sahiptirler. Yaratıcı vizyon oluşturma, ekip üyelerinin bireysel güçlerini keşfetme ve özgün çözümler geliştirme konularında etkili liderlik sergilerler. Liderlik pozisyonlarında yaratıcı özgürlük ve değer uyumu yetkisi verildiğinde en iyi performansı sergilerler. Demokratik ve ilham verici liderlik tarzını benimserler.'
+            'team_collaboration_style_for_employer' => 'They demonstrate a creativity and empathy-focused approach in teamwork. They work effectively in understanding different perspectives and developing creative solutions. They feel more comfortable in small, intimate teams. They provide valuable contributions in brainstorming and creative problem-solving sessions.',
+            'leadership_potential_or_style_notes_for_employer' => 'They have inspiring and value-based leadership potential. They demonstrate effective leadership in creative vision creation, discovering team members\' individual strengths, and developing original solutions. They perform best in leadership positions when given creative freedom and value alignment authority. They adopt a democratic and inspiring leadership style.'
         ]);
 
-        // ESTP (Girişimci) kişilik tipi için detaylı iş profili
+        // ESTP (Entrepreneur) personality type detailed work profile
         MbtiTypeDetail::create([
             'mbti_type' => 'ESTP',
-            'type_name' => 'Girişimci',
-            'profile_summary_for_employer' => 'ESTP tipi çalışanlar, dinamik enerjileri ve anlık fırsat değerlendirme yetenekleri ile organizasyona hız ve adaptasyon getiren değerli ekip üyeleridir. Satış, müzakere ve hızlı karar gerektiren durumlar konularında üstün performans sergilerler. Risk alma cesaretleri ve pragmatik yaklaşımları sayesinde rekabetçi ortamlarda etkili sonuçlar üretirler.',
+            'type_name' => 'Entrepreneur',
+            'profile_summary_for_employer' => 'ESTP employees are valuable team members who bring speed and adaptation to the organization with their dynamic energy and instant opportunity evaluation abilities. They demonstrate superior performance in sales, negotiation, and situations requiring quick decisions. They produce effective results in competitive environments through their risk-taking courage and pragmatic approaches.',
             'key_strengths_in_workplace' => [
-                'Hızlı karar verme ve anlık fırsat değerlendirme',
-                'Güçlü sosyal beceriler ve ikna etme yetenekleri',
-                'Risk alma cesareti ve girişimci yaklaşımlar',
-                'Yüksek enerji ve dinamik çalışma kapasitesi'
+                'Quick decision making and instant opportunity evaluation',
+                'Strong social skills and persuasion abilities',
+                'Risk-taking courage and entrepreneurial approaches',
+                'High energy and dynamic work capacity'
             ],
             'potential_development_areas_for_workplace_effectiveness' => [
-                'Uzun vadeli planlama ve stratejik düşünme becerilerini geliştirme',
-                'Detay odaklılık ve titizlik konusunda gelişim sağlama',
-                'Sabırlı analiz ve derinlemesine araştırma alışkanlığı',
-                'Rutin görevlere karşı motivasyon sürdürme'
+                'Developing long-term planning and strategic thinking skills',
+                'Improving detail focus and thoroughness',
+                'Patient analysis and in-depth research habits',
+                'Sustaining motivation for routine tasks'
             ],
-            'communication_style_and_tips_for_employer' => 'ESTP çalışanlar enerjik, doğrudan ve etkileşimli iletişimi tercih ederler. Onlarla iletişim kurarken hızlı tempolu ve sonuç odaklı yaklaşım benimseyin. Yüz yüze görüşmeleri destekleyin ve dinamik tartışma ortamları sağlayın. Eleştirileri hızlı ve aksiyon odaklı sunduğunuzda daha yapıcı karşılanır.',
-            'task_management_approach_and_tips_for_employer' => 'Görev yönetiminde çeşitlilik ve hızlı tempo sağlayın. Satış, müzakere ve müşteri ilişkileri odaklı projeler verin. Rutin görevleri minimize edin ve rekabetçi hedefler belirleyin. Anlık karar verme yetkisi tanıyın ve sonuç odaklı değerlendirmeler yapın.',
-            'feedback_receptivity_and_guidance_for_employer' => 'Geri bildirim verirken doğrudan, hızlı ve aksiyon odaklı yaklaşım benimseyin. Performans değerlendirmelerini somut sonuçlar ve başarı metrikleri üzerinden yapın. Girişimci yaklaşımlarını takdir edin ve yeni fırsatlar ile ilişkilendirin. Rekabetçi başarıları vurgulayın.',
-            'work_environment_preferences_for_employer' => 'Dinamik, hızlı tempolu ve sosyal etkileşimin yoğun olduğu çalışma ortamları tercih ederler. Müşteri teması ve dış saha çalışması motivasyonlarını artırır. Esnek çalışma düzenlemeleri ve hareket özgürlüğü sağlamaya çalışın. Rekabetçi ve başarı odaklı ortamlarda daha verimli çalışırlar.',
+            'communication_style_and_tips_for_employer' => 'ESTP employees prefer energetic, direct, and interactive communication. When communicating with them, adopt a fast-paced and results-oriented approach. Support face-to-face meetings and provide dynamic discussion environments. Criticisms are more constructively received when presented quickly and action-focused.',
+            'task_management_approach_and_tips_for_employer' => 'Provide variety and fast pace in task management. Give sales, negotiation, and customer relations-focused projects. Minimize routine tasks and set competitive goals. Grant instant decision-making authority and conduct results-oriented evaluations.',
+            'feedback_receptivity_and_guidance_for_employer' => 'Adopt a direct, quick, and action-focused approach when giving feedback. Conduct performance evaluations based on concrete results and success metrics. Appreciate their entrepreneurial approaches and relate them to new opportunities. Emphasize competitive achievements.',
+            'work_environment_preferences_for_employer' => 'They prefer dynamic, fast-paced work environments with intensive social interaction. Customer contact and field work increase their motivation. Try to provide flexible work arrangements and freedom of movement. They work more efficiently in competitive and success-oriented environments.',
             'motivators_for_employer_to_leverage' => [
-                'Rekabetçi hedefler ve başarı odaklı projeler',
-                'Satış, müzakere ve müşteri ilişkileri fırsatları',
-                'Hızlı karar verme yetkisi ve özerklik',
-                'Çeşitli görevler ve değişken sorumluluklar'
+                'Competitive goals and success-oriented projects',
+                'Sales, negotiation, and customer relations opportunities',
+                'Quick decision-making authority and autonomy',
+                'Various tasks and variable responsibilities'
             ],
-            'team_collaboration_style_for_employer' => 'Takım çalışmasında enerji ve motivasyon odaklı yaklaşım sergilerler. Ekip dinamizmini artırma ve hızlı çözümler geliştirme konusunda etkili çalışırlar. Rekabetçi takım ortamlarında başarılı olurlar. Brainstorming ve hızlı karar gerektiren durumlarda değerli katkılar sunarlar.',
-            'leadership_potential_or_style_notes_for_employer' => 'Dinamik ve sonuç odaklı liderlik potansiyeline sahiptirler. Satış ekibi liderliği, kriz yönetimi ve hızlı büyüme dönemlerinde etkili liderlik sergilerler. Liderlik pozisyonlarında hızlı karar verme ve risk alma yetkisi verildiğinde en iyi performansı sergilerler. Pragmatik ve girişimci liderlik tarzını benimserler.'
+            'team_collaboration_style_for_employer' => 'They demonstrate an energy and motivation-focused approach in teamwork. They work effectively in increasing team dynamism and developing quick solutions. They succeed in competitive team environments. They provide valuable contributions in brainstorming and situations requiring quick decisions.',
+            'leadership_potential_or_style_notes_for_employer' => 'They have dynamic and results-oriented leadership potential. They demonstrate effective leadership in sales team leadership, crisis management, and rapid growth periods. They perform best in leadership positions when given quick decision-making and risk-taking authority. They adopt a pragmatic and entrepreneurial leadership style.'
         ]);
 
-        // ESFP (Eğlendirici) kişilik tipi için detaylı iş profili
+        // ESFP (Entertainer) personality type detailed work profile
         MbtiTypeDetail::create([
             'mbti_type' => 'ESFP',
-            'type_name' => 'Eğlendirici',
-            'profile_summary_for_employer' => 'ESFP tipi çalışanlar, coşkulu enerjileri ve güçlü sosyal yetenekleri ile organizasyona pozitif atmosfer ve insan odaklı yaklaşım getiren değerli ekip üyeleridir. Müşteri hizmetleri, ekip motivasyonu ve yaratıcı sunum konularında üstün performans sergilerler. Spontane adaptasyon yetenekleri ve empati odaklı yaklaşımları sayesinde dinamik çalışma ortamlarında etkili sonuçlar üretirler.',
+            'type_name' => 'Entertainer',
+            'profile_summary_for_employer' => 'ESFP employees are valuable team members who bring positive atmosphere and human-centered approach to the organization with their enthusiastic energy and strong social abilities. They demonstrate superior performance in customer service, team motivation, and creative presentation. They produce effective results in dynamic work environments through their spontaneous adaptation abilities and empathy-focused approaches.',
             'key_strengths_in_workplace' => [
-                'Güçlü sosyal beceriler ve müşteri odaklı hizmet',
-                'Pozitif enerji ve ekip motivasyonu sağlama',
-                'Spontane adaptasyon ve anlık problem çözme',
-                'Yaratıcı sunum ve etkileşimli iletişim yetenekleri'
+                'Strong social skills and customer-focused service',
+                'Providing positive energy and team motivation',
+                'Spontaneous adaptation and instant problem solving',
+                'Creative presentation and interactive communication abilities'
             ],
             'potential_development_areas_for_workplace_effectiveness' => [
-                'Uzun vadeli planlama ve stratejik düşünme becerilerini geliştirme',
-                'Detay odaklılık ve dokümantasyon alışkanlığı',
-                'Zaman yönetimi ve önceliklendirme becerilerini artırma',
-                'Eleştirel analiz ve objektif değerlendirme kapasitesi'
+                'Developing long-term planning and strategic thinking skills',
+                'Detail focus and documentation habits',
+                'Improving time management and prioritization skills',
+                'Critical analysis and objective evaluation capacity'
             ],
-            'communication_style_and_tips_for_employer' => 'ESFP çalışanlar enerjik, sıcak ve etkileşimli iletişimi tercih ederler. Onlarla iletişim kurarken coşkularını destekleyin ve kişisel ilgi gösterin. Yüz yüze görüşmeleri ve ekip toplantılarını teşvik edin. Eleştirileri pozitif tonla ve gelişim fırsatları olarak sunduğunuzda daha yapıcı karşılanır.',
-            'task_management_approach_and_tips_for_employer' => 'Görev yönetiminde çeşitlilik ve sosyal etkileşim sağlayın. Müşteri odaklı, yaratıcı ve ekip işbirliği gerektiren projeler verin. Rutin görevleri minimize edin ve spontane çözümler gerektiren durumları önceliklendirin. Kısa vadeli hedefler ile motivasyonu sürdürün.',
-            'feedback_receptivity_and_guidance_for_employer' => 'Geri bildirim verirken pozitif, destekleyici ve kişisel yaklaşım benimseyin. Performans değerlendirmelerini ekip katkısı ve müşteri memnuniyeti üzerinden yapın. Sosyal becerilerini ve pozitif etkilerini takdir edin. Gelişim önerilerinizi yeni deneyimler ve fırsatlar olarak sunduğunuzda daha etkili olur.',
-            'work_environment_preferences_for_employer' => 'Dinamik, sosyal ve etkileşimli çalışma ortamları tercih ederler. Müşteri teması ve ekip işbirliği motivasyonlarını artırır. Esnek çalışma düzenlemeleri ve yaratıcı ifade imkanları sağlamaya çalışın. Pozitif enerji ve eğlenceli atmosferin desteklendiği ortamlarda daha verimli çalışırlar.',
+            'communication_style_and_tips_for_employer' => 'ESFP employees prefer energetic, warm, and interactive communication. When communicating with them, support their enthusiasm and show personal interest. Encourage face-to-face meetings and team gatherings. Criticisms are more constructively received when presented with a positive tone and as development opportunities.',
+            'task_management_approach_and_tips_for_employer' => 'Provide variety and social interaction in task management. Give customer-focused, creative, and team collaboration-requiring projects. Minimize routine tasks and prioritize situations requiring spontaneous solutions. Maintain motivation with short-term goals.',
+            'feedback_receptivity_and_guidance_for_employer' => 'Adopt a positive, supportive, and personal approach when giving feedback. Conduct performance evaluations based on team contribution and customer satisfaction. Appreciate their social skills and positive impacts. Your development suggestions are more effective when presented as new experiences and opportunities.',
+            'work_environment_preferences_for_employer' => 'They prefer dynamic, social, and interactive work environments. Customer contact and team collaboration increase their motivation. Try to provide flexible work arrangements and creative expression opportunities. They work more efficiently in environments where positive energy and fun atmosphere are supported.',
             'motivators_for_employer_to_leverage' => [
-                'Müşteri odaklı ve sosyal etkileşim gerektiren projeler',
-                'Yaratıcı sunum ve etkinlik organizasyonu fırsatları',
-                'Ekip motivasyonu ve pozitif atmosfer yaratma görevleri',
-                'Çeşitli deneyimler ve yeni insanlarla tanışma imkanları'
+                'Customer-focused and social interaction-requiring projects',
+                'Creative presentation and event organization opportunities',
+                'Team motivation and positive atmosphere creation tasks',
+                'Various experiences and opportunities to meet new people'
             ],
-            'team_collaboration_style_for_employer' => 'Takım çalışmasında enerji ve pozitif atmosfer odaklı yaklaşım sergilerler. Ekip moralini yüksek tutma ve sosyal bağlantıları güçlendirme konusunda etkili çalışırlar. Büyük takımlarda bile uyumlu çalışma ortamı yaratabilirler. Ekip etkinlikleri ve yaratıcı projelerinde değerli katkılar sunarlar.',
-            'leadership_potential_or_style_notes_for_employer' => 'İlham verici ve insan odaklı liderlik potansiyeline sahiptirler. Ekip motivasyonu, müşteri ilişkileri yönetimi ve pozitif kültür oluşturma konularında etkili liderlik sergilerler. Liderlik pozisyonlarında sosyal etkileşim ve yaratıcı yaklaşım yetkisi verildiğinde en iyi performansı sergilerler. Katılımcı ve eğlenceli liderlik tarzını benimser, ekip üyelerinin potansiyelini ortaya çıkarmaya odaklanır.'
+            'team_collaboration_style_for_employer' => 'They demonstrate an energy and positive atmosphere-focused approach in teamwork. They work effectively in maintaining team morale and strengthening social connections. They can create harmonious work environments even in large teams. They provide valuable contributions in team activities and creative projects.',
+            'leadership_potential_or_style_notes_for_employer' => 'They have inspiring and human-centered leadership potential. They demonstrate effective leadership in team motivation, customer relations management, and positive culture creation. They perform best in leadership positions when given social interaction and creative approach authority. They adopt a participative and fun leadership style, focusing on bringing out team members\' potential.'
         ]);
     }
 }
