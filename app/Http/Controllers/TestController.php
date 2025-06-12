@@ -112,7 +112,7 @@ class TestController extends Controller
     {
         // Raporun doğru kullanıcıya ait olduğunu doğrula
         if ($testResult->user_id !== Auth::id()) {
-            abort(403);
+            return redirect()->route('dashboard')->with('error', 'You can only view your own payment pages.');
         }
         
         // Eğer rapor zaten ödenmişse, direkt sonuç sayfasına yönlendir
@@ -134,7 +134,7 @@ class TestController extends Controller
     {
         // Raporun doğru kullanıcıya ait olduğunu ve ödemesinin yapıldığını doğrula
         if ($testResult->user_id !== Auth::id() || $testResult->status !== 'completed') {
-            abort(403, 'You do not have permission to access this report.');
+            return redirect()->route('dashboard')->with('error', 'You can only view your own reports.');
         }
         
         // Raporu göstermek için gereken verileri topla
@@ -163,7 +163,7 @@ class TestController extends Controller
     {
         // Raporun doğru kullanıcıya ait olduğunu ve ödemesinin yapıldığını doğrula
         if ($testResult->user_id !== Auth::id() || $testResult->status !== 'completed') {
-            abort(403, 'You do not have permission to access this report.');
+            return redirect()->route('dashboard')->with('error', 'You can only download your own reports.');
         }
         
         return $reportService->generatePdfReport($testResult);
@@ -180,7 +180,7 @@ class TestController extends Controller
     {
         // Raporun doğru kullanıcıya ait olduğunu doğrula
         if ($testResult->user_id !== Auth::id()) {
-            abort(403, 'You do not have permission to access this report.');
+            return redirect()->route('dashboard')->with('error', 'You can only process payments for your own reports.');
         }
 
         // PaymentService'i kullanarak ödeme işlemlerini gerçekleştir
