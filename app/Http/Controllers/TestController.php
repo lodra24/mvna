@@ -15,10 +15,10 @@ use App\Models\User;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Str;
-use App\Models\MbtiTypeDetail;
-use Barryvdh\DomPDF\Facade\Pdf;
 use App\Services\MbtiTestService;
 use App\Services\PaymentService;
+use App\Services\ReportService;
+use App\Models\MbtiTypeDetail;
 
 class TestController extends Controller
 {
@@ -156,27 +156,17 @@ class TestController extends Controller
      * PDF raporu indirir.
      *
      * @param  \App\Models\TestResult  $testResult
+     * @param  \App\Services\ReportService  $reportService
      * @return \Illuminate\Http\Response
      */
-    public function downloadReport(TestResult $testResult)
+    public function downloadReport(TestResult $testResult, ReportService $reportService)
     {
         // Raporun doğru kullanıcıya ait olduğunu ve ödemesinin yapıldığını doğrula
         if ($testResult->user_id !== Auth::id() || $testResult->status !== 'completed') {
             abort(403, 'You do not have permission to access this report.');
         }
         
-        // Raporu göstermek için gereken verileri topla
-        $mbtiTypeDetail = MbtiTypeDetail::where('mbti_type', $testResult->mbti_type)->first();
-        
-        $mbtiType = $testResult->mbti_type;
-        
-        // PDF dosya adını oluştur
-        $fileName = 'MindMetrics_Raporu_' . $mbtiType . '.pdf';
-        
-        // PDF'i oluştur ve indir
-        $pdf = Pdf::loadView('test.report_pdf', compact('mbtiType', 'mbtiTypeDetail', 'testResult'));
-        
-        return $pdf->download($fileName);
+        return $reportService->generatePdfReport($testResult);
     }
 
     /**
