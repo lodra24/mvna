@@ -3,6 +3,10 @@
 namespace App\Services;
 
 use App\Models\Question;
+use App\Models\User;
+use App\Models\TestResult;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Session;
 
 class MbtiTestService
 {
@@ -64,5 +68,56 @@ class MbtiTestService
         $mbtiType .= ($scores['J'] >= $scores['P']) ? 'J' : 'P';
 
         return $mbtiType;
+    }
+
+    /**
+     * İşlenen test sonucunu session'a kaydeder.
+     *
+     * @param \Illuminate\Http\Request $request
+     * @param array $testData
+     * @return void
+     */
+    public function savePendingResultToSession(Request $request, array $testData): void
+    {
+        $testResultData = [
+            'mbti_type' => $testData['mbti_type'],
+            'scores' => $testData['scores'],
+            'status' => 'pending_registration'
+        ];
+        
+        $request->session()->put('pending_test_result', $testResultData);
+    }
+
+    /**
+     * Session'da bekleyen test sonucunu veritabanına kaydeder.
+     *
+     * @param \App\Models\User $user
+     * @return \App\Models\TestResult|null
+     */
+    public function commitPendingResultToDatabase(User $user): ?TestResult
+    {
+        if (!Session::has('pending_test_result')) {
+            return null;
+        }
+
+        $testResultData = Session::get('pending_test_result');
+        
+        $testResult = TestResult::create([
+            'user_id' => $user->id,
+            'mbti_type' => $testResultData['mbti_type'],
+            'e_score' => $testResultData['scores']['E'],
+            'i_score' => $testResultData['scores']['I'],
+            's_score' => $testResultData['scores']['S'],
+            'n_score' => $testResultData['scores']['N'],
+            't_score' => $testResultData['scores']['T'],
+            'f_score' => $testResultData['scores']['F'],
+            'j_score' => $testResultData['scores']['J'],
+            'p_score' => $testResultData['scores']['P'],
+            'status' => 'pending_payment'
+        ]);
+        
+        Session::forget('pending_test_result');
+        
+        return $testResult;
     }
 }

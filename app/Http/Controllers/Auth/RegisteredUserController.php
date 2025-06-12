@@ -5,7 +5,7 @@ namespace App\Http\Controllers\Auth;
 use App\Http\Controllers\Controller;
 use App\Mail\UserRegisteredWelcome;
 use App\Models\User;
-use App\Models\TestResult;
+use App\Services\MbtiTestService;
 use Illuminate\Auth\Events\Registered;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
@@ -38,7 +38,7 @@ class RegisteredUserController extends Controller
      *
      * @throws \Illuminate\Validation\ValidationException
      */
-    public function store(Request $request): RedirectResponse
+    public function store(Request $request, MbtiTestService $mbtiTestService): RedirectResponse
     {
         $request->validate([
             'name' => ['required', 'string', 'max:255'],
@@ -59,31 +59,15 @@ class RegisteredUserController extends Controller
         // Hoş geldiniz e-postasını gönder
         Mail::to($user->email)->send(new UserRegisteredWelcome($user));
 
-        // Session'da bekleyen test sonucu var mı kontrol et
-        if (session()->has('pending_test_result')) {
-            $testResultData = session('pending_test_result');
-            
-            // Test sonucunu veritabanına kaydet
-            $testResult = TestResult::create([
-                'user_id' => $user->id,
-                'mbti_type' => $testResultData['mbti_type'],
-                'e_score' => $testResultData['scores']['E'],
-                'i_score' => $testResultData['scores']['I'],
-                's_score' => $testResultData['scores']['S'],
-                'n_score' => $testResultData['scores']['N'],
-                't_score' => $testResultData['scores']['T'],
-                'f_score' => $testResultData['scores']['F'],
-                'j_score' => $testResultData['scores']['J'],
-                'p_score' => $testResultData['scores']['P'],
-                'status' => 'pending_payment'
-            ]);
-            
-            // Session'daki pending test result'ı temizle
-            session()->forget('pending_test_result');
-            
-            // Kullanıcıyı ödeme sayfasına yönlendir
+        // Session'da bekleyen test sonucunu işle
+        $testResult = $mbtiTestService->commitPendingResultToDatabase($user);
+
+        if ($testResult) {
+            // Eğer bir test sonucu kaydedildiyse, ödeme sayfasına yönlendir
             return redirect()->route('test.payment', ['testResult' => $testResult->id]);
         }
+
+        // Bekleyen bir test sonucu yoksa, normal dashboard'a yönlendir
 
         return redirect(route('dashboard', absolute: false));
     }

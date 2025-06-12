@@ -94,20 +94,13 @@ class TestController extends Controller
      */
     public function submitAnswers(Request $request, MbtiTestService $mbtiTestService): RedirectResponse
     {
-        // 1. Servis aracılığıyla skorları ve MBTI tipini hesapla
+        // 1. Test sonuçlarını işle
         $testData = $mbtiTestService->processTestResults($request->input('answers', []));
 
-        // 2. Test sonucunu bir dizi olarak hazırla
-        $testResultData = [
-            'mbti_type' => $testData['mbti_type'],
-            'scores' => $testData['scores'],
-            'status' => 'pending_registration'
-        ];
+        // 2. İşlenen sonucu session'a kaydet
+        $mbtiTestService->savePendingResultToSession($request, $testData);
         
-        // 4. Bu sonucu veritabanına DEĞİL, session'a kaydet
-        $request->session()->put('pending_test_result', $testResultData);
-        
-        // 5. Kullanıcıyı, sonucu ve tipi gösteren yeni bir kayıt/giriş rotasına yönlendir
+        // 3. Kullanıcıyı yönlendir
         return redirect()->route('auth.showRegisterOrLogin')->with('mbti_type', $testData['mbti_type']);
     }
 
