@@ -20,6 +20,7 @@ use App\Models\Payment;
 use Barryvdh\DomPDF\Facade\Pdf;
 use Illuminate\Support\Facades\Mail;
 use App\Mail\PaymentSuccessful;
+use App\Services\MbtiTestService;
 
 class TestController extends Controller
 {
@@ -91,45 +92,23 @@ class TestController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\RedirectResponse
      */
-    public function submitAnswers(Request $request): RedirectResponse
+    public function submitAnswers(Request $request, MbtiTestService $mbtiTestService): RedirectResponse
     {
-        // 1. Skorları hesapla
-        $scores = [
-            'E' => 0, 'I' => 0, 'S' => 0, 'N' => 0,
-            'T' => 0, 'F' => 0, 'J' => 0, 'P' => 0
-        ];
-        
-        $submittedAnswers = $request->input('answers', []);
-        
-        foreach ($submittedAnswers as $questionId => $chosenOption) {
-            $question = Question::find($questionId);
-            if ($question) {
-                $mbtiLetter = ($chosenOption === 'A') ? $question->option_a_value : $question->option_b_value;
-                if (isset($scores[$mbtiLetter])) {
-                    $scores[$mbtiLetter]++;
-                }
-            }
-        }
+        // 1. Servis aracılığıyla skorları ve MBTI tipini hesapla
+        $testData = $mbtiTestService->processTestResults($request->input('answers', []));
 
-        // 2. MBTI Tipini belirle
-        $mbtiType = '';
-        $mbtiType .= ($scores['E'] >= $scores['I']) ? 'E' : 'I';
-        $mbtiType .= ($scores['S'] >= $scores['N']) ? 'S' : 'N';
-        $mbtiType .= ($scores['T'] >= $scores['F']) ? 'T' : 'F';
-        $mbtiType .= ($scores['J'] >= $scores['P']) ? 'J' : 'P';
-        
-        // 3. Test sonucunu bir dizi olarak hazırla
+        // 2. Test sonucunu bir dizi olarak hazırla
         $testResultData = [
-            'mbti_type' => $mbtiType,
-            'scores' => $scores,
-            'status' => 'pending_registration' // Yeni bir durum
+            'mbti_type' => $testData['mbti_type'],
+            'scores' => $testData['scores'],
+            'status' => 'pending_registration'
         ];
         
         // 4. Bu sonucu veritabanına DEĞİL, session'a kaydet
         $request->session()->put('pending_test_result', $testResultData);
         
         // 5. Kullanıcıyı, sonucu ve tipi gösteren yeni bir kayıt/giriş rotasına yönlendir
-        return redirect()->route('auth.showRegisterOrLogin')->with('mbti_type', $mbtiType);
+        return redirect()->route('auth.showRegisterOrLogin')->with('mbti_type', $testData['mbti_type']);
     }
 
     /**
