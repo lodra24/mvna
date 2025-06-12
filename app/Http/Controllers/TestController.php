@@ -16,11 +16,9 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Str;
 use App\Models\MbtiTypeDetail;
-use App\Models\Payment;
 use Barryvdh\DomPDF\Facade\Pdf;
-use Illuminate\Support\Facades\Mail;
-use App\Mail\PaymentSuccessful;
 use App\Services\MbtiTestService;
+use App\Services\PaymentService;
 
 class TestController extends Controller
 {
@@ -185,33 +183,18 @@ class TestController extends Controller
      * Sahte ödeme işlemini tamamlar ve test sonucunu completed durumuna getirir.
      *
      * @param  \App\Models\TestResult  $testResult
+     * @param  \App\Services\PaymentService  $paymentService
      * @return \Illuminate\Http\RedirectResponse
      */
-    public function handleSuccessfulPayment(TestResult $testResult): RedirectResponse
+    public function handleSuccessfulPayment(TestResult $testResult, PaymentService $paymentService): RedirectResponse
     {
         // Raporun doğru kullanıcıya ait olduğunu doğrula
         if ($testResult->user_id !== Auth::id()) {
             abort(403, 'You do not have permission to access this report.');
         }
 
-        // Test sonucunun durumunu 'completed' olarak güncelle
-        $testResult->status = 'completed';
-        $testResult->save();
-
-        // Payment tablosuna yeni kayıt oluştur
-        Payment::create([
-            'user_id' => Auth::id(),
-            'test_result_id' => $testResult->id,
-            'transaction_id' => uniqid('fake-'),
-            'amount' => 14.99,
-            'currency' => 'TRY',
-            'status' => 'completed',
-            'payment_gateway' => 'test',
-            'gateway_response' => ['test' => 'Sahte ödeme işlemi']
-        ]);
-
-        // Ödeme başarılı e-postasını gönder
-        Mail::to($testResult->user->email)->send(new PaymentSuccessful($testResult));
+        // PaymentService'i kullanarak ödeme işlemlerini gerçekleştir
+        $paymentService->handleSuccessfulPayment($testResult);
 
         // Kullanıcıyı başarı mesajı ile sonuç sayfasına yönlendir
         return redirect()->route('test.showResult', ['testResult' => $testResult->id])
