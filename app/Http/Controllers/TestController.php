@@ -96,7 +96,7 @@ class TestController extends Controller
         $testData = $mbtiTestService->processTestResults($request->input('answers', []));
 
         // 2. İşlenen sonucu session'a kaydet
-        $mbtiTestService->savePendingResultToSession($request, $testData);
+        $mbtiTestService->savePendingResultToSession($testData);
         
         // 3. Kullanıcıyı yönlendir
         return redirect()->route('auth.showRegisterOrLogin')->with('mbti_type', $testData['mbti_type']);

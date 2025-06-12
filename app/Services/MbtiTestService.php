@@ -5,7 +5,6 @@ namespace App\Services;
 use App\Models\Question;
 use App\Models\User;
 use App\Models\TestResult;
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Session;
 
 class MbtiTestService
@@ -73,11 +72,10 @@ class MbtiTestService
     /**
      * İşlenen test sonucunu session'a kaydeder.
      *
-     * @param \Illuminate\Http\Request $request
      * @param array $testData
      * @return void
      */
-    public function savePendingResultToSession(Request $request, array $testData): void
+    public function savePendingResultToSession(array $testData): void
     {
         $testResultData = [
             'mbti_type' => $testData['mbti_type'],
@@ -85,7 +83,7 @@ class MbtiTestService
             'status' => 'pending_registration'
         ];
         
-        $request->session()->put('pending_test_result', $testResultData);
+        Session::put('pending_test_result', $testResultData);
     }
 
     /**
