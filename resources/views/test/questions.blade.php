@@ -114,14 +114,14 @@
 
                 <!-- Submit Button Wrapper (JS ile yönetilecek) -->
                 {{-- "text-center" sınıfı kaldırıldı, "flex" ve "items-end" eklendi --}}
-                <div id="submit-button-wrapper" class="flex flex-col items-end" style="display: none;">
+                <div id="submit-button-wrapper" class="flex flex-col items-end">
                     <button type="submit" id="submit-btn" class="test-button test-button--primary test-button--large" disabled>
                         <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
                         </svg>
                         <span id="submit-text">Complete Test</span>
                     </button>
-                    <p class="text-sm text-slate-500 mt-2"> {{-- mt-3'ten mt-2'ye düşürüldü --}}
+                    <p class="text-sm text-slate-500 mt-2">
                         <span id="answered-count">0</span> / {{ count($questions) }} questions answered
                     </p>
                 </div>

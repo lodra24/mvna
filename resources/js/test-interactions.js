@@ -149,6 +149,12 @@ class QuestionManager {
         if (questionCounter) {
             questionCounter.textContent = `Question ${this.currentQuestionIndex + 1}/${this.totalQuestions}`;
         }
+        
+        // Cevaplanmış soru sayısını güncelle
+        const answeredCountElement = document.getElementById('answered-count');
+        if (answeredCountElement) {
+            answeredCountElement.textContent = answeredCount;
+        }
     }
     
     updateNavigationButtons() {
@@ -161,13 +167,13 @@ class QuestionManager {
         // Tüm sorular cevaplanmış mı kontrol et
         const allAnswered = this.allQuestionsAnswered();
         
-        // Submit button wrapper'ını güncelle
+        // Submit button wrapper'ını sürekli görünür yap
         const submitWrapper = document.getElementById('submit-button-wrapper');
         if (submitWrapper) {
-            submitWrapper.style.display = allAnswered ? 'flex' : 'none';
+            submitWrapper.style.display = 'flex';
         }
         
-        // Submit butonunu güncelle
+        // Submit butonunu sadece tüm sorular cevaplanmışsa aktif et
         const submitBtn = document.getElementById('submit-btn');
         if (submitBtn) {
             submitBtn.disabled = !allAnswered;
