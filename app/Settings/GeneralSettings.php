@@ -14,6 +14,7 @@ class GeneralSettings extends Settings
     public ?string $seo_meta_title;
     public ?string $seo_meta_description;
     public ?string $site_custom_scripts;
+    public ?string $site_body_scripts;
 
     public static function group(): string
     {
@@ -31,6 +32,7 @@ class GeneralSettings extends Settings
             'seo_meta_title' => 'MindMetrics - Unlock Business Potential with MBTI',
             'seo_meta_description' => 'MindMetrics offers a comprehensive MBTI personality analysis test for employers to gain deeper insights into their candidates and employees, strengthening management and hiring strategies.',
             'site_custom_scripts' => null,
+            'site_body_scripts' => null,
         ];
     }
 }

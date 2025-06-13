@@ -1014,5 +1014,9 @@
             <p class="text-sm">© {{ date('Y') }} MindMetrics. All rights reserved.</p>
         </div>
     </footer>
+    
+    @if($settings->site_body_scripts)
+        {!! $settings->site_body_scripts !!}
+    @endif
 </body>
 </html>

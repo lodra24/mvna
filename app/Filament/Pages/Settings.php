@@ -73,6 +73,16 @@ class Settings extends SettingsPage
                             ->helperText('Buraya eklenen kodlar, sitenin tüm sayfalarında <head> etiketinin kapanışından hemen önce yerleştirilecektir. Lütfen geçerli HTML/JavaScript kodları eklediğinizden emin olun (örn: <script>...</script>).')
                             ->placeholder('<!-- Google Analytics Kodu -->...'),
                     ]),
+
+                Forms\Components\Section::make('Body Kapanış Scriptleri')
+                    ->description('Chat widget\'ları gibi kodları buraya ekleyin. Bu kodlar sitenin </body> etiketinden hemen önce eklenecektir.')
+                    ->schema([
+                        Forms\Components\Textarea::make('site_body_scripts')
+                            ->label('Body Kapanış Scriptleri')
+                            ->rows(10)
+                            ->helperText('Buraya eklenen kodlar, sitenin tüm sayfalarında </body> etiketinin kapanışından hemen önce yerleştirilecektir.')
+                            ->placeholder('<!-- Chat Widget Kodu -->...'),
+                    ]),
             ]);
     }
 }

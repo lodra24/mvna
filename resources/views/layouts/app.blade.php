@@ -13,6 +13,14 @@
 
         <!-- Scripts -->
         @vite(['resources/css/app.css', 'resources/js/app.js'])
+        
+        @php
+            $settings = app(\App\Settings\GeneralSettings::class);
+        @endphp
+        
+        @if($settings->site_custom_scripts)
+            {!! $settings->site_custom_scripts !!}
+        @endif
     </head>
     <body class="font-sans antialiased">
         <div class="min-h-screen bg-gray-100">
@@ -32,5 +40,9 @@
                 {{ $slot }}
             </main>
         </div>
+        
+        @if($settings->site_body_scripts)
+            {!! $settings->site_body_scripts !!}
+        @endif
     </body>
 </html>

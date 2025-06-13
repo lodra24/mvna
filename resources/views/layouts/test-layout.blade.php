@@ -206,5 +206,9 @@
     
     <!-- Page specific scripts -->
     @stack('scripts')
+    
+    @if($settings->site_body_scripts)
+        {!! $settings->site_body_scripts !!}
+    @endif
 </body>
 </html>
