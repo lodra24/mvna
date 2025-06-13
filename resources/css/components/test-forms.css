@@ -345,6 +345,7 @@
     transform: translateX(0);
     pointer-events: auto;
     visibility: visible;
+    position: relative !important;
 }
 
 .test-question.question-prev {
@@ -628,20 +629,28 @@
 }
 
 .nav-dot:hover {
-    background-color: #d1d5db; /* Üzerine gelince biraz daha koyu gri */
+    background-color: #a5b4fc; /* Üzerine gelince mavimsi renk */
     transform: scaleY(1.5); /* Hafifçe yükselir */
 }
 
 /* Cevaplanmış soru noktası */
 .nav-dot.answered {
-    background-color: #cbd5e1; /* Daha nötr ve sakin bir gri (Tailwind: slate-300) */
+    background-color: #6366f1; /* Mavimsi renk (Tailwind: indigo-500) */
+}
+
+.nav-dot.answered:hover {
+    background-color: #4f46e5; /* Hover'da daha koyu mavi */
 }
 
 /* Aktif (mevcut) soru noktası */
 .nav-dot.active {
     background-color: #4f46e5; /* Aktif rengi (koyu indigo) */
-    transform: scaleY(1.75) translateY(1px);; /* Daha belirgin şekilde yükselir */
-    box-shadow: none;
+    transform: scaleY(1.75) translateY(1px); /* Daha belirgin şekilde yükselir */
+    box-shadow: 0 2px 4px rgba(79, 70, 229, 0.3);
+}
+
+.nav-dot.active:hover {
+    background-color: #3730a3; /* Hover'da daha da koyu */
 }
 
 /* ============================================ */
