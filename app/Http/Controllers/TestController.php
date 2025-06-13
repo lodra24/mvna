@@ -92,13 +92,16 @@ class TestController extends Controller
      */
     public function submitAnswers(Request $request, MbtiTestService $mbtiTestService): RedirectResponse
     {
-        // 1. Test sonuçlarını işle
-        $testData = $mbtiTestService->processTestResults($request->input('answers', []));
-
-        // 2. İşlenen sonucu session'a kaydet
-        $mbtiTestService->savePendingResultToSession($testData);
+        // 1. Ham cevapları al
+        $rawAnswers = $request->input('answers', []);
         
-        // 3. Kullanıcıyı yönlendir
+        // 2. Test sonuçlarını işle
+        $testData = $mbtiTestService->processTestResults($rawAnswers);
+
+        // 3. İşlenen sonucu ve ham cevapları session'a kaydet
+        $mbtiTestService->savePendingResultToSession($testData, $rawAnswers);
+        
+        // 4. Kullanıcıyı yönlendir
         return redirect()->route('auth.showRegisterOrLogin')->with('mbti_type', $testData['mbti_type']);
     }
 

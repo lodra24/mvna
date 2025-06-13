@@ -5,6 +5,7 @@ namespace App\Services;
 use App\Models\Question;
 use App\Models\User;
 use App\Models\TestResult;
+use App\Models\UserAnswer;
 use Illuminate\Support\Facades\Session;
 
 class MbtiTestService
@@ -73,14 +74,16 @@ class MbtiTestService
      * İşlenen test sonucunu session'a kaydeder.
      *
      * @param array $testData
+     * @param array $rawAnswers
      * @return void
      */
-    public function savePendingResultToSession(array $testData): void
+    public function savePendingResultToSession(array $testData, array $rawAnswers): void
     {
         $testResultData = [
             'mbti_type' => $testData['mbti_type'],
             'scores' => $testData['scores'],
-            'status' => 'pending_registration'
+            'status' => 'pending_registration',
+            'answers' => $rawAnswers
         ];
         
         Session::put('pending_test_result', $testResultData);
@@ -113,6 +116,26 @@ class MbtiTestService
             'p_score' => $testResultData['scores']['P'],
             'status' => 'pending_payment'
         ]);
+
+        // Ham cevapları user_answers tablosuna kaydet
+        if (isset($testResultData['answers']) && is_array($testResultData['answers'])) {
+            $answersToInsert = [];
+            $now = now();
+
+            foreach ($testResultData['answers'] as $questionId => $chosenOption) {
+                $answersToInsert[] = [
+                    'test_result_id' => $testResult->id,
+                    'question_id' => $questionId,
+                    'chosen_option' => $chosenOption,
+                    'created_at' => $now,
+                    'updated_at' => $now
+                ];
+            }
+
+            if (!empty($answersToInsert)) {
+                UserAnswer::insert($answersToInsert);
+            }
+        }
         
         Session::forget('pending_test_result');
         
