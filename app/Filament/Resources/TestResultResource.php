@@ -10,6 +10,8 @@ use Filament\Forms\Form;
 use Filament\Resources\Resource;
 use Filament\Tables;
 use Filament\Tables\Table;
+use Filament\Tables\Filters\Filter;
+use Illuminate\Database\Eloquent\Builder;
 
 class TestResultResource extends Resource
 {
@@ -106,6 +108,25 @@ class TestResultResource extends Resource
                         'pending' => 'Beklemede',
                         'completed' => 'Tamamlandı',
                     ]),
+                Filter::make('created_at')
+                    ->form([
+                        Forms\Components\DatePicker::make('created_from')
+                            ->label('Başlangıç Tarihi'),
+                        Forms\Components\DatePicker::make('created_until')
+                            ->label('Bitiş Tarihi'),
+                    ])
+                    ->query(function (Builder $query, array $data): Builder {
+                        return $query
+                            ->when(
+                                $data['created_from'],
+                                fn (Builder $query, $date): Builder => $query->whereDate('created_at', '>=', $date),
+                            )
+                            ->when(
+                                $data['created_until'],
+                                fn (Builder $query, $date): Builder => $query->whereDate('created_at', '<=', $date),
+                            );
+                    })
+                    ->label('Oluşturulma Tarihi'),
             ])
             ->actions([
                 Tables\Actions\ViewAction::make(),
