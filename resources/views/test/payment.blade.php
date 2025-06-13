@@ -28,9 +28,13 @@
             </div>
 
             <!-- Fiyat ve Ödeme Butonu -->
+            @php
+                $price = app(App\Settings\GeneralSettings::class)->test_price;
+                $priceParts = explode('.', number_format($price, 2, '.', ''));
+            @endphp
             <div class="mb-4">
-                <span class="text-5xl font-extrabold text-slate-900">$14</span>
-                <span class="text-2xl font-bold text-slate-600">.99</span>
+                <span class="text-5xl font-extrabold text-slate-900">${{ $priceParts[0] }}</span>
+                <span class="text-2xl font-bold text-slate-600">.{{ $priceParts[1] ?? '00' }}</span>
             </div>
             <p class="text-slate-500 font-medium mb-8">One-time payment</p>
 

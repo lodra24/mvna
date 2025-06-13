@@ -96,11 +96,12 @@
             </div>
             <!-- Main Headline (H1) -->
             <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-slate-900 tracking-tight mb-6">
-                MBTI Vocational <span class="text-mindmetrics-indigo">NexusPoint</span><br>Analysis
+                {{ app(App\Settings\GeneralSettings::class)->hero_title_part_1 }}
+                <span class="text-mindmetrics-indigo">{{ app(App\Settings\GeneralSettings::class)->hero_title_highlight }}</span><br>{{ app(App\Settings\GeneralSettings::class)->hero_title_part_2 }}
             </h1>
             <!-- Subheadline/Description -->
             <p class="max-w-2xl mx-auto text-lg sm:text-xl text-slate-600 mb-10 leading-relaxed">
-                Get deeper insights into your candidates and employees with our personality analysis test designed specifically for employers, and strengthen your management strategies.
+                {{ app(App\Settings\GeneralSettings::class)->hero_subtitle }}
             </p>
             <!-- Key Benefits (Checklist) -->
             <div class="grid grid-cols-1 sm:grid-cols-3 gap-x-6 gap-y-4 max-w-2xl mx-auto mb-12 text-left sm:text-center">
