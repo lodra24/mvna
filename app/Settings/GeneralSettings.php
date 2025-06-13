@@ -11,6 +11,9 @@ class GeneralSettings extends Settings
     public string $hero_title_highlight;
     public string $hero_title_part_2;
     public string $hero_subtitle;
+    public ?string $seo_meta_title;
+    public ?string $seo_meta_description;
+    public ?string $site_custom_scripts;
 
     public static function group(): string
     {
@@ -25,6 +28,9 @@ class GeneralSettings extends Settings
             'hero_title_highlight' => 'NexusPoint',
             'hero_title_part_2' => 'Analysis',
             'hero_subtitle' => 'Get deeper insights into your candidates and employees with our personality analysis test designed specifically for employers, and strengthen your management strategies.',
+            'seo_meta_title' => 'MindMetrics - Unlock Business Potential with MBTI',
+            'seo_meta_description' => 'MindMetrics offers a comprehensive MBTI personality analysis test for employers to gain deeper insights into their candidates and employees, strengthening management and hiring strategies.',
+            'site_custom_scripts' => null,
         ];
     }
 }

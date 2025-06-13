@@ -49,6 +49,30 @@ class Settings extends SettingsPage
                             ->prefix('$')
                             ->required(),
                     ]),
+
+                Forms\Components\Section::make('SEO Ayarları')
+                    ->description('Sitenin arama motorları için meta başlık ve açıklama ayarları.')
+                    ->schema([
+                        Forms\Components\TextInput::make('seo_meta_title')
+                            ->label('Meta Başlık')
+                            ->helperText('Arama sonuçlarında görünecek sayfa başlığı.')
+                            ->maxLength(60),
+                        Forms\Components\Textarea::make('seo_meta_description')
+                            ->label('Meta Açıklama')
+                            ->helperText('Arama sonuçlarında başlığın altında görünecek sayfa açıklaması.')
+                            ->rows(3)
+                            ->maxLength(160),
+                    ]),
+
+                Forms\Components\Section::make('Harici Kodlar & Scriptler')
+                    ->description('Google Analytics, Facebook Pixel gibi harici kodları buraya ekleyin. Bu kodlar sitenin <head> etiketinin içine eklenecektir.')
+                    ->schema([
+                        Forms\Components\Textarea::make('site_custom_scripts')
+                            ->label('Özel Scriptler / Kodlar')
+                            ->rows(10)
+                            ->helperText('Buraya eklenen kodlar, sitenin tüm sayfalarında <head> etiketinin kapanışından hemen önce yerleştirilecektir. Lütfen geçerli HTML/JavaScript kodları eklediğinizden emin olun (örn: <script>...</script>).')
+                            ->placeholder('<!-- Google Analytics Kodu -->...'),
+                    ]),
             ]);
     }
 }

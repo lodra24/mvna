@@ -3,11 +3,23 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MindMetrics - Unlock Business Potential with MBTI</title>
+    @php
+        $settings = app(App\Settings\GeneralSettings::class);
+    @endphp
+    <title>{{ $settings->seo_meta_title ?? 'MindMetrics - Unlock Business Potential with MBTI' }}</title>
+    @if($settings->seo_meta_title)
+        <meta name="title" content="{{ $settings->seo_meta_title }}">
+    @endif
+    @if($settings->seo_meta_description)
+        <meta name="description" content="{{ $settings->seo_meta_description }}">
+    @endif
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
     @vite(['resources/css/app.css', 'resources/js/app.js'])
+    @if($settings->site_custom_scripts)
+        {!! $settings->site_custom_scripts !!}
+    @endif
 </head>
 <body class="antialiased" x-data="{ showDemoModal: false, showToast: false, toastMessage: '' }">
     <!-- HEADER / NAVIGATION -->

@@ -4,7 +4,16 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="csrf-token" content="{{ csrf_token() }}">
-    <title>@yield('title', 'MBTI Test') - MindMetrics</title>
+    @php
+        $settings = app(App\Settings\GeneralSettings::class);
+    @endphp
+    <title>@yield('title', $settings->seo_meta_title ?? 'MBTI Test') - MindMetrics</title>
+    @if($settings->seo_meta_title)
+        <meta name="title" content="{{ $settings->seo_meta_title }}">
+    @endif
+    @if($settings->seo_meta_description)
+        <meta name="description" content="{{ $settings->seo_meta_description }}">
+    @endif
     
     <!-- Preconnect to external resources -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -18,6 +27,9 @@
     
     <!-- Additional head content -->
     @stack('head')
+    @if($settings->site_custom_scripts)
+        {!! $settings->site_custom_scripts !!}
+    @endif
 </head>
 <body class="test-page test-layout test-bg-pattern" style="overflow-x: hidden;">
     <!-- Test Header -->
