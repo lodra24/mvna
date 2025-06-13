@@ -17,8 +17,8 @@ class QuestionManager {
         this.advanceTimer = null;
         
         // LocalStorage için kullanıcı adı ve anahtar
-        this.userName = this.form.closest('[data-user-name]')?.dataset.userName || 'guest_user';
-        this.saveKey = `mbti_progress_${this.userName.replace(/\s+/g, '_')}`;
+        this.userName = document.querySelector('[data-user-name]')?.dataset.userName || 'guest_user';
+        this.saveKey = 'mbti_test_progress';
         this.saveDebounceTimer = null;
         
         // Sınıfı başlat
@@ -221,6 +221,7 @@ class QuestionManager {
         const progressData = {
             answers: this.answers,
             currentQuestionIndex: this.currentQuestionIndex,
+            userName: this.userName,
             timestamp: new Date().getTime()
         };
         

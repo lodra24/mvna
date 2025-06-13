@@ -148,8 +148,64 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
     
-    // Auto-focus on name input
-    nameInput.focus();
+    // localStorage Progress Check - Sabit Anahtar Belirle
+    const saveKey = 'mbti_test_progress';
+    
+    // Elementleri Seç
+    const startForm = document.getElementById('start-form');
+    const pageTitle = document.querySelector('.test-header__title');
+    const pageSubtitle = document.querySelector('.test-header__subtitle');
+    const submitButton = startForm.querySelector('button[type="submit"]');
+    
+    // localStorage'ı Oku ve Arayüzü Güncelle
+    const savedData = localStorage.getItem(saveKey);
+    
+    if (savedData) {
+        try {
+            const progress = JSON.parse(savedData);
+            
+            // Geçerli userName ve answers kontrolü
+            if (progress.userName && progress.answers && Object.keys(progress.answers).length > 0) {
+                // İsim giriş alanını doldur
+                nameInput.value = progress.userName;
+                
+                // Gönderim butonunun metnini değiştir
+                if (submitButton) {
+                    const buttonText = submitButton.querySelector('span') || submitButton;
+                    buttonText.textContent = 'Continue Test';
+                }
+                
+                // Sayfa başlığını güncelle
+                if (pageTitle) {
+                    pageTitle.innerHTML = `Welcome Back, <span class="text-mindmetrics-indigo">${progress.userName}</span>!`;
+                } else {
+                    // Alternatif seçici - h2 elementi
+                    const h2Title = document.querySelector('h2.text-2xl');
+                    if (h2Title) {
+                        h2Title.innerHTML = `Welcome Back, <span class="text-mindmetrics-indigo">${progress.userName}</span>!`;
+                    }
+                }
+                
+                // Sayfa alt başlığını güncelle
+                if (pageSubtitle) {
+                    pageSubtitle.textContent = "It looks like you have a test in progress. Click below to continue where you left off.";
+                } else {
+                    // Alternatif seçici - p elementi
+                    const pSubtitle = document.querySelector('p.text-slate-600');
+                    if (pSubtitle) {
+                        pSubtitle.textContent = "It looks like you have a test in progress. Click below to continue where you left off.";
+                    }
+                }
+            }
+        } catch (error) {
+            console.error('Error parsing saved progress:', error);
+        }
+    }
+    
+    // Auto-focus on name input (eğer localStorage'dan doldurulamazsa)
+    if (!nameInput.value) {
+        nameInput.focus();
+    }
 });
 </script>
 @endpush
