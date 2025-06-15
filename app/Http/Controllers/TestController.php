@@ -24,23 +24,16 @@ class TestController extends Controller
 {
     /**
      * 'test.start' view'ını gösterir.
-     * Giriş yapmış kullanıcının daha önceden test sonucu varsa dashboard'a yönlendirir.
+     * Giriş yapmış kullanıcının adını view'a gönderir.
      *
-     * @return \Illuminate\View\View|\Illuminate\Http\RedirectResponse
+     * @return \Illuminate\View\View
      */
-    public function start(): View|RedirectResponse
+    public function start(): View
     {
-        // Giriş yapmış kullanıcının daha önceden bir test sonucu olup olmadığını kontrol et
-        if (Auth::check()) {
-            $existingTestResult = Auth::user()->testResults()->first();
-            
-            if ($existingTestResult) {
-                return redirect()->route('dashboard')
-                    ->with('info', 'You already have a completed test. You can review your results here.');
-            }
-        }
+        // Giriş yapmış kullanıcının adını al, yoksa boş string kullan
+        $userName = Auth::check() ? Auth::user()->name : '';
         
-        return view('test.start');
+        return view('test.start', compact('userName'));
     }
 
     /**
@@ -52,9 +45,8 @@ class TestController extends Controller
     public function beginTest(Request $request): RedirectResponse
     {
         // Giriş yapmış kullanıcının daha önceden test sonucu olup olmadığını kontrol et
-        if (Auth::check() && Auth::user()->testResults()->exists()) {
-            return redirect()->route('dashboard')->with('info', 'You already have a completed test.');
-        }
+        // Yeni test süreci başladığı için önceki testten kalmış session verilerini temizle
+        $request->session()->forget(['userName', 'pending_test_result']);
         
         $request->validate([
             'name' => 'required|string|max:255',
@@ -97,12 +89,25 @@ class TestController extends Controller
         
         // 2. Test sonuçlarını işle
         $testData = $mbtiTestService->processTestResults($rawAnswers);
-
-        // 3. İşlenen sonucu ve ham cevapları session'a kaydet
-        $mbtiTestService->savePendingResultToSession($testData, $rawAnswers);
         
-        // 4. Kullanıcıyı yönlendir
-        return redirect()->route('auth.showRegisterOrLogin')->with('mbti_type', $testData['mbti_type']);
+        // 3. Ham cevapları testData'ya ekle
+        $testData['raw_answers'] = $rawAnswers;
+        
+        // 4. Kullanıcının giriş yapıp yapmadığını kontrol et
+        if (Auth::check()) {
+            // Giriş yapmış kullanıcı için akış
+            $testResult = $mbtiTestService->saveTestForUser(Auth::user(), $testData);
+            
+            // Kullanıcıyı ödeme sayfasına yönlendir
+            return redirect()->route('test.payment', ['testResult' => $testResult->id]);
+        } else {
+            // Misafir kullanıcı için eski akış
+            // İşlenen sonucu ve ham cevapları session'a kaydet
+            $mbtiTestService->savePendingResultToSession($testData, $rawAnswers);
+            
+            // Kullanıcıyı giriş/kayıt sayfasına yönlendir
+            return redirect()->route('auth.showRegisterOrLogin')->with('mbti_type', $testData['mbti_type']);
+        }
     }
 
     /**

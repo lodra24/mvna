@@ -141,4 +141,38 @@ class MbtiTestService
         
         return $testResult;
     }
+
+    /**
+     * Giriş yapmış kullanıcı için test sonucunu ve cevaplarını veritabanına kaydeder.
+     *
+     * @param \App\Models\User $user
+     * @param array $testData ['scores' => array, 'mbti_type' => string, 'raw_answers' => array]
+     * @return \App\Models\TestResult
+     */
+    public function saveTestForUser(User $user, array $testData): TestResult
+    {
+        // Doğrudan veritabanında yeni bir TestResult kaydı oluştur
+        $testResult = $user->testResults()->create([
+            'mbti_type' => $testData['mbti_type'],
+            'e_score' => $testData['scores']['E'],
+            'i_score' => $testData['scores']['I'],
+            's_score' => $testData['scores']['S'],
+            'n_score' => $testData['scores']['N'],
+            't_score' => $testData['scores']['T'],
+            'f_score' => $testData['scores']['F'],
+            'j_score' => $testData['scores']['J'],
+            'p_score' => $testData['scores']['P'],
+            'status' => 'pending_payment'
+        ]);
+        
+        // Kullanıcının verdiği cevapları user_answers tablosuna kaydet
+        foreach ($testData['raw_answers'] as $questionId => $answer) {
+            $testResult->userAnswers()->create([
+                'question_id' => $questionId,
+                'chosen_option' => $answer
+            ]);
+        }
+        
+        return $testResult;
+    }
 }

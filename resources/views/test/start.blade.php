@@ -42,6 +42,7 @@
                     id="name"
                     class="test-input-group__input"
                     placeholder="e.g., Jane Doe"
+                    value="{{ $userName ?? '' }}"
                     required
                     autocomplete="name"
                     maxlength="100"
