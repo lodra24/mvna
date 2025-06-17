@@ -77,7 +77,7 @@ class MbtiTestService
      * @param array $rawAnswers
      * @return void
      */
-    public function savePendingResultToSession(array $testData, array $rawAnswers): void
+    public function savePendingResultToSession(string $testId, array $testData, array $rawAnswers): void
     {
         $testResultData = [
             'mbti_type' => $testData['mbti_type'],
@@ -86,7 +86,7 @@ class MbtiTestService
             'answers' => $rawAnswers
         ];
         
-        Session::put('pending_test_result', $testResultData);
+        Session::put("test_data_{$testId}", $testResultData);
     }
 
     /**
@@ -97,11 +97,13 @@ class MbtiTestService
      */
     public function commitPendingResultToDatabase(User $user): ?TestResult
     {
-        if (!Session::has('pending_test_result')) {
+        $testId = Session::get('last_active_test_id');
+        
+        if (!$testId || !Session::has("test_data_{$testId}")) {
             return null;
         }
 
-        $testResultData = Session::get('pending_test_result');
+        $testResultData = Session::get("test_data_{$testId}");
         
         $testResult = TestResult::create([
             'user_id' => $user->id,
@@ -137,7 +139,8 @@ class MbtiTestService
             }
         }
         
-        Session::forget('pending_test_result');
+        Session::forget("test_data_{$testId}");
+        Session::forget('last_active_test_id');
         
         return $testResult;
     }

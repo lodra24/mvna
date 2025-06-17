@@ -87,9 +87,8 @@ class TestController extends Controller
      */
     public function beginTest(Request $request): RedirectResponse
     {
-        // Giriş yapmış kullanıcının daha önceden test sonucu olup olmadığını kontrol et
-        // Yeni test süreci başladığı için önceki testten kalmış session verilerini temizle
-        $request->session()->forget(['userName', 'pending_test_result', 'test_language']);
+        // Benzersiz test kimliği oluştur
+        $testId = 'test_' . Str::uuid();
         
         $request->validate([
             'name' => 'required|string|max:255',
@@ -102,26 +101,37 @@ class TestController extends Controller
             ?? $request->cookie('language_preference')
             ?? 'en';
 
-        $request->session()->put('userName', $name);
+        // Kullanıcı adı ve dil bilgisini testId'ye özel session anahtarı altında sakla
+        $request->session()->put("test_data_{$testId}", [
+            'userName' => $name,
+            'test_language' => $language,
+            'answers' => [], // Cevapları saklamak için boş bir dizi başlat
+        ]);
+        
+        // SetTestLanguage middleware'inin okuyabilmesi için dil bilgisini global session'a da koy
         $request->session()->put('test_language', $language);
 
-        return redirect()->route('test.questions');
+        return redirect()->route('test.questions', ['testId' => $testId]);
     }
 
     /**
      * Sorular sayfasını gösterir ve kullanıcı adını view'a gönderir.
      *
      * @param  \Illuminate\Http\Request  $request
+     * @param  string  $testId
      * @return \Illuminate\View\View
      */
-    public function showQuestions(Request $request): View
+    public function showQuestions(Request $request, string $testId): View
     {
-        $userName = $request->session()->get('userName', 'Misafir');
+        // TestId'ye özel session verisinden kullanıcı adını al
+        $testData = $request->session()->get("test_data_{$testId}");
+        $userName = $testData['userName'] ?? 'Misafir';
         $questions = Question::all();
 
         return view('test.questions', [
             'userName' => $userName,
-            'questions' => $questions
+            'questions' => $questions,
+            'testId' => $testId, // Formun action URL'ini doğru oluşturabilmek için
         ]);
     }
 
@@ -129,9 +139,11 @@ class TestController extends Controller
      * Test cevaplarını alır ve işler.
      *
      * @param  \Illuminate\Http\Request  $request
+     * @param  \App\Services\MbtiTestService  $mbtiTestService
+     * @param  string  $testId
      * @return \Illuminate\Http\RedirectResponse
      */
-    public function submitAnswers(Request $request, MbtiTestService $mbtiTestService): RedirectResponse
+    public function submitAnswers(Request $request, MbtiTestService $mbtiTestService, string $testId): RedirectResponse
     {
         // 1. Ham cevapları al
         $rawAnswers = $request->input('answers', []);
@@ -154,13 +166,15 @@ class TestController extends Controller
             return redirect()->route('test.payment', ['testResult' => $testResult->id]);
         } else {
             // Misafir kullanıcı için eski akış
-            // İşlenen sonucu ve ham cevapları session'a kaydet
-            $mbtiTestService->savePendingResultToSession($testData, $rawAnswers);
-            
-            // Test tamamlandığı için dil session'ını temizle
-            $request->session()->forget('test_language');
-            
-            // Kullanıcıyı giriş/kayıt sayfasına yönlendir
+            // Servise hangi testin verisini kaydedeceğini bildiriyoruz
+            $mbtiTestService->savePendingResultToSession($testId, $testData, $rawAnswers);
+
+            // Giriş/kayıt sonrası hangi testin işleneceğini bilmek için son aktif test ID'sini session'a kaydet
+            $request->session()->put('last_active_test_id', $testId);
+
+            // Dil session'ı artık test verisinin içinde, ayrıca silmeye gerek yok
+            // $request->session()->forget('test_language'); // Bu satır silinebilir veya kalabilir
+
             return redirect()->route('auth.showRegisterOrLogin')->with('mbti_type', $testData['mbti_type']);
         }
     }
