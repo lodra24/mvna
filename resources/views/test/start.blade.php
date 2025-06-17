@@ -150,8 +150,12 @@
 @push('scripts')
 <script>
 document.addEventListener('DOMContentLoaded', function() {
+    // Tüm DOM elementlerinin tanımlamaları en başta toplanmalı
     const form = document.getElementById('start-form');
     const nameInput = document.getElementById('name');
+    const languageBanner = document.getElementById('language-banner');
+    const langTrBtn = document.getElementById('lang-tr-btn');
+    const langEnBtn = document.getElementById('lang-en-btn');
     
     // Form validation
     form.addEventListener('submit', function(e) {
@@ -233,11 +237,17 @@ document.addEventListener('DOMContentLoaded', function() {
         nameInput.focus();
     }
     
-    // Dil seçim banner işlevselliği
-    const languageBanner = document.getElementById('language-banner');
-    const langTrBtn = document.getElementById('lang-tr-btn');
-    const langEnBtn = document.getElementById('lang-en-btn');
+    // İlk ziyaret çerezini oluşturma mantığı
+    const shouldSetPromptCookie = @json($shouldSetPromptCookie ?? false);
     
+    if (languageBanner && shouldSetPromptCookie) {
+        // has_been_prompted_for_lang çerezini oluştur
+        const expires = new Date();
+        expires.setDate(expires.getDate() + 1); // 1 gün geçerlilik
+        document.cookie = `has_been_prompted_for_lang=true; expires=${expires.toUTCString()}; path=/; SameSite=Lax`;
+    }
+    
+    // Dil seçim banner işlevselliği
     if (langTrBtn && langEnBtn && languageBanner) {
         // Türkçe butonuna tıklandığında
         langTrBtn.addEventListener('click', function() {

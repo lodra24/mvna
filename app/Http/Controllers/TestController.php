@@ -20,6 +20,7 @@ use App\Services\MbtiTestService;
 use App\Services\PaymentService;
 use App\Services\ReportService;
 use App\Models\MbtiTypeDetail;
+use App\Services\GeoIpService;
 
 class TestController extends Controller
 {
@@ -29,42 +30,53 @@ class TestController extends Controller
      * Dil tercihi kontrolü yapar ve gerektiğinde dil seçim modal'ını gösterir.
      *
      * @param  \Illuminate\Http\Request  $request
+     * @param  \App\Services\GeoIpService  $geoIpService
      * @return \Illuminate\View\View
      */
-    public function start(Request $request): View
+    public function start(Request $request, GeoIpService $geoIpService): View
     {
         // Giriş yapmış kullanıcının adını al, yoksa boş string kullan
         $userName = Auth::check() ? Auth::user()->name : '';
         
-        // Dil tercihi kontrolü
+        // Değişkenleri başlat
         $showLanguageModal = false;
+        $shouldSetPromptCookie = false;
         
-        // Önce cookie'den dil tercihini kontrol et
+        // İlk Kontrol: language_preference çerezi var mı?
         $languagePreference = $request->cookie('language_preference');
         
-        // DEBUG: Cookie durumunu log'la
-        \Log::info('Language Debug - Cookie preference: ' . ($languagePreference ?? 'null'));
-        \Log::info('Language Debug - Accept-Language header: ' . $request->header('Accept-Language'));
-        
         if (!$languagePreference) {
-            // Cookie'de dil tercihi yoksa, tarayıcı dilini kontrol et
-            $preferredLanguage = $request->getPreferredLanguage(['tr', 'en']);
+            // İkinci Kontrol: has_been_prompted_for_lang çerezi var mı?
+            $hasBeenPrompted = $request->cookie('has_been_prompted_for_lang');
             
-            // DEBUG: Algılanan dili log'la
-            \Log::info('Language Debug - Detected preferred language: ' . ($preferredLanguage ?? 'null'));
-            
-            // Türkçe tercih ediliyorsa modal göster
-            if ($preferredLanguage === 'tr') {
-                $showLanguageModal = true;
+            if (!$hasBeenPrompted) {
+                // Kullanıcının gerçek ilk ziyareti
+                $shouldSetPromptCookie = true;
+                
+                // Kullanıcının tarayıcı dilini al
+                $preferredLanguage = $request->getPreferredLanguage(['tr', 'en']);
+                
+                if ($preferredLanguage === 'tr') {
+                    $showLanguageModal = true;
+                } else {
+                    // Tarayıcı dili 'tr' değilse, IP kontrolü yap
+                    $userIp = $request->ip();
+                    if ($geoIpService->isIpFromTurkey($userIp)) {
+                        $showLanguageModal = true;
+                    }
+                }
+            } else {
+                // Kullanıcı daha önce gelmiş ama seçim yapmamış
+                // Sadece tarayıcı dili kontrolü yap, IP kontrolü yapma
+                $preferredLanguage = $request->getPreferredLanguage(['tr', 'en']);
+                
+                if ($preferredLanguage === 'tr') {
+                    $showLanguageModal = true;
+                }
             }
-            
-            // DEBUG: Modal gösterilme durumunu log'la
-            \Log::info('Language Debug - Show language modal: ' . ($showLanguageModal ? 'yes' : 'no'));
-        } else {
-            \Log::info('Language Debug - Cookie exists, modal not shown');
         }
         
-        return view('test.start', compact('userName', 'showLanguageModal'));
+        return view('test.start', compact('userName', 'showLanguageModal', 'shouldSetPromptCookie'));
     }
 
     /**
