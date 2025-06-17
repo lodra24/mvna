@@ -69,7 +69,7 @@
                                 <label for="question_{{ $question->id }}_a" class="test-option__label">
                                     <div class="test-option__radio"></div>
                                     <span class="test-option__text">
-                                        {{ config('mbti_question_options.' . $question->dimension . '.A', 'Option A') }}
+                                        {{ __('test_options.' . $question->dimension . '.A') }}
                                     </span>
                                 </label>
                             </div>
@@ -87,7 +87,7 @@
                                 <label for="question_{{ $question->id }}_b" class="test-option__label">
                                     <div class="test-option__radio"></div>
                                     <span class="test-option__text">
-                                        {{ config('mbti_question_options.' . $question->dimension . '.B', 'Option B') }}
+                                        {{ __('test_options.' . $question->dimension . '.B') }}
                                     </span>
                                 </label>
                             </div>

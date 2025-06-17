@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request; // beginTest metodu için eklendi ve showQuestions metodu için kullanılıyor
 use Illuminate\View\View;    // start metodu için ve showQuestions metodunun dönüş tipi için
 use Illuminate\Support\Facades\Redirect; // Yönlendirme için (veya sadece use Redirect;)
+use Illuminate\Support\Facades\Cookie; // Dil tercihi kontrolü için
 // Alternatif olarak, global redirect() helper'ı kullandığımız için bu satır
 // zorunlu olmayabilir, ancak açıkça belirtmek iyi bir pratiktir.
 // Ayrıca, metodun dönüş tipini belirtmek için RedirectResponse da eklenebilir:
@@ -25,15 +26,45 @@ class TestController extends Controller
     /**
      * 'test.start' view'ını gösterir.
      * Giriş yapmış kullanıcının adını view'a gönderir.
+     * Dil tercihi kontrolü yapar ve gerektiğinde dil seçim modal'ını gösterir.
      *
+     * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\View\View
      */
-    public function start(): View
+    public function start(Request $request): View
     {
         // Giriş yapmış kullanıcının adını al, yoksa boş string kullan
         $userName = Auth::check() ? Auth::user()->name : '';
         
-        return view('test.start', compact('userName'));
+        // Dil tercihi kontrolü
+        $showLanguageModal = false;
+        
+        // Önce cookie'den dil tercihini kontrol et
+        $languagePreference = $request->cookie('language_preference');
+        
+        // DEBUG: Cookie durumunu log'la
+        \Log::info('Language Debug - Cookie preference: ' . ($languagePreference ?? 'null'));
+        \Log::info('Language Debug - Accept-Language header: ' . $request->header('Accept-Language'));
+        
+        if (!$languagePreference) {
+            // Cookie'de dil tercihi yoksa, tarayıcı dilini kontrol et
+            $preferredLanguage = $request->getPreferredLanguage(['tr', 'en']);
+            
+            // DEBUG: Algılanan dili log'la
+            \Log::info('Language Debug - Detected preferred language: ' . ($preferredLanguage ?? 'null'));
+            
+            // Türkçe tercih ediliyorsa modal göster
+            if ($preferredLanguage === 'tr') {
+                $showLanguageModal = true;
+            }
+            
+            // DEBUG: Modal gösterilme durumunu log'la
+            \Log::info('Language Debug - Show language modal: ' . ($showLanguageModal ? 'yes' : 'no'));
+        } else {
+            \Log::info('Language Debug - Cookie exists, modal not shown');
+        }
+        
+        return view('test.start', compact('userName', 'showLanguageModal'));
     }
 
     /**
@@ -46,15 +77,21 @@ class TestController extends Controller
     {
         // Giriş yapmış kullanıcının daha önceden test sonucu olup olmadığını kontrol et
         // Yeni test süreci başladığı için önceki testten kalmış session verilerini temizle
-        $request->session()->forget(['userName', 'pending_test_result']);
+        $request->session()->forget(['userName', 'pending_test_result', 'test_language']);
         
         $request->validate([
             'name' => 'required|string|max:255',
         ]);
 
         $name = $request->input('name');
+        
+        // Dil bilgisini al - önce formdan, sonra cookie'den, son olarak varsayılan
+        $language = $request->input('lang')
+            ?? $request->cookie('language_preference')
+            ?? 'en';
 
         $request->session()->put('userName', $name);
+        $request->session()->put('test_language', $language);
 
         return redirect()->route('test.questions');
     }
@@ -98,12 +135,18 @@ class TestController extends Controller
             // Giriş yapmış kullanıcı için akış
             $testResult = $mbtiTestService->saveTestForUser(Auth::user(), $testData);
             
+            // Test tamamlandığı için dil session'ını temizle
+            $request->session()->forget('test_language');
+            
             // Kullanıcıyı ödeme sayfasına yönlendir
             return redirect()->route('test.payment', ['testResult' => $testResult->id]);
         } else {
             // Misafir kullanıcı için eski akış
             // İşlenen sonucu ve ham cevapları session'a kaydet
             $mbtiTestService->savePendingResultToSession($testData, $rawAnswers);
+            
+            // Test tamamlandığı için dil session'ını temizle
+            $request->session()->forget('test_language');
             
             // Kullanıcıyı giriş/kayıt sayfasına yönlendir
             return redirect()->route('auth.showRegisterOrLogin')->with('mbti_type', $testData['mbti_type']);

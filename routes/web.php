@@ -26,7 +26,7 @@ Route::get('/test/start', [TestController::class, 'start'])->name('test.start');
 Route::post('/test/begin', [TestController::class, 'beginTest'])->name('test.begin');
 
 // YENİ EKLENEN ROTA
-Route::get('/test/questions', [TestController::class, 'showQuestions'])->name('test.questions');
+Route::get('/test/questions', [TestController::class, 'showQuestions'])->name('test.questions')->middleware('set.test.language');
 
 // Test cevaplarını gönderme rotası
 Route::post('/test/submit', [TestController::class, 'submitAnswers'])->name('test.submit');

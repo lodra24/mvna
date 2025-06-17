@@ -22,6 +22,31 @@
             <p class="text-slate-600 test-form-element">The test will take approximately 10-15 minutes and consists of 60 questions.</p>
         </div>
 
+        <!-- Dil Seçim Banner -->
+        @if($showLanguageModal ?? false)
+        <div id="language-banner" class="bg-gradient-to-r from-blue-500 to-indigo-600 text-white rounded-lg p-6 mb-6 test-form-element">
+            <div class="flex items-center justify-between">
+                <div class="flex items-center">
+                    <svg class="w-6 h-6 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5h12M9 3v2m1.048 9.5A18.022 18.022 0 016.412 9m6.088 9h7M11 21l5-10 5 10M12.751 5C11.783 10.77 8.07 15.61 3 18.129"></path>
+                    </svg>
+                    <div>
+                        <h4 class="font-semibold text-lg mb-1">Testi Türkçe olarak çözmek ister misiniz?</h4>
+                        <p class="text-blue-100 text-sm">Sorular ve sonuçlar Türkçe dilinde gösterilecektir.</p>
+                    </div>
+                </div>
+                <div class="flex space-x-3 ml-4">
+                    <button type="button" id="lang-tr-btn" class="px-4 py-2 bg-white text-blue-600 font-medium rounded-lg hover:bg-blue-50 transition-colors">
+                        Evet
+                    </button>
+                    <button type="button" id="lang-en-btn" class="px-4 py-2 bg-blue-500 text-white border border-white font-medium rounded-lg hover:bg-blue-400 transition-colors">
+                        No
+                    </button>
+                </div>
+            </div>
+        </div>
+        @endif
+
         <!-- Form -->
         <form action="{{ route('test.begin') }}" method="POST" id="start-form" class="test-form__section">
             @csrf
@@ -206,6 +231,52 @@ document.addEventListener('DOMContentLoaded', function() {
     // Auto-focus on name input (eğer localStorage'dan doldurulamazsa)
     if (!nameInput.value) {
         nameInput.focus();
+    }
+    
+    // Dil seçim banner işlevselliği
+    const languageBanner = document.getElementById('language-banner');
+    const langTrBtn = document.getElementById('lang-tr-btn');
+    const langEnBtn = document.getElementById('lang-en-btn');
+    
+    if (langTrBtn && langEnBtn && languageBanner) {
+        // Türkçe butonuna tıklandığında
+        langTrBtn.addEventListener('click', function() {
+            setLanguagePreference('tr');
+        });
+        
+        // İngilizce butonuna tıklandığında
+        langEnBtn.addEventListener('click', function() {
+            setLanguagePreference('en');
+        });
+        
+        function setLanguagePreference(language) {
+            // Cookie oluştur (30 gün geçerli, güvenlik flag'leri ile)
+            const expires = new Date();
+            expires.setDate(expires.getDate() + 30);
+            document.cookie = `language_preference=${language}; expires=${expires.toUTCString()}; path=/; SameSite=Lax`;
+            
+            // Forma hidden input ekle
+            let langInput = document.querySelector('input[name="lang"]');
+            if (!langInput) {
+                langInput = document.createElement('input');
+                langInput.type = 'hidden';
+                langInput.name = 'lang';
+                startForm.appendChild(langInput);
+            }
+            langInput.value = language;
+            
+            // Banner'ı DOM'dan kaldır
+            languageBanner.remove();
+            
+            // Kullanıcıya bilgi ver (showToast fonksiyonunun varlığını kontrol et)
+            const message = language === 'tr' ? 'Test Türkçe dilinde çözülecek.' : 'Test will be conducted in English.';
+            if (typeof showToast === 'function') {
+                showToast(message, 'success');
+            } else {
+                // Fallback - basit alert
+                console.log(message);
+            }
+        }
     }
 });
 </script>

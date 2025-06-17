@@ -11,7 +11,9 @@ return Application::configure(basePath: dirname(__DIR__))
         health: '/up',
     )
     ->withMiddleware(function (Middleware $middleware) {
-        //
+        $middleware->alias([
+            'set.test.language' => \App\Http\Middleware\SetTestLanguage::class,
+        ]);
     })
     ->withExceptions(function (Exceptions $exceptions) {
         //
