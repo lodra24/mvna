@@ -69,7 +69,7 @@
                                 <label for="question_{{ $question->id }}_a" class="test-option__label">
                                     <div class="test-option__radio"></div>
                                     <span class="test-option__text">
-                                        {{ __('test_options.' . $question->dimension . '.A') }}
+                                        {{ $question->option_a_text }}
                                     </span>
                                 </label>
                             </div>
@@ -87,7 +87,7 @@
                                 <label for="question_{{ $question->id }}_b" class="test-option__label">
                                     <div class="test-option__radio"></div>
                                     <span class="test-option__text">
-                                        {{ __('test_options.' . $question->dimension . '.B') }}
+                                        {{ $question->option_b_text }}
                                     </span>
                                 </label>
                             </div>

@@ -12,10 +12,12 @@ class Question extends Model
         'question_text',
         'dimension',
         'option_a_value',
-        'option_b_value'
+        'option_b_value',
+        'option_a_text',
+        'option_b_text'
     ];
 
-    public $translatable = ['question_text'];
+    public $translatable = ['question_text', 'option_a_text', 'option_b_text'];
 
     /**
      * Bu soruya verilen cevapları getir

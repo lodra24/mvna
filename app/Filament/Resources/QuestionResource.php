@@ -6,6 +6,7 @@ use App\Filament\Resources\QuestionResource\Pages;
 use App\Models\Question;
 use Filament\Forms;
 use Filament\Forms\Form;
+use Filament\Forms\Components\Tabs;
 use Filament\Resources\Resource;
 use Filament\Tables;
 use Filament\Tables\Table;
@@ -26,10 +27,37 @@ class QuestionResource extends Resource
     {
         return $form
             ->schema([
-                Forms\Components\Textarea::make('question_text')
-                    ->label('Soru Metni')
-                    ->required()
-                    ->columnSpanFull(),
+                Tabs::make('Translations')
+                    ->tabs([
+                        Tabs\Tab::make('English')
+                            ->schema([
+                                Forms\Components\Textarea::make('question_text.en')
+                                    ->label('Question Text (EN)')
+                                    ->required(),
+                                Forms\Components\Textarea::make('option_a_text.en')
+                                    ->label('Option A Text (EN)')
+                                    ->required(),
+                                Forms\Components\Textarea::make('option_b_text.en')
+                                    ->label('Option B Text (EN)')
+                                    ->required(),
+                            ]),
+                        Tabs\Tab::make('Türkçe')
+                            ->schema([
+                                Forms\Components\Textarea::make('question_text.tr')
+                                    ->label('Soru Metni (TR)')
+                                    ->required(),
+                                Forms\Components\Textarea::make('option_a_text.tr')
+                                    ->label('Seçenek A Metni (TR)')
+                                    ->required(),
+                                Forms\Components\Textarea::make('option_b_text.tr')
+                                    ->label('Seçenek B Metni (TR)')
+                                    ->required(),
+                            ]),
+                    ])
+                    ->columnSpanFull()
+                    ->activeTab(1),
+
+                // Diğer alanlar sekmelerin dışında kalacak
                 Forms\Components\Select::make('dimension')
                     ->label('Boyut (Dimension)')
                     ->options([
@@ -61,6 +89,14 @@ class QuestionResource extends Resource
                     ->label('Soru Metni')
                     ->limit(50)
                     ->searchable(),
+                Tables\Columns\TextColumn::make('option_a_text')
+                    ->label('Seçenek A Metni')
+                    ->limit(30)
+                    ->toggleable(),
+                Tables\Columns\TextColumn::make('option_b_text')
+                    ->label('Seçenek B Metni')
+                    ->limit(30)
+                    ->toggleable(),
                 Tables\Columns\TextColumn::make('dimension')
                     ->label('Boyut')
                     ->badge()
