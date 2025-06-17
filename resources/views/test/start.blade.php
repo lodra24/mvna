@@ -24,23 +24,23 @@
 
         <!-- Dil Seçim Banner -->
         @if($showLanguageModal ?? false)
-        <div id="language-banner" class="bg-gradient-to-r from-blue-500 to-indigo-600 text-white rounded-lg p-6 mb-6 test-form-element">
-            <div class="flex items-center justify-between">
-                <div class="flex items-center">
-                    <svg class="w-6 h-6 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <div id="language-banner" class="bg-gradient-to-r from-blue-500 to-indigo-600 text-white rounded-lg p-4 sm:p-6 mb-6 test-form-element">
+            <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
+                <div class="flex items-start sm:items-center">
+                    <svg class="w-5 h-5 sm:w-6 sm:h-6 mr-2 sm:mr-3 mt-0.5 sm:mt-0 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5h12M9 3v2m1.048 9.5A18.022 18.022 0 016.412 9m6.088 9h7M11 21l5-10 5 10M12.751 5C11.783 10.77 8.07 15.61 3 18.129"></path>
                     </svg>
-                    <div>
-                        <h4 class="font-semibold text-lg mb-1">Testi Türkçe olarak çözmek ister misiniz?</h4>
-                        <p class="text-blue-100 text-sm">Sorular ve sonuçlar Türkçe dilinde gösterilecektir.</p>
+                    <div class="min-w-0 flex-1">
+                        <h4 class="font-semibold text-base sm:text-lg mb-1 leading-tight">Testi Türkçe olarak çözmek ister misiniz?</h4>
+                        <p class="text-blue-100 text-sm leading-relaxed">Sorular ve sonuçlar Türkçe dilinde gösterilecektir.</p>
                     </div>
                 </div>
-                <div class="flex space-x-3 ml-4">
-                    <button type="button" id="lang-tr-btn" class="px-4 py-2 bg-white text-blue-600 font-medium rounded-lg hover:bg-blue-50 transition-colors">
-                        Evet
+                <div class="flex flex-col sm:flex-row gap-2 sm:gap-3 sm:ml-4 sm:flex-shrink-0">
+                    <button type="button" id="lang-tr-btn" class="w-full sm:w-auto px-4 py-2.5 sm:py-2 bg-white text-blue-600 font-medium rounded-lg hover:bg-blue-50 transition-colors text-center">
+                        Evet, Türkçe
                     </button>
-                    <button type="button" id="lang-en-btn" class="px-4 py-2 bg-blue-500 text-white border border-white font-medium rounded-lg hover:bg-blue-400 transition-colors">
-                        No
+                    <button type="button" id="lang-en-btn" class="w-full sm:w-auto px-4 py-2.5 sm:py-2 bg-blue-500 text-white border border-white font-medium rounded-lg hover:bg-blue-400 transition-colors text-center">
+                        No, English
                     </button>
                 </div>
             </div>
