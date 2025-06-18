@@ -3,6 +3,7 @@
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\TestController; // Eklendi
 use App\Http\Controllers\Auth\RegisteredUserController; // Yeni eklendi
+use App\Http\Controllers\Auth\SocialiteController; // Sosyal giriş için eklendi
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
@@ -18,6 +19,12 @@ Route::middleware('auth')->group(function () {
 });
 
 require __DIR__.'/auth.php';
+
+// Google Sosyal Giriş Rotaları - Guest middleware altında
+Route::middleware('guest')->group(function () {
+    Route::get('/auth/google/redirect', [SocialiteController::class, 'redirectToGoogle'])->name('auth.google.redirect');
+    Route::get('/auth/google/callback', [SocialiteController::class, 'handleGoogleCallback'])->name('auth.google.callback');
+});
 
 // Mevcut test.start rotası
 Route::get('/test/start', [TestController::class, 'start'])->name('test.start');

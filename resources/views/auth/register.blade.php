@@ -193,17 +193,43 @@
                                 Create Account
                             </button>
                         </div>
-
-                        <!-- Login Link -->
-                        <div class="text-center pt-4 border-t border-slate-200">
-                            <p class="text-sm text-slate-600">
-                                Already have an account?
-                                <a href="{{ route('login') }}" class="font-semibold text-mindmetrics-indigo hover:text-mindmetrics-green transition-colors duration-200 ml-1">
-                                    Sign in here
-                                </a>
-                            </p>
-                        </div>
                     </form>
+
+                    <!-- Google Auth Separator -->
+                    <div class="relative flex items-center justify-center my-6">
+                        <div class="absolute inset-0 flex items-center">
+                            <div class="w-full border-t border-slate-300"></div>
+                        </div>
+                        <div class="relative flex justify-center text-sm">
+                            <span class="px-3 bg-white text-slate-500 font-medium">or</span>
+                        </div>
+                    </div>
+
+                    <!-- Google Register Button -->
+                    <div class="mb-6">
+                        <a href="{{ route('auth.google.redirect') }}" class="group w-full inline-flex justify-center items-center gap-3 py-3 px-4 border border-slate-300 rounded-xl shadow-sm bg-white text-sm font-semibold text-slate-700 hover:bg-slate-50 hover:border-slate-400 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-mindmetrics-indigo transition-all duration-200 hover:shadow-md">
+                            <!-- Google SVG Logo -->
+                            <svg class="w-5 h-5 group-hover:scale-110 transition-transform duration-200" viewBox="0 0 48 48">
+                                <path fill="#4285F4" d="M43.611,20.083H42V20H24v8h11.303c-1.649,4.657-6.08,8-11.303,8c-6.627,0-12-5.373-12-12c0-6.627,5.373-12,12-12c3.059,0,5.842,1.154,7.961,3.039l5.657-5.657C34.046,6.053,29.268,4,24,4C12.955,4,4,12.955,4,24c0,11.045,8.955,20,20,20c11.045,0,20-8.955,20-20C44,22.659,43.862,21.35,43.611,20.083z"></path>
+                                <path fill="#34A853" d="M43.611,20.083L43.595,20L24,20v8h11.303c-0.792,2.237-2.231,4.166-4.087,5.571l5.657,5.657C39.818,35.533,44,30.347,44,24C44,22.659,43.862,21.35,43.611,20.083z"></path>
+                                <path fill="#FBBC05" d="M9.878,26.414c-1.396-4.145-1.396-8.87,0-13.014L4.221,7.743C1.536,13.298,1.536,19.702,4.221,25.257L9.878,26.414z"></path>
+                                <path fill="#EA4335" d="M24,48c5.268,0,10.046-2.053,13.571-5.571l-5.657-5.657c-1.856,1.405-3.821,2.228-6.087,2.228c-5.223,0-9.654-3.343-11.303-8H4.221c2.684,5.454,8.128,9,14.779,9H24z"></path>
+                                <path fill="none" d="M0,0h48v48H0z"></path>
+                            </svg>
+                            <span class="sr-only">Continue with Google</span>
+                            Continue with Google
+                        </a>
+                    </div>
+
+                    <!-- Login Link -->
+                    <div class="text-center pt-4 border-t border-slate-200">
+                        <p class="text-sm text-slate-600">
+                            Already have an account?
+                            <a href="{{ route('login') }}" class="font-semibold text-mindmetrics-indigo hover:text-mindmetrics-green transition-colors duration-200 ml-1">
+                                Sign in here
+                            </a>
+                        </p>
+                    </div>
                 </div>
 
                 <!-- Card Bottom Decoration -->
