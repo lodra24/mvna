@@ -5,7 +5,7 @@ namespace App\Http\Controllers\Auth;
 use App\Http\Controllers\Controller;
 use App\Mail\UserRegisteredWelcome;
 use App\Models\User;
-use App\Models\TestResult;
+use App\Services\MbtiTestService;
 use Illuminate\Auth\Events\Registered;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
@@ -38,7 +38,7 @@ class RegisteredUserController extends Controller
      *
      * @throws \Illuminate\Validation\ValidationException
      */
-    public function store(Request $request): RedirectResponse
+    public function store(Request $request, MbtiTestService $mbtiTestService): RedirectResponse
     {
         $request->validate([
             'name' => ['required', 'string', 'max:255'],
@@ -59,25 +59,11 @@ class RegisteredUserController extends Controller
         // Hoş geldiniz e-postasını gönder
         Mail::to($user->email)->send(new UserRegisteredWelcome($user));
 
-        // Session'da bekleyen test sonucunu kontrol et
-        if (session()->has('active_test_result_id')) {
-            $testResultId = session('active_test_result_id');
-            $testResult = TestResult::find($testResultId);
-            
-            // Güvenlik kontrolleri: test var mı ve user_id null mu?
-            if ($testResult && $testResult->user_id === null) {
-                // Testi kullanıcıya ata
-                $testResult->user_id = $user->id;
-                $testResult->guest_name = null;
-                $testResult->status = 'pending_payment';
-                $testResult->save();
-                
-                // Session'ı temizle
-                session()->forget('active_test_result_id');
-                
-                // Ödeme sayfasına yönlendir
-                return redirect()->route('test.payment', ['testResult' => $testResult->id]);
-            }
+        // Session'da bekleyen test sonucunu kullanıcıya ata
+        $testResult = $mbtiTestService->assignPendingTestToUser($user);
+        
+        if ($testResult) {
+            return redirect()->route('test.payment', ['testResult' => $testResult->id]);
         }
 
         return redirect(route('dashboard', absolute: false));

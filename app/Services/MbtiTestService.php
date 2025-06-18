@@ -81,4 +81,40 @@ class MbtiTestService
         return $mbtiType;
     }
 
+    /**
+     * Session'da bekleyen test sonucunu kullanıcıya atar.
+     *
+     * @param User $user
+     * @return TestResult|null
+     */
+    public function assignPendingTestToUser(User $user): ?TestResult
+    {
+        if (session()->has('active_test_result_id')) {
+            $testResultId = session('active_test_result_id');
+            $testResult = TestResult::find($testResultId);
+
+            if ($testResult && $testResult->user_id === null) {
+                $testResult->user_id = $user->id;
+                $testResult->guest_name = null;
+                $testResult->status = 'pending_payment';
+                $testResult->save();
+                
+                session()->forget('active_test_result_id');
+                return $testResult;
+            }
+        }
+        return null;
+    }
+
+    /**
+     * Session'da bekleyen test sonucunu veritabanına kaydeder (SocialiteController için alias).
+     *
+     * @param User $user
+     * @return TestResult|null
+     */
+    public function commitPendingResultToDatabase(User $user): ?TestResult
+    {
+        return $this->assignPendingTestToUser($user);
+    }
+
 }
