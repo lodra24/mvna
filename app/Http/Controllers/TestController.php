@@ -154,11 +154,23 @@ class TestController extends Controller
         // 2. Cevapları Al ve Kaydet
         $rawAnswers = $request->input('answers', []);
         
-        // Her bir cevap için döngü kur ve veritabanına kaydet
+        // Tüm cevapları tek sorguda kaydetmek için upsert kullan (N+1 sorunu çözümü)
+        $answersToUpsert = [];
         foreach ($rawAnswers as $questionId => $chosenOption) {
-            UserAnswer::updateOrCreate(
-                ['test_result_id' => $testResult->id, 'question_id' => $questionId],
-                ['chosen_option' => $chosenOption]
+            $answersToUpsert[] = [
+                'test_result_id' => $testResult->id,
+                'question_id' => $questionId,
+                'chosen_option' => $chosenOption,
+                'created_at' => now(),
+                'updated_at' => now(),
+            ];
+        }
+
+        if (!empty($answersToUpsert)) {
+            UserAnswer::upsert(
+                $answersToUpsert,
+                ['test_result_id', 'question_id'], // Unique anahtar
+                ['chosen_option', 'updated_at']   // Güncellenecek sütunlar
             );
         }
 
