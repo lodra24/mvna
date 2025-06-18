@@ -20,31 +20,39 @@ class MbtiTestServiceTest extends TestCase
     {
         // Arrange - Sahte soru verileri oluştur
         $question1 = Question::create([
-            'question_text' => 'Test Question 1',
+            'question_text' => ['en' => 'Test Question 1'],
             'dimension' => 'E/I',
             'option_a_value' => 'E',
-            'option_b_value' => 'I'
+            'option_b_value' => 'I',
+            'option_a_text' => ['en' => 'Option A'],
+            'option_b_text' => ['en' => 'Option B']
         ]);
 
         $question2 = Question::create([
-            'question_text' => 'Test Question 2',
+            'question_text' => ['en' => 'Test Question 2'],
             'dimension' => 'S/N',
             'option_a_value' => 'S',
-            'option_b_value' => 'N'
+            'option_b_value' => 'N',
+            'option_a_text' => ['en' => 'Option A'],
+            'option_b_text' => ['en' => 'Option B']
         ]);
 
         $question3 = Question::create([
-            'question_text' => 'Test Question 3',
+            'question_text' => ['en' => 'Test Question 3'],
             'dimension' => 'T/F',
             'option_a_value' => 'T',
-            'option_b_value' => 'F'
+            'option_b_value' => 'F',
+            'option_a_text' => ['en' => 'Option A'],
+            'option_b_text' => ['en' => 'Option B']
         ]);
 
         $question4 = Question::create([
-            'question_text' => 'Test Question 4',
+            'question_text' => ['en' => 'Test Question 4'],
             'dimension' => 'J/P',
             'option_a_value' => 'J',
-            'option_b_value' => 'P'
+            'option_b_value' => 'P',
+            'option_a_text' => ['en' => 'Option A'],
+            'option_b_text' => ['en' => 'Option B']
         ]);
 
         // Kullanıcı tüm sorularda 'A' seçeneğini seçmiş
@@ -81,31 +89,39 @@ class MbtiTestServiceTest extends TestCase
     {
         // Arrange - Sahte soru verileri oluştur
         $question1 = Question::create([
-            'question_text' => 'Test Question 1',
+            'question_text' => ['en' => 'Test Question 1'],
             'dimension' => 'E/I',
             'option_a_value' => 'E',
-            'option_b_value' => 'I'
+            'option_b_value' => 'I',
+            'option_a_text' => ['en' => 'Option A'],
+            'option_b_text' => ['en' => 'Option B']
         ]);
 
         $question2 = Question::create([
-            'question_text' => 'Test Question 2',
+            'question_text' => ['en' => 'Test Question 2'],
             'dimension' => 'S/N',
             'option_a_value' => 'S',
-            'option_b_value' => 'N'
+            'option_b_value' => 'N',
+            'option_a_text' => ['en' => 'Option A'],
+            'option_b_text' => ['en' => 'Option B']
         ]);
 
         $question3 = Question::create([
-            'question_text' => 'Test Question 3',
+            'question_text' => ['en' => 'Test Question 3'],
             'dimension' => 'T/F',
             'option_a_value' => 'T',
-            'option_b_value' => 'F'
+            'option_b_value' => 'F',
+            'option_a_text' => ['en' => 'Option A'],
+            'option_b_text' => ['en' => 'Option B']
         ]);
 
         $question4 = Question::create([
-            'question_text' => 'Test Question 4',
+            'question_text' => ['en' => 'Test Question 4'],
             'dimension' => 'J/P',
             'option_a_value' => 'J',
-            'option_b_value' => 'P'
+            'option_b_value' => 'P',
+            'option_a_text' => ['en' => 'Option A'],
+            'option_b_text' => ['en' => 'Option B']
         ]);
 
         // Kullanıcı karışık seçenekler seçmiş (A, B, A, B)
@@ -142,10 +158,12 @@ class MbtiTestServiceTest extends TestCase
     {
         // Arrange - Sadece bir geçerli soru oluştur
         $validQuestion = Question::create([
-            'question_text' => 'Valid Question',
+            'question_text' => ['en' => 'Valid Question'],
             'dimension' => 'E/I',
             'option_a_value' => 'E',
-            'option_b_value' => 'I'
+            'option_b_value' => 'I',
+            'option_a_text' => ['en' => 'Option A'],
+            'option_b_text' => ['en' => 'Option B']
         ]);
 
         // Geçerli ve geçersiz soru ID'leri karışık
@@ -225,7 +243,27 @@ class MbtiTestServiceTest extends TestCase
         // Arrange - Bir kullanıcı oluştur
         $user = User::factory()->create();
 
-        // Test için sahte session verisi hazırla
+        // Gerçek Question kayıtları oluştur (foreign key constraint için)
+        $question1 = Question::create([
+            'question_text' => ['en' => 'Test Question 1'],
+            'dimension' => 'E/I',
+            'option_a_value' => 'E',
+            'option_b_value' => 'I',
+            'option_a_text' => ['en' => 'Option A'],
+            'option_b_text' => ['en' => 'Option B']
+        ]);
+
+        $question2 = Question::create([
+            'question_text' => ['en' => 'Test Question 2'],
+            'dimension' => 'S/N',
+            'option_a_value' => 'S',
+            'option_b_value' => 'N',
+            'option_a_text' => ['en' => 'Option A'],
+            'option_b_text' => ['en' => 'Option B']
+        ]);
+
+        // Test için sahte session verisi hazırla (güncel format)
+        $testId = 'test_123';
         $pendingResult = [
             'mbti_type' => 'INFP',
             'scores' => [
@@ -238,15 +276,23 @@ class MbtiTestServiceTest extends TestCase
                 'J' => 2,
                 'P' => 5
             ],
-            'status' => 'pending_registration'
+            'status' => 'pending_registration',
+            'answers' => [
+                $question1->id => 'A',
+                $question2->id => 'B'
+            ]
         ];
 
-        // Session'a veriyi ekle
-        Session::put('pending_test_result', $pendingResult);
+        // Session'a güncel format ile veriyi ekle
+        Session::put("test_data_{$testId}", $pendingResult);
+        Session::put('last_active_test_id', $testId);
 
         // Act - MbtiTestService'ten bir örnek oluştur ve commitPendingResultToDatabase metodunu çağır
         $mbtiTestService = new MbtiTestService();
-        $mbtiTestService->commitPendingResultToDatabase($user);
+        $result = $mbtiTestService->commitPendingResultToDatabase($user);
+
+        // Assert - Metodun TestResult döndürdüğünü kontrol et
+        $this->assertInstanceOf(\App\Models\TestResult::class, $result);
 
         // Assert - Veritabanı kontrolü
         $this->assertDatabaseHas('test_results', [
@@ -263,8 +309,22 @@ class MbtiTestServiceTest extends TestCase
             'status' => 'pending_payment'
         ]);
 
-        // Assert - Session kontrolü
-        $this->assertFalse(Session::has('pending_test_result'));
+        // Assert - UserAnswer kayıtlarının oluşturulduğunu kontrol et
+        $this->assertDatabaseHas('user_answers', [
+            'test_result_id' => $result->id,
+            'question_id' => $question1->id,
+            'chosen_option' => 'A'
+        ]);
+
+        $this->assertDatabaseHas('user_answers', [
+            'test_result_id' => $result->id,
+            'question_id' => $question2->id,
+            'chosen_option' => 'B'
+        ]);
+
+        // Assert - Session kontrolü (güncel anahtarlar)
+        $this->assertFalse(Session::has("test_data_{$testId}"));
+        $this->assertFalse(Session::has('last_active_test_id'));
     }
 
     /**
@@ -274,31 +334,39 @@ class MbtiTestServiceTest extends TestCase
     {
         // Arrange - 4 farklı boyutta soru oluştur
         $question1 = Question::create([
-            'question_text' => 'Test Question 1',
+            'question_text' => ['en' => 'Test Question 1'],
             'dimension' => 'E/I',
             'option_a_value' => 'E',
-            'option_b_value' => 'I'
+            'option_b_value' => 'I',
+            'option_a_text' => ['en' => 'Option A'],
+            'option_b_text' => ['en' => 'Option B']
         ]);
 
         $question2 = Question::create([
-            'question_text' => 'Test Question 2',
+            'question_text' => ['en' => 'Test Question 2'],
             'dimension' => 'S/N',
             'option_a_value' => 'S',
-            'option_b_value' => 'N'
+            'option_b_value' => 'N',
+            'option_a_text' => ['en' => 'Option A'],
+            'option_b_text' => ['en' => 'Option B']
         ]);
 
         $question3 = Question::create([
-            'question_text' => 'Test Question 3',
+            'question_text' => ['en' => 'Test Question 3'],
             'dimension' => 'T/F',
             'option_a_value' => 'T',
-            'option_b_value' => 'F'
+            'option_b_value' => 'F',
+            'option_a_text' => ['en' => 'Option A'],
+            'option_b_text' => ['en' => 'Option B']
         ]);
 
         $question4 = Question::create([
-            'question_text' => 'Test Question 4',
+            'question_text' => ['en' => 'Test Question 4'],
             'dimension' => 'J/P',
             'option_a_value' => 'J',
-            'option_b_value' => 'P'
+            'option_b_value' => 'P',
+            'option_a_text' => ['en' => 'Option A'],
+            'option_b_text' => ['en' => 'Option B']
         ]);
 
         // Karışık cevap seti oluştur
@@ -348,6 +416,7 @@ class MbtiTestServiceTest extends TestCase
     public function test_it_saves_pending_result_to_session_correctly(): void
     {
         // Arrange - processTestResults'ten dönebilecek gibi sahte bir $testData dizisi oluştur
+        $testId = 'test_456';
         $testData = [
             'mbti_type' => 'ENTJ',
             'scores' => [
@@ -362,15 +431,22 @@ class MbtiTestServiceTest extends TestCase
             ]
         ];
 
-        // Act - MbtiTestService'ten bir örnek oluştur ve savePendingResultToSession metodunu çağır
-        $mbtiTestService = new MbtiTestService();
-        $mbtiTestService->savePendingResultToSession($testData);
+        $rawAnswers = [
+            1 => 'A',
+            2 => 'B',
+            3 => 'A',
+            4 => 'A'
+        ];
 
-        // Assert - Anahtar Kontrolü: pending_test_result anahtarının session'da var olduğunu doğrula
-        $this->assertTrue(Session::has('pending_test_result'));
+        // Act - MbtiTestService'ten bir örnek oluştur ve savePendingResultToSession metodunu çağır (güncel parametrelerle)
+        $mbtiTestService = new MbtiTestService();
+        $mbtiTestService->savePendingResultToSession($testId, $testData, $rawAnswers);
+
+        // Assert - Anahtar Kontrolü: güncel session anahtarının var olduğunu doğrula
+        $this->assertTrue(Session::has("test_data_{$testId}"));
 
         // Assert - Değer Kontrolü: Session'dan veriyi al ve beklenen yapıya sahip olup olmadığını doğrula
-        $sessionData = Session::get('pending_test_result');
+        $sessionData = Session::get("test_data_{$testId}");
 
         // Assert - Aldığın verinin 'mbti_type' anahtarının 'ENTJ' olduğunu doğrula
         $this->assertEquals('ENTJ', $sessionData['mbti_type']);
@@ -380,5 +456,8 @@ class MbtiTestServiceTest extends TestCase
 
         // Assert - Aldığın verinin 'status' anahtarının 'pending_registration' olarak ayarlandığını doğrula
         $this->assertEquals('pending_registration', $sessionData['status']);
+
+        // Assert - Aldığın verinin 'answers' anahtarının, ham cevaplarla aynı olduğunu doğrula
+        $this->assertEquals($rawAnswers, $sessionData['answers']);
     }
 }

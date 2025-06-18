@@ -40,8 +40,19 @@ class MbtiTestService
             'T' => 0, 'F' => 0, 'J' => 0, 'P' => 0
         ];
 
+        // Boş cevap dizisi kontrolü - gereksiz veritabanı sorgularını önler
+        if (empty($submittedAnswers)) {
+            return $scores;
+        }
+
+        // Soru ID'lerini topla
+        $questionIds = array_keys($submittedAnswers);
+        
+        // Tek sorgu ile tüm soruları al ve ID'ye göre anahtarla
+        $questions = Question::whereIn('id', $questionIds)->get()->keyBy('id');
+
         foreach ($submittedAnswers as $questionId => $chosenOption) {
-            $question = Question::find($questionId);
+            $question = $questions->get($questionId);
             if ($question) {
                 $mbtiLetter = ($chosenOption === 'A') ? $question->option_a_value : $question->option_b_value;
                 if (isset($scores[$mbtiLetter])) {
