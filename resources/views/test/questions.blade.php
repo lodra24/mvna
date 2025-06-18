@@ -41,7 +41,7 @@
         </div>
 
         <!-- Form -->
-        <form action="{{ route('test.submit', ['testId' => $testId]) }}" method="POST" id="test-form" class="test-form">
+        <form action="{{ route('test.submit', ['testResult' => $testResult]) }}" method="POST" id="test-form" class="test-form">
             @csrf
             
             <!-- Questions -->

@@ -32,15 +32,13 @@ Route::get('/test/start', [TestController::class, 'start'])->name('test.start');
 // İstenen yeni POST rotası
 Route::post('/test/begin', [TestController::class, 'beginTest'])->name('test.begin');
 
-// Soru sayfası artık bir test kimliği alacak.
-Route::get('/test/questions/{testId}', [TestController::class, 'showQuestions'])
-    ->where('testId', '[a-zA-Z0-9\-_]+') // Alt çizgi eklendi
+// Soru sayfası artık TestResult modeli alacak.
+Route::get('/test/questions/{testResult}', [TestController::class, 'showQuestions'])
     ->name('test.questions')
     ->middleware('set.test.language');
 
-// Cevap gönderme rotası da hangi testin cevabı olduğunu bilmeli.
-Route::post('/test/submit/{testId}', [TestController::class, 'submitAnswers'])
-    ->where('testId', '[a-zA-Z0-9\-_]+') // Alt çizgi eklendi
+// Cevap gönderme rotası da TestResult modeli alacak.
+Route::post('/test/submit/{testResult}', [TestController::class, 'submitAnswers'])
     ->name('test.submit');
 
 // Ödeme sayfasını gösterme rotası

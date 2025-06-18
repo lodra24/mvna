@@ -21,6 +21,7 @@ use App\Services\PaymentService;
 use App\Services\ReportService;
 use App\Models\MbtiTypeDetail;
 use App\Services\GeoIpService;
+use App\Models\UserAnswer;
 
 class TestController extends Controller
 {
@@ -87,9 +88,6 @@ class TestController extends Controller
      */
     public function beginTest(Request $request): RedirectResponse
     {
-        // Benzersiz test kimliği oluştur
-        $testId = 'test_' . Str::uuid();
-        
         $request->validate([
             'name' => 'required|string|max:255',
         ]);
@@ -101,37 +99,40 @@ class TestController extends Controller
             ?? $request->cookie('language_preference')
             ?? 'en';
 
-        // Kullanıcı adı ve dil bilgisini testId'ye özel session anahtarı altında sakla
-        $request->session()->put("test_data_{$testId}", [
-            'userName' => $name,
-            'test_language' => $language,
-            'answers' => [], // Cevapları saklamak için boş bir dizi başlat
+        // TestResult modelini kullanarak yeni bir kayıt oluştur
+        $testResult = TestResult::create([
+            'user_id' => Auth::check() ? Auth::id() : null,
+            'guest_name' => Auth::guest() ? $name : null,
+            'status' => 'in_progress',
+            'mbti_type' => 'PEND',
         ]);
+        
+        // Kullanıcının hangi testi çözdüğünü takip etmek için session'a sadece testin ID'sini kaydet
+        $request->session()->put('active_test_result_id', $testResult->id);
         
         // SetTestLanguage middleware'inin okuyabilmesi için dil bilgisini global session'a da koy
         $request->session()->put('test_language', $language);
 
-        return redirect()->route('test.questions', ['testId' => $testId]);
+        return redirect()->route('test.questions', ['testResult' => $testResult]);
     }
 
     /**
      * Sorular sayfasını gösterir ve kullanıcı adını view'a gönderir.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  string  $testId
+     * @param  \App\Models\TestResult  $testResult
      * @return \Illuminate\View\View
      */
-    public function showQuestions(Request $request, string $testId): View
+    public function showQuestions(Request $request, TestResult $testResult): View
     {
-        // TestId'ye özel session verisinden kullanıcı adını al
-        $testData = $request->session()->get("test_data_{$testId}");
-        $userName = $testData['userName'] ?? 'Misafir';
+        // TestResult'tan veya session'dan kullanıcı adını al
+        $userName = $testResult->guest_name ?? ($testResult->user ? $testResult->user->name : 'Misafir');
         $questions = Question::all();
 
         return view('test.questions', [
             'userName' => $userName,
             'questions' => $questions,
-            'testId' => $testId, // Formun action URL'ini doğru oluşturabilmek için
+            'testResult' => $testResult, // Formun action URL'ini doğru oluşturabilmek için
         ]);
     }
 
@@ -140,42 +141,55 @@ class TestController extends Controller
      *
      * @param  \Illuminate\Http\Request  $request
      * @param  \App\Services\MbtiTestService  $mbtiTestService
-     * @param  string  $testId
+     * @param  \App\Models\TestResult  $testResult
      * @return \Illuminate\Http\RedirectResponse
      */
-    public function submitAnswers(Request $request, MbtiTestService $mbtiTestService, string $testId): RedirectResponse
+    public function submitAnswers(Request $request, MbtiTestService $mbtiTestService, TestResult $testResult): RedirectResponse
     {
-        // 1. Ham cevapları al
+        // 1. Güvenlik Kontrolü: Session'daki active_test_result_id ile rotadan gelen $testResult->id'nin aynı olup olmadığını kontrol et
+        if ($request->session()->get('active_test_result_id') !== $testResult->id) {
+            abort(403, 'Unauthorized submission.');
+        }
+
+        // 2. Cevapları Al ve Kaydet
         $rawAnswers = $request->input('answers', []);
         
-        // 2. Test sonuçlarını işle
-        $testData = $mbtiTestService->processTestResults($rawAnswers);
-        
-        // 3. Ham cevapları testData'ya ekle
-        $testData['raw_answers'] = $rawAnswers;
-        
-        // 4. Kullanıcının giriş yapıp yapmadığını kontrol et
+        // Her bir cevap için döngü kur ve veritabanına kaydet
+        foreach ($rawAnswers as $questionId => $chosenOption) {
+            UserAnswer::updateOrCreate(
+                ['test_result_id' => $testResult->id, 'question_id' => $questionId],
+                ['chosen_option' => $chosenOption]
+            );
+        }
+
+        // 3. Skorları Hesapla
+        $processedData = $mbtiTestService->processTestResults($rawAnswers);
+
+        // 4. TestResult Kaydını Güncelle
+        $testResult->update([
+            'mbti_type' => $processedData['mbti_type'],
+            'e_score' => $processedData['scores']['E'],
+            'i_score' => $processedData['scores']['I'],
+            's_score' => $processedData['scores']['S'],
+            'n_score' => $processedData['scores']['N'],
+            't_score' => $processedData['scores']['T'],
+            'f_score' => $processedData['scores']['F'],
+            'j_score' => $processedData['scores']['J'],
+            'p_score' => $processedData['scores']['P'],
+            'status' => Auth::check() ? 'pending_payment' : 'pending_registration',
+        ]);
+
+        // 5. Session'ı Temizle
+        $request->session()->forget('test_language');
+        // active_test_result_id session'da kalmalı, çünkü giriş/kayıt sonrası bu ID'ye ihtiyacımız olacak
+
+        // 6. Yönlendirme
         if (Auth::check()) {
-            // Giriş yapmış kullanıcı için akış
-            $testResult = $mbtiTestService->saveTestForUser(Auth::user(), $testData);
-            
-            // Test tamamlandığı için dil session'ını temizle
-            $request->session()->forget('test_language');
-            
-            // Kullanıcıyı ödeme sayfasına yönlendir
+            // Giriş yapmış kullanıcı için ödeme sayfasına yönlendir
             return redirect()->route('test.payment', ['testResult' => $testResult->id]);
         } else {
-            // Misafir kullanıcı için eski akış
-            // Servise hangi testin verisini kaydedeceğini bildiriyoruz
-            $mbtiTestService->savePendingResultToSession($testId, $testData, $rawAnswers);
-
-            // Giriş/kayıt sonrası hangi testin işleneceğini bilmek için son aktif test ID'sini session'a kaydet
-            $request->session()->put('last_active_test_id', $testId);
-
-            // Dil session'ı artık test verisinin içinde, ayrıca silmeye gerek yok
-            // $request->session()->forget('test_language'); // Bu satır silinebilir veya kalabilir
-
-            return redirect()->route('auth.showRegisterOrLogin')->with('mbti_type', $testData['mbti_type']);
+            // Misafir kullanıcı için kayıt/giriş sayfasına yönlendir
+            return redirect()->route('auth.showRegisterOrLogin')->with('mbti_type', $testResult->mbti_type);
         }
     }
 

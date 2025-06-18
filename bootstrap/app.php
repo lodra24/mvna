@@ -15,6 +15,9 @@ return Application::configure(basePath: dirname(__DIR__))
             'set.test.language' => \App\Http\Middleware\SetTestLanguage::class,
         ]);
     })
+    ->withSchedule(function ($schedule) {
+        $schedule->command('app:cleanup-orphaned-tests')->dailyAt('03:00')->withoutOverlapping(10);
+    })
     ->withExceptions(function (Exceptions $exceptions) {
         //
     })->create();

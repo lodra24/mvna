@@ -8,6 +8,7 @@ class TestResult extends Model
 {
     protected $fillable = [
         'user_id',
+        'guest_name',
         'mbti_type',
         'e_score',
         'i_score',
@@ -27,7 +28,7 @@ class TestResult extends Model
      */
     public function user()
     {
-        return $this->belongsTo(User::class);
+        return $this->belongsTo(User::class)->withDefault();
     }
 
     /**
