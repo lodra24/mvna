@@ -6,6 +6,7 @@ use Illuminate\Http\Request; // beginTest metodu için eklendi ve showQuestions 
 use Illuminate\View\View;    // start metodu için ve showQuestions metodunun dönüş tipi için
 use Illuminate\Support\Facades\Redirect; // Yönlendirme için (veya sadece use Redirect;)
 use Illuminate\Support\Facades\Cookie; // Dil tercihi kontrolü için
+use Illuminate\Support\Facades\Cache; // Performans optimizasyonu için
 // Alternatif olarak, global redirect() helper'ı kullandığımız için bu satır
 // zorunlu olmayabilir, ancak açıkça belirtmek iyi bir pratiktir.
 // Ayrıca, metodun dönüş tipini belirtmek için RedirectResponse da eklenebilir:
@@ -127,7 +128,11 @@ class TestController extends Controller
     {
         // TestResult'tan veya session'dan kullanıcı adını al
         $userName = $testResult->guest_name ?? ($testResult->user ? $testResult->user->name : 'Misafir');
-        $questions = Question::all();
+        
+        // Performans optimizasyonu: Sadece gerekli sütunları çek ve cache'le
+        $questions = Cache::remember('test_questions_all', now()->addHours(24), function () {
+            return Question::select(['id', 'question_text', 'option_a_text', 'option_b_text'])->get();
+        });
 
         return view('test.questions', [
             'userName' => $userName,
