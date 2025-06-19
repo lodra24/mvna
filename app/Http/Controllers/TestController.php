@@ -218,10 +218,8 @@ class TestController extends Controller
      */
     public function showPaymentPage(TestResult $testResult)
     {
-        // Raporun doğru kullanıcıya ait olduğunu doğrula
-        if ($testResult->user_id !== Auth::id()) {
-            return redirect()->route('dashboard')->with('error', 'You can only view your own payment pages.');
-        }
+        // Policy ile yetkilendirme kontrolü
+        $this->authorize('accessPayment', $testResult);
         
         // Eğer rapor zaten ödenmişse, direkt sonuç sayfasına yönlendir
         if ($testResult->status === 'completed') {
@@ -240,10 +238,8 @@ class TestController extends Controller
      */
     public function showResult(TestResult $testResult)
     {
-        // Raporun doğru kullanıcıya ait olduğunu ve ödemesinin yapıldığını doğrula
-        if ($testResult->user_id !== Auth::id() || $testResult->status !== 'completed') {
-            return redirect()->route('dashboard')->with('error', 'You can only view your own reports.');
-        }
+        // Policy ile yetkilendirme kontrolü (sahiplik + tamamlanma durumu)
+        $this->authorize('viewResult', $testResult);
         
         // Raporu göstermek için gereken verileri topla
         $mbtiTypeDetail = MbtiTypeDetail::where('mbti_type', $testResult->mbti_type)->first();
@@ -269,10 +265,8 @@ class TestController extends Controller
      */
     public function downloadReport(TestResult $testResult, ReportService $reportService)
     {
-        // Raporun doğru kullanıcıya ait olduğunu ve ödemesinin yapıldığını doğrula
-        if ($testResult->user_id !== Auth::id() || $testResult->status !== 'completed') {
-            return redirect()->route('dashboard')->with('error', 'You can only download your own reports.');
-        }
+        // Policy ile yetkilendirme kontrolü (sahiplik + tamamlanma durumu)
+        $this->authorize('download', $testResult);
         
         return $reportService->generatePdfReport($testResult);
     }
@@ -286,10 +280,8 @@ class TestController extends Controller
      */
     public function handleSuccessfulPayment(TestResult $testResult, PaymentService $paymentService): RedirectResponse
     {
-        // Raporun doğru kullanıcıya ait olduğunu doğrula
-        if ($testResult->user_id !== Auth::id()) {
-            return redirect()->route('dashboard')->with('error', 'You can only process payments for your own reports.');
-        }
+        // Policy ile yetkilendirme kontrolü
+        $this->authorize('processPayment', $testResult);
 
         // PaymentService'i kullanarak ödeme işlemlerini gerçekleştir
         $paymentService->handleSuccessfulPayment($testResult);
