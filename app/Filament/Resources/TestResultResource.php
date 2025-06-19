@@ -50,6 +50,7 @@ class TestResultResource extends Resource
     public static function table(Table $table): Table
     {
         return $table
+            ->modifyQueryUsing(fn (Builder $query) => $query->with('user'))
             ->columns([
                 Tables\Columns\TextColumn::make('user.name')
                     ->label('Kullanıcı')
