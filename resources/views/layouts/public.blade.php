@@ -3,9 +3,6 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    @php
-        $settings = app(App\Settings\GeneralSettings::class);
-    @endphp
     <title>@yield('title', 'MindMetrics - Unlock Your Potential')</title>
     @hasSection('title')
         <meta name="title" content="@yield('title') - MindMetrics">

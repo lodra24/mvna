@@ -29,7 +29,8 @@
 
             <!-- Fiyat ve Ödeme Butonu -->
             @php
-                $price = app(App\Settings\GeneralSettings::class)->test_price;
+                // Artık app() çağırmaya gerek yok, $settings zaten var.
+                $price = $settings->test_price;
                 $priceParts = explode('.', number_format($price, 2, '.', ''));
             @endphp
             <div class="mb-4">

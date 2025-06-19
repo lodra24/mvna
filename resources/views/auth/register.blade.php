@@ -17,9 +17,6 @@
     <!-- Scripts -->
     @vite(['resources/css/app.css', 'resources/js/app.js'])
     
-    @php
-        $settings = app(\App\Settings\GeneralSettings::class);
-    @endphp
     
     @if($settings->site_custom_scripts)
         {!! $settings->site_custom_scripts !!}

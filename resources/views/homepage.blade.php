@@ -26,12 +26,12 @@
             </div>
             <!-- Main Headline (H1) -->
             <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-slate-900 tracking-tight mb-6">
-                {{ app(App\Settings\GeneralSettings::class)->hero_title_part_1 }}
-                <span class="text-mindmetrics-indigo">{{ app(App\Settings\GeneralSettings::class)->hero_title_highlight }}</span><br>{{ app(App\Settings\GeneralSettings::class)->hero_title_part_2 }}
+                {{ $settings->hero_title_part_1 }}
+                <span class="text-mindmetrics-indigo">{{ $settings->hero_title_highlight }}</span><br>{{ $settings->hero_title_part_2 }}
             </h1>
             <!-- Subheadline/Description -->
             <p class="max-w-2xl mx-auto text-lg sm:text-xl text-slate-600 mb-10 leading-relaxed">
-                {{ app(App\Settings\GeneralSettings::class)->hero_subtitle }}
+                {{ $settings->hero_subtitle }}
             </p>
             <!-- Key Benefits (Checklist) -->
             <div class="grid grid-cols-1 sm:grid-cols-3 gap-x-6 gap-y-4 max-w-2xl mx-auto mb-12 text-left sm:text-center">
