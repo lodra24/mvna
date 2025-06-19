@@ -2,6 +2,7 @@
 
 namespace App\Services;
 
+use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Facades\Log;
 
@@ -40,52 +41,58 @@ class GeoIpService
             return false;
         }
 
-        try {
-            // ip-api.com servisine GET isteği gönder
-            $response = Http::timeout(10)->get("http://ip-api.com/json/{$ipAddress}", [
-                'fields' => 'status,countryCode,message'
-            ]);
+        // IP adresine özel bir cache anahtarı oluştur
+        $cacheKey = "geo_ip_turkey_{$ipAddress}";
 
-            // HTTP yanıtı başarılı mı kontrol et
-            if (!$response->successful()) {
-                Log::error('GeoIP API HTTP hatası', [
+        // Cache'den sonucu al, yoksa API'ye git ve sonucu 1 günlüğüne cache'le
+        return Cache::remember($cacheKey, now()->addDay(), function () use ($ipAddress) {
+            try {
+                // ip-api.com servisine GET isteği gönder
+                $response = Http::timeout(10)->get("http://ip-api.com/json/{$ipAddress}", [
+                    'fields' => 'status,countryCode,message'
+                ]);
+
+                // HTTP yanıtı başarılı mı kontrol et
+                if (!$response->successful()) {
+                    Log::error('GeoIP API HTTP hatası', [
+                        'ip' => $ipAddress,
+                        'status_code' => $response->status(),
+                        'response' => $response->body()
+                    ]);
+                    return false;
+                }
+
+                $data = $response->json();
+
+                // API yanıtının status değerini kontrol et
+                if (isset($data['status']) && $data['status'] === 'success') {
+                    // countryCode 'TR' ise true döndür
+                    return isset($data['countryCode']) && $data['countryCode'] === 'TR';
+                } elseif (isset($data['status']) && $data['status'] === 'fail') {
+                    // API'den başarısız yanıt geldi
+                    Log::warning('GeoIP API başarısız yanıt', [
+                        'ip' => $ipAddress,
+                        'message' => $data['message'] ?? 'Bilinmeyen hata'
+                    ]);
+                    return false;
+                }
+
+                // Beklenmeyen yanıt formatı
+                Log::warning('GeoIP API beklenmeyen yanıt formatı', [
                     'ip' => $ipAddress,
-                    'status_code' => $response->status(),
-                    'response' => $response->body()
+                    'response' => $data
+                ]);
+                return false;
+
+            } catch (\Exception $e) {
+                // Bağlantı hatası veya diğer istisnalar
+                Log::error('GeoIP servisi hatası', [
+                    'ip' => $ipAddress,
+                    'error' => $e->getMessage(),
+                    'trace' => $e->getTraceAsString()
                 ]);
                 return false;
             }
-
-            $data = $response->json();
-
-            // API yanıtının status değerini kontrol et
-            if (isset($data['status']) && $data['status'] === 'success') {
-                // countryCode 'TR' ise true döndür
-                return isset($data['countryCode']) && $data['countryCode'] === 'TR';
-            } elseif (isset($data['status']) && $data['status'] === 'fail') {
-                // API'den başarısız yanıt geldi
-                Log::warning('GeoIP API başarısız yanıt', [
-                    'ip' => $ipAddress,
-                    'message' => $data['message'] ?? 'Bilinmeyen hata'
-                ]);
-                return false;
-            }
-
-            // Beklenmeyen yanıt formatı
-            Log::warning('GeoIP API beklenmeyen yanıt formatı', [
-                'ip' => $ipAddress,
-                'response' => $data
-            ]);
-            return false;
-
-        } catch (\Exception $e) {
-            // Bağlantı hatası veya diğer istisnalar
-            Log::error('GeoIP servisi hatası', [
-                'ip' => $ipAddress,
-                'error' => $e->getMessage(),
-                'trace' => $e->getTraceAsString()
-            ]);
-            return false;
-        }
+        });
     }
 }
