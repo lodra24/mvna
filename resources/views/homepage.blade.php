@@ -190,7 +190,7 @@
                         <div class="relative mt-10 lg:mt-0" aria-hidden="true">
                              <div class="absolute -inset-4 rounded-3xl bg-gradient-to-tr from-mindmetrics-indigo/10 via-transparent to-pink-500/10 opacity-70 blur-xl animate-blob animation-delay-4000"></div>
                             <div class="relative aspect-[4/3] rounded-2xl bg-white shadow-2xl overflow-hidden ring-1 ring-slate-900/10">
-                                <img class="absolute inset-0 w-full h-full object-cover" src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80" alt="Abstract visual for Deep Personality Profiles">
+                                <img class="absolute inset-0 w-full h-full object-cover" src="{{ asset('images/feature1.jpg') }}" alt="Abstract visual for Deep Personality Profiles">
                                 <div class="absolute inset-0 bg-gradient-to-t from-slate-900/60 to-transparent"></div>
                             </div>
                         </div>
@@ -217,7 +217,7 @@
                         <div class="relative mt-10 lg:mt-0 lg:order-1" aria-hidden="true">
                             <div class="absolute -inset-4 rounded-3xl bg-gradient-to-tr from-mindmetrics-green/10 via-transparent to-sky-500/10 opacity-70 blur-xl animate-blob animation-delay-2000"></div>
                             <div class="relative aspect-[4/3] rounded-2xl bg-white shadow-2xl overflow-hidden ring-1 ring-slate-900/10">
-                                 <img class="absolute inset-0 w-full h-full object-cover" src="https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80" alt="Practical Management Guide Visual">
+                                 <img class="absolute inset-0 w-full h-full object-cover" src="{{ asset('images/feature2.jpg') }}" alt="Practical Management Guide Visual">
                                  <div class="absolute inset-0 bg-gradient-to-t from-slate-900/50 to-transparent"></div>
                             </div>
                         </div>
@@ -244,7 +244,7 @@
                          <div class="relative mt-10 lg:mt-0" aria-hidden="true">
                             <div class="absolute -inset-4 rounded-3xl bg-gradient-to-tr from-purple-500/10 via-transparent to-pink-500/10 opacity-70 blur-xl animate-blob animation-delay-6000"></div>
                             <div class="relative aspect-[4/3] rounded-2xl bg-white shadow-2xl overflow-hidden ring-1 ring-slate-900/10">
-                                 <img class="absolute inset-0 w-full h-full object-cover" src="https://images.unsplash.com/photo-1517048676732-d65bc937f952?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80" alt="Team Synergy Visual">
+                                 <img class="absolute inset-0 w-full h-full object-cover" src="{{ asset('images/feature3.jpg') }}" alt="Team Synergy Visual">
                                  <div class="absolute inset-0 bg-gradient-to-t from-slate-900/50 to-transparent"></div>
                             </div>
                         </div>
