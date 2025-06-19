@@ -61,10 +61,10 @@ class QuestionResource extends Resource
                 Forms\Components\Select::make('dimension')
                     ->label('Boyut (Dimension)')
                     ->options([
-                        'E_I' => 'Extraversion - Introversion (E-I)',
-                        'S_N' => 'Sensing - Intuition (S-N)',
-                        'T_F' => 'Thinking - Feeling (T-F)',
-                        'J_P' => 'Judging - Perceiving (J-P)',
+                        'E/I' => 'Extraversion - Introversion (E-I)',
+                        'S/N' => 'Sensing - Intuition (S-N)',
+                        'T/F' => 'Thinking - Feeling (T-F)',
+                        'J/P' => 'Judging - Perceiving (J-P)',
                     ])
                     ->required(),
                 Forms\Components\TextInput::make('option_a_value')
@@ -101,10 +101,10 @@ class QuestionResource extends Resource
                     ->label('Boyut')
                     ->badge()
                     ->color(fn (string $state): string => match ($state) {
-                        'E_I' => 'info',
-                        'S_N' => 'success',
-                        'T_F' => 'warning',
-                        'J_P' => 'danger',
+                        'E/I' => 'info',
+                        'S/N' => 'success',
+                        'T/F' => 'warning',
+                        'J/P' => 'danger',
                         default => 'gray',
                     }),
                 Tables\Columns\TextColumn::make('option_a_value')
@@ -128,10 +128,10 @@ class QuestionResource extends Resource
                 Tables\Filters\SelectFilter::make('dimension')
                     ->label('Boyut')
                     ->options([
-                        'E_I' => 'Extraversion - Introversion (E-I)',
-                        'S_N' => 'Sensing - Intuition (S-N)',
-                        'T_F' => 'Thinking - Feeling (T-F)',
-                        'J_P' => 'Judging - Perceiving (J-P)',
+                        'E/I' => 'Extraversion - Introversion (E-I)',
+                        'S/N' => 'Sensing - Intuition (S-N)',
+                        'T/F' => 'Thinking - Feeling (T-F)',
+                        'J/P' => 'Judging - Perceiving (J-P)',
                     ]),
             ])
             ->actions([
