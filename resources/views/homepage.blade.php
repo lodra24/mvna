@@ -112,7 +112,7 @@
                         @foreach($allCompanies as $company)
                         <div class="client-logo">
                             <img src="{{ asset('images/' . $company['image']) }}"
-                                 alt="{{ $company['name'] }} Logo"
+                                 alt="Trusted by {{ $company['name'] }}"
                                  loading="lazy">
                         </div>
                         @endforeach
