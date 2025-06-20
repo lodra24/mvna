@@ -113,7 +113,9 @@
                         <div class="client-logo">
                             <img src="{{ asset('images/' . $company['image']) }}"
                                  alt="Trusted by {{ $company['name'] }}"
-                                 loading="lazy">
+                                 loading="lazy"
+                                 width="120"
+                                 height="60">
                         </div>
                         @endforeach
                     </div>
@@ -189,7 +191,7 @@
                         <div class="relative mt-10 lg:mt-0" aria-hidden="true">
                              <div class="absolute -inset-4 rounded-3xl bg-gradient-to-tr from-mindmetrics-indigo/10 via-transparent to-pink-500/10 opacity-70 blur-xl animate-blob animation-delay-4000"></div>
                             <div class="relative aspect-[4/3] rounded-2xl bg-white shadow-2xl overflow-hidden ring-1 ring-slate-900/10">
-                                <img class="absolute inset-0 w-full h-full object-cover" src="{{ asset('images/feature1.jpg') }}" alt="Abstract visual for Deep Personality Profiles" loading="lazy">
+                                <img class="absolute inset-0 w-full h-full object-cover" src="{{ asset('images/feature1.jpg') }}" alt="Abstract visual for Deep Personality Profiles" loading="lazy" width="1170" height="780">
                                 <div class="absolute inset-0 bg-gradient-to-t from-slate-900/60 to-transparent"></div>
                             </div>
                         </div>
@@ -216,7 +218,7 @@
                         <div class="relative mt-10 lg:mt-0 lg:order-1" aria-hidden="true">
                             <div class="absolute -inset-4 rounded-3xl bg-gradient-to-tr from-mindmetrics-green/10 via-transparent to-sky-500/10 opacity-70 blur-xl animate-blob animation-delay-2000"></div>
                             <div class="relative aspect-[4/3] rounded-2xl bg-white shadow-2xl overflow-hidden ring-1 ring-slate-900/10">
-                                 <img class="absolute inset-0 w-full h-full object-cover" src="{{ asset('images/feature2.jpg') }}" alt="Practical Management Guide Visual" loading="lazy">
+                                 <img class="absolute inset-0 w-full h-full object-cover" src="{{ asset('images/feature2.jpg') }}" alt="Practical Management Guide Visual" loading="lazy" width="1170" height="480">
                                  <div class="absolute inset-0 bg-gradient-to-t from-slate-900/50 to-transparent"></div>
                             </div>
                         </div>
@@ -243,7 +245,7 @@
                          <div class="relative mt-10 lg:mt-0" aria-hidden="true">
                             <div class="absolute -inset-4 rounded-3xl bg-gradient-to-tr from-purple-500/10 via-transparent to-pink-500/10 opacity-70 blur-xl animate-blob animation-delay-6000"></div>
                             <div class="relative aspect-[4/3] rounded-2xl bg-white shadow-2xl overflow-hidden ring-1 ring-slate-900/10">
-                                 <img class="absolute inset-0 w-full h-full object-cover" src="{{ asset('images/feature3.jpg') }}" alt="Team Synergy Visual" loading="lazy">
+                                 <img class="absolute inset-0 w-full h-full object-cover" src="{{ asset('images/feature3.jpg') }}" alt="Team Synergy Visual" loading="lazy" width="1170" height="480">
                                  <div class="absolute inset-0 bg-gradient-to-t from-slate-900/50 to-transparent"></div>
                             </div>
                         </div>
