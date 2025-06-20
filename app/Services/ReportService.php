@@ -23,7 +23,7 @@ class ReportService
         $mbtiType = $testResult->mbti_type;
         
         // PDF dosya adını oluştur
-        $fileName = 'MindMetrics_Raporu_' . $mbtiType . '.pdf';
+        $fileName = 'CognifyWork_Report_' . $mbtiType . '.pdf';
         
         // PDF'i oluştur ve indir
         $pdf = Pdf::loadView('test.report_pdf', compact('mbtiType', 'mbtiTypeDetail', 'testResult'));

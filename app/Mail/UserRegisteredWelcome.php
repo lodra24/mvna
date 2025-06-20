@@ -29,7 +29,7 @@ class UserRegisteredWelcome extends Mailable
     public function envelope(): Envelope
     {
         return new Envelope(
-            subject: 'Welcome to MindMetrics!',
+            subject: 'Welcome to CognifyWork!',
         );
     }
 

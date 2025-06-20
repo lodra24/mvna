@@ -11,6 +11,7 @@ use Illuminate\Support\Facades\Cache; // Performans optimizasyonu için
 // zorunlu olmayabilir, ancak açıkça belirtmek iyi bir pratiktir.
 // Ayrıca, metodun dönüş tipini belirtmek için RedirectResponse da eklenebilir:
 use Illuminate\Http\RedirectResponse;
+use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 use App\Models\Question;
 use App\Models\TestResult;
 use App\Models\User;
@@ -26,6 +27,8 @@ use App\Models\UserAnswer;
 
 class TestController extends Controller
 {
+    
+      use AuthorizesRequests; 
     /**
      * 'test.start' view'ını gösterir.
      * Giriş yapmış kullanıcının adını view'a gönderir.

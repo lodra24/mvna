@@ -1,7 +1,7 @@
 @extends('layouts.public')
 
 @section('title', 'Privacy Policy')
-@section('description', 'Learn how MindMetrics protects your privacy and handles your personal data in our comprehensive privacy policy.')
+@section('description', 'Learn how CognifyWork protects your privacy and handles your personal data in our comprehensive privacy policy.')
 
 @section('content')
     <!-- PRIVACY POLICY CONTENT -->
@@ -23,7 +23,7 @@
                     Privacy & Security
                 </div>
                 <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-slate-900 tracking-tight mb-6">
-                    Privacy <span class="text-mindmetrics-indigo">Policy</span>
+                    Privacy Policy
                 </h1>
                 <p class="max-w-2xl mx-auto text-lg sm:text-xl text-slate-600 mb-8 leading-relaxed">
                     Your privacy is our priority. Learn how we collect, use, and protect your personal information.
@@ -49,7 +49,7 @@
                         <div>
                             <h2 class="text-2xl font-bold text-slate-900 mb-3">Introduction</h2>
                             <p class="text-slate-600 leading-relaxed">
-                                Welcome to MindMetrics ("we," "our," or "us"). We are committed to protecting your personal information and your right to privacy. This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you visit our website and use our MBTI personality assessment services.
+                                Welcome to CognifyWork ("we," "our," or "us"). We are committed to protecting your personal information and your right to privacy. This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you visit our website and use our MBTI personality assessment services.
                             </p>
                         </div>
                     </div>
@@ -293,7 +293,7 @@
                                 <div class="bg-mindmetrics-indigo-light/30 rounded-lg p-4 border border-mindmetrics-indigo/20">
                                     <p class="text-sm">
                                         <strong>To exercise these rights:</strong> Contact us at
-                                        <a href="mailto:privacy@mindmetrics.com" class="text-mindmetrics-indigo hover:underline font-medium">privacy@mindmetrics.com</a>
+                                        <a href="mailto:privacy@cognifywork.com" class="text-mindmetrics-indigo hover:underline font-medium">privacy@cognifywork.com</a>
                                         with your request. We will respond within 30 days.
                                     </p>
                                 </div>
@@ -414,8 +414,8 @@
                                             </svg>
                                             Email
                                         </h3>
-                                        <a href="mailto:privacy@mindmetrics.com" class="text-white/90 hover:text-white underline">
-                                            privacy@mindmetrics.com
+                                        <a href="mailto:privacy@cognifywork.com" class="text-white/90 hover:text-white underline">
+                                            privacy@cognifywork.com
                                         </a>
                                     </div>
                                     <div class="bg-white/10 rounded-lg p-4 backdrop-blur-sm">

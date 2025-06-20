@@ -1,6 +1,6 @@
 @extends('layouts.public')
 
-@section('title', $settings->seo_meta_title ?? 'MindMetrics - Unlock Business Potential with MBTI')
+@section('title', $settings->seo_meta_title ?? 'CognifyWork - Unlock Business Potential with MBTI')
 
 @section('content')
     <!-- HERO SECTION -->
@@ -163,7 +163,7 @@
                     Premium Features
                 </div>
                 <h2 class="text-4xl sm:text-5xl font-extrabold text-slate-900 mb-6 tracking-tight">
-                    What You Get with <span class="text-transparent bg-clip-text bg-gradient-to-r from-mindmetrics-indigo to-mindmetrics-green">MindMetrics</span>
+                    What You Get with <span class="text-transparent bg-clip-text bg-gradient-to-r from-mindmetrics-indigo to-mindmetrics-green">CognifyWork</span>
                 </h2>
                 <p class="text-xl text-slate-600 max-w-3xl mx-auto leading-relaxed">
                     Empower your HR decisions with science-backed personality insights that transform how you hire, manage, and develop talent.
@@ -434,7 +434,7 @@
                     <svg class="w-5 h-5 text-mindmetrics-green mr-2" fill="currentColor" viewBox="0 0 20 20">
                         <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
                     </svg>
-                    <span class="text-sm font-medium text-slate-700">Can't find your answer? <a href="mailto:info@mindmetrics.com?subject=Sales Inquiry&amp;body=Hello, I would like to learn more about MindMetrics MBTI assessment platform for my organization." class="text-mindmetrics-indigo hover:text-mindmetrics-green transition-colors">Contact us</a></span>
+                    <span class="text-sm font-medium text-slate-700">Can't find your answer? <a href="mailto:info@cognifywork.com?subject=Sales Inquiry&amp;body=Hello, I would like to learn more about MindMetrics MBTI assessment platform for my organization." class="text-mindmetrics-indigo hover:text-mindmetrics-green transition-colors">Contact us</a></span>
                 </div>
             </div>
 
@@ -769,7 +769,7 @@
                                 <path fill-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clip-rule="evenodd" />
                             </svg>
                         </a>
-                        <a href="mailto:info@mindmetrics.com?subject=Sales Inquiry&body=Hello, I would like to learn more about MindMetrics MBTI assessment platform for my organization." class="inline-flex items-center px-6 py-3 text-mindmetrics-indigo border border-mindmetrics-indigo/20 rounded-lg font-medium hover:bg-mindmetrics-indigo/5 transition-colors duration-200">
+                        <a href="mailto:info@cognifywork.com?subject=Sales Inquiry&body=Hello, I would like to learn more about CognifyWork MBTI assessment platform for my organization." class="inline-flex items-center px-6 py-3 text-mindmetrics-indigo border border-mindmetrics-indigo/20 rounded-lg font-medium hover:bg-mindmetrics-indigo/5 transition-colors duration-200">
                             <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 7.89a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
                             </svg>

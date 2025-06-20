@@ -29,8 +29,8 @@ class GeneralSettings extends Settings
             'hero_title_highlight' => 'NexusPoint',
             'hero_title_part_2' => 'Analysis',
             'hero_subtitle' => 'Get deeper insights into your candidates and employees with our personality analysis test designed specifically for employers, and strengthen your management strategies.',
-            'seo_meta_title' => 'MindMetrics - Unlock Business Potential with MBTI',
-            'seo_meta_description' => 'MindMetrics offers a comprehensive MBTI personality analysis test for employers to gain deeper insights into their candidates and employees, strengthening management and hiring strategies.',
+            'seo_meta_title' => 'CognifyWork - Unlock Business Potential with MBTI',
+            'seo_meta_description' => 'CognifyWork offers a comprehensive MBTI personality analysis test for employers to gain deeper insights into their candidates and employees, strengthening management and hiring strategies.',
             'site_custom_scripts' => null,
             'site_body_scripts' => null,
         ];

@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Welcome to MindMetrics</title>
+    <title>Welcome to CognifyWork</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -61,14 +61,14 @@
 <body>
     <div class="email-container">
         <div class="header">
-            <div class="logo">MindMetrics</div>
+            <div class="logo">CognifyWork</div>
             <h1>Welcome!</h1>
         </div>
         
         <div class="content">
             <p class="welcome-text">Hello {{ $user->name }},</p>
             
-            <p>Thank you for joining the MindMetrics community! We're excited to help you with personality analysis and mental health assessments.</p>
+            <p>Thank you for joining the CognifyWork community! We're excited to help you with personality analysis and mental health assessments.</p>
             
             <p>Your account has been successfully created and you can now take advantage of all the features of our platform:</p>
             
@@ -89,7 +89,7 @@
         </div>
         
         <div class="footer">
-            <p>Best regards,<br>MindMetrics Team</p>
+            <p>Best regards,<br>CognifyWork Team</p>
             <p><small>This email was sent automatically.</small></p>
         </div>
     </div>

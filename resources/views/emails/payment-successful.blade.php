@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Your Payment Was Successful - MindMetrics</title>
+    <title>Your Payment Was Successful - CognifyWork</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -85,7 +85,7 @@
 <body>
     <div class="email-container">
         <div class="header">
-            <div class="logo">MindMetrics</div>
+            <div class="logo">CognifyWork</div>
             <div class="success-icon">✅</div>
             <h1>Your Payment Was Successful!</h1>
         </div>
@@ -93,7 +93,7 @@
         <div class="content">
             <p class="welcome-text">Hello {{ $testResult->user->name }},</p>
             
-            <p>Your payment for the MindMetrics report has been successfully processed. Thank you!</p>
+            <p>Your payment for the CognifyWork report has been successfully processed. Thank you!</p>
             
             <div class="highlight-box">
                 <p><strong>Your report is ready!</strong> You can immediately access your personality analysis report using the buttons below.</p>
@@ -121,11 +121,11 @@
             
             <p>If you have any questions after reviewing your report, please don't hesitate to contact us.</p>
             
-            <p>Thank you for choosing MindMetrics!</p>
+            <p>Thank you for choosing CognifyWork!</p>
         </div>
         
         <div class="footer">
-            <p>Best regards,<br>MindMetrics Team</p>
+            <p>Best regards,<br>CognifyWork Team</p>
             <p><small>This email was sent automatically.</small></p>
         </div>
     </div>

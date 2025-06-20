@@ -1,7 +1,7 @@
 @extends('layouts.public')
 
 @section('title', 'Terms of Service')
-@section('description', 'Read our Terms of Service to understand the rules and guidelines for using MindMetrics MBTI personality assessment services.')
+@section('description', 'Read our Terms of Service to understand the rules and guidelines for using CognifyWork MBTI personality assessment services.')
 
 @section('content')
         <!-- Background Pattern -->
@@ -21,10 +21,10 @@
                     Legal Terms
                 </div>
                 <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-slate-900 tracking-tight mb-6">
-                    Terms of <span class="text-mindmetrics-indigo">Service</span>
+                    Terms of Service
                 </h1>
                 <p class="max-w-2xl mx-auto text-lg sm:text-xl text-slate-600 mb-8 leading-relaxed">
-                    These terms govern your use of MindMetrics and our MBTI personality assessment services.
+                    These terms govern your use of CognifyWork and our MBTI personality assessment services.
                 </p>
                 <div class="flex items-center justify-center text-sm text-slate-500">
                     <svg class="w-4 h-4 mr-2" fill="currentColor" viewBox="0 0 20 20">
@@ -45,9 +45,9 @@
                             </svg>
                         </div>
                         <div>
-                            <h2 class="text-2xl font-bold text-slate-900 mb-3">Welcome to MindMetrics</h2>
+                            <h2 class="text-2xl font-bold text-slate-900 mb-3">Welcome to CognifyWork</h2>
                             <p class="text-slate-600 leading-relaxed">
-                                These Terms of Service ("Terms") govern your use of the MindMetrics website and our MBTI personality assessment services. By accessing or using our services, you agree to be bound by these Terms. If you do not agree to these Terms, please do not use our services.
+                                These Terms of Service ("Terms") govern your use of the CognifyWork website and our MBTI personality assessment services. By accessing or using our services, you agree to be bound by these Terms. If you do not agree to these Terms, please do not use our services.
                             </p>
                         </div>
                     </div>
@@ -280,7 +280,7 @@
                             <h2 class="text-2xl font-bold text-slate-900 mb-3">Intellectual Property</h2>
                             <div class="space-y-4 text-slate-600">
                                 <p class="leading-relaxed">
-                                    All content, features, and functionality on our platform are owned by MindMetrics and are protected by international copyright, trademark, and other intellectual property laws.
+                                    All content, features, and functionality on our platform are owned by CognifyWork and are protected by international copyright, trademark, and other intellectual property laws.
                                 </p>
                                 <div class="space-y-3">
                                     <div class="bg-slate-50 rounded-lg p-4">
@@ -342,7 +342,7 @@
                             <h2 class="text-2xl font-bold text-slate-900 mb-3">Limitation of Liability</h2>
                             <div class="space-y-4 text-slate-600">
                                 <p class="leading-relaxed">
-                                    To the maximum extent permitted by law, MindMetrics shall not be liable for any indirect, incidental, special, consequential, or punitive damages.
+                                    To the maximum extent permitted by law, CognifyWork shall not be liable for any indirect, incidental, special, consequential, or punitive damages.
                                 </p>
                                 <div class="bg-red-50 rounded-lg p-4 border border-red-100">
                                     <p class="text-sm">
@@ -406,8 +406,8 @@
                                             </svg>
                                             Email
                                         </h3>
-                                        <a href="mailto:legal@mindmetrics.com" class="text-white/90 hover:text-white underline">
-                                            legal@mindmetrics.com
+                                        <a href="mailto:legal@cognifywork.com" class="text-white/90 hover:text-white underline">
+                                            legal@cognifywork.com
                                         </a>
                                     </div>
                                     <div class="bg-white/10 rounded-lg p-4 backdrop-blur-sm">
