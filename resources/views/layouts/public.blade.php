@@ -20,10 +20,34 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    
+    {{-- SEO ve Sosyal Medya Meta Etiketleri --}}
+    
+    {{-- Canonical URL --}}
+    <link rel="canonical" href="{{ url()->current() }}">
+    
+    {{-- Open Graph Etiketleri --}}
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="CognifyWork">
+    <meta property="og:title" content="@yield('title', $settings->seo_meta_title ?? 'CognifyWork - Unlock Business Potential with MBTI')">
+    <meta property="og:description" content="@yield('description', $settings->seo_meta_description ?? 'Discover your MBTI personality type and unlock your business potential with CognifyWork.')">
+    <meta property="og:url" content="{{ url()->current() }}">
+    <meta property="og:image" content="{{ asset('images/social-share.jpg') }}">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:locale" content="{{ str_replace('-', '_', app()->getLocale()) }}">
+    
+    {{-- Twitter Card Etiketleri --}}
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="@yield('title', $settings->seo_meta_title ?? 'CognifyWork - Unlock Business Potential with MBTI')">
+    <meta name="twitter:description" content="@yield('description', $settings->seo_meta_description ?? 'Discover your MBTI personality type and unlock your business potential with CognifyWork.')">
+    <meta name="twitter:image" content="{{ asset('images/social-share.jpg') }}">
+    
     @vite(['resources/css/app.css', 'resources/js/app.js'])
     @if($settings->site_custom_scripts)
         {!! $settings->site_custom_scripts !!}
     @endif
+    @stack('structured-data')
 </head>
 <body class="antialiased" x-data="{ showDemoModal: false, showToast: false, toastMessage: '' }">
     <!-- HEADER / NAVIGATION -->

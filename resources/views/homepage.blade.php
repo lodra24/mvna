@@ -1,3 +1,75 @@
+@php
+// SSS bölümündeki verileri Schema için bir diziye alıyoruz.
+// Buradaki metinler, SSS bölümündeki metinlerle birebir aynı olmalı.
+$faqData = [
+    [
+        "question" => "What is the MBTI Vocational NexusPoint Analysis and how does it help employers?",
+        "answer" => "Our MBTI Vocational NexusPoint Analysis is a scientifically-backed personality assessment that identifies 16 distinct personality types based on psychological preferences. For employers, this provides invaluable insights into how candidates approach problem-solving, their communication styles, and leadership potential."
+    ],
+    [
+        "question" => "How long does the assessment take to complete?",
+        "answer" => "The assessment is designed to be both comprehensive and time-efficient, typically taking between 15-20 minutes to complete. The report is generated instantly upon completion."
+    ],
+    [
+        "question" => "What's included in the employer report?",
+        "answer" => "Our comprehensive employer report provides actionable insights across multiple dimensions, including: Personality Overview, Management Tips, Team Dynamics, Communication Style, Stress Indicators, and Development Areas."
+    ],
+    [
+        "question" => "Is the assessment suitable for all job roles?",
+        "answer" => "Yes! Our MBTI assessment is valuable across all industries and job levels, particularly for leadership, team-based, customer-facing, and creative roles. However, it should complement, not replace, traditional hiring methods."
+    ],
+    [
+        "question" => "How secure is candidate data?",
+        "answer" => "Data security is our top priority. We are GDPR & CCPA Compliant, use 256-bit SSL Encryption for all data transmission, and enforce strict access controls."
+    ],
+    [
+        "question" => "Do you offer customer support and training?",
+        "answer" => "Absolutely! We provide comprehensive support, including 24/7 technical assistance and free training webinars on MBTI interpretation to ensure you get maximum value from our platform."
+    ],
+    [
+        "question" => "How is the 'NexusPoint' different from a standard MBTI test?",
+        "answer" => "While a standard MBTI test reveals your personality type, our Vocational NexusPoint Analysis goes further. It connects your type to specific career strengths, ideal work environments, and actionable management strategies, providing a 'nexus point' between your personality and professional potential."
+    ]
+];
+@endphp
+
+@push('structured-data')
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "name": "CognifyWork",
+      "url": "{{ config('app.url') }}",
+      "logo": "{{ asset('images/logo.png') }}",
+      "sameAs": []
+    },
+    {
+      "@type": "WebSite",
+      "name": "CognifyWork",
+      "url": "{{ config('app.url') }}"
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        @foreach($faqData as $faq)
+        {
+          "@type": "Question",
+          "name": "{{ addslashes($faq['question']) }}",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "{{ addslashes($faq['answer']) }}"
+          }
+        }
+        @if (!$loop->last),@endif
+        @endforeach
+      ]
+    }
+  ]
+}
+</script>
+@endpush
 @extends('layouts.public')
 
 @section('title', $settings->seo_meta_title ?? 'MBTI Vocational NexusPoint Analysis - CognifyWork')

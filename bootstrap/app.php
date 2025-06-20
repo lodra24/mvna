@@ -17,6 +17,7 @@ return Application::configure(basePath: dirname(__DIR__))
     })
     ->withSchedule(function ($schedule) {
         $schedule->command('app:cleanup-orphaned-tests')->dailyAt('03:00')->withoutOverlapping(10);
+        $schedule->command('sitemap:generate')->dailyAt('02:00');
     })
     ->withExceptions(function (Exceptions $exceptions) {
         //
