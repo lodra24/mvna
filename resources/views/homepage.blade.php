@@ -1,6 +1,6 @@
 @extends('layouts.public')
 
-@section('title', $settings->seo_meta_title ?? 'CognifyWork - Unlock Business Potential with MBTI')
+@section('title', $settings->seo_meta_title ?? 'MBTI Vocational NexusPoint Analysis - CognifyWork')
 
 @section('content')
     <!-- HERO SECTION -->
@@ -163,7 +163,7 @@
                     Premium Features
                 </div>
                 <h2 class="text-4xl sm:text-5xl font-extrabold text-slate-900 mb-6 tracking-tight">
-                    What You Get with <span class="text-transparent bg-clip-text bg-gradient-to-r from-mindmetrics-indigo to-mindmetrics-green">CognifyWork</span>
+                    What You Get with Our <span class="text-transparent bg-clip-text bg-gradient-to-r from-mindmetrics-indigo to-mindmetrics-green">Vocational NexusPoint Analysis</span>
                 </h2>
                 <p class="text-xl text-slate-600 max-w-3xl mx-auto leading-relaxed">
                     Empower your HR decisions with science-backed personality insights that transform how you hire, manage, and develop talent.
@@ -180,7 +180,7 @@
                                 </div>
                                 <div class="ml-5"><span class="text-sm font-semibold text-mindmetrics-indigo uppercase tracking-wider">Feature 01</span></div>
                             </div>
-                            <h3 class="text-3xl font-bold text-slate-900 mb-4 tracking-tight">Deep Personality Profiles</h3>
+                            <h3 class="text-3xl font-bold text-slate-900 mb-4 tracking-tight">Deep MBTI Profiles for Vocational Fit</h3>
                             <p class="text-lg text-slate-600 leading-relaxed mb-6">Uncover candidates' and employees' core personality traits, motivations, and decision-making mechanisms based on MBTI framework.</p>
                             <ul class="space-y-3 text-slate-600">
                                 <li class="flex items-start"><svg class="w-6 h-6 text-mindmetrics-green mt-0.5 mr-3 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg><span>16 personality type analysis</span></li>
@@ -191,7 +191,7 @@
                         <div class="relative mt-10 lg:mt-0" aria-hidden="true">
                              <div class="absolute -inset-4 rounded-3xl bg-gradient-to-tr from-mindmetrics-indigo/10 via-transparent to-pink-500/10 opacity-70 blur-xl animate-blob animation-delay-4000"></div>
                             <div class="relative aspect-[4/3] rounded-2xl bg-white shadow-2xl overflow-hidden ring-1 ring-slate-900/10">
-                                <img class="absolute inset-0 w-full h-full object-cover" src="{{ asset('images/feature1.jpg') }}" alt="Abstract visual for Deep Personality Profiles" loading="lazy" width="1170" height="780">
+                                <img class="absolute inset-0 w-full h-full object-cover" src="{{ asset('images/feature1.jpg') }}" alt="A chart from the MBTI Vocational NexusPoint Analysis showing personality traits" loading="lazy" width="1170" height="780">
                                 <div class="absolute inset-0 bg-gradient-to-t from-slate-900/60 to-transparent"></div>
                             </div>
                         </div>
@@ -218,7 +218,7 @@
                         <div class="relative mt-10 lg:mt-0 lg:order-1" aria-hidden="true">
                             <div class="absolute -inset-4 rounded-3xl bg-gradient-to-tr from-mindmetrics-green/10 via-transparent to-sky-500/10 opacity-70 blur-xl animate-blob animation-delay-2000"></div>
                             <div class="relative aspect-[4/3] rounded-2xl bg-white shadow-2xl overflow-hidden ring-1 ring-slate-900/10">
-                                 <img class="absolute inset-0 w-full h-full object-cover" src="{{ asset('images/feature2.jpg') }}" alt="Practical Management Guide Visual" loading="lazy" width="1170" height="480">
+                                 <img class="absolute inset-0 w-full h-full object-cover" src="{{ asset('images/feature2.jpg') }}" alt="Practical Management Guide Visual" loading="lazy" width="1170" height="780">
                                  <div class="absolute inset-0 bg-gradient-to-t from-slate-900/50 to-transparent"></div>
                             </div>
                         </div>
@@ -245,7 +245,7 @@
                          <div class="relative mt-10 lg:mt-0" aria-hidden="true">
                             <div class="absolute -inset-4 rounded-3xl bg-gradient-to-tr from-purple-500/10 via-transparent to-pink-500/10 opacity-70 blur-xl animate-blob animation-delay-6000"></div>
                             <div class="relative aspect-[4/3] rounded-2xl bg-white shadow-2xl overflow-hidden ring-1 ring-slate-900/10">
-                                 <img class="absolute inset-0 w-full h-full object-cover" src="{{ asset('images/feature3.jpg') }}" alt="Team Synergy Visual" loading="lazy" width="1170" height="480">
+                                 <img class="absolute inset-0 w-full h-full object-cover" src="{{ asset('images/feature3.jpg') }}" alt="Team Synergy Visual" loading="lazy" width="1170" height="780">
                                  <div class="absolute inset-0 bg-gradient-to-t from-slate-900/50 to-transparent"></div>
                             </div>
                         </div>
@@ -450,7 +450,7 @@
                                     <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clip-rule="evenodd"/>
                                 </svg>
                             </div>
-                            <span class="text-lg font-semibold text-slate-900">What is MBTI and how does it help employers?</span>
+                            <span class="text-lg font-semibold text-slate-900">What is the MBTI Vocational NexusPoint Analysis and how does it help employers?</span>
                         </div>
                         <svg class="faq-icon w-6 h-6 text-slate-400 transform transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
@@ -458,7 +458,7 @@
                     </button>
                     <div class="faq-answer px-6 pb-6">
                         <div class="pl-12 text-slate-600 leading-relaxed">
-                            <p class="mb-3">MBTI (Myers-Briggs Type Indicator) is a scientifically-backed personality assessment that identifies 16 distinct personality types based on psychological preferences. For employers, this provides invaluable insights into:</p>
+                            <p class="mb-3">Our <strong>MBTI Vocational NexusPoint Analysis</strong> is a scientifically-backed personality assessment that identifies 16 distinct personality types based on psychological preferences. For employers, this provides invaluable insights into:</p>
                             <ul class="space-y-2 ml-4">
                                 <li class="flex items-start">
                                     <span class="w-2 h-2 bg-mindmetrics-green rounded-full mt-2 mr-3 flex-shrink-0"></span>
@@ -752,6 +752,28 @@
                                     Contact Support
                                 </a>
                             </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- FAQ Item 7 - Yeni Eklenen -->
+                <div class="faq-item bg-white rounded-2xl shadow-sm border border-slate-200/80 overflow-hidden hover:shadow-md transition-all duration-300">
+                    <button class="faq-question w-full px-6 py-6 text-left flex items-center justify-between focus:outline-none focus:ring-2 focus:ring-mindmetrics-indigo/20 focus:ring-inset">
+                        <div class="flex items-center">
+                            <div class="flex-shrink-0 w-8 h-8 bg-mindmetrics-green/10 rounded-lg flex items-center justify-center mr-4">
+                                <svg class="w-5 h-5 text-mindmetrics-green" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd" d="M3 4a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zm0 4a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zm0 4a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zm0 4a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z" clip-rule="evenodd"/>
+                                </svg>
+                            </div>
+                            <span class="text-lg font-semibold text-slate-900">How is the 'NexusPoint' different from a standard MBTI test?</span>
+                        </div>
+                        <svg class="faq-icon w-6 h-6 text-slate-400 transform transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+                        </svg>
+                    </button>
+                    <div class="faq-answer px-6 pb-6">
+                        <div class="pl-12 text-slate-600 leading-relaxed">
+                            <p>While a standard MBTI test reveals your personality type, our <strong>Vocational NexusPoint Analysis</strong> goes further. It connects your type to specific career strengths, ideal work environments, and actionable management strategies, providing a 'nexus point' between your personality and professional potential.</p>
                         </div>
                     </div>
                 </div>
