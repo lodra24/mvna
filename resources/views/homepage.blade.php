@@ -94,16 +94,16 @@
                     <div class="logo-carousel-track">
                         @php
                             $trustedCompanies = [
-                                ['name' => 'TechCorp', 'domain' => 'microsoft.com'],
-                                ['name' => 'InnovateLab', 'domain' => 'google.com'],
-                                ['name' => 'GlobalTech', 'domain' => 'apple.com'],
-                                ['name' => 'FutureSoft', 'domain' => 'amazon.com'],
-                                ['name' => 'DataDriven', 'domain' => 'meta.com'],
-                                ['name' => 'SmartSys', 'domain' => 'netflix.com'],
-                                ['name' => 'NextGen', 'domain' => 'tesla.com'],
-                                ['name' => 'CloudFirst', 'domain' => 'spotify.com'],
-                                ['name' => 'AI Systems', 'domain' => 'openai.com'],
-                                ['name' => 'Digital Flow', 'domain' => 'adobe.com'],
+                                ['name' => 'Amazon', 'image' => 'amazon.png'],
+                                ['name' => 'Asana', 'image' => 'asana.png'],
+                                ['name' => 'Deliveroo', 'image' => 'deliveroo.png'],
+                                ['name' => 'Figma', 'image' => 'figma.png'],
+                                ['name' => 'Intercom', 'image' => 'intercom.jpg'],
+                                ['name' => 'Notion', 'image' => 'notion.png'],
+                                ['name' => 'Qlik', 'image' => 'qlik.png'],
+                                ['name' => 'Spotify', 'image' => 'spotify.png'],
+                                ['name' => 'Warby Parker', 'image' => 'warby-parker.png'],
+                                ['name' => 'Zapier', 'image' => 'zapier.png'],
                             ];
                             // Seamless scroll için logoları çoğalt
                             $allCompanies = array_merge($trustedCompanies, $trustedCompanies);
@@ -111,8 +111,7 @@
                         
                         @foreach($allCompanies as $company)
                         <div class="client-logo">
-                            <img src="https://logo.clearbit.com/{{ $company['domain'] }}?size=120&format=png"
-                                 onerror="this.onerror=null; this.src='https://via.placeholder.com/120x60/E2E8F0/64748B?text={{ urlencode($company['name']) }}';"
+                            <img src="{{ asset('images/' . $company['image']) }}"
                                  alt="{{ $company['name'] }} Logo"
                                  loading="lazy">
                         </div>
