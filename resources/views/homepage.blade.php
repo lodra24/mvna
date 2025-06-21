@@ -234,9 +234,13 @@ $faqData = [
                     </svg>
                     Premium Features
                 </div>
-                <h2 class="text-4xl sm:text-5xl font-extrabold text-slate-900 mb-6 tracking-tight">
-                    What You Get with Our <span class="text-transparent bg-clip-text bg-gradient-to-r from-mindmetrics-indigo to-mindmetrics-green">Vocational NexusPoint Analysis</span>
-                </h2>
+                    <h2 class="text-4xl sm:text-5xl font-extrabold text-slate-900 mb-6 tracking-tight">
+                        What You Get with Our
+                        <span class="sr-only">Vocational NexusPoint</span>
+                        <span class="text-transparent bg-clip-text bg-gradient-to-r from-mindmetrics-indigo to-mindmetrics-green">
+                            Analysis
+                        </span>
+                    </h2>
                 <p class="text-xl text-slate-600 max-w-3xl mx-auto leading-relaxed">
                     Empower your HR decisions with science-backed personality insights that transform how you hire, manage, and develop talent.
                 </p>

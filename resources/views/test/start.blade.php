@@ -1,8 +1,12 @@
 @extends('layouts.test-layout')
 
-@section('title', 'Start the Test')
+@section('title', 'Start Your MBTI Vocational NexusPoint Analysis')
 
-@section('page-title', 'MBTI Vocational NexusPoint Analysis')
+@section('page-title')
+    Start Your MBTI
+    <span class="sr-only">Vocational NexusPoint</span> 
+    Analysis
+@endsection
 
 @section('page-subtitle')
     Discover your personality type and unlock your career potential. This comprehensive analysis will help you identify your strengths and ideal work environment.
