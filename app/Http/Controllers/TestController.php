@@ -38,8 +38,22 @@ class TestController extends Controller
      * @param  \App\Services\GeoIpService  $geoIpService
      * @return \Illuminate\View\View
      */
-    public function start(Request $request, GeoIpService $geoIpService): View
+    public function start(Request $request, GeoIpService $geoIpService): View|RedirectResponse
     {
+        // Yarım kalmış bir test var mı diye session'ı kontrol et
+        $activeTestId = $request->session()->get('active_test_result_id');
+
+        if ($activeTestId) {
+            $testResult = TestResult::find($activeTestId);
+
+            // Testin hala geçerli olup olmadığını (örneğin tamamlanmamış) ve
+            // bir misafire ait olduğunu (user_id'si null) kontrol et
+            if ($testResult && $testResult->status === 'in_progress') {
+                // Kullanıcıyı doğrudan yarım kalan testin soru sayfasına yönlendir
+                return redirect()->route('test.questions', ['testResult' => $testResult->id]);
+            }
+        }
+
         // Giriş yapmış kullanıcının adını al, yoksa boş string kullan
         $userName = Auth::check() ? Auth::user()->name : '';
         
@@ -137,11 +151,58 @@ class TestController extends Controller
             return Question::select(['id', 'question_text', 'option_a_text', 'option_b_text'])->get();
         });
 
+        // Bu teste ait önceden verilmiş cevapları çek
+        $initialAnswers = $testResult->userAnswers()
+                                      ->pluck('chosen_option', 'question_id')
+                                      ->toArray();
+
         return view('test.questions', [
             'userName' => $userName,
             'questions' => $questions,
             'testResult' => $testResult, // Formun action URL'ini doğru oluşturabilmek için
+            'initialAnswers' => $initialAnswers, // Bu satırı ekle
         ]);
+    }
+
+    /**
+     * Test sırasında verilen tek bir cevabı AJAX ile kaydeder.
+     *
+     * @param \Illuminate\Http\Request $request
+     * @param \App\Models\TestResult $testResult
+     * @return \Illuminate\Http\JsonResponse
+     */
+    public function saveProgress(Request $request, TestResult $testResult)
+    {
+        // Güvenlik: Kullanıcı bu teste sahip mi veya session'daki test mi?
+        $activeTestId = $request->session()->get('active_test_result_id');
+        
+        // Misafir kullanıcılar için session kontrolü
+        if ($testResult->id !== $activeTestId) {
+            // Eğer giriş yapmış bir kullanıcıysa policy ile de kontrol edilebilir.
+            if (Auth::check() && Auth::id() !== $testResult->user_id) {
+                return response()->json(['error' => 'Unauthorized user for this test.'], 403);
+            }
+            if (!Auth::check() && $testResult->id !== $activeTestId) {
+                return response()->json(['error' => 'Unauthorized session for this test.'], 403);
+            }
+        }
+
+        $validated = $request->validate([
+            'question_id' => 'required|exists:questions,id',
+            'chosen_option' => 'required|in:A,B',
+        ]);
+
+        UserAnswer::updateOrCreate(
+            [
+                'test_result_id' => $testResult->id,
+                'question_id'    => $validated['question_id'],
+            ],
+            [
+                'chosen_option' => $validated['chosen_option'],
+            ]
+        );
+
+        return response()->json(['success' => true, 'message' => 'Progress saved.']);
     }
 
     /**

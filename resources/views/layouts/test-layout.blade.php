@@ -161,44 +161,6 @@
             }
         };
         
-        // Auto-save functionality for forms
-        window.enableAutoSave = function(formElement, key) {
-            const inputs = formElement.querySelectorAll('input, select, textarea');
-            
-            // Load saved data
-            const savedData = localStorage.getItem(key);
-            if (savedData) {
-                const data = JSON.parse(savedData);
-                inputs.forEach(input => {
-                    if (data[input.name]) {
-                        if (input.type === 'radio' || input.type === 'checkbox') {
-                            if (input.value === data[input.name]) {
-                                input.checked = true;
-                            }
-                        } else {
-                            input.value = data[input.name];
-                        }
-                    }
-                });
-            }
-            
-            // Save on change
-            inputs.forEach(input => {
-                input.addEventListener('change', function() {
-                    const formData = new FormData(formElement);
-                    const data = {};
-                    for (let [key, value] of formData.entries()) {
-                        data[key] = value;
-                    }
-                    localStorage.setItem(key, JSON.stringify(data));
-                });
-            });
-        };
-        
-        // Clear auto-saved data
-        window.clearAutoSave = function(key) {
-            localStorage.removeItem(key);
-        };
     </script>
     
     <!-- Page specific scripts -->

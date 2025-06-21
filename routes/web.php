@@ -37,6 +37,9 @@ Route::get('/test/questions/{testResult}', [TestController::class, 'showQuestion
     ->name('test.questions')
     ->middleware('set.test.language');
 
+// AJAX ile test ilerleme kaydetme rotası
+Route::post('/test/save-progress/{testResult}', [TestController::class, 'saveProgress'])->name('test.saveProgress');
+
 // Cevap gönderme rotası da TestResult modeli alacak.
 Route::post('/test/submit/{testResult}', [TestController::class, 'submitAnswers'])
     ->name('test.submit');

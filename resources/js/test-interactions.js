@@ -10,26 +10,71 @@ class QuestionManager {
         this.questionsContainer = document.getElementById('questions-container');
         this.questions = Array.from(this.questionsContainer.querySelectorAll('.test-question'));
         this.totalQuestions = this.questions.length;
+        this.testId = this.form.dataset.testId;
+        this.saveProgressUrl = `/test/save-progress/${this.testId}`;
         
         // Test durumunu yönetecek özellikler
         this.currentQuestionIndex = 0;
         this.answers = {};
         this.advanceTimer = null;
         
-        // LocalStorage için kullanıcı adı ve anahtar
-        this.userName = document.querySelector('[data-user-name]')?.dataset.userName || 'guest_user';
-        this.saveKey = 'mbti_test_progress';
-        this.saveDebounceTimer = null;
         
         // Sınıfı başlat
         this.init();
     }
     
     init() {
-        this.loadProgress();
+        this.loadInitialAnswers();
         this.setupEventListeners();
         this.showQuestion(this.currentQuestionIndex);
         this.updateUI();
+    }
+    
+    loadInitialAnswers() {
+        const initialAnswersData = document.getElementById('initial-answers-data');
+        if (initialAnswersData) {
+            try {
+                const answers = JSON.parse(initialAnswersData.textContent);
+                this.answers = answers;
+
+                // Arayüzdeki radio butonları işaretle
+                Object.entries(this.answers).forEach(([questionId, value]) => {
+                    const radioInput = this.form.querySelector(`input[data-question-id="${questionId}"][value="${value}"]`);
+                    if (radioInput) {
+                        radioInput.checked = true;
+                        const selectedOption = radioInput.closest('.test-option');
+                        if (selectedOption) {
+                            selectedOption.classList.add('selected');
+                        }
+                    }
+                });
+
+                // En son cevaplanan sorudan bir sonrakine git veya son soruda kal
+                const lastAnsweredIndex = this.findLastAnsweredQuestionIndex();
+                if (lastAnsweredIndex !== -1 && lastAnsweredIndex < this.totalQuestions - 1) {
+                    this.currentQuestionIndex = lastAnsweredIndex + 1;
+                } else if(lastAnsweredIndex !== -1) {
+                    this.currentQuestionIndex = lastAnsweredIndex;
+                }
+
+            } catch (e) {
+                console.error("Başlangıç cevapları yüklenirken hata oluştu:", e);
+            }
+        }
+    }
+    
+    findLastAnsweredQuestionIndex() {
+        const answeredIds = Object.keys(this.answers);
+        if (answeredIds.length === 0) return -1;
+
+        let lastIndex = -1;
+        this.questions.forEach((q, index) => {
+            const questionId = q.querySelector('input[type=radio]').dataset.questionId;
+            if (answeredIds.includes(questionId)) {
+                lastIndex = index;
+            }
+        });
+        return lastIndex;
     }
     
     showQuestion(index) {
@@ -112,9 +157,9 @@ class QuestionManager {
             }
         });
         
-        // Form submit event listener - progress temizleme için
+        // Form submit event listener
         this.form.addEventListener('submit', () => {
-            this.clearProgress();
+            // Form submit işlemi
         });
     }
     
@@ -206,8 +251,7 @@ class QuestionManager {
             }
         }
         
-        // Progress'i kaydet (debounced)
-        this.debouncedSaveProgress();
+        this.saveAnswerToServer(questionId, value);
         
         // Otomatik ilerleme mantığı
         this.advanceTimer = setTimeout(() => {
@@ -222,65 +266,30 @@ class QuestionManager {
         return Object.keys(this.answers).length === this.totalQuestions;
     }
     
-    saveProgress() {
-        // Progress objesini oluştur
-        const progressData = {
-            answers: this.answers,
-            currentQuestionIndex: this.currentQuestionIndex,
-            userName: this.userName,
-            timestamp: new Date().getTime()
-        };
-        
-        // localStorage'a kaydet
-        localStorage.setItem(this.saveKey, JSON.stringify(progressData));
-        console.log('Progress saved.');
-    }
-    
-    debouncedSaveProgress() {
-        // Mevcut timer'ı temizle
-        clearTimeout(this.saveDebounceTimer);
-        
-        // Yeni timer kur
-        this.saveDebounceTimer = setTimeout(() => {
-            this.saveProgress();
-        }, 500);
-    }
-    
-    loadProgress() {
-        // localStorage'dan veriyi oku
-        const savedData = localStorage.getItem(this.saveKey);
-        
-        if (savedData) {
-            try {
-                const progressData = JSON.parse(savedData);
-                
-                // Veriyi sınıf özelliklerine ata
-                this.answers = progressData.answers || {};
-                this.currentQuestionIndex = progressData.currentQuestionIndex || 0;
-                
-                // Kayıtlı cevapları radio butonlarına uygula
-                Object.entries(this.answers).forEach(([questionId, value]) => {
-                    const radioInput = this.form.querySelector(`input[data-question-id="${questionId}"][value="${value}"]`);
-                    if (radioInput) {
-                        radioInput.checked = true;
-                        // Görsel geri bildirim için selected sınıfını ekle
-                        const selectedOption = radioInput.closest('.test-option');
-                        if (selectedOption) {
-                            selectedOption.classList.add('selected');
-                        }
-                    }
-                });
-                
-                console.log('Progress loaded.');
-            } catch (error) {
-                console.error('Error loading progress:', error);
+    async saveAnswerToServer(questionId, chosenOption) {
+        try {
+            const response = await fetch(this.saveProgressUrl, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]').getAttribute('content'),
+                    'Accept': 'application/json',
+                },
+                body: JSON.stringify({
+                    question_id: questionId,
+                    chosen_option: chosenOption
+                })
+            });
+
+            if (!response.ok) {
+                const errorData = await response.json();
+                console.error('Cevap kaydedilemedi:', response.statusText, errorData);
+            } else {
+                console.log(`Cevap kaydedildi: Soru ${questionId} = ${chosenOption}`);
             }
+        } catch (error) {
+            console.error('Sunucu bağlantı hatası:', error);
         }
-    }
-    
-    clearProgress() {
-        // localStorage'dan veriyi sil
-        localStorage.removeItem(this.saveKey);
     }
     
     updateNavDots() {

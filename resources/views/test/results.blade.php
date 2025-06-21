@@ -272,12 +272,6 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     }, 1000);
     
-    // Clear any auto-saved data
-    const userName = '{{ $userName ?? "user" }}';
-    if (typeof clearAutoSave === 'function') {
-        clearAutoSave(`mbti_test_answers_${userName}`);
-    }
-    
     // Add smooth reveal animation to result cards
     const cards = document.querySelectorAll('.test-score-card');
     cards.forEach((card, index) => {

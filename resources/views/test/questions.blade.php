@@ -41,8 +41,13 @@
         </div>
 
         <!-- Form -->
-        <form action="{{ route('test.submit', ['testResult' => $testResult]) }}" method="POST" id="test-form" class="test-form">
+        <form action="{{ route('test.submit', ['testResult' => $testResult]) }}" method="POST" id="test-form" class="test-form" data-test-id="{{ $testResult->id }}">
             @csrf
+            
+            {{-- Başlangıç cevaplarını JSON olarak buraya gömüyoruz --}}
+            <script id="initial-answers-data" type="application/json">
+                {!! json_encode($initialAnswers) !!}
+            </script>
             
             <!-- Questions -->
             <div class="questions-container" id="questions-container">
