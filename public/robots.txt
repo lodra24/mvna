@@ -1,14 +1,27 @@
 User-agent: *
+
+# Admin ve Teknik Rotalar
 Disallow: /admin/
 Disallow: /livewire/
+
+# Kullanıcıya Özel Rotalar
 Disallow: /dashboard
 Disallow: /profile
+
+# Kimlik Doğrulama Rotaları
 Disallow: /login
 Disallow: /register
 Disallow: /forgot-password
 Disallow: /reset-password
-Disallow: /test/
+Disallow: /auth/
 
+# Test Sürecindeki Hassas ve Dinamik Rotalar
+Disallow: /test/questions/
+Disallow: /test/submit/
+Disallow: /test/payment/
+Disallow: /test/result/
+
+# İzin Verilen Ana Dizin
 Allow: /
 
 Sitemap: https://cognifywork.com/sitemap.xml

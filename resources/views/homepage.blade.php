@@ -263,7 +263,21 @@ $faqData = [
                         <div class="relative mt-10 lg:mt-0" aria-hidden="true">
                              <div class="absolute -inset-4 rounded-3xl bg-gradient-to-tr from-mindmetrics-indigo/10 via-transparent to-pink-500/10 opacity-70 blur-xl animate-blob animation-delay-4000"></div>
                             <div class="relative aspect-[4/3] rounded-2xl bg-white shadow-2xl overflow-hidden ring-1 ring-slate-900/10">
-                                <img class="absolute inset-0 w-full h-full object-cover" src="{{ asset('images/feature1.jpg') }}" alt="A chart from the MBTI Vocational NexusPoint Analysis showing personality traits" loading="lazy" width="1170" height="780">
+                                <picture>
+                                    {{-- Modern tarayıcılar bu WebP görselini yükleyecek --}}
+                                    <source srcset="{{ asset('images/feature1.webp') }}" type="image/webp">
+                                    
+                                    {{-- WebP desteklemeyen eski tarayıcılar bu JPG görselini yükleyecek --}}
+                                    <source srcset="{{ asset('images/feature1.jpg') }}" type="image/jpeg">
+                                    
+                                    {{-- Alt ve diğer attribute'lar için standart img etiketi --}}
+                                    <img src="{{ asset('images/feature1.jpg') }}"
+                                         alt="A chart from the MBTI Vocational NexusPoint Analysis showing personality traits"
+                                         loading="lazy"
+                                         width="1170"
+                                         height="780"
+                                         class="absolute inset-0 w-full h-full object-cover">
+                                </picture>
                                 <div class="absolute inset-0 bg-gradient-to-t from-slate-900/60 to-transparent"></div>
                             </div>
                         </div>
@@ -290,7 +304,21 @@ $faqData = [
                         <div class="relative mt-10 lg:mt-0 lg:order-1" aria-hidden="true">
                             <div class="absolute -inset-4 rounded-3xl bg-gradient-to-tr from-mindmetrics-green/10 via-transparent to-sky-500/10 opacity-70 blur-xl animate-blob animation-delay-2000"></div>
                             <div class="relative aspect-[4/3] rounded-2xl bg-white shadow-2xl overflow-hidden ring-1 ring-slate-900/10">
-                                 <img class="absolute inset-0 w-full h-full object-cover" src="{{ asset('images/feature2.jpg') }}" alt="Practical Management Guide Visual" loading="lazy" width="1170" height="780">
+                                <picture>
+                                    {{-- Modern tarayıcılar bu WebP görselini yükleyecek --}}
+                                    <source srcset="{{ asset('images/feature2.webp') }}" type="image/webp">
+                                    
+                                    {{-- WebP desteklemeyen eski tarayıcılar bu JPG görselini yükleyecek --}}
+                                    <source srcset="{{ asset('images/feature2.jpg') }}" type="image/jpeg">
+                                    
+                                    {{-- Alt ve diğer attribute'lar için standart img etiketi --}}
+                                    <img src="{{ asset('images/feature2.jpg') }}"
+                                         alt="Practical Management Guide Visual"
+                                         loading="lazy"
+                                         width="1170"
+                                         height="780"
+                                         class="absolute inset-0 w-full h-full object-cover">
+                                </picture>
                                  <div class="absolute inset-0 bg-gradient-to-t from-slate-900/50 to-transparent"></div>
                             </div>
                         </div>
@@ -317,7 +345,21 @@ $faqData = [
                          <div class="relative mt-10 lg:mt-0" aria-hidden="true">
                             <div class="absolute -inset-4 rounded-3xl bg-gradient-to-tr from-purple-500/10 via-transparent to-pink-500/10 opacity-70 blur-xl animate-blob animation-delay-6000"></div>
                             <div class="relative aspect-[4/3] rounded-2xl bg-white shadow-2xl overflow-hidden ring-1 ring-slate-900/10">
-                                 <img class="absolute inset-0 w-full h-full object-cover" src="{{ asset('images/feature3.jpg') }}" alt="Team Synergy Visual" loading="lazy" width="1170" height="780">
+                                <picture>
+                                    {{-- Modern tarayıcılar bu WebP görselini yükleyecek --}}
+                                    <source srcset="{{ asset('images/feature3.webp') }}" type="image/webp">
+                                    
+                                    {{-- WebP desteklemeyen eski tarayıcılar bu JPG görselini yükleyecek --}}
+                                    <source srcset="{{ asset('images/feature3.jpg') }}" type="image/jpeg">
+                                    
+                                    {{-- Alt ve diğer attribute'lar için standart img etiketi --}}
+                                    <img src="{{ asset('images/feature3.jpg') }}"
+                                         alt="Team Synergy Visual"
+                                         loading="lazy"
+                                         width="1170"
+                                         height="780"
+                                         class="absolute inset-0 w-full h-full object-cover">
+                                </picture>
                                  <div class="absolute inset-0 bg-gradient-to-t from-slate-900/50 to-transparent"></div>
                             </div>
                         </div>
