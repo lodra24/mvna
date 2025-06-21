@@ -24,6 +24,7 @@ use App\Services\ReportService;
 use App\Models\MbtiTypeDetail;
 use App\Services\GeoIpService;
 use App\Models\UserAnswer;
+use Illuminate\Http\JsonResponse;
 
 class TestController extends Controller
 {
@@ -213,7 +214,7 @@ class TestController extends Controller
      * @param  \App\Models\TestResult  $testResult
      * @return \Illuminate\Http\RedirectResponse
      */
-    public function submitAnswers(Request $request, MbtiTestService $mbtiTestService, TestResult $testResult): RedirectResponse
+    public function submitAnswers(Request $request, MbtiTestService $mbtiTestService, TestResult $testResult): JsonResponse|RedirectResponse
     {
         // 1. Güvenlik Kontrolü: Session'daki active_test_result_id ile rotadan gelen $testResult->id'nin aynı olup olmadığını kontrol et
         if ($request->session()->get('active_test_result_id') !== $testResult->id) {
@@ -264,14 +265,22 @@ class TestController extends Controller
         $request->session()->forget('test_language');
         // active_test_result_id session'da kalmalı, çünkü giriş/kayıt sonrası bu ID'ye ihtiyacımız olacak
 
-        // 6. Yönlendirme
+        // 6. AJAX Yanıtı için URL Belirleme
+        $redirectUrl = '';
         if (Auth::check()) {
-            // Giriş yapmış kullanıcı için ödeme sayfasına yönlendir
-            return redirect()->route('test.payment', ['testResult' => $testResult->id]);
+            // Giriş yapmış kullanıcı için ödeme sayfasının URL'sini al
+            $redirectUrl = route('test.payment', ['testResult' => $testResult->id]);
         } else {
-            // Misafir kullanıcı için kayıt/giriş sayfasına yönlendir
-            return redirect()->route('auth.showRegisterOrLogin')->with('mbti_type', $testResult->mbti_type);
+            // Misafir kullanıcı için kayıt/giriş sayfasının URL'sini al
+            $redirectUrl = route('auth.showRegisterOrLogin');
+            // Session'a flash mesajı ekle, çünkü bu bir AJAX isteği olmayacak gibi davranabilir
+            $request->session()->flash('mbti_type', $testResult->mbti_type);
         }
+
+        return response()->json([
+            'success' => true,
+            'redirect_url' => $redirectUrl,
+        ]);
     }
 
     /**

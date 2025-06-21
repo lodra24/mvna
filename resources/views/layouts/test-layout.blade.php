@@ -73,12 +73,30 @@
         </footer>
     @endif
 
-    <!-- Loading Overlay -->
-    <div id="loading-overlay" class="fixed inset-0 bg-white bg-opacity-90 backdrop-blur-sm z-50 hidden">
-        <div class="flex items-center justify-center min-h-screen">
-            <div class="text-center">
-                <div class="inline-block animate-spin rounded-full h-12 w-12 border-b-2 border-mindmetrics-indigo mb-4"></div>
-                <p class="text-slate-600 font-medium">Processing...</p>
+    <!-- Yeni Gelişmiş Yükleme Arayüzü -->
+    <div id="submission-overlay" class="fixed inset-0 z-50 flex flex-col items-center justify-center bg-slate-900/70 backdrop-blur-lg hidden">
+        <!-- Modern Spinner Animasyonu -->
+        <div id="submission-spinner" class="relative">
+            <!-- Ana Spinner Çemberi -->
+            <div class="w-20 h-20 rounded-full border-4 border-slate-300/30"></div>
+            <!-- Dönen Gradient Çember -->
+            <div class="absolute top-0 left-0 w-20 h-20 rounded-full border-4 border-transparent border-t-mindmetrics-indigo border-r-mindmetrics-green animate-spin"></div>
+            <!-- İç Pulse Efekti -->
+            <div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-8 h-8 bg-mindmetrics-indigo/20 rounded-full animate-pulse"></div>
+            <!-- Merkez Nokta -->
+            <div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-3 h-3 bg-mindmetrics-indigo rounded-full animate-ping"></div>
+        </div>
+        
+        <!-- Bilgilendirme Mesajı -->
+        <div class="mt-8 text-center">
+            <p id="submission-message" class="text-xl font-semibold text-white leading-relaxed max-w-md">
+                <!-- Bu metin JavaScript ile değişecek -->
+            </p>
+            <!-- Alt Bilgilendirme -->
+            <div class="mt-3 flex items-center justify-center space-x-2 text-slate-300">
+                <div class="w-2 h-2 bg-mindmetrics-indigo rounded-full animate-bounce"></div>
+                <div class="w-2 h-2 bg-mindmetrics-green rounded-full animate-bounce" style="animation-delay: 0.1s"></div>
+                <div class="w-2 h-2 bg-slate-400 rounded-full animate-bounce" style="animation-delay: 0.2s"></div>
             </div>
         </div>
     </div>

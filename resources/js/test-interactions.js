@@ -158,8 +158,9 @@ class QuestionManager {
         });
         
         // Form submit event listener
-        this.form.addEventListener('submit', () => {
-            // Form submit işlemi
+        this.form.addEventListener('submit', (e) => {
+            e.preventDefault(); // Varsayılan form gönderimini engelle
+            this.handleFormSubmit();
         });
     }
     
@@ -289,6 +290,73 @@ class QuestionManager {
             }
         } catch (error) {
             console.error('Sunucu bağlantı hatası:', error);
+        }
+    }
+    
+    async handleFormSubmit() {
+        const overlay = document.getElementById('submission-overlay');
+        const messageEl = document.getElementById('submission-message');
+        const spinnerEl = document.getElementById('submission-spinner');
+
+        // 1. Arayüzü Hazırla ve Göster
+        messageEl.textContent = 'Checking your answers...';
+        overlay.classList.remove('hidden');
+        overlay.classList.add('flex'); // flex ile ortalamayı sağlıyoruz
+        
+        // Kullanıcıyı sayfanın en üstüne yumuşakça kaydır
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+
+        try {
+            // Bir sonraki adıma geçmeden önce kısa bir gecikme ekleyerek animasyonun görünmesini sağla
+            await new Promise(resolve => setTimeout(resolve, 800));
+
+            // 2. Mesajı Güncelle
+            messageEl.textContent = 'Calculating your result...';
+            spinnerEl.classList.add('animate-pulse'); // Spinner'a ek bir efekt
+
+            const formData = new FormData(this.form);
+            const response = await fetch(this.form.action, {
+                method: 'POST',
+                headers: {
+                    'Accept': 'application/json',
+                },
+                body: formData,
+            });
+
+            // Sonuç hesaplanıyormuş gibi hissettirmek için minimum bir bekleme süresi
+            await new Promise(resolve => setTimeout(resolve, 1500));
+
+            const result = await response.json();
+
+            if (response.ok && result.success && result.redirect_url) {
+                // 3. Başarı Mesajı ve Yönlendirme
+                messageEl.textContent = 'Redirecting to your results...';
+                spinnerEl.classList.remove('animate-pulse');
+
+                // Sayfanın kararak geçiş yapması
+                overlay.style.transition = 'opacity 0.5s ease-in';
+                overlay.style.opacity = '0.9';
+
+                setTimeout(() => {
+                    window.location.href = result.redirect_url;
+                }, 700);
+
+            } else {
+                throw new Error(result.message || 'Submission failed.');
+            }
+        } catch (error) {
+            // 4. Hata Yönetimi
+            console.error('Form submission error:', error);
+            messageEl.textContent = `An error occurred: ${error.message}. Please try again.`;
+            // Hata durumunda spinner'ı gizle ve bir hata ikonu göster (opsiyonel)
+            spinnerEl.style.display = 'none';
+
+            // Kullanıcıya hatayı okuması için zaman ver, sonra arayüzü gizle
+            setTimeout(() => {
+                overlay.classList.add('hidden');
+                overlay.classList.remove('flex');
+                spinnerEl.style.display = 'block'; // Spinner'ı tekrar görünür yap
+            }, 4000);
         }
     }
     
