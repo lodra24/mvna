@@ -489,3 +489,193 @@
     outline: 2px solid rgba(99, 102, 241, 0.5);
     outline-offset: 2px;
 }
+
+/* Sticky PDF Download Button */
+.sticky-pdf-download {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    z-index: 1000;
+    animation: stickyFadeIn 0.8s ease-out 1s both;
+}
+
+.sticky-pdf-btn {
+    @apply relative flex items-center gap-3 px-4 py-3 bg-gradient-to-r from-mindmetrics-green to-green-600 text-white rounded-full shadow-2xl;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    text-decoration: none;
+    overflow: hidden;
+    min-width: 180px;
+    border: 2px solid rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(10px);
+}
+
+.sticky-pdf-btn:hover {
+    transform: translateX(-8px) scale(1.05);
+    box-shadow: 0 20px 40px -8px rgba(16, 185, 129, 0.4), 0 0 0 1px rgba(255, 255, 255, 0.1);
+    background: linear-gradient(135deg, #10b981, #059669, #047857);
+}
+
+.sticky-pdf-btn:active {
+    transform: translateX(-8px) scale(0.98);
+}
+
+.sticky-pdf-btn__icon {
+    @apply flex items-center justify-center w-12 h-12 bg-white bg-opacity-20 rounded-full flex-shrink-0;
+    transition: all 0.3s ease;
+}
+
+.sticky-pdf-btn:hover .sticky-pdf-btn__icon {
+    background-color: rgba(255, 255, 255, 0.3);
+    transform: rotate(5deg) scale(1.1);
+}
+
+.sticky-pdf-btn__text {
+    @apply flex flex-col leading-tight;
+}
+
+.sticky-pdf-btn__label {
+    @apply text-sm font-bold;
+    line-height: 1.2;
+}
+
+.sticky-pdf-btn__sublabel {
+    @apply text-xs opacity-90 font-medium;
+    line-height: 1.2;
+}
+
+.sticky-pdf-btn__pulse {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    border-radius: 9999px;
+    background: linear-gradient(135deg, rgba(16, 185, 129, 0.6), rgba(5, 150, 105, 0.6));
+    animation: pulseRing 2s infinite;
+    z-index: -1;
+}
+
+/* Animations */
+@keyframes stickyFadeIn {
+    0% {
+        opacity: 0;
+        transform: translateY(-50%) translateX(100px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(-50%) translateX(0);
+    }
+}
+
+@keyframes pulseRing {
+    0% {
+        transform: scale(1);
+        opacity: 0.8;
+    }
+    50% {
+        transform: scale(1.1);
+        opacity: 0.4;
+    }
+    100% {
+        transform: scale(1.2);
+        opacity: 0;
+    }
+}
+
+/* Responsive Design for Sticky Button */
+@media (max-width: 768px) {
+    .sticky-pdf-download {
+        bottom: 20px;
+        right: 20px;
+    }
+    
+    .sticky-pdf-btn {
+        min-width: 160px;
+        padding: 12px 16px;
+        gap: 10px;
+    }
+    
+    .sticky-pdf-btn__icon {
+        @apply w-10 h-10;
+    }
+    
+    .sticky-pdf-btn:hover {
+        transform: translateY(-4px) scale(1.02);
+    }
+    
+    .sticky-pdf-btn:active {
+        transform: translateY(-2px) scale(0.98);
+    }
+}
+
+@media (max-width: 480px) {
+    .sticky-pdf-download {
+        bottom: 15px;
+        right: 15px;
+    }
+    
+    .sticky-pdf-btn {
+        min-width: 140px;
+        padding: 10px 14px;
+        gap: 8px;
+    }
+    
+    .sticky-pdf-btn__icon {
+        @apply w-8 h-8;
+    }
+    
+    .sticky-pdf-btn__label {
+        @apply text-xs;
+    }
+    
+    .sticky-pdf-btn__sublabel {
+        @apply text-xs;
+        font-size: 10px;
+    }
+}
+
+/* High Contrast Mode Support */
+@media (prefers-contrast: high) {
+    .sticky-pdf-btn {
+        border: 3px solid #000;
+        background: #10b981;
+    }
+    
+    .sticky-pdf-btn:hover {
+        background: #059669;
+        border-color: #000;
+    }
+}
+
+/* Reduced Motion Support */
+@media (prefers-reduced-motion: reduce) {
+    .sticky-pdf-download {
+        animation: none;
+    }
+    
+    .sticky-pdf-btn__pulse {
+        animation: none;
+    }
+    
+    .sticky-pdf-btn:hover {
+        transform: none;
+    }
+    
+    .sticky-pdf-btn:hover .sticky-pdf-btn__icon {
+        transform: none;
+    }
+}
+
+/* Dark Mode Support */
+@media (prefers-color-scheme: dark) {
+    .sticky-pdf-btn {
+        background: linear-gradient(135deg, #10b981, #059669);
+        border-color: rgba(255, 255, 255, 0.3);
+        box-shadow: 0 10px 30px -5px rgba(0, 0, 0, 0.3);
+    }
+    
+    .sticky-pdf-btn:hover {
+        background: linear-gradient(135deg, #059669, #047857);
+        box-shadow: 0 20px 40px -8px rgba(16, 185, 129, 0.6);
+    }
+}

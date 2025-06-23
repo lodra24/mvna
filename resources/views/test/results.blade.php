@@ -240,16 +240,28 @@
                 </svg>
                 Go to Dashboard
             </a>
-            
-            <a href="{{ route('test.downloadReport', ['testResult' => $testResult->id]) }}" class="test-action-button test-action-button--secondary">
-                <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
-                </svg>
-                Download PDF
-            </a>
         </div>
+        
     </div>
 @endsection
+
+{{-- Sticky PDF butonunu @push ile dışarı taşı --}}
+@push('sticky-elements')
+<div class="sticky-pdf-download">
+    <a href="{{ route('test.downloadReport', ['testResult' => $testResult->id]) }}" class="sticky-pdf-btn" title="Download PDF Report">
+        <div class="sticky-pdf-btn__icon">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
+            </svg>
+        </div>
+        <div class="sticky-pdf-btn__text">
+            <span class="sticky-pdf-btn__label">Download</span>
+            <span class="sticky-pdf-btn__sublabel">PDF Report</span>
+        </div>
+        <div class="sticky-pdf-btn__pulse"></div>
+    </a>
+</div>
+@endpush
 
 @push('scripts')
 <script>
@@ -302,6 +314,7 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         });
     });
+    
 });
 </script>
 @endpush

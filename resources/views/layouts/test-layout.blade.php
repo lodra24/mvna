@@ -187,5 +187,9 @@
     @if($settings->site_body_scripts)
         {!! $settings->site_body_scripts !!}
     @endif
+    
+    {{-- YAPIŞKAN ELEMENTLER İÇİN YENİ STACK EKLE --}}
+    @stack('sticky-elements')
+
 </body>
 </html>
