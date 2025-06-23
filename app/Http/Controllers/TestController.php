@@ -166,6 +166,16 @@ class TestController extends Controller
      */
     public function showQuestions(Request $request, TestResult $testResult): View
     {
+        // --- YETKİLENDİRME KONTROLÜ ---
+        $activeTestId = $request->session()->get('active_test_result_id');
+        $isOwner = Auth::check() && Auth::id() === $testResult->user_id;
+        $isGuestSessionOwner = !Auth::check() && $activeTestId === $testResult->id;
+
+        if (!$isOwner && !$isGuestSessionOwner) {
+            abort(403, 'You are not authorized to view this test.');
+        }
+        // --- YETKİLENDİRME KONTROLÜ SONU ---
+
         // Get user name from TestResult or session
         $userName = $testResult->guest_name ?? ($testResult->user ? $testResult->user->name : 'Guest');
         
