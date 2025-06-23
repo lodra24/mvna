@@ -23,7 +23,7 @@
                 <div class="progress-bar-fill" id="progress-bar-fill"></div>
             </div>
             
-            {{-- --- YENİ EKLENECEK BÖLÜM BAŞLANGICI --- --}}
+            {{-- --- NEW SECTION START --- --}}
             <!-- Visual Navigation Dots -->
             <div class="visual-nav-dots" id="visual-nav-dots">
                 @foreach($questions as $index => $question)
@@ -36,7 +36,7 @@
                     ></button>
                 @endforeach
             </div>
-            {{-- --- YENİ EKLENECEK BÖLÜM BİTİŞİ --- --}}
+            {{-- --- NEW SECTION END --- --}}
             
         </div>
 
@@ -44,7 +44,7 @@
         <form action="{{ route('test.submit', ['testResult' => $testResult]) }}" method="POST" id="test-form" class="test-form" data-test-id="{{ $testResult->id }}">
             @csrf
             
-            {{-- Başlangıç cevaplarını JSON olarak buraya gömüyoruz --}}
+            {{-- Embed initial answers as JSON here --}}
             <script id="initial-answers-data" type="application/json">
                 {!! json_encode($initialAnswers) !!}
             </script>
@@ -101,8 +101,8 @@
                 @endforeach
             </div>
 
-            {{-- --- DEĞİŞİKLİK BAŞLANGIÇ --- --}}
-            <!-- Navigation & Submission Buttons (Güncellenmiş) -->
+            {{-- --- CHANGE START --- --}}
+            <!-- Navigation & Submission Buttons (Updated) -->
             <div class="question-navigation" id="question-navigation-footer">
                 <!-- Previous Button -->
                 <button type="button" id="prev-question-btn" class="nav-button nav-button--secondary" style="display: none;">
@@ -112,13 +112,13 @@
                     Previous Question
                 </button>
                 
-                <!-- Spacer: Butonları iki uca yaslar -->
+                <!-- Spacer: Aligns buttons to the ends -->
                 <div class="flex-1"></div>
                 
-                {{-- "Sonraki Soru" Butonu TAMAMEN KALDIRILDI --}}
+                {{-- "Next Question" button REMOVED ENTIRELY --}}
 
-                <!-- Submit Button Wrapper (JS ile yönetilecek) -->
-                {{-- "text-center" sınıfı kaldırıldı, "flex" ve "items-end" eklendi --}}
+                <!-- Submit Button Wrapper (Managed by JS) -->
+                {{-- "text-center" class removed, "flex" and "items-end" added --}}
                 <div id="submit-button-wrapper" class="flex flex-col items-end">
                     <button type="submit" id="submit-btn" class="test-button test-button--primary test-button--large" disabled>
                         <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -131,7 +131,7 @@
                     </p>
                 </div>
             </div>
-            {{-- --- DEĞİŞİKLİK BİTİŞ --- --}}
+            {{-- --- CHANGE END --- --}}
         </form>
 
 
@@ -163,7 +163,7 @@
 
 @push('scripts')
 <script>
-// Inline script devre dışı - QuestionManager tüm işlevselliği sağlıyor
-console.log('Inline script devre dışı - QuestionManager kullanılıyor');
+// Inline script disabled - QuestionManager provides all functionality
+console.log('Inline script disabled - QuestionManager is in use');
 </script>
 @endpush

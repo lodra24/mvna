@@ -93,7 +93,7 @@ class SocialiteController extends Controller
             ]);
             
             // Hata durumunda login sayfasına mesaj ile yönlendir
-            return redirect()->route('login')->with('error', 'Google ile giriş yapılırken bir hata oluştu: ' . $e->getMessage());
+            return redirect()->route('login')->with('error', 'An error occurred while trying to log in with Google: ' . $e->getMessage());
         }
     }
 }

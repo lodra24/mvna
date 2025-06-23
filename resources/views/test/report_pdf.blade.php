@@ -238,7 +238,7 @@
     </div>
 
     @if($mbtiTypeDetail)
-        <!-- İşveren için Profil Özeti -->
+        <!-- Profile Summary for Employer -->
         @if($mbtiTypeDetail->profile_summary_for_employer)
             <div class="section">
                 <div class="section-title">Profile Summary for Employers</div>
@@ -248,7 +248,7 @@
             </div>
         @endif
 
-        <!-- İş Yerindeki Temel Güçlü Yönler -->
+        <!-- Key Strengths in the Workplace -->
         @if($mbtiTypeDetail->key_strengths_in_workplace && count($mbtiTypeDetail->key_strengths_in_workplace) > 0)
             <div class="section">
                 <div class="section-title">Key Strengths in the Workplace</div>
@@ -262,7 +262,7 @@
             </div>
         @endif
 
-        <!-- Potansiyel Gelişim Alanları -->
+        <!-- Potential Development Areas -->
         @if($mbtiTypeDetail->potential_development_areas_for_workplace_effectiveness && count($mbtiTypeDetail->potential_development_areas_for_workplace_effectiveness) > 0)
             <div class="section">
                 <div class="section-title">Potential Development Areas</div>
@@ -276,7 +276,7 @@
             </div>
         @endif
 
-        <!-- İletişim Tarzı ve İşveren İçin İpuçları -->
+        <!-- Communication Style and Tips for Employers -->
         @if($mbtiTypeDetail->communication_style_and_tips_for_employer)
             <div class="section page-break">
                 <div class="section-title">Communication Style and Tips for Employers</div>
@@ -286,7 +286,7 @@
             </div>
         @endif
 
-        <!-- Görev Yönetimi Yaklaşımı ve İşveren İçin İpuçları -->
+        <!-- Task Management Approach and Tips for Employers -->
         @if($mbtiTypeDetail->task_management_approach_and_tips_for_employer)
             <div class="section">
                 <div class="section-title">Task Management Approach and Tips for Employers</div>
@@ -296,7 +296,7 @@
             </div>
         @endif
 
-        <!-- Motivasyon Faktörleri ve İşveren İçin Öneriler -->
+        <!-- Motivation Factors and Recommendations for Employers -->
         @if($mbtiTypeDetail->motivators_for_employer_to_leverage && count($mbtiTypeDetail->motivators_for_employer_to_leverage) > 0)
             <div class="section">
                 <div class="section-title">Motivation Factors and Recommendations for Employers</div>
@@ -310,7 +310,7 @@
             </div>
         @endif
 
-        <!-- Geri Bildirim Alıcılığı ve İşveren Rehberliği -->
+        <!-- Feedback Receptivity and Employer Guidance -->
         @if($mbtiTypeDetail->feedback_receptivity_and_guidance_for_employer)
             <div class="section">
                 <div class="section-title">Feedback Receptivity and Employer Guidance</div>
@@ -320,7 +320,7 @@
             </div>
         @endif
 
-        <!-- Takım İşbirliği Tarzı -->
+        <!-- Team Collaboration Style -->
         @if($mbtiTypeDetail->team_collaboration_style_for_employer)
             <div class="section">
                 <div class="section-title">Team Collaboration Style</div>
@@ -330,7 +330,7 @@
             </div>
         @endif
 
-        <!-- Liderlik Potansiyeli ve Tarz Notları -->
+        <!-- Leadership Potential and Style Notes -->
         @if($mbtiTypeDetail->leadership_potential_or_style_notes_for_employer)
             <div class="section">
                 <div class="section-title">Leadership Potential and Style Notes</div>
@@ -340,7 +340,7 @@
             </div>
         @endif
 
-        <!-- Çalışma Ortamı Tercihleri -->
+        <!-- Work Environment Preferences -->
         @if($mbtiTypeDetail->work_environment_preferences_for_employer)
             <div class="section">
                 <div class="section-title">Work Environment Preferences</div>

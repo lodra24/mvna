@@ -1,11 +1,11 @@
 /**
- * QuestionManager Sınıfı
- * Test sayfasının tüm durumunu ve mantığını yöneten merkezi JavaScript sınıfı
+ * QuestionManager Class
+ * Central JS class to manage the entire state and logic of the test page.
  */
 
 class QuestionManager {
     constructor() {
-        // DOM elementlerini seç ve sınıf özelliklerine ata
+        // Select DOM elements and assign to class properties
         this.form = document.getElementById('test-form');
         this.questionsContainer = document.getElementById('questions-container');
         this.questions = Array.from(this.questionsContainer.querySelectorAll('.test-question'));
@@ -13,13 +13,13 @@ class QuestionManager {
         this.testId = this.form.dataset.testId;
         this.saveProgressUrl = `/test/save-progress/${this.testId}`;
         
-        // Test durumunu yönetecek özellikler
+        // Properties to manage the test state
         this.currentQuestionIndex = 0;
         this.answers = {};
         this.advanceTimer = null;
         
         
-        // Sınıfı başlat
+        // Initialize the class
         this.init();
     }
     
@@ -37,7 +37,7 @@ class QuestionManager {
                 const answers = JSON.parse(initialAnswersData.textContent);
                 this.answers = answers;
 
-                // Arayüzdeki radio butonları işaretle
+                // Mark the radio buttons on the UI
                 Object.entries(this.answers).forEach(([questionId, value]) => {
                     const radioInput = this.form.querySelector(`input[data-question-id="${questionId}"][value="${value}"]`);
                     if (radioInput) {
@@ -49,7 +49,7 @@ class QuestionManager {
                     }
                 });
 
-                // En son cevaplanan sorudan bir sonrakine git veya son soruda kal
+                // Go to the next question after the last answered one, or stay on the last question
                 const lastAnsweredIndex = this.findLastAnsweredQuestionIndex();
                 if (lastAnsweredIndex !== -1 && lastAnsweredIndex < this.totalQuestions - 1) {
                     this.currentQuestionIndex = lastAnsweredIndex + 1;
@@ -58,7 +58,7 @@ class QuestionManager {
                 }
 
             } catch (e) {
-                console.error("Başlangıç cevapları yüklenirken hata oluştu:", e);
+                console.error("Error loading initial answers:", e);
             }
         }
     }
@@ -78,15 +78,15 @@ class QuestionManager {
     }
     
     showQuestion(index) {
-        // Mevcut soru indeksini güncelle
+        // Update the current question index
         this.currentQuestionIndex = index;
         
-        // Tüm soru elementleri üzerinde döngü kur
+        // Loop through all question elements
         this.questions.forEach((question, questionIndex) => {
-            // Önceki sınıfları kaldır
+            // Remove previous classes
             question.classList.remove('question-active', 'question-prev', 'question-next');
             
-            // Yeni sınıfları indekse göre ekle
+            // Add new classes based on index
             if (questionIndex === this.currentQuestionIndex) {
                 question.classList.add('question-active');
             } else if (questionIndex < this.currentQuestionIndex) {
@@ -96,16 +96,16 @@ class QuestionManager {
             }
         });
         
-        // Dinamik yükseklik ayarı
+        // Dynamic height adjustment
         const activeQuestionEl = this.questions[this.currentQuestionIndex];
         if (this.questionsContainer && activeQuestionEl) {
             this.questionsContainer.style.height = `${activeQuestionEl.offsetHeight}px`;
         }
         
-        // Arayüzü güncelle
+        // Update the UI
         this.updateUI();
         
-        // Focus mantığı - soru değiştikten 400ms sonra yeni sorunun ilk radio butonuna odaklan
+        // Focus logic - focus on the first radio button of the new question 400ms after question change
         setTimeout(() => {
             const activeQuestionEl = this.questions[this.currentQuestionIndex];
             if (activeQuestionEl) {
@@ -115,7 +115,7 @@ class QuestionManager {
     }
     
     nextQuestion() {
-        // Son sorudan sonra geçiş yapma
+        // Don't transition after the last question
         if (this.currentQuestionIndex < this.totalQuestions - 1) {
             this.currentQuestionIndex++;
             this.showQuestion(this.currentQuestionIndex);
@@ -123,7 +123,7 @@ class QuestionManager {
     }
     
     previousQuestion() {
-        // İlk sorudan önce geçiş yapma
+        // Don't transition before the first question
         if (this.currentQuestionIndex > 0) {
             this.currentQuestionIndex--;
             this.showQuestion(this.currentQuestionIndex);
@@ -131,7 +131,7 @@ class QuestionManager {
     }
     
     setupEventListeners() {
-        // Önceki soru butonu için event listener
+        // Event listener for the previous question button
         const prevBtn = document.getElementById('prev-question-btn');
         if (prevBtn) {
             prevBtn.addEventListener('click', () => {
@@ -139,7 +139,7 @@ class QuestionManager {
             });
         }
         
-        // Nav-dot'lar için click event listener
+        // Click event listener for nav-dots
         const navDots = document.querySelectorAll('.nav-dot');
         navDots.forEach(dot => {
             dot.addEventListener('click', (e) => {
@@ -150,7 +150,7 @@ class QuestionManager {
             });
         });
         
-        // Radio butonları için change event listener
+        // Change event listener for radio buttons
         this.questionsContainer.addEventListener('change', (e) => {
             if (e.target.type === 'radio' && e.target.name.startsWith('answers')) {
                 this.handleAnswerSelection(e.target);
@@ -159,44 +159,44 @@ class QuestionManager {
         
         // Form submit event listener
         this.form.addEventListener('submit', (e) => {
-            e.preventDefault(); // Varsayılan form gönderimini engelle
+            e.preventDefault(); // Prevent default form submission
             this.handleFormSubmit();
         });
     }
     
     updateUI() {
-        // Merkezi arayüz güncelleme metodu
+        // Central UI update method
         this.updateProgressBar();
         this.updateNavigationButtons();
         this.updateNavDots();
     }
     
     updateProgressBar() {
-        // Cevaplanmış soru sayısını al
+        // Get the number of answered questions
         const answeredCount = Object.keys(this.answers).length;
         
-        // İlerleme yüzdesini hesapla
+        // Calculate the progress percentage
         const percentage = Math.round((answeredCount / this.totalQuestions) * 100);
         
-        // Progress bar'ı güncelle
+        // Update the progress bar
         const progressBarFill = document.getElementById('progress-bar-fill');
         if (progressBarFill) {
             progressBarFill.style.width = percentage + '%';
         }
         
-        // Progress yüzdesini güncelle
+        // Update the progress percentage
         const progressPercent = document.getElementById('progress-percent');
         if (progressPercent) {
             progressPercent.textContent = percentage + '%';
         }
         
-        // Soru sayacını güncelle
+        // Update the question counter
         const questionCounter = document.getElementById('question-counter');
         if (questionCounter) {
             questionCounter.textContent = `Question ${this.currentQuestionIndex + 1}/${this.totalQuestions}`;
         }
         
-        // Cevaplanmış soru sayısını güncelle
+        // Update the answered question count
         const answeredCountElement = document.getElementById('answered-count');
         if (answeredCountElement) {
             answeredCountElement.textContent = answeredCount;
@@ -204,22 +204,22 @@ class QuestionManager {
     }
     
     updateNavigationButtons() {
-        // Önceki soru butonunu güncelle
+        // Update the previous question button
         const prevBtn = document.getElementById('prev-question-btn');
         if (prevBtn) {
             prevBtn.style.display = this.currentQuestionIndex > 0 ? 'inline-flex' : 'none';
         }
         
-        // Tüm sorular cevaplanmış mı kontrol et
+        // Check if all questions are answered
         const allAnswered = this.allQuestionsAnswered();
         
-        // Submit button wrapper'ını sürekli görünür yap
+        // Keep the submit button wrapper always visible
         const submitWrapper = document.getElementById('submit-button-wrapper');
         if (submitWrapper) {
             submitWrapper.style.display = 'flex';
         }
         
-        // Submit butonunu sadece tüm sorular cevaplanmışsa aktif et
+        // Activate the submit button only if all questions are answered
         const submitBtn = document.getElementById('submit-btn');
         if (submitBtn) {
             submitBtn.disabled = !allAnswered;
@@ -227,25 +227,25 @@ class QuestionManager {
     }
     
     handleAnswerSelection(radioInput) {
-        // Önceki zamanlayıcıyı iptal et
+        // Cancel the previous timer
         clearTimeout(this.advanceTimer);
         
-        // Cevabı kaydet
+        // Save the answer
         const questionId = radioInput.getAttribute('data-question-id');
         const value = radioInput.value;
         this.answers[questionId] = value;
         
-        // UI'yi anında güncelle
+        // Update the UI immediately
         this.updateUI();
         
-        // Görsel geri bildirim - selected CSS sınıfını güncelle
+        // Visual feedback - update the selected CSS class
         const currentQuestion = radioInput.closest('.test-question');
         if (currentQuestion) {
-            // Önce tüm seçeneklerden selected sınıfını kaldır
+            // First remove the selected class from all options
             const allOptions = currentQuestion.querySelectorAll('.test-option');
             allOptions.forEach(option => option.classList.remove('selected'));
             
-            // Seçilen seçeneğe selected sınıfını ekle
+            // Add the selected class to the chosen option
             const selectedOption = radioInput.closest('.test-option');
             if (selectedOption) {
                 selectedOption.classList.add('selected');
@@ -254,7 +254,7 @@ class QuestionManager {
         
         this.saveAnswerToServer(questionId, value);
         
-        // Otomatik ilerleme mantığı
+        // Automatic progression logic
         this.advanceTimer = setTimeout(() => {
             if (this.currentQuestionIndex < this.totalQuestions - 1) {
                 this.nextQuestion();
@@ -263,7 +263,7 @@ class QuestionManager {
     }
     
     allQuestionsAnswered() {
-        // Tüm soruların cevaplanıp cevaplanmadığını kontrol et
+        // Check if all questions have been answered
         return Object.keys(this.answers).length === this.totalQuestions;
     }
     
@@ -284,12 +284,12 @@ class QuestionManager {
 
             if (!response.ok) {
                 const errorData = await response.json();
-                console.error('Cevap kaydedilemedi:', response.statusText, errorData);
+                console.error('Failed to save answer:', response.statusText, errorData);
             } else {
-                console.log(`Cevap kaydedildi: Soru ${questionId} = ${chosenOption}`);
+                console.log(`Answer saved: Question ${questionId} = ${chosenOption}`);
             }
         } catch (error) {
-            console.error('Sunucu bağlantı hatası:', error);
+            console.error('Server connection error:', error);
         }
     }
     
@@ -298,21 +298,21 @@ class QuestionManager {
         const messageEl = document.getElementById('submission-message');
         const spinnerEl = document.getElementById('submission-spinner');
 
-        // 1. Arayüzü Hazırla ve Göster
+        // 1. Prepare and Show the UI
         messageEl.textContent = 'Checking your answers...';
         overlay.classList.remove('hidden');
-        overlay.classList.add('flex'); // flex ile ortalamayı sağlıyoruz
+        overlay.classList.add('flex'); // use flex for centering
         
-        // Kullanıcıyı sayfanın en üstüne yumuşakça kaydır
+        // Smoothly scroll the user to the top of the page
         window.scrollTo({ top: 0, behavior: 'smooth' });
 
         try {
-            // Bir sonraki adıma geçmeden önce kısa bir gecikme ekleyerek animasyonun görünmesini sağla
+            // Add a short delay before proceeding to the next step to ensure the animation is visible
             await new Promise(resolve => setTimeout(resolve, 800));
 
-            // 2. Mesajı Güncelle
+            // 2. Update the Message
             messageEl.textContent = 'Calculating your result...';
-            spinnerEl.classList.add('animate-pulse'); // Spinner'a ek bir efekt
+            spinnerEl.classList.add('animate-pulse'); // Add an extra effect to the spinner
 
             const formData = new FormData(this.form);
             const response = await fetch(this.form.action, {
@@ -323,17 +323,17 @@ class QuestionManager {
                 body: formData,
             });
 
-            // Sonuç hesaplanıyormuş gibi hissettirmek için minimum bir bekleme süresi
+            // Minimum waiting time to make it feel like the result is being calculated
             await new Promise(resolve => setTimeout(resolve, 1500));
 
             const result = await response.json();
 
             if (response.ok && result.success && result.redirect_url) {
-                // 3. Başarı Mesajı ve Yönlendirme
+                // 3. Success Message and Redirection
                 messageEl.textContent = 'Redirecting to your results...';
                 spinnerEl.classList.remove('animate-pulse');
 
-                // Sayfanın kararak geçiş yapması
+                // Make the page fade out for transition
                 overlay.style.transition = 'opacity 0.5s ease-in';
                 overlay.style.opacity = '0.9';
 
@@ -345,38 +345,38 @@ class QuestionManager {
                 throw new Error(result.message || 'Submission failed.');
             }
         } catch (error) {
-            // 4. Hata Yönetimi
+            // 4. Error Handling
             console.error('Form submission error:', error);
             messageEl.textContent = `An error occurred: ${error.message}. Please try again.`;
-            // Hata durumunda spinner'ı gizle ve bir hata ikonu göster (opsiyonel)
+            // Hide the spinner in case of error and show an error icon (optional)
             spinnerEl.style.display = 'none';
 
-            // Kullanıcıya hatayı okuması için zaman ver, sonra arayüzü gizle
+            // Give the user time to read the error, then hide the UI
             setTimeout(() => {
                 overlay.classList.add('hidden');
                 overlay.classList.remove('flex');
-                spinnerEl.style.display = 'block'; // Spinner'ı tekrar görünür yap
+                spinnerEl.style.display = 'block'; // Make the spinner visible again
             }, 4000);
         }
     }
     
     updateNavDots() {
-        // Nav-dot'ları güncelle
+        // Update the nav-dots
         const navDots = document.querySelectorAll('.nav-dot');
         
         navDots.forEach((dot, index) => {
-            // Tüm sınıfları temizle
+            // Clear all classes
             dot.classList.remove('active', 'answered');
             
-            // Soru ID'sini al
+            // Get the question ID
             const questionId = dot.getAttribute('data-question-id');
             
-            // Aktif soru mu kontrol et
+            // Check if it's the active question
             if (index === this.currentQuestionIndex) {
                 dot.classList.add('active');
             }
             
-            // Cevaplanmış soru mu kontrol et
+            // Check if the question is answered
             if (questionId && this.answers[questionId]) {
                 dot.classList.add('answered');
             }
@@ -384,11 +384,11 @@ class QuestionManager {
     }
 }
 
-// Sayfa tamamen yüklendiğinde QuestionManager'ı başlat
+// Initialize QuestionManager when the page is fully loaded
 document.addEventListener('DOMContentLoaded', function() {
-    // test-form elementinin varlığını kontrol et
+    // Check if the test-form element exists
     if (document.getElementById('test-form')) {
-        // QuestionManager nesnesini oluştur ve global değişkene ata
+        // Create a QuestionManager instance and assign it to a global variable
         window.questionManager = new QuestionManager();
     }
 });

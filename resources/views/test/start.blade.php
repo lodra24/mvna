@@ -26,7 +26,7 @@
             <p class="text-slate-600 test-form-element">The test will take approximately 10-15 minutes and consists of 60 questions.</p>
         </div>
 
-        <!-- Dil Seçim Banner -->
+        <!-- Language Selection Banner -->
         @if($showLanguageModal ?? false)
         <div id="language-banner" class="bg-gradient-to-r from-blue-500 to-indigo-600 text-white rounded-lg p-4 sm:p-6 mb-6 test-form-element">
             <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
@@ -35,13 +35,13 @@
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5h12M9 3v2m1.048 9.5A18.022 18.022 0 016.412 9m6.088 9h7M11 21l5-10 5 10M12.751 5C11.783 10.77 8.07 15.61 3 18.129"></path>
                     </svg>
                     <div class="min-w-0 flex-1">
-                        <h4 class="font-semibold text-base sm:text-lg mb-1 leading-tight">Testi Türkçe olarak çözmek ister misiniz?</h4>
-                        <p class="text-blue-100 text-sm leading-relaxed">Sorular ve sonuçlar Türkçe dilinde gösterilecektir.</p>
+                        <h4 class="font-semibold text-base sm:text-lg mb-1 leading-tight">Would you like to take the test in Turkish?</h4>
+                        <p class="text-blue-100 text-sm leading-relaxed">Questions and results will be displayed in Turkish.</p>
                     </div>
                 </div>
                 <div class="flex flex-col sm:flex-row gap-2 sm:gap-3 sm:ml-4 sm:flex-shrink-0">
                     <button type="button" id="lang-tr-btn" class="w-full sm:w-auto px-4 py-2.5 sm:py-2 bg-white text-blue-600 font-medium rounded-lg hover:bg-blue-50 transition-colors text-center">
-                        Evet, Türkçe
+                        Yes, Turkish
                     </button>
                     <button type="button" id="lang-en-btn" class="w-full sm:w-auto px-4 py-2.5 sm:py-2 bg-blue-500 text-white border border-white font-medium rounded-lg hover:bg-blue-400 transition-colors text-center">
                         No, English
@@ -154,7 +154,7 @@
 @push('scripts')
 <script>
 document.addEventListener('DOMContentLoaded', function() {
-    // Tüm DOM elementlerinin tanımlamaları en başta toplanmalı
+    // Gather all DOM element definitions at the top
     const form = document.getElementById('start-form');
     const nameInput = document.getElementById('name');
     const languageBanner = document.getElementById('language-banner');
@@ -185,35 +185,35 @@ document.addEventListener('DOMContentLoaded', function() {
     // Auto-focus on name input when page loads
     nameInput.focus();
     
-    // İlk ziyaret çerezini oluşturma mantığı
+    // Logic for creating the first-visit cookie
     const shouldSetPromptCookie = @json($shouldSetPromptCookie ?? false);
     
     if (languageBanner && shouldSetPromptCookie) {
-        // has_been_prompted_for_lang çerezini oluştur
+        // Create the has_been_prompted_for_lang cookie
         const expires = new Date();
-        expires.setDate(expires.getDate() + 1); // 1 gün geçerlilik
+        expires.setDate(expires.getDate() + 1); // 1-day validity
         document.cookie = `has_been_prompted_for_lang=true; expires=${expires.toUTCString()}; path=/; SameSite=Lax`;
     }
     
-    // Dil seçim banner işlevselliği
+    // Language selection banner functionality
     if (langTrBtn && langEnBtn && languageBanner) {
-        // Türkçe butonuna tıklandığında
+        // When the Turkish button is clicked
         langTrBtn.addEventListener('click', function() {
             setLanguagePreference('tr');
         });
         
-        // İngilizce butonuna tıklandığında
+        // When the English button is clicked
         langEnBtn.addEventListener('click', function() {
             setLanguagePreference('en');
         });
         
         function setLanguagePreference(language) {
-            // Cookie oluştur (30 gün geçerli, güvenlik flag'leri ile)
+            // Create cookie (30-day validity, with security flags)
             const expires = new Date();
             expires.setDate(expires.getDate() + 30);
             document.cookie = `language_preference=${language}; expires=${expires.toUTCString()}; path=/; SameSite=Lax`;
             
-            // Forma hidden input ekle
+            // Add hidden input to the form
             let langInput = document.querySelector('input[name="lang"]');
             if (!langInput) {
                 langInput = document.createElement('input');
@@ -223,15 +223,15 @@ document.addEventListener('DOMContentLoaded', function() {
             }
             langInput.value = language;
             
-            // Banner'ı DOM'dan kaldır
+            // Remove the banner from the DOM
             languageBanner.remove();
             
-            // Kullanıcıya bilgi ver (showToast fonksiyonunun varlığını kontrol et)
-            const message = language === 'tr' ? 'Test Türkçe dilinde çözülecek.' : 'Test will be conducted in English.';
+            // Inform the user (check if showToast function exists)
+            const message = language === 'tr' ? 'The test will be conducted in Turkish.' : 'Test will be conducted in English.';
             if (typeof showToast === 'function') {
                 showToast(message, 'success');
             } else {
-                // Fallback - basit alert
+                // Fallback - simple alert
                 console.log(message);
             }
         }
