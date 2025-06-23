@@ -41,16 +41,30 @@ class TestController extends Controller
      */
     public function start(Request $request, GeoIpService $geoIpService): View|RedirectResponse
     {
-        // Yarım kalmış bir test var mı diye session'ı kontrol et
+        $user = Auth::user();
+
+        // 1. Önce giriş yapmış kullanıcı için yarım kalmış bir test var mı diye DB'yi kontrol et
+        if ($user) {
+            $unfinishedTest = $user->testResults()
+                                   ->whereIn('status', ['in_progress', 'pending_payment'])
+                                   ->latest('updated_at') // En son güncellenen yarım kalmış testi al
+                                   ->first();
+            
+            if ($unfinishedTest) {
+                // Eğer ödeme bekliyorsa ödeme sayfasına, test devam ediyorsa sorulara yönlendir
+                $targetRoute = $unfinishedTest->status === 'pending_payment' ? 'test.payment' : 'test.questions';
+                return redirect()->route($targetRoute, ['testResult' => $unfinishedTest->id]);
+            }
+        }
+
+        // 2. Giriş yapmış kullanıcı yoksa veya yarım testi yoksa, misafir session'ını kontrol et
         $activeTestId = $request->session()->get('active_test_result_id');
 
         if ($activeTestId) {
             $testResult = TestResult::find($activeTestId);
 
-            // Testin hala geçerli olup olmadığını (örneğin tamamlanmamış) ve
-            // bir misafire ait olduğunu (user_id'si null) kontrol et
             if ($testResult && $testResult->status === 'in_progress') {
-                // Kullanıcıyı doğrudan yarım kalan testin soru sayfasına yönlendir
+                // Misafir kullanıcısını yarım kalan testinin sorularına yönlendir
                 return redirect()->route('test.questions', ['testResult' => $testResult->id]);
             }
         }
