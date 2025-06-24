@@ -44,10 +44,6 @@ class AuthenticatedSessionController extends Controller
         // Session'da bekleyen test sonucunu kullanıcıya ata
         $testResult = $mbtiTestService->assignPendingTestToUser(Auth::user());
         
-        if ($testResult) {
-            return redirect()->route('test.payment', ['testResult' => $testResult->id]);
-        }
-        
         return redirect()->intended(route('dashboard', absolute: false));
     }
 

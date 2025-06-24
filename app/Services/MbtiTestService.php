@@ -96,7 +96,13 @@ class MbtiTestService
             if ($testResult && $testResult->user_id === null) {
                 $testResult->user_id = $user->id;
                 $testResult->guest_name = null;
-                $testResult->status = 'pending_payment';
+                
+                // Sadece pending_registration durumundaki testlerin durumunu pending_payment yap
+                // Diğer durumlar (in_progress, completed vb.) korunmalı
+                if ($testResult->status === 'pending_registration') {
+                    $testResult->status = 'pending_payment';
+                }
+                
                 $testResult->save();
                 
                 session()->forget('active_test_result_id');

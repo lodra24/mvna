@@ -5,12 +5,23 @@ namespace App\Services;
 use App\Models\TestResult;
 use App\Models\Payment;
 use Illuminate\Support\Facades\Mail;
+use Illuminate\Support\Facades\Log;
 use App\Mail\PaymentSuccessful;
 
 class PaymentService
 {
     public function handleSuccessfulPayment(TestResult $testResult): void
     {
+        // Güvenlik kontrolü: Tamamlanmamış testlerin ödemesini engelle
+        if (empty($testResult->mbti_type) || $testResult->mbti_type === 'PEND') {
+            Log::warning('Tamamlanmamış bir test için ödeme tamamlanmaya çalışıldı.', [
+                'test_result_id' => $testResult->id,
+                'mbti_type' => $testResult->mbti_type,
+                'user_id' => $testResult->user_id
+            ]);
+            return;
+        }
+
         // Test sonucunun durumunu 'completed' olarak güncelle
         $testResult->status = 'completed';
         $testResult->save();
@@ -20,7 +31,7 @@ class PaymentService
             'user_id' => $testResult->user_id, // Değişiklik: Auth::id() yerine
             'test_result_id' => $testResult->id,
             'transaction_id' => uniqid('fake-'),
-            'amount' => 14.99,
+            'amount' => app(\App\Settings\GeneralSettings::class)->test_price,
             'currency' => 'TRY',
             'status' => 'completed',
             'payment_gateway' => 'test',

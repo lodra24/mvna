@@ -88,6 +88,65 @@
                     </div>
                 </div>
             @else
+                @php
+                    $hasInProgressTests = $testResults->where('status', 'in_progress')->count() > 0;
+                    $inProgressCount = $testResults->where('status', 'in_progress')->count();
+                @endphp
+                
+                @if($hasInProgressTests)
+<!-- In Progress Tests Alert -->
+<div class="mb-8">
+    <div class="bg-gradient-to-r from-amber-50 to-orange-50 border-l-4 border-amber-400 rounded-r-xl shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden">
+        <div class="p-6">
+            <div class="flex items-start">
+                <!-- Alert Icon -->
+                <div class="flex-shrink-0">
+                    <div class="w-12 h-12 bg-gradient-to-br from-amber-400 to-orange-500 rounded-full flex items-center justify-center shadow-md">
+                        <svg class="w-6 h-6 text-white animate-pulse" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                        </svg>
+                    </div>
+                </div>
+                
+                <!-- Alert Content -->
+                <div class="ml-4 flex-1">
+                    <div class="flex items-center mb-2">
+                        <h3 class="text-lg font-bold text-amber-800">
+                            @if($inProgressCount === 1)
+                                You Have an Unfinished Test!
+                            @else
+                                You Have Unfinished Tests!
+                            @endif
+                        </h3>
+                        <span class="ml-3 inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-semibold bg-amber-200 text-amber-800">
+                            {{ $inProgressCount }} {{ Str::plural('Test', $inProgressCount) }}
+                        </span>
+                    </div>
+                    <p class="text-amber-700 leading-relaxed">
+                        @if($inProgressCount === 1)
+                            It looks like you have a test in progress. You can pick up where you left off and discover your personality type! 🚀
+                        @else
+                            It looks like you have tests in progress. You can pick up where you left off and discover your personality types! 🚀
+                        @endif
+                    </p>
+                    
+                    <!-- Progress Indicator -->
+                    <div class="mt-4 flex items-center text-sm text-amber-600">
+                        <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+                        </svg>
+                        <span class="font-medium">Click the "Continue Test" button below to proceed</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Decorative bottom border -->
+        <div class="h-1 bg-gradient-to-r from-amber-300 via-orange-400 to-amber-300"></div>
+    </div>
+</div>
+                @endif
+                
                 <!-- Test Results Section -->
                 <div class="mb-8">
                     <div class="flex items-center justify-between mb-6">
@@ -101,7 +160,7 @@
                 <!-- Test Results Cards -->
                 <div class="space-y-6 mb-12">
                     @foreach($testResults as $testResult)
-                        <div class="bg-white rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden border border-slate-200/80 group">
+                        <div class="@if($testResult->status === 'in_progress') bg-gradient-to-br from-blue-50 via-white to-indigo-50 border-2 border-blue-400 shadow-blue-100/50 animate-pulse @else bg-white border border-slate-200/80 @endif rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden group">
                             <div class="p-8">
                                 <div class="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-6">
                                     <!-- Test Info -->

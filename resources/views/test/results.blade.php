@@ -1,20 +1,116 @@
 @extends('layouts.test-layout')
 
-@section('title', 'Your Test Result')
+@if($testResult->mbti_type === 'PEND')
+    @section('title', 'Report Not Available')
 
-@section('page-title')
-    Congratulations! <span class="emoji-fix">🎉</span>
-@endsection
+    @section('page-title')
+        Your Report Isn't Ready Yet
+    @endsection
 
-@section('page-subtitle')
-    Your MBTI personality analysis is complete. You can review your detailed results below.
-@endsection
+    @section('page-subtitle')
+        It looks like this test hasn't been completed yet.
+    @endsection
 
-@section('progress', '100')
+    @section('progress', '50')
 
-@section('card-class', 'test-card--elevated')
+    @section('card-class', 'test-card--info')
 
-@section('content')
+    @section('content')
+        <div class="test-incomplete-notice">
+            <div class="test-incomplete-notice__icon">
+                <svg class="w-16 h-16 text-yellow-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-2.5L13.732 4c-.77-.833-1.964-.833-2.732 0L3.732 16.5c-.77.833.192 2.5 1.732 2.5z"></path>
+                </svg>
+            </div>
+            <div class="test-incomplete-notice__content">
+                <h3 class="test-incomplete-notice__title">Test Not Completed</h3>
+                <p class="test-incomplete-notice__message">
+                    It looks like this test hasn't been completed yet. Please return to your dashboard to continue where you left off, or start a new test.
+                </p>
+                <div class="test-incomplete-notice__actions">
+                    <a href="{{ route('dashboard') }}" class="test-action-button test-action-button--primary">
+                        <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 7v10a2 2 0 002 2h14a2 2 0 002-2V9a2 2 0 00-2-2H5a2 2 0 00-2-2v10a2 2 0 002 2h14a2 2 0 002-2V9a2 2 0 00-2-2H5a2 2 0 00-2-2"></path>
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 9h6v6H9z"></path>
+                        </svg>
+                        Go to Dashboard
+                    </a>
+                    <a href="{{ route('test.start') }}" class="test-action-button test-action-button--secondary">
+                        <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"></path>
+                        </svg>
+                        Start New Test
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <style>
+        .test-incomplete-notice {
+            text-align: center;
+            padding: 3rem 2rem;
+            background: linear-gradient(135deg, #fef3c7 0%, #fed7aa 100%);
+            border-radius: 1rem;
+            border: 2px solid #f59e0b;
+        }
+
+        .test-incomplete-notice__icon {
+            margin-bottom: 1.5rem;
+        }
+
+        .test-incomplete-notice__content {
+            max-width: 500px;
+            margin: 0 auto;
+        }
+
+        .test-incomplete-notice__title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #92400e;
+            margin-bottom: 1rem;
+        }
+
+        .test-incomplete-notice__message {
+            font-size: 1.1rem;
+            color: #78350f;
+            margin-bottom: 2rem;
+            line-height: 1.6;
+        }
+
+        .test-incomplete-notice__actions {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        @media (max-width: 640px) {
+            .test-incomplete-notice__actions {
+                flex-direction: column;
+            }
+            .test-incomplete-notice {
+                padding: 2rem 1rem;
+            }
+        }
+        </style>
+    @endsection
+
+@else
+    @section('title', 'Your Test Result')
+
+    @section('page-title')
+        Congratulations! <span class="emoji-fix">🎉</span>
+    @endsection
+
+    @section('page-subtitle')
+        Your MBTI personality analysis is complete. You can review your detailed results below.
+    @endsection
+
+    @section('progress', '100')
+
+    @section('card-class', 'test-card--elevated')
+
+    @section('content')
     <div class="test-results">
         <!-- MBTI Type Display -->
         <div class="test-results__mbti-card">
