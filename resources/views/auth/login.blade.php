@@ -17,6 +17,8 @@
     <!-- Scripts -->
     @vite(['resources/css/app.css', 'resources/js/app.js'])
     
+    <!-- Google reCAPTCHA -->
+    <script src="https://www.google.com/recaptcha/api.js?render={{ config('services.recaptcha.site_key') }}"></script>
     
     @if($settings->site_custom_scripts)
         {!! $settings->site_custom_scripts !!}
@@ -155,6 +157,9 @@
                             @endif
                         </div>
 
+                        <!-- reCAPTCHA Hidden Input -->
+                        <input type="hidden" name="g-recaptcha-response" id="g-recaptcha-response-login-page">
+
                         <!-- Login Button -->
                         <div>
                             <button type="submit" class="group relative w-full flex justify-center py-3 px-4 border border-transparent text-sm font-semibold rounded-xl text-white bg-gradient-to-r from-mindmetrics-indigo to-mindmetrics-green hover:from-mindmetrics-indigo/90 hover:to-mindmetrics-green/90 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-mindmetrics-indigo shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 transition-all duration-200">
@@ -229,6 +234,24 @@
             </div>
         </div>
     </div>
+    
+    <!-- reCAPTCHA JavaScript -->
+    <script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const loginForm = document.querySelector('form'); // Bu sayfada tek form olduğu için bu şekilde seçebiliriz.
+        if (loginForm) {
+            loginForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                grecaptcha.ready(function() {
+                    grecaptcha.execute('{{ config("services.recaptcha.site_key") }}', {action: 'login'}).then(function(token) {
+                        document.getElementById('g-recaptcha-response-login-page').value = token;
+                        loginForm.submit();
+                    });
+                });
+            });
+        }
+    });
+    </script>
     
     @if($settings->site_body_scripts)
         {!! $settings->site_body_scripts !!}

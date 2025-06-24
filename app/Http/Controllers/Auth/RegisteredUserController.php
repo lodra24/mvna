@@ -14,9 +14,12 @@ use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Validation\Rules;
 use Illuminate\View\View;
+use App\Http\Traits\RecaptchaValidation;
 
 class RegisteredUserController extends Controller
 {
+    use RecaptchaValidation;
+    
     /**
      * Display the registration view.
      */
@@ -40,6 +43,15 @@ class RegisteredUserController extends Controller
      */
     public function store(Request $request, MbtiTestService $mbtiTestService): RedirectResponse
     {
+        // reCAPTCHA doğrulaması
+        $token = $request->input('g-recaptcha-response');
+        
+        if (!$this->validateRecaptcha($token, 'register')) {
+            return redirect()->back()
+                ->withErrors(['recaptcha' => 'reCAPTCHA validation failed. Please try again.'])
+                ->withInput();
+        }
+
         $request->validate([
             'name' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'lowercase', 'email', 'max:255', 'unique:'.User::class],

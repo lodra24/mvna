@@ -25,11 +25,12 @@ use App\Models\MbtiTypeDetail;
 use App\Services\GeoIpService;
 use App\Models\UserAnswer;
 use Illuminate\Http\JsonResponse;
+use App\Http\Traits\RecaptchaValidation;
 
 class TestController extends Controller
 {
     
-      use AuthorizesRequests; 
+      use AuthorizesRequests, RecaptchaValidation;
     /**
      * Displays the test starting page ('test.start' view).
      *
@@ -126,6 +127,15 @@ class TestController extends Controller
      */
     public function beginTest(Request $request): RedirectResponse
     {
+        // reCAPTCHA doğrulaması
+        $token = $request->input('g-recaptcha-response');
+        
+        if (!$this->validateRecaptcha($token, 'start_test')) {
+            return redirect()->back()
+                ->withErrors(['recaptcha' => 'reCAPTCHA validation failed. Please try again.'])
+                ->withInput();
+        }
+
         $request->validate([
             'name' => 'required|string|max:255',
         ]);

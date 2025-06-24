@@ -9,9 +9,12 @@ use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\View\View;
+use App\Http\Traits\RecaptchaValidation;
 
 class AuthenticatedSessionController extends Controller
 {
+    use RecaptchaValidation;
+    
     /**
      * Display the login view.
      */
@@ -25,6 +28,15 @@ class AuthenticatedSessionController extends Controller
      */
     public function store(LoginRequest $request, MbtiTestService $mbtiTestService): RedirectResponse
     {
+        // reCAPTCHA doğrulaması
+        $token = $request->input('g-recaptcha-response');
+        
+        if (!$this->validateRecaptcha($token, 'login')) {
+            return redirect()->back()
+                ->withErrors(['email' => 'reCAPTCHA validation failed. Please try again.'])
+                ->withInput();
+        }
+
         $request->authenticate();
 
         $request->session()->regenerate();

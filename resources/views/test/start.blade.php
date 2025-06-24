@@ -95,7 +95,24 @@
                     </div>
                 </div>
             </div>
-
+    
+            <!-- reCAPTCHA Error Message -->
+            @error('recaptcha')
+                <div class="bg-red-50 border-l-4 border-red-400 rounded-lg p-4 mb-6 test-form-element">
+                    <div class="flex items-start">
+                        <svg class="w-5 h-5 text-red-400 mt-0.5 mr-3 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                        </svg>
+                        <div>
+                            <h4 class="text-sm font-semibold text-red-800 mb-1">Security Verification Failed</h4>
+                            <p class="text-sm text-red-700">
+                                {{ $message }}
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            @enderror
+    
             <!-- Test Info Cards -->
             <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-8 test-form-element">
                 <div class="bg-gradient-to-br from-blue-50 to-indigo-50 border border-blue-200 rounded-lg p-4 text-center">
@@ -129,6 +146,9 @@
                 </div>
             </div>
 
+            <!-- reCAPTCHA hidden input -->
+            <input type="hidden" name="g-recaptcha-response" id="g-recaptcha-response-start">
+
             <!-- Submit Button -->
             <div class="text-center test-form-element">
                 <button type="submit" class="test-button test-button--primary test-button--large">
@@ -161,15 +181,24 @@ document.addEventListener('DOMContentLoaded', function() {
     const langTrBtn = document.getElementById('lang-tr-btn');
     const langEnBtn = document.getElementById('lang-en-btn');
     
-    // Form validation
+    // Form validation with reCAPTCHA
     form.addEventListener('submit', function(e) {
+        e.preventDefault(); // Always prevent default first
+        
         if (!validateForm(form)) {
-            e.preventDefault();
             showToast('Please fill in all required fields.', 'error');
             return;
         }
         
-        showLoading();
+        // reCAPTCHA validation
+        grecaptcha.ready(function() {
+            grecaptcha.execute('{{ config('services.recaptcha.site_key') }}', {action: 'start_test'})
+                .then(function(token) {
+                    document.getElementById('g-recaptcha-response-start').value = token;
+                    showLoading();
+                    form.submit();
+                });
+        });
     });
     
     // Real-time name validation

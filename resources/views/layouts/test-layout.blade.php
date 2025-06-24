@@ -22,6 +22,9 @@
     <!-- Vite Assets -->
     @vite(['resources/css/test-pages.css', 'resources/js/test-interactions.js'])
     
+    <!-- Google reCAPTCHA v3 Script -->
+    <script src="https://www.google.com/recaptcha/api.js?render={{ config('services.recaptcha.site_key') }}"></script>
+    
     <!-- Additional head content -->
     @stack('head')
     @if($settings->site_custom_scripts)
@@ -114,11 +117,11 @@
         
         // Loading overlay utilities
         window.showLoading = function() {
-            document.getElementById('loading-overlay').classList.remove('hidden');
+            document.getElementById('submission-overlay').classList.remove('hidden');
         };
         
         window.hideLoading = function() {
-            document.getElementById('loading-overlay').classList.add('hidden');
+            document.getElementById('submission-overlay').classList.add('hidden');
         };
         
         // Toast notification utility

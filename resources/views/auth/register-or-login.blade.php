@@ -106,6 +106,9 @@
                         @endif
                     </div>
 
+                    <!-- reCAPTCHA hidden input -->
+                    <input type="hidden" name="g-recaptcha-response" id="g-recaptcha-response-login">
+
                     <!-- Submit Button -->
                     <div class="form-submit test-form-element">
                         <button type="submit" class="submit-button">
@@ -236,6 +239,9 @@
                         />
                         <x-input-error :messages="$errors->get('password_confirmation')" class="input-error" />
                     </div>
+
+                    <!-- reCAPTCHA hidden input -->
+                    <input type="hidden" name="g-recaptcha-response" id="g-recaptcha-response-register">
 
                     <!-- Submit Button -->
                     <div class="form-submit test-form-element">
@@ -724,24 +730,67 @@ document.addEventListener('DOMContentLoaded', function() {
         return emailRegex.test(email);
     }
     
-    // Enhanced form submission
-    forms.forEach(form => {
-        form.addEventListener('submit', function(e) {
-            const submitButton = this.querySelector('.submit-button');
-            submitButton.style.opacity = '0.7';
-            submitButton.style.cursor = 'not-allowed';
+    // Enhanced form submission with reCAPTCHA
+    const loginForm = document.getElementById('login-form');
+    const registerForm = document.getElementById('register-form');
+    
+    // Login form submission with reCAPTCHA
+    if (loginForm) {
+        loginForm.addEventListener('submit', function(e) {
+            e.preventDefault(); // Always prevent default first
             
-            // Add loading state
-            const originalText = submitButton.innerHTML;
-            submitButton.innerHTML = `
-                <svg class="animate-spin h-5 w-5" fill="none" viewBox="0 0 24 24">
-                    <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
-                    <path class="opacity-75" fill="currentColor" d="m4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
-                </svg>
-                Processing...
-            `;
+            grecaptcha.ready(function() {
+                grecaptcha.execute('{{ config('services.recaptcha.site_key') }}', {action: 'login'})
+                    .then(function(token) {
+                        document.getElementById('g-recaptcha-response-login').value = token;
+                        
+                        const submitButton = loginForm.querySelector('.submit-button');
+                        submitButton.style.opacity = '0.7';
+                        submitButton.style.cursor = 'not-allowed';
+                        
+                        // Add loading state
+                        submitButton.innerHTML = `
+                            <svg class="animate-spin h-5 w-5" fill="none" viewBox="0 0 24 24">
+                                <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+                                <path class="opacity-75" fill="currentColor" d="m4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                            </svg>
+                            Processing...
+                        `;
+                        
+                        loginForm.submit();
+                    });
+            });
         });
-    });
+    }
+    
+    // Register form submission with reCAPTCHA
+    if (registerForm) {
+        registerForm.addEventListener('submit', function(e) {
+            e.preventDefault(); // Always prevent default first
+            
+            grecaptcha.ready(function() {
+                grecaptcha.execute('{{ config('services.recaptcha.site_key') }}', {action: 'register'})
+                    .then(function(token) {
+                        document.getElementById('g-recaptcha-response-register').value = token;
+                        
+                        const submitButton = registerForm.querySelector('.submit-button');
+                        submitButton.style.opacity = '0.7';
+                        submitButton.style.cursor = 'not-allowed';
+                        
+                        // Add loading state
+                        submitButton.innerHTML = `
+                            <svg class="animate-spin h-5 w-5" fill="none" viewBox="0 0 24 24">
+                                <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+                                <path class="opacity-75" fill="currentColor" d="m4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                            </svg>
+                            Processing...
+                        `;
+                        
+                        registerForm.submit();
+                    });
+            });
+        });
+    }
 });
 </script>
 @endsection
