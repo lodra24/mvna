@@ -190,22 +190,15 @@ document.addEventListener('DOMContentLoaded', function() {
             return;
         }
         
-        // Check if cookie consent is given before using reCAPTCHA
-        @if(Cookie::get('laravel_cookie_consent'))
-            // reCAPTCHA validation
-            grecaptcha.ready(function() {
-                grecaptcha.execute('{{ config('services.recaptcha.site_key') }}', {action: 'start_test'})
-                    .then(function(token) {
-                        document.getElementById('g-recaptcha-response-start').value = token;
-                        showLoading();
-                        form.submit();
-                    });
-            });
-        @else
-            // Submit form without reCAPTCHA if no cookie consent
-            showLoading();
-            form.submit();
-        @endif
+        // reCAPTCHA validation
+        grecaptcha.ready(function() {
+            grecaptcha.execute('{{ config('services.recaptcha.site_key') }}', {action: 'start_test'})
+                .then(function(token) {
+                    document.getElementById('g-recaptcha-response-start').value = token;
+                    showLoading();
+                    form.submit();
+                });
+        });
     });
     
     // Real-time name validation

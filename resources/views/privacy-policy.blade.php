@@ -432,6 +432,87 @@
                                             <li><strong>Paddle Payment System:</strong> Our payment processor may place cookies for payment processing, fraud detection, and transaction security when you make purchases.</li>
                                         </ul>
                                     </div>
+                                    
+                                    <!-- Special Security Notice for Google reCAPTCHA -->
+                                    <div class="bg-gradient-to-r from-orange-50 via-amber-50 to-yellow-50 rounded-lg p-6 border-2 border-orange-200 shadow-md mt-4">
+                                        <div class="flex items-start mb-4">
+                                            <div class="flex items-center justify-center w-10 h-10 bg-gradient-to-br from-orange-500 to-red-500 rounded-xl mr-4 flex-shrink-0">
+                                                <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-2.5L13.732 4c-.77-.833-1.964-.833-2.732 0L4.082 16.5C3.312 18.333 4.274 20 5.814 20z"/>
+                                                </svg>
+                                            </div>
+                                            <div class="flex-1">
+                                                <h3 class="font-bold text-lg text-slate-900 mb-2 flex items-center">
+                                                    <span class="bg-gradient-to-r from-orange-600 to-red-600 bg-clip-text text-transparent">
+                                                        Important Security Notice: Google reCAPTCHA
+                                                    </span>
+                                                </h3>
+                                                <div class="space-y-3 text-sm text-slate-700">
+                                                    <p class="font-medium text-slate-800">
+                                                        <strong>Google reCAPTCHA operates independently of your cookie consent choice.</strong> This security measure is essential for protecting our website and all users.
+                                                    </p>
+                                                    
+                                                    <div class="bg-white/60 rounded-lg p-4 border border-orange-100">
+                                                        <h4 class="font-semibold text-slate-800 mb-2 flex items-center">
+                                                            <svg class="w-4 h-4 text-orange-600 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/>
+                                                            </svg>
+                                                            Why reCAPTCHA is Mandatory:
+                                                        </h4>
+                                                        <ul class="space-y-1 ml-4 list-disc list-inside text-slate-700">
+                                                            <li><strong>Spam Protection:</strong> Prevents automated spam submissions on our contact forms and test registration</li>
+                                                            <li><strong>Bot Attack Defense:</strong> Protects against malicious bot attacks that could compromise our services</li>
+                                                            <li><strong>Data Integrity:</strong> Ensures the authenticity of user interactions and test submissions</li>
+                                                            <li><strong>Service Availability:</strong> Maintains website performance and availability for all legitimate users</li>
+                                                        </ul>
+                                                    </div>
+                                                    
+                                                    <div class="bg-slate-800 rounded-lg p-4 text-white">
+                                                        <h4 class="font-semibold mb-2 flex items-center">
+                                                            <svg class="w-4 h-4 text-blue-400 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13.828 10.172a4 4 0 00-5.656 0l-4 4a4 4 0 105.656 5.656l1.102-1.101m-.758-4.899a4 4 0 005.656 0l4-4a4 4 0 00-5.656-5.656l-1.1 1.1"/>
+                                                            </svg>
+                                                            Google's Privacy Policies:
+                                                        </h4>
+                                                        <p class="text-sm text-slate-300 mb-2">
+                                                            By using forms protected by reCAPTCHA on our website, you are also subject to Google's data processing practices:
+                                                        </p>
+                                                        <div class="flex flex-wrap gap-3">
+                                                            <a href="https://policies.google.com/privacy"
+                                                               target="_blank"
+                                                               rel="noopener noreferrer"
+                                                               class="inline-flex items-center px-3 py-2 bg-blue-600 hover:bg-blue-700 rounded-lg text-xs font-medium text-white transition-colors duration-200">
+                                                                <svg class="w-3 h-3 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/>
+                                                                </svg>
+                                                                Google Privacy Policy
+                                                            </a>
+                                                            <a href="https://policies.google.com/terms"
+                                                               target="_blank"
+                                                               rel="noopener noreferrer"
+                                                               class="inline-flex items-center px-3 py-2 bg-green-600 hover:bg-green-700 rounded-lg text-xs font-medium text-white transition-colors duration-200">
+                                                                <svg class="w-3 h-3 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/>
+                                                                </svg>
+                                                                Google Terms of Service
+                                                            </a>
+                                                        </div>
+                                                    </div>
+                                                    
+                                                    <div class="bg-orange-100 border border-orange-200 rounded-lg p-3">
+                                                        <p class="text-xs text-orange-800 flex items-start">
+                                                            <svg class="w-4 h-4 text-orange-600 mr-2 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                                                            </svg>
+                                                            <span>
+                                                                <strong>Transparency Note:</strong> reCAPTCHA is activated automatically on forms that require protection (contact forms, test registration, payment forms). This security measure operates regardless of your cookie preferences to ensure the basic functionality and security of our website.
+                                                            </span>
+                                                        </p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
                                 
                                 <div class="bg-amber-50 p-4 rounded-lg border border-amber-200">
