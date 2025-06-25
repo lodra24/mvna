@@ -32,7 +32,7 @@
                     <svg class="w-4 h-4 mr-2" fill="currentColor" viewBox="0 0 20 20">
                         <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-12a1 1 0 10-2 0v4a1 1 0 00.293.707l2.828 2.829a1 1 0 101.415-1.415L11 9.586V6z" clip-rule="evenodd"/>
                     </svg>
-                    Last updated: December 16, 2024
+                    Last updated: December 25, 2024
                 </div>
             </div>
 
@@ -51,6 +51,9 @@
                             <p class="text-slate-600 leading-relaxed">
                                 Welcome to CognifyWork ("we," "our," or "us"). We are committed to protecting your personal information and your right to privacy. This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you visit our website and use our MBTI personality assessment services.
                             </p>
+                            <p class="text-slate-600 leading-relaxed mt-4">
+                                We understand that privacy is fundamental to building trust with our users. This policy provides transparent information about our data practices to help you make informed decisions about using our services. By using our website and services, you consent to the collection and use of information in accordance with this policy.
+                            </p>
                         </div>
                     </div>
                 </div>
@@ -65,29 +68,40 @@
                         </div>
                         <div class="flex-1">
                             <h2 class="text-2xl font-bold text-slate-900 mb-3">Information We Collect</h2>
-                            <div class="space-y-4 text-slate-600">
+                            <div class="space-y-6 text-slate-600">
                                 <div>
-                                    <h3 class="font-semibold text-slate-800 mb-2">Personal Information</h3>
-                                    <ul class="list-disc list-inside space-y-1 ml-4">
-                                        <li>Name and email address when you create an account</li>
-                                        <li>Contact information when you reach out to us</li>
-                                        <li>Payment information processed securely through our payment providers</li>
+                                    <h3 class="font-semibold text-slate-800 mb-3 text-lg">Information You Provide to Us</h3>
+                                    <p class="mb-3 leading-relaxed">We collect information that you voluntarily provide to us when using our services:</p>
+                                    <ul class="list-disc list-inside space-y-2 ml-4">
+                                        <li><strong>Account Registration:</strong> Name and email address when you create an account or sign up for our services</li>
+                                        <li><strong>Test Initiation:</strong> Name and basic demographic information when you start taking the MBTI assessment</li>
+                                        <li><strong>Contact Forms:</strong> Contact information, messages, and any other details you provide when you reach out to us</li>
+                                        <li><strong>Payment Information:</strong> Billing details processed securely through our payment providers (we do not store full payment card details)</li>
+                                        <li><strong>Communication Preferences:</strong> Your choices regarding marketing communications and notifications</li>
                                     </ul>
                                 </div>
+                                
                                 <div>
-                                    <h3 class="font-semibold text-slate-800 mb-2">Assessment Data</h3>
-                                    <ul class="list-disc list-inside space-y-1 ml-4">
-                                        <li>Your responses to our MBTI personality assessment questions</li>
-                                        <li>Assessment results and personality type analysis</li>
-                                        <li>Usage patterns and preferences within our platform</li>
+                                    <h3 class="font-semibold text-slate-800 mb-3 text-lg">Information We Collect Automatically</h3>
+                                    <p class="mb-3 leading-relaxed">When you visit our website, we automatically collect certain information about your device and browsing behavior:</p>
+                                    <ul class="list-disc list-inside space-y-2 ml-4">
+                                        <li><strong>Device Information:</strong> Device type, operating system, browser type and version, screen resolution, and device identifiers</li>
+                                        <li><strong>Browser Information:</strong> Browser settings, language preferences, and installed plugins</li>
+                                        <li><strong>IP Address:</strong> Your Internet Protocol address and approximate geographic location</li>
+                                        <li><strong>Usage Data:</strong> Pages visited, time spent on pages, click paths, referring websites, and interaction patterns</li>
+                                        <li><strong>Technical Data:</strong> Session information, error logs, and performance metrics</li>
                                     </ul>
                                 </div>
+                                
                                 <div>
-                                    <h3 class="font-semibold text-slate-800 mb-2">Technical Information</h3>
-                                    <ul class="list-disc list-inside space-y-1 ml-4">
-                                        <li>IP address, browser type, and device information</li>
-                                        <li>Cookies and similar tracking technologies</li>
-                                        <li>Website usage statistics and analytics data</li>
+                                    <h3 class="font-semibold text-slate-800 mb-3 text-lg">Assessment and Test Data</h3>
+                                    <p class="mb-3 leading-relaxed">We collect and process data specifically related to your personality assessment experience:</p>
+                                    <ul class="list-disc list-inside space-y-2 ml-4">
+                                        <li><strong>Test Responses:</strong> Your answers to all MBTI personality assessment questions</li>
+                                        <li><strong>Assessment Results:</strong> Calculated personality type, scores, and dimensional preferences</li>
+                                        <li><strong>Generated Reports:</strong> Personalized personality reports, insights, and recommendations based on your results</li>
+                                        <li><strong>Test Progress:</strong> Completion status, time taken, and any incomplete sessions</li>
+                                        <li><strong>Historical Data:</strong> Previous test results if you retake assessments</li>
                                     </ul>
                                 </div>
                             </div>
@@ -156,23 +170,52 @@
                             </svg>
                         </div>
                         <div class="flex-1">
-                            <h2 class="text-2xl font-bold text-slate-900 mb-3">Information Sharing and Disclosure</h2>
+                            <h2 class="text-2xl font-bold text-slate-900 mb-3">How We Share Your Information</h2>
                             <div class="space-y-4 text-slate-600">
                                 <p class="leading-relaxed">
-                                    We do not sell, trade, or rent your personal information to third parties. We may share your information only in the following circumstances:
+                                    We respect your privacy and do not sell, trade, or rent your personal information to third parties for marketing purposes. We may share your information only in the specific circumstances outlined below:
                                 </p>
-                                <div class="space-y-3">
+                                <div class="space-y-4">
                                     <div class="bg-slate-50 rounded-lg p-4">
-                                        <h3 class="font-semibold text-slate-800 mb-2">Service Providers</h3>
-                                        <p class="text-sm">We may share information with trusted third-party service providers who assist us in operating our website and providing our services, subject to confidentiality agreements.</p>
+                                        <h3 class="font-semibold text-slate-800 mb-2 flex items-center">
+                                            <svg class="w-4 h-4 text-blue-600 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2-2v2m8 0V6a2 2 0 012 2v6a2 2 0 01-2 2H6a2 2 0 01-2-2V8a2 2 0 012-2V6"/>
+                                            </svg>
+                                            Service Providers
+                                        </h3>
+                                        <p class="text-sm leading-relaxed">We share information with trusted third-party service providers who assist us in operating our website and providing our services. These include:</p>
+                                        <ul class="text-sm mt-2 ml-4 list-disc list-inside space-y-1">
+                                            <li><strong>Paddle:</strong> Our payment processor for handling secure transactions and billing</li>
+                                            <li><strong>Google Services:</strong> For authentication (Google Sign-In) and security (reCAPTCHA)</li>
+                                            <li><strong>Email Service Providers:</strong> For sending transactional emails and notifications</li>
+                                            <li><strong>Hosting Providers:</strong> For website infrastructure and data storage</li>
+                                        </ul>
+                                        <p class="text-sm mt-2 text-slate-600">All service providers are bound by confidentiality agreements and are only authorized to use your information for the specific services they provide to us.</p>
                                     </div>
                                     <div class="bg-slate-50 rounded-lg p-4">
-                                        <h3 class="font-semibold text-slate-800 mb-2">Legal Requirements</h3>
-                                        <p class="text-sm">We may disclose information when required by law or to protect our rights, property, or safety, or that of our users or others.</p>
+                                        <h3 class="font-semibold text-slate-800 mb-2 flex items-center">
+                                            <svg class="w-4 h-4 text-red-600 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 6l3 1m0 0l-3 9a5.002 5.002 0 006.001 0M6 7l3 9M6 7l6-2m6 2l3-1m-3 1l-3 9a5.002 5.002 0 006.001 0M18 7l3 9m-3-9l-6-2m0-2v2m0 16V5m0 16H9m3 0h3"/>
+                                            </svg>
+                                            Legal Compliance
+                                        </h3>
+                                        <p class="text-sm">We may disclose your information when required by law, legal process, or government request, or when we believe disclosure is necessary to:</p>
+                                        <ul class="text-sm mt-2 ml-4 list-disc list-inside space-y-1">
+                                            <li>Comply with applicable laws and regulations</li>
+                                            <li>Respond to lawful requests from public authorities</li>
+                                            <li>Protect our rights, property, or safety</li>
+                                            <li>Protect the rights, property, or safety of our users or others</li>
+                                            <li>Prevent or investigate potential fraud or security issues</li>
+                                        </ul>
                                     </div>
                                     <div class="bg-slate-50 rounded-lg p-4">
-                                        <h3 class="font-semibold text-slate-800 mb-2">Business Transfers</h3>
-                                        <p class="text-sm">In the event of a merger, acquisition, or sale of assets, your information may be transferred as part of the transaction.</p>
+                                        <h3 class="font-semibold text-slate-800 mb-2 flex items-center">
+                                            <svg class="w-4 h-4 text-green-600 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 4V2a1 1 0 011-1h8a1 1 0 011 1v2m-9 3v12a2 2 0 002 2h6a2 2 0 002-2V7M9 11h6M9 15h6"/>
+                                            </svg>
+                                            Business Transfers
+                                        </h3>
+                                        <p class="text-sm">In the event of a merger, acquisition, bankruptcy, dissolution, reorganization, or similar business transaction or proceeding, your information may be transferred as part of the business assets. We will provide notice before your personal information is transferred and becomes subject to a different privacy policy.</p>
                                     </div>
                                 </div>
                             </div>
@@ -192,8 +235,18 @@
                             <h2 class="text-2xl font-bold text-slate-900 mb-3">Data Security</h2>
                             <div class="space-y-4 text-slate-600">
                                 <p class="leading-relaxed">
-                                    We implement appropriate technical and organizational security measures to protect your personal information against unauthorized access, alteration, disclosure, or destruction.
+                                    We implement comprehensive technical and organizational security measures to protect your personal information against unauthorized access, alteration, disclosure, or destruction. Your data security is our top priority.
                                 </p>
+                                <div class="bg-blue-50 rounded-lg p-4 border border-blue-200 mb-4">
+                                    <h4 class="font-semibold text-slate-800 mb-2">Our Security Measures Include:</h4>
+                                    <ul class="text-sm space-y-1 ml-4 list-disc list-inside">
+                                        <li><strong>SSL Encryption:</strong> All data transmitted between your browser and our servers is encrypted using SSL/TLS protocols</li>
+                                        <li><strong>Password Hashing:</strong> User passwords are hashed using industry-standard algorithms and never stored in plain text</li>
+                                        <li><strong>Database Security:</strong> Database access is restricted and monitored with comprehensive logging</li>
+                                        <li><strong>Regular Security Audits:</strong> We conduct regular security reviews and vulnerability assessments</li>
+                                        <li><strong>Secure Infrastructure:</strong> Our hosting infrastructure meets industry security standards</li>
+                                    </ul>
+                                </div>
                                 <div class="grid md:grid-cols-2 gap-4">
                                     <div class="bg-slate-50 rounded-lg p-4">
                                         <div class="flex items-center mb-2">
@@ -246,10 +299,10 @@
                             </svg>
                         </div>
                         <div class="flex-1">
-                            <h2 class="text-2xl font-bold text-slate-900 mb-3">Your Rights</h2>
+                            <h2 class="text-2xl font-bold text-slate-900 mb-3">Your Data Protection Rights</h2>
                             <div class="space-y-4 text-slate-600">
                                 <p class="leading-relaxed">
-                                    You have certain rights regarding your personal information. These rights may vary depending on your location and applicable laws.
+                                    You have certain rights regarding your personal information under applicable data protection laws, including GDPR and CCPA. These rights may vary depending on your location and the nature of our relationship with you.
                                 </p>
                                 <div class="grid md:grid-cols-2 gap-4">
                                     <div class="bg-gradient-to-br from-blue-50 to-indigo-50 rounded-lg p-4 border border-blue-100">
@@ -311,28 +364,90 @@
                             </svg>
                         </div>
                         <div class="flex-1">
-                            <h2 class="text-2xl font-bold text-slate-900 mb-3">Cookies and Tracking</h2>
-                            <div class="space-y-4 text-slate-600">
+                            <h2 class="text-2xl font-bold text-slate-900 mb-3">Cookies and Tracking Technologies</h2>
+                            <div class="space-y-6 text-slate-600">
                                 <p class="leading-relaxed">
-                                    We use cookies and similar tracking technologies to enhance your experience on our website and to analyze how our services are used.
+                                    We use cookies and similar tracking technologies to enhance your experience on our website, ensure security, and analyze how our services are used. Below is a detailed breakdown of the types of cookies we use:
                                 </p>
-                                <div class="space-y-3">
-                                    <div class="bg-slate-50 rounded-lg p-4">
-                                        <h3 class="font-semibold text-slate-800 mb-2">Essential Cookies</h3>
-                                        <p class="text-sm">Required for the website to function properly. These cannot be disabled.</p>
+                                
+                                <div class="space-y-4">
+                                    <div class="bg-red-50 rounded-lg p-4 border border-red-200">
+                                        <h3 class="font-semibold text-slate-800 mb-3 flex items-center">
+                                            <svg class="w-5 h-5 text-red-600 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-2.5L13.732 4c-.77-.833-1.964-.833-2.732 0L4.082 16.5C3.312 18.333 4.274 20 5.814 20z"/>
+                                            </svg>
+                                            Strictly Necessary Cookies
+                                        </h3>
+                                        <p class="text-sm mb-3">These cookies are essential for the website to function properly and cannot be disabled. They do not require your consent as they are necessary for the basic operation of our services.</p>
+                                        <ul class="text-sm space-y-1 ml-4 list-disc list-inside">
+                                            <li><strong>Laravel Session:</strong> Maintains your session state while browsing our website</li>
+                                            <li><strong>CSRF Token:</strong> Protects against cross-site request forgery attacks</li>
+                                            <li><strong>Cookie Consent (laravel_cookie_consent):</strong> Remembers your cookie preferences</li>
+                                            <li><strong>Authentication:</strong> Keeps you logged in to your account</li>
+                                        </ul>
                                     </div>
-                                    <div class="bg-slate-50 rounded-lg p-4">
-                                        <h3 class="font-semibold text-slate-800 mb-2">Analytics Cookies</h3>
-                                        <p class="text-sm">Help us understand how visitors interact with our website by collecting anonymous information.</p>
+                                    
+                                    <div class="bg-blue-50 rounded-lg p-4 border border-blue-200">
+                                        <h3 class="font-semibold text-slate-800 mb-3 flex items-center">
+                                            <svg class="w-5 h-5 text-blue-600 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"/>
+                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/>
+                                            </svg>
+                                            Functional Cookies
+                                        </h3>
+                                        <p class="text-sm mb-3">These cookies enhance your user experience by remembering your preferences and settings.</p>
+                                        <ul class="text-sm space-y-1 ml-4 list-disc list-inside">
+                                            <li><strong>Language Preference:</strong> Remembers your preferred language selection</li>
+                                            <li><strong>Theme Settings:</strong> Stores your interface preferences (if applicable)</li>
+                                            <li><strong>Test Preferences:</strong> Remembers your assessment display preferences</li>
+                                        </ul>
                                     </div>
-                                    <div class="bg-slate-50 rounded-lg p-4">
-                                        <h3 class="font-semibold text-slate-800 mb-2">Preference Cookies</h3>
-                                        <p class="text-sm">Remember your settings and preferences to provide a personalized experience.</p>
+                                    
+                                    <div class="bg-green-50 rounded-lg p-4 border border-green-200">
+                                        <h3 class="font-semibold text-slate-800 mb-3 flex items-center">
+                                            <svg class="w-5 h-5 text-green-600 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/>
+                                            </svg>
+                                            Analytics and Performance Cookies
+                                        </h3>
+                                        <p class="text-sm mb-3">These cookies help us understand how visitors interact with our website by collecting anonymous statistical information.</p>
+                                        <ul class="text-sm space-y-1 ml-4 list-disc list-inside">
+                                            <li><strong>Google Analytics:</strong> Tracks website usage patterns, popular pages, and user flows (when implemented)</li>
+                                            <li><strong>Performance Monitoring:</strong> Helps us identify and fix technical issues</li>
+                                            <li><strong>User Experience Analytics:</strong> Provides insights to improve our services</li>
+                                        </ul>
+                                    </div>
+                                    
+                                    <div class="bg-purple-50 rounded-lg p-4 border border-purple-200">
+                                        <h3 class="font-semibold text-slate-800 mb-3 flex items-center">
+                                            <svg class="w-5 h-5 text-purple-600 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13.828 10.172a4 4 0 00-5.656 0l-4 4a4 4 0 105.656 5.656l1.102-1.101m-.758-4.899a4 4 0 005.656 0l4-4a4 4 0 00-5.656-5.656l-1.1 1.1"/>
+                                            </svg>
+                                            Third-Party Cookies
+                                        </h3>
+                                        <p class="text-sm mb-3">Third-party services we use may place their own cookies on your device. These cookies are controlled by the respective third-party services and subject to their own privacy policies.</p>
+                                        <ul class="text-sm space-y-2 ml-4 list-disc list-inside">
+                                            <li><strong>Google reCAPTCHA:</strong> Used for spam and bot detection to protect our forms and ensure security. Cookies are used for fraud prevention and abuse detection.</li>
+                                            <li><strong>Google Sign-In:</strong> Enables single sign-on functionality when you choose to log in with your Google account. Google may place cookies for authentication and account management.</li>
+                                            <li><strong>Paddle Payment System:</strong> Our payment processor may place cookies for payment processing, fraud detection, and transaction security when you make purchases.</li>
+                                        </ul>
                                     </div>
                                 </div>
-                                <p class="text-sm bg-amber-50 p-3 rounded-lg border border-amber-200">
-                                    <strong>Cookie Control:</strong> You can control cookies through your browser settings. However, disabling certain cookies may affect the functionality of our website.
-                                </p>
+                                
+                                <div class="bg-amber-50 p-4 rounded-lg border border-amber-200">
+                                    <h4 class="font-semibold text-slate-800 mb-2">Managing Your Cookie Preferences</h4>
+                                    <p class="text-sm mb-2">
+                                        You have control over cookies through several methods:
+                                    </p>
+                                    <ul class="text-sm space-y-1 ml-4 list-disc list-inside">
+                                        <li><strong>Cookie Banner:</strong> Use our cookie consent banner to manage your preferences</li>
+                                        <li><strong>Browser Settings:</strong> Configure your browser to block or delete cookies</li>
+                                        <li><strong>Third-Party Opt-Outs:</strong> Visit third-party websites to manage their cookies directly</li>
+                                    </ul>
+                                    <p class="text-sm mt-2 text-amber-800">
+                                        <strong>Note:</strong> Disabling certain cookies may affect the functionality of our website and your user experience.
+                                    </p>
+                                </div>
                             </div>
                         </div>
                     </div>

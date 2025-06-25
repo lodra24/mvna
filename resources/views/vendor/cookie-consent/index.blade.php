@@ -25,11 +25,11 @@
                             </p>
                             <p class="text-slate-300 text-sm mt-1">
                                 <a href="{{ route('privacy-policy') }}" class="font-medium hover:text-white underline decoration-dotted underline-offset-2 transition-colors">
-                                    Gizlilik Politikası
+                                    Privacy Policy
                                 </a>
                                 <span class="mx-2">•</span>
                                 <a href="{{ route('terms-of-service') }}" class="font-medium hover:text-white underline decoration-dotted underline-offset-2 transition-colors">
-                                    Kullanım Şartları
+                                    Terms of Service
                                 </a>
                             </p>
                         </div>
