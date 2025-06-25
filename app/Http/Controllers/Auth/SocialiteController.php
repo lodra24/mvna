@@ -22,7 +22,7 @@ class SocialiteController extends Controller
         return Socialite::driver('google')
             ->stateless()
             ->setHttpClient(new \GuzzleHttp\Client([
-                'verify' => false, // SSL sertifika doğrulamasını kapat
+                'verify' => !app()->isLocal(), // Ortama göre SSL doğrulaması
                 'timeout' => 30
             ]))
             ->redirect();
@@ -38,7 +38,7 @@ class SocialiteController extends Controller
             $googleUser = Socialite::driver('google')
                 ->stateless()
                 ->setHttpClient(new \GuzzleHttp\Client([
-                    'verify' => false, // SSL sertifika doğrulamasını kapat
+                    'verify' => !app()->isLocal(), // Ortama göre SSL doğrulaması
                     'timeout' => 30
                 ]))
                 ->user();
