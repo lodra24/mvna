@@ -50,7 +50,7 @@
                                 <path stroke-linecap="round" stroke-linejoin="round" d="M8.25 21v-4.875c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21m0 0h4.5V3.545M12.75 21h7.5V10.75M2.25 21h1.5m18 0h-1.5m-6-16.5v.008c0 .19-.16.34-.347.347H10.586A.346.346 0 0110.24 4.5v-.007A.344.344 0 0110.586 4h2.828c.19 0 .347.157.347.347zm-3.375 0h.008v.008h-.008V4.5z" />
                             </svg>
                         </div>
-                        <span class="text-2xl font-bold text-slate-800 group-hover:text-mindmetrics-indigo transition-colors duration-200">MindMetrics</span>
+                        <span class="text-2xl font-bold text-slate-800 group-hover:text-mindmetrics-indigo transition-colors duration-200">CognifyWork</span>
                     </a>
                 </div>
 
