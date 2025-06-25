@@ -83,6 +83,20 @@ class Settings extends SettingsPage
                             ->helperText('Buraya eklenen kodlar, sitenin tüm sayfalarında </body> etiketinin kapanışından hemen önce yerleştirilecektir.')
                             ->placeholder('<!-- Chat Widget Kodu -->...'),
                     ]),
+
+                Forms\Components\Section::make('Cookie Onay Ayarları')
+                    ->description('Cookie onay banner\'ında gösterilecek mesaj ve buton metinlerini buradan yönetebilirsiniz.')
+                    ->schema([
+                        Forms\Components\Textarea::make('cookie_consent_message')
+                            ->label('Cookie Onay Mesajı')
+                            ->required()
+                            ->rows(3)
+                            ->helperText('Ziyaretçilere gösterilecek cookie onay mesajı.'),
+                        Forms\Components\TextInput::make('cookie_consent_agree_button_text')
+                            ->label('Onay Butonu Metni')
+                            ->required()
+                            ->helperText('Cookie onay butonunda gösterilecek metin.'),
+                    ]),
             ]);
     }
 }

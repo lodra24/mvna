@@ -17,9 +17,10 @@
     <!-- Scripts -->
     @vite(['resources/css/app.css', 'resources/js/app.js'])
     
-    
-    @if($settings->site_custom_scripts)
-        {!! $settings->site_custom_scripts !!}
+    @if(Cookie::get('laravel_cookie_consent'))
+        @if($settings->site_custom_scripts)
+            {!! $settings->site_custom_scripts !!}
+        @endif
     @endif
 </head>
 <body class="font-sans text-gray-900 antialiased">
@@ -160,8 +161,10 @@
         </div>
     </div>
     
-    @if($settings->site_body_scripts)
-        {!! $settings->site_body_scripts !!}
+    @if(Cookie::get('laravel_cookie_consent'))
+        @if($settings->site_body_scripts)
+            {!! $settings->site_body_scripts !!}
+        @endif
     @endif
 </body>
 </html>

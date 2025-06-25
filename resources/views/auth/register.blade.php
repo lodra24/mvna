@@ -17,11 +17,13 @@
     <!-- Scripts -->
     @vite(['resources/css/app.css', 'resources/js/app.js'])
     
-    <!-- Google reCAPTCHA -->
-    <script src="https://www.google.com/recaptcha/api.js?render={{ config('services.recaptcha.site_key') }}"></script>
-    
-    @if($settings->site_custom_scripts)
-        {!! $settings->site_custom_scripts !!}
+    @if(Cookie::get('laravel_cookie_consent'))
+        <!-- Google reCAPTCHA -->
+        <script src="https://www.google.com/recaptcha/api.js?render={{ config('services.recaptcha.site_key') }}"></script>
+        
+        @if($settings->site_custom_scripts)
+            {!! $settings->site_custom_scripts !!}
+        @endif
     @endif
 </head>
 <body class="font-sans text-gray-900 antialiased">
@@ -259,26 +261,35 @@
         </div>
     </div>
     
-    <!-- reCAPTCHA JavaScript -->
+    <!-- Form Submit JavaScript -->
     <script>
     document.addEventListener('DOMContentLoaded', function() {
         const registerForm = document.querySelector('form');
         if (registerForm) {
             registerForm.addEventListener('submit', function(e) {
                 e.preventDefault();
-                grecaptcha.ready(function() {
-                    grecaptcha.execute('{{ config("services.recaptcha.site_key") }}', {action: 'register'}).then(function(token) {
-                        document.getElementById('g-recaptcha-response-register-page').value = token;
-                        registerForm.submit();
+                
+                @if(Cookie::get('laravel_cookie_consent'))
+                    // Onay varsa reCAPTCHA'yı çalıştır
+                    grecaptcha.ready(function() {
+                        grecaptcha.execute('{{ config("services.recaptcha.site_key") }}', {action: 'register'}).then(function(token) {
+                            document.getElementById('g-recaptcha-response-register-page').value = token;
+                            registerForm.submit();
+                        });
                     });
-                });
+                @else
+                    // Onay yoksa reCAPTCHA'yı atla ve formu direkt gönder
+                    registerForm.submit();
+                @endif
             });
         }
     });
     </script>
     
-    @if($settings->site_body_scripts)
-        {!! $settings->site_body_scripts !!}
+    @if(Cookie::get('laravel_cookie_consent'))
+        @if($settings->site_body_scripts)
+            {!! $settings->site_body_scripts !!}
+        @endif
     @endif
 </body>
 </html>

@@ -15,6 +15,8 @@ class GeneralSettings extends Settings
     public ?string $seo_meta_description;
     public ?string $site_custom_scripts;
     public ?string $site_body_scripts;
+    public ?string $cookie_consent_message;
+    public ?string $cookie_consent_agree_button_text;
 
     public static function group(): string
     {
@@ -33,6 +35,8 @@ class GeneralSettings extends Settings
             'seo_meta_description' => 'CognifyWork offers a comprehensive MBTI personality analysis test for employers to gain deeper insights into their candidates and employees, strengthening management and hiring strategies.',
             'site_custom_scripts' => null,
             'site_body_scripts' => null,
+            'cookie_consent_message' => 'Sitemizde daha iyi bir deneyim sunmak için çerezleri kullanıyoruz.',
+            'cookie_consent_agree_button_text' => 'Anladım ve Kabul Ediyorum',
         ];
     }
 }

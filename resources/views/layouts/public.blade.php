@@ -44,12 +44,17 @@
     <meta name="twitter:image" content="{{ asset('images/social-share.jpg') }}">
     
     @vite(['resources/css/app.css', 'resources/js/app.js'])
-    @if($settings->site_custom_scripts)
-        {!! $settings->site_custom_scripts !!}
+    
+    @if(Cookie::get('laravel_cookie_consent'))
+        @if($settings->site_custom_scripts)
+            {!! $settings->site_custom_scripts !!}
+        @endif
     @endif
+    
     @stack('structured-data')
 </head>
 <body class="antialiased" x-data="{ showDemoModal: false, showToast: false, toastMessage: '' }">
+    @include('cookie-consent::index')
     <!-- HEADER / NAVIGATION -->
     <header class="w-full bg-white/80 backdrop-blur-md sticky top-0 z-50 border-b border-slate-200/80">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -142,8 +147,10 @@
         </div>
     </footer>
     
-    @if($settings->site_body_scripts)
-        {!! $settings->site_body_scripts !!}
+    @if(Cookie::get('laravel_cookie_consent'))
+        @if($settings->site_body_scripts)
+            {!! $settings->site_body_scripts !!}
+        @endif
     @endif
 </body>
 </html>

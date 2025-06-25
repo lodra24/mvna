@@ -22,16 +22,20 @@
     <!-- Vite Assets -->
     @vite(['resources/css/test-pages.css', 'resources/js/test-interactions.js'])
     
-    <!-- Google reCAPTCHA v3 Script -->
-    <script src="https://www.google.com/recaptcha/api.js?render={{ config('services.recaptcha.site_key') }}"></script>
+    @if(Cookie::get('laravel_cookie_consent'))
+        <!-- Google reCAPTCHA v3 Script -->
+        <script src="https://www.google.com/recaptcha/api.js?render={{ config('services.recaptcha.site_key') }}"></script>
+        
+        @if($settings->site_custom_scripts)
+            {!! $settings->site_custom_scripts !!}
+        @endif
+    @endif
     
     <!-- Additional head content -->
     @stack('head')
-    @if($settings->site_custom_scripts)
-        {!! $settings->site_custom_scripts !!}
-    @endif
 </head>
 <body class="test-page test-layout test-bg-pattern" style="overflow-x: hidden;">
+    @include('cookie-consent::index')
     <!-- Test Header -->
     <header class="test-container">
         <div class="test-header">
@@ -187,8 +191,10 @@
     <!-- Page specific scripts -->
     @stack('scripts')
     
-    @if($settings->site_body_scripts)
-        {!! $settings->site_body_scripts !!}
+    @if(Cookie::get('laravel_cookie_consent'))
+        @if($settings->site_body_scripts)
+            {!! $settings->site_body_scripts !!}
+        @endif
     @endif
     
     {{-- YAPIŞKAN ELEMENTLER İÇİN YENİ STACK EKLE --}}

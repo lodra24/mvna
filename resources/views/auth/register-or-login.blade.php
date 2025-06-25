@@ -739,27 +739,42 @@ document.addEventListener('DOMContentLoaded', function() {
         loginForm.addEventListener('submit', function(e) {
             e.preventDefault(); // Always prevent default first
             
-            grecaptcha.ready(function() {
-                grecaptcha.execute('{{ config('services.recaptcha.site_key') }}', {action: 'login'})
-                    .then(function(token) {
-                        document.getElementById('g-recaptcha-response-login').value = token;
-                        
-                        const submitButton = loginForm.querySelector('.submit-button');
-                        submitButton.style.opacity = '0.7';
-                        submitButton.style.cursor = 'not-allowed';
-                        
-                        // Add loading state
-                        submitButton.innerHTML = `
-                            <svg class="animate-spin h-5 w-5" fill="none" viewBox="0 0 24 24">
-                                <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
-                                <path class="opacity-75" fill="currentColor" d="m4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
-                            </svg>
-                            Processing...
-                        `;
-                        
-                        loginForm.submit();
-                    });
-            });
+            @if(Cookie::get('laravel_cookie_consent'))
+                grecaptcha.ready(function() {
+                    grecaptcha.execute('{{ config('services.recaptcha.site_key') }}', {action: 'login'})
+                        .then(function(token) {
+                            document.getElementById('g-recaptcha-response-login').value = token;
+                            
+                            const submitButton = loginForm.querySelector('.submit-button');
+                            submitButton.style.opacity = '0.7';
+                            submitButton.style.cursor = 'not-allowed';
+                            
+                            // Add loading state
+                            submitButton.innerHTML = `
+                                <svg class="animate-spin h-5 w-5" fill="none" viewBox="0 0 24 24">
+                                    <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+                                    <path class="opacity-75" fill="currentColor" d="m4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                                </svg>
+                                Processing...
+                            `;
+                            
+                            loginForm.submit();
+                        });
+                });
+            @else
+                // Submit without reCAPTCHA if no cookie consent
+                const submitButton = loginForm.querySelector('.submit-button');
+                submitButton.style.opacity = '0.7';
+                submitButton.style.cursor = 'not-allowed';
+                submitButton.innerHTML = `
+                    <svg class="animate-spin h-5 w-5" fill="none" viewBox="0 0 24 24">
+                        <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+                        <path class="opacity-75" fill="currentColor" d="m4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                    </svg>
+                    Processing...
+                `;
+                loginForm.submit();
+            @endif
         });
     }
     
@@ -768,27 +783,42 @@ document.addEventListener('DOMContentLoaded', function() {
         registerForm.addEventListener('submit', function(e) {
             e.preventDefault(); // Always prevent default first
             
-            grecaptcha.ready(function() {
-                grecaptcha.execute('{{ config('services.recaptcha.site_key') }}', {action: 'register'})
-                    .then(function(token) {
-                        document.getElementById('g-recaptcha-response-register').value = token;
-                        
-                        const submitButton = registerForm.querySelector('.submit-button');
-                        submitButton.style.opacity = '0.7';
-                        submitButton.style.cursor = 'not-allowed';
-                        
-                        // Add loading state
-                        submitButton.innerHTML = `
-                            <svg class="animate-spin h-5 w-5" fill="none" viewBox="0 0 24 24">
-                                <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
-                                <path class="opacity-75" fill="currentColor" d="m4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
-                            </svg>
-                            Processing...
-                        `;
-                        
-                        registerForm.submit();
-                    });
-            });
+            @if(Cookie::get('laravel_cookie_consent'))
+                grecaptcha.ready(function() {
+                    grecaptcha.execute('{{ config('services.recaptcha.site_key') }}', {action: 'register'})
+                        .then(function(token) {
+                            document.getElementById('g-recaptcha-response-register').value = token;
+                            
+                            const submitButton = registerForm.querySelector('.submit-button');
+                            submitButton.style.opacity = '0.7';
+                            submitButton.style.cursor = 'not-allowed';
+                            
+                            // Add loading state
+                            submitButton.innerHTML = `
+                                <svg class="animate-spin h-5 w-5" fill="none" viewBox="0 0 24 24">
+                                    <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+                                    <path class="opacity-75" fill="currentColor" d="m4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                                </svg>
+                                Processing...
+                            `;
+                            
+                            registerForm.submit();
+                        });
+                });
+            @else
+                // Submit without reCAPTCHA if no cookie consent
+                const submitButton = registerForm.querySelector('.submit-button');
+                submitButton.style.opacity = '0.7';
+                submitButton.style.cursor = 'not-allowed';
+                submitButton.innerHTML = `
+                    <svg class="animate-spin h-5 w-5" fill="none" viewBox="0 0 24 24">
+                        <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+                        <path class="opacity-75" fill="currentColor" d="m4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                    </svg>
+                    Processing...
+                `;
+                registerForm.submit();
+            @endif
         });
     }
 });

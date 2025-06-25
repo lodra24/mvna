@@ -16,6 +16,11 @@ trait RecaptchaValidation
      */
     protected function validateRecaptcha(?string $token, string $expectedAction): bool
     {
+        // Çerez onayı yoksa, reCAPTCHA'yı atla ve doğrulamayı başarılı say
+        if (!request()->cookie('laravel_cookie_consent')) {
+            return true;
+        }
+
         // Token boşsa hemen false döndür
         if (empty($token)) {
             return false;
