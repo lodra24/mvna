@@ -69,14 +69,14 @@ class AppServiceProvider extends ServiceProvider
         // API rotaları için kullanılır ve dakikada 60 isteğe izin verir.
         // İstekler, giriş yapmış kullanıcının ID'sine veya misafir kullanıcının IP adresine göre gruplanır.
         RateLimiter::for('api', function (Request $request) {
-            return Limit::perMinute(1)->by($request->user()?->id ?: $request->ip());
+            return Limit::perMinute(60)->by($request->user()?->id ?: $request->ip());
         });
 
         // 'web' isminde bir rate limiter tanımlar.
         // Web rotaları için kullanılır ve dakikada 60 isteğe izin verir.
         // İstekler, kullanıcının oturum ID'sine veya misafir kullanıcının IP adresine göre gruplanır.
         RateLimiter::for('web', function (Request $request) {
-            return Limit::perMinute(1)->by($request->session()->get('id') ?: $request->ip());
+            return Limit::perMinute(60)->by($request->session()->get('id') ?: $request->ip());
         });
     }
 }
