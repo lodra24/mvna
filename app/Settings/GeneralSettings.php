@@ -31,12 +31,12 @@ class GeneralSettings extends Settings
             'hero_title_highlight' => 'NexusPoint',
             'hero_title_part_2' => 'Analysis',
             'hero_subtitle' => 'Get deeper insights into your candidates and employees with our personality analysis test designed specifically for employers, and strengthen your management strategies.',
-            'seo_meta_title' => 'CognifyWork - Unlock Business Potential with MBTI',
-            'seo_meta_description' => 'CognifyWork offers a comprehensive MBTI personality analysis test for employers to gain deeper insights into their candidates and employees, strengthening management and hiring strategies.',
+            'seo_meta_title' => 'MBTI Vocational NexusPoint Analysis | CognifyWork',
+            'seo_meta_description' => 'Unlock your potential with MBTI Vocational NexusPoint Analysis. This employer-focused report details your career strengths and ideal work style.',
             'site_custom_scripts' => null,
             'site_body_scripts' => null,
-            'cookie_consent_message' => 'Sitemizde daha iyi bir deneyim sunmak için çerezleri kullanıyoruz.',
-            'cookie_consent_agree_button_text' => 'Anladım ve Kabul Ediyorum',
+            'cookie_consent_message' => 'We use cookies to ensure you get the best experience on our website.',
+            'cookie_consent_agree_button_text' => 'Accept & Continue',
         ];
     }
 }
