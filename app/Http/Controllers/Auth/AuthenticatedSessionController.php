@@ -44,6 +44,19 @@ class AuthenticatedSessionController extends Controller
         // Session'da bekleyen test sonucunu kullanıcıya ata
         $testResult = $mbtiTestService->assignPendingTestToUser(Auth::user());
         
+        // Check if user has a test result from guest session
+        if ($testResult) {
+            // If test is in progress, redirect to dashboard with info message
+            if ($testResult->status === 'in_progress') {
+                return redirect()->route('dashboard')
+                    ->with('info', 'You have an unfinished test! You can continue from your dashboard.');
+            }
+            
+            // If test is completed, redirect to payment page
+            return redirect()->route('test.payment', ['testResult' => $testResult->id]);
+        }
+        
+        // If no test result, proceed with intended URL or default dashboard
         return redirect()->intended(route('dashboard', absolute: false));
     }
 

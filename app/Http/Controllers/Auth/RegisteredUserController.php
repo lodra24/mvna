@@ -75,7 +75,15 @@ class RegisteredUserController extends Controller
         $testResult = $mbtiTestService->assignPendingTestToUser($user);
         
         if ($testResult) {
-            return redirect()->route('test.payment', ['testResult' => $testResult->id]);
+            // Check the test status to determine the appropriate redirect
+            if ($testResult->status === 'in_progress') {
+                // User has an unfinished test, redirect to dashboard with info message
+                return redirect()->route('dashboard')
+                    ->with('info', 'You have an unfinished test! You can continue from your dashboard.');
+            } else {
+                // Test is completed (pending_payment), redirect to payment page
+                return redirect()->route('test.payment', ['testResult' => $testResult->id]);
+            }
         }
 
         return redirect(route('dashboard', absolute: false));

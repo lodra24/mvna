@@ -78,11 +78,19 @@ class SocialiteController extends Controller
             // Session'da bekleyen test sonucunu veritabanına kaydet
             $testResult = $mbtiTestService->commitPendingResultToDatabase($user);
             
-            // Eğer test sonucu varsa ödeme sayfasına, yoksa dashboard'a yönlendir
+            // If test result exists, check its status and redirect accordingly
             if ($testResult) {
+                // If test is still in progress, redirect to dashboard with info message
+                if ($testResult->status === 'in_progress') {
+                    return redirect()->route('dashboard')
+                        ->with('info', 'You have an unfinished test! You can continue from your dashboard.');
+                }
+                
+                // If test is completed but not paid, redirect to payment page
                 return redirect()->route('test.payment', ['testResult' => $testResult->id]);
             }
             
+            // If no test result exists, redirect to dashboard
             return redirect()->route('dashboard');
             
         } catch (\Exception $e) {
