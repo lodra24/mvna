@@ -27,6 +27,11 @@ class MbtiTypeDetail extends Model
         'motivators_for_employer_to_leverage',
         'team_collaboration_style_for_employer',
         'leadership_potential_or_style_notes_for_employer',
+        'cognitive_functions',
+        'career_suggestions',
+        'famous_examples',
+        'how_to_handle_stress',
+        'relationships_with_other_types',
     ];
 
     /**
@@ -38,5 +43,9 @@ class MbtiTypeDetail extends Model
         'key_strengths_in_workplace' => 'array',
         'potential_development_areas_for_workplace_effectiveness' => 'array',
         'motivators_for_employer_to_leverage' => 'array',
+        'cognitive_functions' => 'array',
+        'career_suggestions' => 'array',
+        'famous_examples' => 'array',
     ];
+
 }

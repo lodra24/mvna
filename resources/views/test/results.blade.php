@@ -242,20 +242,34 @@
                         @endif
 
                         <!-- İş Yerindeki Temel Güçlü Yönler -->
-                        @if($mbtiTypeDetail->key_strengths_in_workplace && count($mbtiTypeDetail->key_strengths_in_workplace) > 0)
+                        @php
+                            $keyStrengths = $mbtiTypeDetail->key_strengths_in_workplace;
+                            if (is_string($keyStrengths)) {
+                                $keyStrengths = json_decode($keyStrengths, true) ?: [];
+                            }
+                            $keyStrengths = is_array($keyStrengths) ? $keyStrengths : [];
+                        @endphp
+                        @if(!empty($keyStrengths))
                             <h3><strong>Key Strengths in the Workplace</strong></h3>
                             <ul>
-                                @foreach($mbtiTypeDetail->key_strengths_in_workplace as $strength)
+                                @foreach($keyStrengths as $strength)
                                     <li>✅ {{ $strength }}</li>
                                 @endforeach
                             </ul>
                         @endif
 
                         <!-- Potansiyel Gelişim Alanları -->
-                        @if($mbtiTypeDetail->potential_development_areas_for_workplace_effectiveness && count($mbtiTypeDetail->potential_development_areas_for_workplace_effectiveness) > 0)
+                        @php
+                            $developmentAreas = $mbtiTypeDetail->potential_development_areas_for_workplace_effectiveness;
+                            if (is_string($developmentAreas)) {
+                                $developmentAreas = json_decode($developmentAreas, true) ?: [];
+                            }
+                            $developmentAreas = is_array($developmentAreas) ? $developmentAreas : [];
+                        @endphp
+                        @if(!empty($developmentAreas))
                             <h3><strong>Potential Development Areas</strong></h3>
                             <ul>
-                                @foreach($mbtiTypeDetail->potential_development_areas_for_workplace_effectiveness as $area)
+                                @foreach($developmentAreas as $area)
                                     <li>🔄 {{ $area }}</li>
                                 @endforeach
                             </ul>
@@ -274,10 +288,17 @@
                         @endif
 
                         <!-- Motivasyon Faktörleri ve İşveren İçin Öneriler -->
-                        @if($mbtiTypeDetail->motivators_for_employer_to_leverage && count($mbtiTypeDetail->motivators_for_employer_to_leverage) > 0)
+                        @php
+                            $motivators = $mbtiTypeDetail->motivators_for_employer_to_leverage;
+                            if (is_string($motivators)) {
+                                $motivators = json_decode($motivators, true) ?: [];
+                            }
+                            $motivators = is_array($motivators) ? $motivators : [];
+                        @endphp
+                        @if(!empty($motivators))
                             <h3><strong>Motivation Factors and Recommendations for Employers</strong></h3>
                             <ul>
-                                @foreach($mbtiTypeDetail->motivators_for_employer_to_leverage as $motivator)
+                                @foreach($motivators as $motivator)
                                     <li>🎯 {{ $motivator }}</li>
                                 @endforeach
                             </ul>
