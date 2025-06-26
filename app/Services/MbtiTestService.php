@@ -7,6 +7,9 @@ use App\Models\User;
 use App\Models\TestResult;
 use App\Models\UserAnswer;
 use Illuminate\Support\Facades\Session;
+use Illuminate\Support\Facades\Cache;
+use Illuminate\Support\Facades\Log;
+use Illuminate\Contracts\Cache\LockTimeoutException;
 
 class MbtiTestService
 {
@@ -82,34 +85,85 @@ class MbtiTestService
     }
 
     /**
-     * Session'da bekleyen test sonucunu kullanıcıya atar.
+     * Session'da bekleyen test sonucunu kullanıcıya atar (Thread-safe implementation).
      *
      * @param User $user
      * @return TestResult|null
      */
     public function assignPendingTestToUser(User $user): ?TestResult
     {
-        if (session()->has('active_test_result_id')) {
-            $testResultId = session('active_test_result_id');
-            $testResult = TestResult::find($testResultId);
+        // Early exit if no active test result in session
+        if (!session()->has('active_test_result_id')) {
+            return null;
+        }
 
+        $testResultId = session('active_test_result_id');
+        $lockKey = "assign_test_to_user:{$user->id}:{$testResultId}";
+        
+        // Create a lock with 10 seconds timeout
+        $lock = Cache::lock($lockKey, 10);
+        
+        try {
+            // Try to acquire the lock for 5 seconds
+            $lock->block(5);
+            
+            // Double-check: ensure session still has the active test result
+            if (!session()->has('active_test_result_id')) {
+                Log::info('Active test result ID removed from session during lock acquisition', [
+                    'user_id' => $user->id,
+                    'test_result_id' => $testResultId,
+                    'lock_key' => $lockKey
+                ]);
+                return null;
+            }
+            
+            // Find the test result
+            $testResult = TestResult::find($testResultId);
+            
             if ($testResult && $testResult->user_id === null) {
+                // Assign the test to the user
                 $testResult->user_id = $user->id;
                 $testResult->guest_name = null;
                 
-                // Sadece pending_registration durumundaki testlerin durumunu pending_payment yap
-                // Diğer durumlar (in_progress, completed vb.) korunmalı
+                // Only change status from pending_registration to pending_payment
+                // Other statuses (in_progress, completed etc.) should be preserved
                 if ($testResult->status === 'pending_registration') {
                     $testResult->status = 'pending_payment';
                 }
                 
                 $testResult->save();
                 
+                // Remove from session after successful assignment
                 session()->forget('active_test_result_id');
+                
+                Log::info('Test result successfully assigned to user', [
+                    'user_id' => $user->id,
+                    'test_result_id' => $testResultId,
+                    'previous_status' => 'pending_registration',
+                    'new_status' => $testResult->status,
+                    'lock_key' => $lockKey
+                ]);
+                
                 return $testResult;
             }
+            
+            // Test result not found or already assigned
+            return null;
+            
+        } catch (LockTimeoutException $e) {
+            Log::warning('Failed to acquire lock for test assignment - timeout occurred', [
+                'user_id' => $user->id,
+                'test_result_id' => $testResultId,
+                'lock_key' => $lockKey,
+                'error' => $e->getMessage()
+            ]);
+            return null;
+        } finally {
+            // Always release the lock if it was acquired
+            if (isset($lock)) {
+                $lock->release();
+            }
         }
-        return null;
     }
 
     /**

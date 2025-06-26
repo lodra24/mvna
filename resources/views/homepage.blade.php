@@ -131,7 +131,7 @@ $faqData = [
             </div>
             <!-- Trust Text -->
             <p class="text-xs text-slate-500">
-                ✨ No Credit Card Required • Instant Results
+                ✨ Unlock Your True Potential • Instant Results
             </p>
         </div>
     </main>
