@@ -5,6 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <title>@yield('title', $settings->seo_meta_title ?? 'MBTI Test') - CognifyWork</title>
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+    
     @if($settings->seo_meta_title)
         <meta name="title" content="{{ $settings->seo_meta_title }}">
     @endif
