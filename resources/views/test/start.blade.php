@@ -248,7 +248,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 langInput = document.createElement('input');
                 langInput.type = 'hidden';
                 langInput.name = 'lang';
-                startForm.appendChild(langInput);
+                form.appendChild(langInput);
             }
             langInput.value = language;
             
