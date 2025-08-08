@@ -267,7 +267,28 @@
                         </div>
                     </div>
                 </div>
-
+                    <!-- Refund Policy -->
+<div class="bg-white rounded-2xl shadow-xl p-8 md:p-12 mb-12 border border-slate-200/80">
+    <div class="flex items-start mb-6">
+        <div class="flex items-center justify-center w-12 h-12 bg-gradient-to-br from-blue-500 to-green-500 rounded-xl shadow-lg mr-4">
+            <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 15v-1a4 4 0 00-4-4H8m0 0l3 3m-3-3l3-3m-3 6a2 2 0 002 2h8a2 2 0 002-2V7a2 2 0 00-2-2H8a2 2 0 00-2 2v2"/>
+            </svg>
+        </div>
+        <div class="flex-1">
+            <h2 class="text-2xl font-bold text-slate-900 mb-3">Refund Policy</h2>
+            <div class="space-y-4 text-slate-600">
+                <p class="leading-relaxed">
+                    We offer a <strong>14-day money-back guarantee</strong>. If you are not satisfied with your purchased report, you may request a full refund within 14 days of the purchase date.
+                </p>
+                <div class="bg-slate-50 rounded-lg p-4">
+                    <h3 class="font-semibold text-slate-800 mb-2">How to Request a Refund</h3>
+                    <p class="text-sm">To request a refund, please email us at <a href="mailto:support@cognifywork.pro" class="text-mindmetrics-indigo hover:underline font-medium">support@cognifywork.pro</a> with your purchase details.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
                 <!-- Intellectual Property -->
                 <div class="bg-white rounded-2xl shadow-xl p-8 md:p-12 mb-12 border border-slate-200/80">
                     <div class="flex items-start mb-6">

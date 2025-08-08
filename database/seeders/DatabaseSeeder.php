@@ -23,6 +23,7 @@ class DatabaseSeeder extends Seeder
           $this->call([
             QuestionSeeder::class,
             MbtiTypeDetailSeeder::class,
+           // GeneralSettingsSeeder::class,
         ]);
     }
 }

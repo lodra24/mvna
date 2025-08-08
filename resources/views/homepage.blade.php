@@ -1,79 +1,10 @@
-@php
-// SSS bölümündeki verileri Schema için bir diziye alıyoruz.
-// Buradaki metinler, SSS bölümündeki metinlerle birebir aynı olmalı.
-$faqData = [
-    [
-        "question" => "What is the MBTI Vocational NexusPoint Analysis and how does it help employers?",
-        "answer" => "Our MBTI Vocational NexusPoint Analysis is a scientifically-backed personality assessment that identifies 16 distinct personality types based on psychological preferences. For employers, this provides invaluable insights into how candidates approach problem-solving, their communication styles, and leadership potential."
-    ],
-    [
-        "question" => "How long does the assessment take to complete?",
-        "answer" => "The assessment is designed to be both comprehensive and time-efficient, typically taking between 15-20 minutes to complete. The report is generated instantly upon completion."
-    ],
-    [
-        "question" => "What's included in the employer report?",
-        "answer" => "Our comprehensive employer report provides actionable insights across multiple dimensions, including: Personality Overview, Management Tips, Team Dynamics, Communication Style, Stress Indicators, and Development Areas."
-    ],
-    [
-        "question" => "Is the assessment suitable for all job roles?",
-        "answer" => "Yes! Our MBTI assessment is valuable across all industries and job levels, particularly for leadership, team-based, customer-facing, and creative roles. However, it should complement, not replace, traditional hiring methods."
-    ],
-    [
-        "question" => "How secure is candidate data?",
-        "answer" => "Data security is our top priority. We are GDPR & CCPA Compliant, use 256-bit SSL Encryption for all data transmission, and enforce strict access controls."
-    ],
-    [
-        "question" => "Do you offer customer support and training?",
-        "answer" => "Absolutely! We provide comprehensive support, including 24/7 technical assistance and free training webinars on MBTI interpretation to ensure you get maximum value from our platform."
-    ],
-    [
-        "question" => "How is the 'NexusPoint' different from a standard MBTI test?",
-        "answer" => "While a standard MBTI test reveals your personality type, our Vocational NexusPoint Analysis goes further. It connects your type to specific career strengths, ideal work environments, and actionable management strategies, providing a 'nexus point' between your personality and professional potential."
-    ]
-];
-@endphp
-
-@push('structured-data')
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@graph": [
-    {
-      "@type": "Organization",
-      "name": "CognifyWork",
-      "url": "{{ config('app.url') }}",
-      "logo": "{{ asset('images/logo.png') }}",
-      "sameAs": []
-    },
-    {
-      "@type": "WebSite",
-      "name": "CognifyWork",
-      "url": "{{ config('app.url') }}"
-    },
-    {
-      "@type": "FAQPage",
-      "mainEntity": [
-        @foreach($faqData as $faq)
-        {
-          "@type": "Question",
-          "name": "{{ addslashes($faq['question']) }}",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "{{ addslashes($faq['answer']) }}"
-          }
-        }
-        @if (!$loop->last),@endif
-        @endforeach
-      ]
-    }
-  ]
-}
-</script>
-@endpush
 @extends('layouts.public')
-
 @section('title', $settings->seo_meta_title ?? 'MBTI Vocational NexusPoint Analysis - CognifyWork')
-
+@section('structured-data')
+    <script type="application/ld+json">
+        {!! $structuredDataJson !!}
+    </script>
+@endsection
 @section('content')
     <!-- HERO SECTION -->
     <main class="hero-gradient-bg relative overflow-hidden">
@@ -135,7 +66,6 @@ $faqData = [
             </p>
         </div>
     </main>
-
     <!-- TRUSTED BY SECTION - Grid Pattern Eklendi -->
     <section id="trusted-by" class="py-16 sm:py-20 bg-white geometric-grid  relative overflow-hidden">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -219,7 +149,6 @@ $faqData = [
             </div>
         </div>
     </section>
-
     <!-- FEATURES SECTION - Hexagon Pattern + Floating Eklendi -->
     <section id="features" class="py-20 sm:py-32 bg-gradient-to-b from-slate-50 via-white to-slate-50 geometric-hexagon geometric-floating relative overflow-hidden">
         <div class="absolute inset-0 -z-10 opacity-60">
@@ -372,7 +301,6 @@ $faqData = [
             </div>
         </div>
     </section>
-
     <!-- PRICING SECTION - Diamond Pattern + Green Floating Eklendi -->
     <section id="pricing" class="py-16 sm:py-20 bg-white geometric-diamond geometric-floating-enhanced relative overflow-hidden">
         <!-- Background decorative elements -->
@@ -500,7 +428,12 @@ $faqData = [
                                 </p>
                             </div>
                         </div>
-
+                         {{-- Fiyatlandırma Bloğu - YENİ EKLENDİ --}}
+<div class="text-center mb-8">
+    <span style="font-size: 3.75rem; font-weight: 800; color: #1e293b; letter-spacing: -0.025em;">$6</span><span style="font-size: 1.875rem; font-weight: 700; color: #475569;">.99</span>
+    <p style="color: #64748b; font-weight: 500; margin-top: 0.5rem;">One-time payment for your detailed report</p>
+</div>
+{{-- Fiyatlandırma Bloğu Sonu --}}
                         <!-- CTA Button -->
                         <div class="mb-6">
                             <a href="{{ route('test.start') }}" class="cta-button w-full group-hover:scale-105 transition-transform duration-200">
@@ -524,7 +457,6 @@ $faqData = [
             </div>
 
     </section>
-
     <!-- FAQ SECTION - Wave Pattern + Circuit Board Eklendi -->
     <section id="faq" class="py-16 sm:py-20 bg-slate-50 geometric-wave geometric-circuit geometric-tech-overlay relative overflow-hidden">
         <!-- Background decorative elements -->
@@ -920,8 +852,6 @@ $faqData = [
             </div>
         </div>
     </section>
-
-    <!-- Demo Request Modal -->
     <div x-show="showDemoModal"
          x-transition:enter="transition ease-out duration-300"
          x-transition:enter-start="opacity-0"
@@ -1016,9 +946,7 @@ $faqData = [
             </div>
         </div>
     </div>
-
-    <!-- Toast Notification -->
-    <div x-show="showToast"
+   <div x-show="showToast"
          x-transition:enter="transition ease-out duration-300"
          x-transition:enter-start="opacity-0 transform translate-y-2"
          x-transition:enter-end="opacity-100 transform translate-y-0"
