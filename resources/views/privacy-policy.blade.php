@@ -48,9 +48,9 @@
                         </div>
                         <div>
                             <h2 class="text-2xl font-bold text-slate-900 mb-3">Introduction</h2>
-                            <p class="text-slate-600 leading-relaxed">
-                                Welcome to CognifyWork ("we," "our," or "us"). We are committed to protecting your personal information and your right to privacy. This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you visit our website and use our MBTI personality assessment services.
-                            </p>
+                                <p class="text-slate-600 leading-relaxed">
+                                    Welcome to CognifyWork, operated by <strong>Orhan Bülbül, trading as CognifyWork</strong> ("we," "our," or "us"). We are committed to protecting your personal information and your right to privacy. This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you visit our website and use our MBTI personality assessment services.
+                                </p>
                             <p class="text-slate-600 leading-relaxed mt-4">
                                 We understand that privacy is fundamental to building trust with our users. This policy provides transparent information about our data practices to help you make informed decisions about using our services. By using our website and services, you consent to the collection and use of information in accordance with this policy.
                             </p>

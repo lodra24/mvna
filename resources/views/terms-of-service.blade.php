@@ -46,9 +46,9 @@
                         </div>
                         <div>
                             <h2 class="text-2xl font-bold text-slate-900 mb-3">Welcome to CognifyWork</h2>
-                            <p class="text-slate-600 leading-relaxed">
-                                These Terms of Service ("Terms") govern your use of the CognifyWork website and our MBTI personality assessment services. By accessing or using our services, you agree to be bound by these Terms. If you do not agree to these Terms, please do not use our services.
-                            </p>
+                                <p class="text-slate-600 leading-relaxed">
+                                    These Terms of Service ("Terms") govern your use of the CognifyWork website, operated by <strong>Orhan Bülbül, trading as CognifyWork</strong> ("we," "our," or "us"), and our MBTI personality assessment services. By accessing or using our services, you agree to be bound by these Terms. If you do not agree to these Terms, please do not use our services.
+                                </p>
                         </div>
                     </div>
                 </div>
