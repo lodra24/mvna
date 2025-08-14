@@ -66,6 +66,20 @@ class User extends Authenticatable implements FilamentUser
     /**
      * Kullanıcının test sonuçları
      */
+
+      public function paddleName(): string|null
+    {
+        return $this->name;
+    }
+ 
+    /**
+     * Get the customer's email address to associate with Paddle.
+     */
+    public function paddleEmail(): string|null
+    {
+        return $this->email;
+    }
+
     public function testResults()
     {
         return $this->hasMany(TestResult::class);
