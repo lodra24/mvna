@@ -19,6 +19,7 @@ use App\Observers\QuestionObserver;
 use App\Policies\TestResultPolicy;
 use App\Settings\GeneralSettings;
 
+
 class AppServiceProvider extends ServiceProvider
 {
     /**
@@ -38,6 +39,8 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
+
+        
         // --- Mevcut Kodlarınız ---
         
         // Question modeli için Observer'ı kaydet
@@ -56,6 +59,8 @@ class AppServiceProvider extends ServiceProvider
         // Bu metod, uygulamanız başladığında çalışır ve tekrar kullanılabilir
         // rate limiter kurallarını tanımlar.
         $this->configureRateLimiting();
+
+        
     }
 
     /**

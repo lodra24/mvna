@@ -13,6 +13,7 @@
         "filament/filament": "^3.3",
         "filament/spatie-laravel-settings-plugin": "^3.3",
         "filament/spatie-laravel-translatable-plugin": "^3.3",
+        "laravel/cashier-paddle": "^2.6",
         "laravel/framework": "^12.0",
         "laravel/socialite": "^5.21",
         "laravel/tinker": "^2.10.1",

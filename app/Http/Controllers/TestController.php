@@ -341,19 +341,28 @@ class TestController extends Controller
      * @param  \App\Models\TestResult  $testResult
      * @return \Illuminate\View\View|\Illuminate\Http\RedirectResponse
      */
-    public function showPaymentPage(TestResult $testResult)
-    {
-        // Authorization check with policy
-        $this->authorize('accessPayment', $testResult);
-        
-        // If report is already paid for, redirect directly to results page
-        if ($testResult->status === 'completed') {
-            return redirect()->route('test.showResult', ['testResult' => $testResult->id]);
-        }
-        
-        // If payment is pending, show payment page
-        return view('test.payment', compact('testResult'));
+public function showPaymentPage(Request $request, TestResult $testResult)
+{
+    // Authorization check with policy
+    $this->authorize('accessPayment', $testResult);
+    
+    // If report is already paid for, redirect directly to results page
+    if ($testResult->status === 'completed') {
+        return redirect()->route('test.showResult', ['testResult' => $testResult->id]);
     }
+
+    // Create a new checkout session for Paddle.
+    // We get the price ID from our config file, which reads it from the .env file.
+    // After payment, the user will be redirected to the dashboard.
+    $checkout = $request->user()->checkout(config('services.paddle.price_id'))
+        ->returnTo(route('dashboard'));
+
+    // Pass the testResult and the new checkout session to the view.
+    return view('test.payment', [
+        'testResult' => $testResult,
+        'checkout' => $checkout,
+    ]);
+}
 
     /**
      * Displays the paid test results.

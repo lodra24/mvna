@@ -2,6 +2,10 @@
 
 @section('title', 'Report Payment')
 
+@push('head')
+    @paddleJS
+@endpush
+
 @section('page-title')
     Your Report Is Almost Ready!
 @endsection
@@ -39,12 +43,16 @@
             </div>
             <p class="text-slate-500 font-medium mb-8">One-time payment</p>
 
-            <!-- Geçici sahte ödeme butonu -->
-            <a href="{{ route('test.handlePayment', ['testResult' => $testResult->id]) }}" class="test-button test-button--primary test-button--large w-full max-w-md mx-auto">
+             <!-- YENİ ve GERÇEK PADDLE BUTONU -->
+            <x-paddle-button 
+                :checkout="$checkout" 
+                class="test-button test-button--primary test-button--large w-full max-w-md mx-auto"
+            >
                 <svg class="w-6 h-6 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 10h18M7 15h1m4 0h1m-7 4h12a3 3 0 003-3V8a3 3 0 00-3-3H4a3 3 0 00-3 3v8a3 3 0 003 3z"></path></svg>
                 Secure Payment & Unlock Report
-            </a>
-            <p class="text-xs text-slate-500 mt-4">Temporary test payment system is active.</p>
+            </x-paddle-button>
+
+            <p class="text-xs text-slate-500 mt-4">Payments are securely processed by Paddle.</p>
 
         </div>
     </div>
