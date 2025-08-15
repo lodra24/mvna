@@ -345,7 +345,7 @@ public function showPaymentPage(Request $request, TestResult $testResult)
 {
     // Authorization check with policy
     $this->authorize('accessPayment', $testResult);
-    
+
     // If report is already paid for, redirect directly to results page
     if ($testResult->status === 'completed') {
         return redirect()->route('test.showResult', ['testResult' => $testResult->id]);
@@ -354,7 +354,7 @@ public function showPaymentPage(Request $request, TestResult $testResult)
     // Create a new checkout session for Paddle.
     // We get the price ID from our config file, which reads it from the .env file.
     // After payment, the user will be redirected to the dashboard.
-    $checkout = $request->user()->checkout(config('services.paddle.price_id'))
+    $checkout = $request->user()->checkout(env('PADDLE_PRICE_ID'))
         ->returnTo(route('dashboard'));
 
     // Pass the testResult and the new checkout session to the view.

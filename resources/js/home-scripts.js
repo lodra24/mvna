@@ -18,6 +18,11 @@ if (mobileMenuButton && mobileMenu && menuIconOpen && menuIconClose) { // Elemen
 // Sayfa içi linklere yumuşak kaydırma
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function (e) {
+
+        if (this.classList.contains('paddle_button') || this.getAttribute('href') === '#!') {
+            return; // Fonksiyondan çık ve normal davranışa izin ver (Paddle.js devralacak)
+        }
+
         e.preventDefault();
         const targetId = this.getAttribute('href');
         

@@ -46,11 +46,8 @@ return [
         ],
     ],
 
-     'paddle' => [
-        'api_key' => env('PADDLE_API_KEY'),
-        'client_side_token' => env('PADDLE_CLIENT_SIDE_TOKEN'),
-        'price_id' => env('PADDLE_PRICE_ID'),
-        'environment' => env('PADDLE_ENVIRONMENT', 'sandbox'),
-    ],
+  'paddle' => [
+    'price_id' => env('PADDLE_PRICE_ID'),
+],
 
 ];
