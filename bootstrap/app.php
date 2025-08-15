@@ -18,6 +18,12 @@ return Application::configure(basePath: dirname(__DIR__))
         $middleware->alias([
             'set.test.language' => \App\Http\Middleware\SetTestLanguage::class,
         ]);
+            // --- BU KISMI EKLE ---
+    $middleware->validateCsrfTokens(except: [
+        'paddle/*',
+    ]);
+    // --- EKLENECEK KISIM SONU ---         
+
     })
     ->withSchedule(function ($schedule) {
         $schedule->command('app:cleanup-orphaned-tests')->dailyAt('03:00')->withoutOverlapping(10);

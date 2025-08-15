@@ -20,6 +20,11 @@ use App\Policies\TestResultPolicy;
 use App\Settings\GeneralSettings;
 
 
+use Illuminate\Support\Facades\Event;
+use Laravel\Paddle\Events\TransactionCompleted;
+use App\Listeners\HandleSuccessfulPayment;
+
+
 class AppServiceProvider extends ServiceProvider
 {
     /**
@@ -40,7 +45,10 @@ class AppServiceProvider extends ServiceProvider
     public function boot(): void
     {
 
-        
+        // --- YENİ EKLENEN SATIR BAŞLANGIÇ ---
+        // Paddle ödemesi tamamlandığında çalışacak listener'ı kaydet
+        Event::listen(TransactionCompleted::class, HandleSuccessfulPayment::class);
+        // --- YENİ EKLENEN SATIR BİTİŞ ---        
         // --- Mevcut Kodlarınız ---
         
         // Question modeli için Observer'ı kaydet

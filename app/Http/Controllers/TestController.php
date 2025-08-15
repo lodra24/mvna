@@ -354,7 +354,7 @@ public function showPaymentPage(Request $request, TestResult $testResult)
 
     // Ödeme oturumunu oluştur
     $checkout = $request->user()->checkout(config('services.paddle.price_id'))
-        ->returnTo(route('dashboard'));
+    ->customData(['test_result_id'=> $testResult->id])->returnTo(route('dashboard'));
 
     // View'a verileri gönder
     return view('test.payment', [
