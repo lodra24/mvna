@@ -5,6 +5,7 @@ use App\Http\Controllers\TestController; // Eklendi
 use App\Http\Controllers\Auth\RegisteredUserController; // Yeni eklendi
 use App\Http\Controllers\Auth\SocialiteController; // Sosyal giriş için eklendi
 use Illuminate\Support\Facades\Route;
+use App\Models\TestResult; 
 
 Route::get('/', function () {
     // FAQ verisini doğrudan burada tanımla
@@ -136,5 +137,9 @@ Route::get('/privacy-policy', function () {
 Route::get('/terms-of-service', function () {
     return view('terms-of-service');
 })->name('terms-of-service');
+
+Route::get('/payment/success/{testResult}', function (TestResult $testResult) {
+    return view('payment-success', ['testResult' => $testResult]);
+})->middleware('auth')->name('payment.success');
 
 ?>
